@@ -1,0 +1,1041 @@
+openapi: 3.0.0
+info:
+  title: eformsign_API.v1
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /api_auth/access_token:
+    post:
+      summary: API Key Access Token 발급
+      operationId: post-api_auth-access_token
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  api_key:
+                    type: object
+                    description: ' API Key 정보 객체(name, alias, company 포함)'
+                    properties:
+                      name:
+                        type: string
+                        description: API Key 이름
+                      alias:
+                        type: string
+                        description: API Key 별칭
+                      company:
+                        type: object
+                        description: 'API Key 회사 정보 객체(id, name, api_url 포함)'
+                        properties:
+                          id:
+                            type: string
+                            description: 회사 id
+                          name:
+                            type: string
+                            description: 회사명
+                          api_url:
+                            type: string
+                            description: 해당 회사 서비스 API URL
+                  oauth_token:
+                    type: object
+                    description: '토큰 정보 객체 (token_type, access_token, refresh_token, expires_in 포함)'
+                    properties:
+                      token_type:
+                        type: string
+                        description: '토큰 타입, JWT 고정'
+                      access_token:
+                        type: string
+                        description: access token
+                      refresh_token:
+                        type: string
+                        description: refresh token
+                      expires_in:
+                        type: integer
+                        description: Access token 유효시간(초)으로 Access token 발급 시점부터 expires_in 시간까지만 유효
+              examples:
+                성공시:
+                  value:
+                    api_key:
+                      name: access key
+                      alias: access Key alias
+                      company:
+                        company_id: 129jd93j29jd9j29jd
+                        name: Forcs
+                        api_url: 'https://kr-api.eformsign.com'
+                    oauth_token:
+                      token_type: JWT
+                      access_token: eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJvY2UuaWFtIiwiY29udGV4dCI6eyJjbGllbnRJZCI6IjE5MzEyYWI2NWQxMTQ4NjY4ZDJiNjFjYjZjY ...
+                      refresh_token: dcaf137b-e93e-4207-ba8a-2dd5a1250c45
+                      expires_in: 3600
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    description: 에러 코드
+                  ErrorMessage:
+                    type: string
+                    description: 에러 메시지
+                  execution_time:
+                    type: integer
+                    format: int64
+                    description: 서버 현재시간으로 code가 4000002일 경우에만 추가됨
+              examples:
+                실패시:
+                  value:
+                    code: '4000002'
+                    ErrorMessage: The validation time has expired.
+                    execution_time: 1600247345051
+                실패시 2:
+                  value:
+                    code: '4030001'
+                    ErrorMessage: invalid api key
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: application/json
+      description: API Key로 Access Token을 발급받을 수 있습니다.
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Content-Type
+          description: application/json
+          required: true
+        - schema:
+            type: string
+          in: header
+          name: eformsign_signature
+          description: execution_time 값을 private Key로 서명한 값  (2.1.2 eformsign_signature 생성 참고)
+          required: true
+        - schema:
+            type: string
+          in: header
+          name: api_key
+          description: api_key
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                execution_time:
+                  type: integer
+                  description: API 호출시간(현재시간)으로 서버시간의 +/-30초 내에서만 호출이 유효함
+                member_id:
+                  type: string
+                  description: 회사 멤버의 ID로 멤버의 Access token을 발급받을 때 추가로 입력함
+              required:
+                - execution_time
+  /api_auth/refresh_token:
+    post:
+      summary: API Key Refresh Token
+      operationId: post-api_auth-refresh_token
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  oauth_token:
+                    type: object
+                    description: '토큰 정보 객체(token_type, access_token, refresh_token, expires_in 포함)'
+                    properties:
+                      token_type:
+                        type: string
+                        description: '토큰 타입, JWT 고정'
+                      access_token:
+                        type: string
+                        description: access token
+                      refresh_token:
+                        type: string
+                        description: refresh token
+                      expires_in:
+                        type: integer
+                        description: Access token 유효시간(초)으로 Access token 발급 시점부터 expires_in 시간까지만 유효
+              examples:
+                성공시:
+                  value:
+                    oauth_token:
+                      token_type: JWT
+                      access_token: eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJvY2UuaWFtIiwiY29udGV4dCI6eyJjbGllbnRJZCI6IjE5MzEyYWI2NWQxMTQ4N...
+                      refresh_token: 03a54d50-f0a2-4db6-9f1a-02b3e6d9a68f
+                      expires_in: 3600
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    description: 에러 코드
+                  ErrorMessage:
+                    type: string
+                    description: 에러 메시지
+              examples:
+                실패시:
+                  value:
+                    code: '4030001'
+                    ErrorMessage: invalid api key
+      description: Access Token을 갱신합니다.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                refresh_token:
+                  type: string
+                  description: Access Token 갱신을 위한 Refresh Token
+              required:
+                - refresh_token
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Content-Type
+          description: application/json
+          required: true
+        - schema:
+            type: string
+          in: header
+          name: access_token
+          description: "eformsign에서 발급받은 access_Token\t"
+          required: true
+  '/api/documents/{DOCUMENT_ID}':
+    parameters:
+      - schema:
+          type: string
+        name: DOCUMENT_ID
+        in: path
+        required: true
+    get:
+      summary: 문서 정보 조회
+      tags: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: 문서 id
+                  template_id:
+                    type: string
+                    description: 템플릿 id
+                  template_name:
+                    type: string
+                    description: 템플릿 명
+                  template_version:
+                    type: integer
+                    description: 템플릿 버전
+                  title:
+                    type: string
+                    description: 문서 제목
+                  creator:
+                    type: object
+                    description: '문서 생성자 객체(id, name 포함) 정보'
+                    properties:
+                      id:
+                        type: string
+                        description: 문서 생성자 id
+                      name:
+                        type: string
+                        description: 문서 생성자 명
+                  created_date:
+                    type: integer
+                    description: 문서 생성일
+                    format: int64
+                  editor:
+                    type: object
+                    description: '문서 수정자 객체(id, name 포함) 정보'
+                    properties:
+                      id:
+                        type: string
+                        description: 문서 수정자 id
+                      name:
+                        type: string
+                        description: 문서 수정자 명
+                  updated_date:
+                    type: integer
+                    format: int64
+                    description: 문서 수정일
+                  current_status:
+                    type: string
+                    description: |-
+                      doc_create(문서 생성),
+                      doc_tempsave (문서 임시 저장),
+                      doc_request_approval (결재 요청),
+                      doc_accept_approval (결재 승인),
+                      doc_reject_approval (결재 반려),
+                      doc_request_external (외부자 요청),
+                      doc_remind_external (외부자 재요청),
+                      doc_open_external (외부자 열람),
+                      doc_accept_external (외부자 승인),
+                      doc_reject_external (외부자 반려),
+                      doc_request_internal (내부자 요청),
+                      doc_accept_internal (내부자 승인),
+                      doc_reject_internal (내부자 반려),
+                      doc_tempsave_internal (내부자 임시 저장),
+                      doc_cancel_request (요청 취소),
+                      doc_reject_request (반려 요청),
+                      doc_decline_cancel_request (반려 요청 거절),
+                      doc_delete_request(삭제 요청),
+                      doc_decline_delete_request (삭제 요청 거절),
+                      doc_deleted (문서 삭제),
+                      doc_complete (문서 완료)
+                  user_defined_status:
+                    type: string
+                    description: 사용자가 지정한 문서의 상태 값
+                  workflow_step_type:
+                    type: string
+                    description: 워크플로우 단계 타입
+                  workflow_step_name:
+                    type: string
+                    description: 워크플로우 단계 명
+                  data_list:
+                    type: object
+                    description: '사용자 입력 데이터로 입력값의 form_id : value 형식으로 데이터가 표시'
+              examples:
+                성공시:
+                  value:
+                    id: 1e9c508486d149d8a402a4357c7533a2
+                    template_id: f261bba9d4d343ebb67bc1a839f8feff
+                    template_name: 물품 구매 요청서
+                    template_version: 1
+                    document_number: 구매 NO.1
+                    title: 제작 요청서
+                    creator:
+                      id: test1@forcs.com
+                      name: 홍길동
+                    created_date: 1477385802676
+                    editor:
+                      id: test1@forcs.com
+                      name: 홍길동
+                    updated_date: 1477385802676
+                    current_status: doc_request_approval
+                    user_defined_status: 주문요청
+                    workflow_step_type: approval
+                    workflow_step_name: 결재
+                    data_list:
+                      name: 홍길동
+                      address: 강남구 논현동 646
+                      product: 명함
+                      memo: 빠른 시일내에 제작해 주세요
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    description: 에러 코드
+                  ErrorMessage:
+                    type: string
+                    description: 에러 메시지
+              examples:
+                실패시:
+                  value:
+                    code: '4030001'
+                    ErrorMessage: invalid api key
+      operationId: get-api-documents-DOCUMENT_ID
+      description: |-
+        문서 정보를 조회합니다.
+        *도메인은 Access Token 발급된 company.api_url 값을 사용해야 합니다. 
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Content-Type
+          description: application/json
+          required: true
+        - schema:
+            type: string
+          in: header
+          name: access_token
+          description: Access token
+          required: true
+  '/api/documents/{DOCUMENT_ID}/status':
+    parameters:
+      - schema:
+          type: string
+        name: DOCUMENT_ID
+        in: path
+        required: true
+    get:
+      summary: 문서 상태 조회
+      tags: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  current_status_seq:
+                    type: integer
+                    description: 현재 수행 상태
+                  status_list:
+                    type: array
+                    description: 문서 상태 목록
+                    items:
+                      type: object
+                      properties:
+                        seq:
+                          type: integer
+                          description: 상태 순서
+                        workflow_step_type:
+                          type: string
+                          description: '워크플로우 단계 타입: write(작성), approval(결제), internal(내부자 처리), external(외부자 처리), complete(완료)'
+                        workflow_step_name:
+                          type: string
+                          description: 워크플로우 단계 명
+                        action:
+                          type: string
+                          description: |-
+                            사용자 행동: doc_create(문서 생성),
+                            doc_tempsave (문서 임시 저장),
+                            doc_request_approval (결재 요청),
+                            doc_accept_approval (결재 승인),
+                            doc_reject_approval (결재 반려),
+                            doc_request_external (외부자 요청),
+                            doc_remind_external (외부자 재 요청),
+                            doc_open_external (외부자 열람),
+                            doc_accept_external (외부자 승인),
+                            doc_reject_external (외부자 반려),
+                            doc_request_internal (내부자 요청),
+                            doc_accept_internal (내부자 승인),
+                            doc_reject_internal (내부자 반려),
+                            doc_tempsave_internal (내부자 임시 저장),
+                            doc_cancel_request (요청 취소),
+                            doc_reject_request (반려 요청),
+                            doc_decline_cancel_request (반려 요청 거절),
+                            doc_delete_request(삭제 요청),
+                            doc_decline_delete_request (삭제 요청 거절),
+                            doc_deleted (문서 삭제),
+                            doc_complete (문서 완료)
+                        sender:
+                          type: object
+                          description: '요청자 이름(id/email/연락처), 요청자 객체(id, name 포함) 정보'
+                          properties:
+                            id:
+                              type: string
+                              description: '요청자 id, 외부자 작성의 경우 id값이 없을 수 있음'
+                            name:
+                              type: string
+                              description: '요청자 명, 외부자 작성의 경우 name 값이 없을 수 있음'
+                        recipient_list:
+                          type: array
+                          description: '수신자 목록으로 수신자는 여러명일 수 있으며 수신자 객체(id, name)정보 포함'
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                                description: '수신자 id로 수신자가 외부자 처리 경우 id 값이 이메일 또는 연락처,수신자가 그룹일 경우 id 값이 없을 수 있음.'
+                              name:
+                                type: string
+                                description: 수신자 명
+                        executor:
+                          type: object
+                          description: '수행자 객체(id, name 포함) 정보'
+                          properties:
+                            id:
+                              type: string
+                              description: 수행자 id로 수행자가 외부자일 경우 id 값이 이메일 또는 연락처임
+                            name:
+                              type: string
+                              format: int64
+                              description: 수행자 명
+                        execute_date:
+                          type: integer
+                          format: int64
+                          description: 수행 시간
+                        comment:
+                          type: string
+                          description: 메모
+                        progress:
+                          type: string
+                          description: |-
+                            step_complete(진행완료),
+                            step_skip(스킵),
+                            step_in_process(현재 진행중),
+                            step_stand_by(대기중)
+              examples:
+                성공시:
+                  value:
+                    current_status: 4
+                    status_list:
+                      - seq: 1
+                        workflow_step_type: write
+                        workflow_step_name: 시작
+                        action: doc_create
+                        sender: {}
+                        recipient_list: []
+                        executor:
+                          id: windy4788@forcs.com
+                          name: 윤승환
+                        execute_date: 1556503248076
+                        comment: ''
+                        progress: step_complete
+                      - seq: 2
+                        workflow_step_type: external
+                        workflow_step_name: 외부자 처리
+                        action: doc_accept_external
+                        sender:
+                          id: windy4788@forcs.com
+                          name: 윤승환
+                        recipient_list:
+                          - id: windy4788@nate.com
+                            name: 홍길동
+                        executor:
+                          id: windy4788@nate.com
+                          name: 홍길동
+                        execute_date: 1556503248076
+                        comment: ''
+                        progress: step_complete
+                      - seq: 3
+                        workflow_step_type: external
+                        workflow_step_name: 외부자 처리
+                        action: doc_accept_external
+                        sender:
+                          id: windy4788@forcs.com
+                          name: 윤승환
+                        recipient_list:
+                          - id: 010-8946-0159
+                            name: 유관순
+                        executor:
+                          id: 010-8946-0159
+                          name: 유관순
+                        execute_date: 1556503248076
+                        comment: ''
+                        progress: step_complete
+                      - seq: 4
+                        workflow_step_type: internal
+                        workflow_step_name: 내부자 처리 1
+                        action: ''
+                        sender:
+                          id: windy4788@forcs.com
+                          name: 윤승환
+                        recipient_list:
+                          - id: ''
+                            name: 연구소
+                          - id: windy4788@forcs.com
+                            name: 윤승환
+                        comment: ''
+                        progress: step_in_process
+                      - seq: 5
+                        workflow_step_type: complete
+                        workflow_step_name: 완료
+                        action: ''
+                        sender:
+                          id: windy4788@forcs.com
+                          name: 윤승환
+                        recipient_list: []
+                        executor: {}
+                        execute_date: -1
+                        comment: ''
+                        progress: step_stand_by
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    description: 에러 코드
+                  ErrorMessage:
+                    type: string
+                    description: 에러 메시지
+              examples:
+                실패시:
+                  value:
+                    code: '4030001'
+                    ErrorMessage: invalid api key
+      operationId: get-api-documents-DOCUMENT_ID-status
+      description: |-
+        문서 상태를 조회합니다.
+        *도메인은 Access Token 발급된 company.api_url 값을 사용해야 합니다.
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Content-Type
+          description: application/json
+          required: true
+        - schema:
+            type: string
+          in: header
+          name: access_token
+          description: Access token
+          required: true
+  '/api/documents/{DOCUMENT_ID}/histories':
+    parameters:
+      - schema:
+          type: string
+        name: DOCUMENT_ID
+        in: path
+        required: true
+    get:
+      summary: 문서 히스토리 조회
+      tags: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  action:
+                    type: string
+                    description: |-
+                      사용자 수행 동작: doc_create(문서 생성),
+                      doc_tempsave(문서 임시 저장),
+                      doc_request_approval(결재 요청),
+                      doc_accept_approval(결재 승인),
+                      doc_reject_approval(결재 반려),
+                      doc_request_external(외부자 요청),
+                      doc_remind_external(외부자 재 요청),
+                      doc_open_external(외부자 열람),
+                      doc_accept_external(외부자 승인),
+                      doc_reject_external(외부자 반려),
+                      doc_request_internal(내부자 요청),
+                      doc_accept_internal(내부자 승인),
+                      doc_tempsave_internal(내부자 임시 저장),
+                      doc_cancel_request(요청 취소),
+                      doc_decline_cancel_request(반려 요청 거절),
+                      doc_delete_request(삭제 요청),
+                      doc_decline_delete_request(삭제 요청 거절),
+                      doc_deleted(문서 삭제),
+                      doc_complete(문서 완료)
+                  executor_id:
+                    type: string
+                    description: 수행자 id
+                  executor_name:
+                    type: string
+                    description: 수행자 이름
+                  execute_date:
+                    type: integer
+                    description: 수행일
+                    format: int64
+                  comment:
+                    type: string
+                    description: 코멘트
+                  workflow_step_type:
+                    type: string
+                    description: '워크플로우 타입: write(작성), approval(결제), internal(내부자 처리), external(외부자 처리), complete(완료) '
+                  workflow_step_name:
+                    type: string
+                    description: 워크플로우 명
+                  notification:
+                    type: object
+                    description: 알림
+                    properties:
+                      mail_list:
+                        type: array
+                        description: '메일 알림 리스트, mail 객체 포함 (recipient_name, email_address, attach_pdf)'
+                        items:
+                          type: object
+                          properties:
+                            recipient_name:
+                              type: string
+                              description: 수신자 이름
+                            email_address:
+                              type: string
+                              description: 이메일 주소
+                            is_pdf_attached:
+                              type: boolean
+                              description: pdf 첨부 여부
+                      push_list:
+                        type: array
+                        description: '푸시 알림 리스트, push 객체 포함(recipient_name, device_os, device_name)'
+                        items:
+                          type: object
+                          properties:
+                            recipient_name:
+                              type: string
+                              description: 수신자 이름
+                            device_os:
+                              type: string
+                              description: '장비 OS 이름(android, ios)'
+                            device_name:
+                              type: string
+                              description: 장비 이름
+                      sms_list:
+                        type: array
+                        description: 'SMS 알림 리스트, SMS 객체 포함 (receiver_name, phone_number, is_attach_pdf_link)'
+                        items:
+                          type: object
+                          properties:
+                            recipient_name:
+                              type: string
+                              description: 수신자 이름
+                            phone_number:
+                              type: string
+                              description: 수신자 연락처
+                            is_pdf_attached:
+                              type: boolean
+                              description: pdf 다운로드 링크 첨부 여부
+                            type:
+                              type: string
+                              description: 'SMS 타입(sms, kakao_notification, whatsapp)'
+                  cloud_storage_list:
+                    type: array
+                    description: '외부 저장소, 외부 저장소 객체(account, type, files) 포함'
+                    items:
+                      type: object
+                      properties:
+                        account:
+                          type: string
+                          description: 연동 계정
+                        type:
+                          type: string
+                          description: '외부 저장소 타입(Google drive, Dropbox)'
+                        files:
+                          type: array
+                          description: '파일 리스트, 파일 객체(name) 포함'
+                          items:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                                description: 파일 명
+                  timestamp_files:
+                    type: array
+                    description: 'TSA가 적용된 파일, 파일 객체(name) 포함'
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: 파일 명
+              examples: {}
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    description: 에러 코드
+                  ErrorMessage:
+                    type: string
+                    description: 에러 메시지
+              examples:
+                실패시:
+                  value:
+                    code: '4030001'
+                    ErrorMessage: invalid api key
+      operationId: get-api-documents-DOCUMENT_ID-histories
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Content-Type
+          description: application/json
+          required: true
+        - schema:
+            type: string
+          in: header
+          name: access_token
+          description: Access token
+          required: true
+  '/api/documents/{DOCUMENT_ID}/download_files':
+    parameters:
+      - schema:
+          type: string
+        name: DOCUMENT_ID
+        in: path
+        required: true
+    get:
+      summary: '문서 파일 다운로드(문서 PDF, 감사파일증명 PDF)'
+      tags: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: 'pdf 파일 한개 일경우 application/pdf,  pdf 파일이 여러개일 경우 application/zip'
+            Content-disposition:
+              schema:
+                type: string
+              description: 예. attachment; filename=윤승환 휴가 신청서.pdf;
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    description: 에러 코드
+                  ErrorMessage:
+                    type: string
+                    description: 에러 메시지
+              examples:
+                example-1:
+                  value:
+                    code: '4030001'
+                    ErrorMessage: invalid api key
+      operationId: get-api-documents-DOCUMENT_ID-download_files
+      description: |-
+        문서의 파일을 다운로드 합니다.
+        *도메인은 Access Token 발급된 company.api_url 값을 사용해야 합니다. 
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: access_token
+          description: Access token
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: file_type
+          description: '다운로드 받을 파일 타입, document, audit_trail (, 구분자로 둘다 사용 가능)'
+          required: true
+  '/api/forms/{FORM_ID}/documents':
+    parameters:
+      - schema:
+          type: string
+        name: FORM_ID
+        in: path
+        required: true
+    post:
+      summary: 문서 작성
+      operationId: post-api-forms-FORM_ID-documents
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: application/json
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    description: 에러 코드
+                  ErrorMessage:
+                    type: string
+                    description: 에러 메시지
+              examples:
+                example-1:
+                  value:
+                    code: '4030001'
+                    ErrorMessage: invalid api key
+      description: |-
+        API key를 이용하여 문서를 작성합니다.
+         *도메인은 Access Token 발급된 company.api_url 값을 사용해야 합니다. 
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Content-Type
+          description: application/json
+          required: true
+        - schema:
+            type: string
+          in: header
+          name: access_token
+          description: Member access token
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                form_version:
+                  type: string
+                title:
+                  type: string
+                next_steps:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      step_type:
+                        type: string
+                      comment:
+                        type: string
+                      approvers:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            user_id:
+                              type: string
+                            user_name:
+                              type: string
+                            code:
+                              type: string
+                            number:
+                              type: string
+                            auth_password:
+                              type: string
+                            auth_valid_time:
+                              type: number
+                            auth_hint:
+                              type: string
+                            type:
+                              type: string
+                form_fields:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      input_form_id:
+                        type: string
+                        description: 문서 내 컴포넌트의 form ID
+                      input_form_value:
+                        type: string
+                        description: 문서 내 컴포넌트에 작성할 데이터
+                group:
+                  type: string
+            examples: {}
+        description: ''
+  '/api/documents/{DOCUMENT_ID}/download_attach_files':
+    parameters:
+      - schema:
+          type: string
+        name: DOCUMENT_ID
+        in: path
+        required: true
+    get:
+      summary: 문서 첨부 파일 다운로드
+      tags: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: application/zip
+            Content-disposition:
+              schema:
+                type: string
+              description: '예시 attachment; filename={document_id}.zip;'
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    description: 에러 코드
+                  ErrorMessage:
+                    type: string
+                    description: 에러 메시지
+              examples:
+                example-1:
+                  value:
+                    code: '4030001'
+                    ErrorMessage: invalid api key
+      operationId: get-api-documents-DOCUMENT_ID-download_attach_files
+      description: 문서의 첨부된 파일을 다운로드합니다.
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: access_token
+          description: Access token
+components:
+  schemas: {}

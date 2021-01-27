@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html  lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>개요</title>
+    
+      <link rel="stylesheet" href="../_static/pygments.css">
+      <link rel="stylesheet" href="../_static/theme.css">
+      <link rel="stylesheet" href="../_static/sphinx_press_theme.css">
+          <link rel="stylesheet" href="../_static/code-tabs.css" type="text/css" />
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/code-tabs.js"></script>
+
+      
+      <script src="../_static/theme-vendors.js"></script>
+      <script src="../_static/theme.js" defer></script>
+    
+  <link rel="index" title="색인" href="../genindex.html" />
+  <link rel="search" title="검색" href="../search.html" />
+  <link rel="next" title="eformsign 기능 직접 삽입하기" href="eformsign_embedding.html" />
+  <link rel="prev" title="eformsign API / Webhook 연계 가이드" href="../index.html" /> 
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">eformsign API guide</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">빠른 검색</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="검색" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#eformsign-api-webhook">Contents:</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">개요</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#id1" class="reference internal">개요</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="eformsign_embedding.html" class="reference internal ">eformsign 기능 직접 삽입하기</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="eformsign_api.html" class="reference internal ">eformsign API 사용하기</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="eformsign_webhook.html" class="reference internal ">eformsign Webhook 사용하기</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li>개요</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../index.html"
+       title="이전 장">← eformsign API / Webhook 연계 가이드</a>
+  </li>
+  <li class="next">
+    <a href="eformsign_embedding.html"
+       title="다음 장">eformsign 기능 직접 삽입하기 →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="id1">
+<h1>개요<a class="headerlink" href="#id1" title="제목 주소">¶</a></h1>
+<p>eformsign은 기업에서 발생하는 종이 문서를 손쉽게 전자문서로 만들어 언제 어디서나 업무시 바로 사용할 수 있으며 저장된 정보를 다양하게 활용할 수 있는 전자문서 서비스입니다.</p>
+<p>eformsign은 고객이 자사 사이트 혹은 서비스에서 eformsign의 기능을 다양하게 활용할 수 있도록, eformsign의 전자문서 기능을 직접 삽입하는 방식, Open API 방식 및 Webhook 방식의 3가지 방식을 지원하고 있습니다.</p>
+<p><strong>eformsign 기능 직접 삽입하기</strong></p>
+<p>eformsign을 고객이 서비스 (또는 사이트) 내에 eformsign 전자문서 기능을 삽입(embed)함으로써 eformsign 사이트에 직접 접속하지 않더라도 고객 서비스 내에서 eformsign의 전자문서 기능을 사용할 수 있도록 할 수 있습니다.</p>
+<p><strong>eformsign API 사용하기</strong></p>
+<p>eformsign이 제공하는 API를 사용해 eformsign의 기능을 고객의 시스템/서비스에서 호출해 사용할 수 있도록 해주는 기능입니다.</p>
+<p><strong>eformsign Webhook 사용하기</strong></p>
+<p>eformsign에 이벤트가 발생했을 때 발생한 이벤트의 정보를 고객 시스템/서비스로 알려주는 기능입니다.</p>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../index.html"
+       title="이전 장">← eformsign API / Webhook 연계 가이드</a>
+  </li>
+  <li class="next">
+    <a href="eformsign_embedding.html"
+       title="다음 장">eformsign 기능 직접 삽입하기 →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2021, forcs.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>
