@@ -8,6 +8,37 @@ eformsign이 제공하는 API를 사용해 eformsign의 기능을 고객의 시�
 시작하기 
 =========
 
+eformsign API를 사용하기 위해서는 다음의 준비 작업이 필요합니다.
+
+- 회사 ID와 문서 ID 확인하기
+- API 키 발급 및 비밀키 확인하기
+- 서명 생성하기
+
+.. note:: 
+   
+   서명 생성에는 30초의 시간 제한이 있습니다. 30초 이내에 서명을 생성하고 토큰을 발급받아야 합니다. 
+
+
+
+회사 ID와 문서 ID 확인하기
+---------------------------
+
+eformsign API를 사용하기 위해서는 소속 회사의 ID와 조회하고자 하는 문서의 ID를 알고 있어야 합니다. 
+
+eformsign 서비스에 로그인하여 회사 ID와 문서 ID를 확인해 주십시오.
+
+.. note:: 
+
+   회사 ID는 왼쪽 메뉴 트리의 회사 관리 > 회사 정보 메뉴의 "기본 정보" 탭에서 확인할 수 있습니다.
+
+   |image1|
+
+   문서 ID는 각 문서함 오른쪽 상단의 문서 아이콘(|image2|)을 클릭하여 문서 ID 컬럼을 추가하면 조회하고자 하는 문서의 ID를 확인할 수 있습니다. 
+
+   |image3|
+
+
+
 .. _apikey:
 
 API 키 발급하기
@@ -74,7 +105,10 @@ Java
 서버의 현재 시간을 String(UTF-8)으로 변환하고, `API Key 발급하기 <#apikey>`__\에서 발급받은 private key로 서명한 후, 서명한 데이터를 hex string으로 변환합니다.
 
 .. note:: 
-  서명 알고리즘은 SHA256withECDSA을 사용합니다.
+
+   서명 알고리즘은 SHA256withECDSA을 사용합니다.
+
+
 
 
 Python
@@ -94,6 +128,13 @@ PHP
 
 다음은 각 언어별 예제입니다.
 
+
+.. note:: 
+
+   execution_time은 long 타입을 사용합니다. 따라서, execution_time 입력 시에는 Access Token 발급 시에 확인한 시간 뒤에 L을 넣어 입력합니다.  
+
+
+
 .. code-tabs::
 
     .. code-tab:: java
@@ -105,13 +146,14 @@ PHP
         import java.security.Signature;
          
         //private key
-        String privateKeyHexStr = "발급 받은 private key(String)";
+        String privateKeyHexStr = "발급 받은 private key(String)";    //회사 커넥트 > API Key의 Private key 값을 넣어야 함
         KeyFactory keyFact = KeyFactory.getInstance("EC");
         PKCS8EncodedKeySpec psks8KeySpec = new PKCS8EncodedKeySpec(new BigInteger(privateKeyHexStr,16).toByteArray());
         PrivateKey privateKey = keyFact.generatePrivate(psks8KeySpec);
          
         //execution_time - 서버 현재 시간
-        long execution_time = new Date().getTime();
+        //long execution_time = new Date().getTime();
+        long execution_time = 1611537340731L;     //Access_token 발급 시에 취득한 execute_time을 여기에 입력. long 값이기 때문에 받은 시간 뒤에 L 추가     
         String execution_time_str = String.valueOf(execution_time);
          
         //eformsign_signature 생성
@@ -224,11 +266,11 @@ API 테스트해보기
 
 생성한 eformsign_signature를 테스트해 봅니다. 
 
-다음의 eformsign_signature 생성 및 검증용 샘플은 Open API 또는 Webhook의 서명값을 생성 및 검증하는 테스트 샘플 소스코드 입니다.
+다음의 eformsign_signature 생성 및 검증용 샘플은 Open API 또는 Webhook의 서명값을 생성 및 검증하는 테스트 샘플 소스코드입니다.
 
 .. note::
 
-   샘플 키를 사용하고 있어 실 사용시에는 정상 동작 하지 않습니다. 생성하신 서명 값의 검증용으로만 사용해 주세요.
+   샘플 키를 사용하고 있어 실 사용 시에는 정상 동작 하지 않습니다. 생성하신 서명 값의 검증용으로만 사용해 주세요.
 
 
 Java
@@ -251,6 +293,10 @@ PHP
 -------
 
 다음 예제의 keycheck.inc.php, test.php 파일이 동일한 패스에 위치하게 한 후에 진행해야 합니다.
+
+
+각 언어별 예제
+---------------------
 
 다음은 각 언어별 테스트 키와 예제입니다.
 
@@ -411,8 +457,8 @@ PHP
 
 
 
-Open API 리스트
-=================
+Open API 관련 정보
+===================
 
 API 상태 코드
 --------------
@@ -578,6 +624,93 @@ doc_transfer             051              문서 이관
 ======================  ===============  ===================================
 
 
-swagger 링크
+Open API 제공 리스트
+======================
+
+eformsign API는 서명 생성을 위한 API와 문서 작성 및 처리를 위한 API로 구분되어 있습니다.
+
+서명 생성을 위한 API
+-------------------------
+
+서명 생성을 위해 먼저 `Access Token API <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`_\를 활용해 주십시오. 
+
+``POST``: `/api_auth/access_token <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth#/eformsign/post-api_auth-access_token>`_\  Access Token 발급
 
 
+Access Token API에 대한 자세한 설명은 
+`다음 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`__\ 에서 확인하실 수 있습니다.
+
+.. note:: 
+   
+   서명 생성에는 30초의 시간 제한이 있습니다. 30초 이내에 서명을 생성하고 토큰을 발급받아야 합니다. 
+   또한, 서버 상의 시간과 현재 시간이 일치하지 않을 수 있습니다. Access Token API를 호출한 후 수신한 응답 메시지의 "execution_time"을 확인하세요.
+
+   .. code:: JSON
+
+      { "code": "4000002", "ErrorMessage": "The validation time has expired.",     "execution_time": 1611538409405 }
+
+   `다음 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`__\ 의 예제 위치에도 "execution_time"을 입력하세요.
+   
+   |image5| 
+
+   Access Token은 멤버 권한에 대해서도 발급받을 수 있습니다. 멤버에 대한 Access Token을 발급받으려면 다음과 같이 "execution_time" 외에 "member_id"를 함께 입력해 주세요. 
+   
+   |image6| 
+
+
+   이후 해당 API를 실행하면 Access Token이 발급되며, 다음과 같은 형태의 응답을 수신할 수 있습니다.
+
+   .. code:: JSON
+
+      { "api_key": { "name": "애플리케이션_", "alias": "테스트용", "company": { "company_id": "dec5418e58694d90a65d6c38e3d226db", "name": "샘플 데모", "api_url": "https://kr-api.eformsign.com" } }, "oauth_token": { "expires_in": 3600, "token_type": "JWT", "refresh_token": "8fd0a3c1-44dc-4a03-96ad-01fa34cd159c", "access_token": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJlZm9ybXNpZ24uaWFtIiwiY29udGV4dCI6eyJjbGllbnRJZCI6IjY4MDk0ZWVhMjVhZjRhNjI5ZTI4ZGU5Y2ZlYzRlYmZjIiwiY2xpZW50S2V5IjoiZTNiM2IzZTUtMGEzMS00NTE1LWE5NzEtN2M4Y2FlNDI4NzZmIiwibWFuYWdlbWVudElkIjoiMzRhYWI4MDBjMmEwNDQwNThmZDRlZjc5OGFlY2RlY2EiLCJzY29wZXMiOiJzbWFydF9lZm9ybV9zY29wZSIsInR5cGUiOiJ1c2VyIiwidXNlck5hbWUiOiIzMmIzZDRmOC00MjdkLTRjZjQtOTZiYS1mYzAxNjIxNWRkNDciLCJ1c2VySWQiOiJhNTEyNGVkNmU2M2Y0OTMzOGJlOTA0MjVhNjFkYjlmNSIsInJlZnJlc2hUb2tlbiI6IjhmZDBhM2MxLTQ0ZGMtNGEwMy05NmFkLTAxZmEzNGNkMTU5YyJ9LCJjbGFpbSI6eyJjb21wYW55X2lkIjoiZGVjNTQxOGU1ODY5NGQ5MGE2NWQ2YzM4ZTNkMjI2ZGIiLCJhY2Nlc3Nfa2V5IjoiMzJiM2Q0ZjgtNDI3ZC00Y2Y0LTk2YmEtZmMwMTYyMTVkZDQ3In0sImV4cCI6MTYxMTU0MjIzNiwiaWF0IjoxNjExNTM4NjM2fQ.BltoXXBSabjXfpyLsZik9OZTE5XtLqe9lguMmJ_qfwZN1NyoVoxDqA5y1-_TLis7FvvNjfI1eegOroCZDZPFyXRaBxAj0CW8TijVjbhliJBuccHFyKXaJxmo_GMmTHYtxNNB1SUgLeFIrYROnpQndU8J7ZkfPDgYGwh1YSx-5s4" } }
+
+
+
+
+
+.. note:: 
+   
+   발급한 API 키는 `다음 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`__\ 의 위치에 있는 **Authorize** 버튼(|image4|)을 눌러 등록하세요. 단, API 키 값에는 **반드시 Base64**\ 로 인코딩한 문자열을 넣어야 합니다. https://www.base64encode.org/ 에 접속하여 발급한 API 키를 넣고 인코딩된 텍스트를 받아 삽입하세요.
+
+
+
+문서 작성 및 처리를 위한 API
+----------------------------------
+
+서명을 생성한 후에는 다음의 문서 API를 사용해 새 문서를 작성하거나 문서 정보를 조회할 수 있으며, 완료 문서 파일(문서 PDF, 감사추적증명서)  다운로드하거나 문서의 첨부파일을 다운로드할 수 있습니다. 
+
+
+.. note:: 
+
+   본 문서 API를 사용하기 위해서는 Access Token을 먼저 발급받아야 합니다.
+
+현재 제공 중인 `문서 API <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general>`_\는 다음과 같습니다.
+
+
+``POST``: `/api_auth/refresh_token <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/post-api_auth-refresh_token>`_\  Access Token 갱신
+
+``POST``: `/api/documents <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/post-api-documents>`_\  새 문서 작성(내부 수신자)
+
+``POST``: `/api/documents/external <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/post-api-documents-external>`_\  새 문서 작성(외부 수신자)
+
+``GET``: `/api/documents/{document_id} <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/get-api-documents-DOCUMENT_ID>`_\  문서정보 조회
+
+``GET``: `/api/docuemnts/{document_id}/download_files <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/get-api-documents-DOCUMENT_ID-download_files>`_\  문서 파일 다운로드(문서 PDF, 감사추적증명서)
+
+``GET``: `/api/doduments/{document_id}/download_attach_files <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/get-api-documents-DOCUMENT_ID-download_attach_files>`_\  문서 첨부 파일 다운로드
+
+
+각 eformsign 문서 API에 대한 자세한 설명은 
+`다음 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general>`__\ 에서 확인하실 수 있습니다.
+
+
+
+.. |image1| image:: resources/company_id.png
+   :width: 600px
+.. |image2| image:: resources/column_icon.png
+.. |image3| image:: resources/document_id.png
+.. |image4| image:: resources/authorize_icon.png
+.. |image5| image:: resources/execution_time.png
+   :width: 450px
+.. |image6| image:: resources/execution_time2.png
+   :width: 450px
