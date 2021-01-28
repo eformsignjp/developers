@@ -566,8 +566,8 @@ Code         설명              비고
 ===========  ===============  ===================================
 Code         설명              비고
 ===========  ===============  ===================================
-2020001      PDF 생성 중        - PDF 파일 다운로드 시 파일은 비동기로 생성되기 때문에 문서 저장 후 PDF 생성까지 추가 시간 필요. 
-                                - 수초에서 수분 내에 재 요청시 다운로드 가능.
+2020001      PDF 생성 중        - PDF 파일 다운로드 시 파일은 비동기로 생성되기 때문에 문서 저장 후 PDF 생성까지 추가 시간 필요 
+                                - 수초에서 수분 내에 재 요청시 다운로드 가능
 ===========  ===============  ===================================
 
 
@@ -577,7 +577,7 @@ Code         설명              비고
 ===========  ===================  ==========================================
 Code         설명                  비고
 ===========  ===================  ==========================================
-4000001      필수 입력값 누락      API 의 필수 입력값(헤더 값 또는 페러미터)이 누락 했을 경우                        
+4000001      필수 입력값 누락      API 의 필수 입력값(헤더 값 또는 파라미터)이 누락 했을 경우                        
 4000002      인증 시간 만료        API 인증 요청 시간이 만료 되었을 경우
 4000003      API 키 없음           API 키가 삭제 되었거나 잘못 입력했을 경우
 4000004      문서가 없음           문서 ID를 잘못 입력 했을 경우
@@ -624,11 +624,11 @@ Step 타입
 ===========  ===============  ===================================
 Type         Code             설명
 ===========  ===============  ===================================
-Start         00               시작단계
-Complete      01               완료단계
-Approval      02               결재단계
-External      03               외부수신자단계
-Accept        04               내부수신자단계
+Start         00               시작 단계
+Complete      01               완료 단계
+Approval      02               결재 단계
+External      03               외부수신자 단계
+Accept        04               내부수신자 단계
 ===========  ===============  ===================================
 
 
@@ -661,12 +661,12 @@ doc_request_approval     010              문서 결재 요청
 doc_accept_approval      012              문서 결재 승인
 doc_reject_approval      011              문서 결재 반려
 doc_cancel               013              문서 결재 취소
-doc_request_reception    020              문서 내부자 요청
-doc_accept_reception     022              문서 내부자 승인
-doc_reject_reception     021              문서 내부자 반려
-doc_request_outsider     030              문서 외부자 요청
-doc_accept_outsider      032              문서 외부자 승인
-doc_reject_outsider      031              문서 외부자 반려
+doc_request_reception    020              문서 내부 멤버 요청
+doc_accept_reception     022              문서 내부 멤버 승인
+doc_reject_reception     021              문서 내부 멤버 반려
+doc_request_outsider     030              문서 외부수신자 요청
+doc_accept_outsider      032              문서 외부수신자 승인
+doc_reject_outsider      031              문서 외부수신자 반려
 ======================  ===============  ===================================
 
 
@@ -684,16 +684,16 @@ doc_request_approval     010              문서 결재 요청
 doc_reject_approval      011              문서 결재 반려
 doc_accept_approval      012              문서 결재 승인
 doc_cancel               013              문서 결재 취소
-doc_request_reception    020              문서 내부자 요청
-doc_reject_reception     021              문서 내부자 반려
-doc_accept_reception     022              문서 내부자 승인
-doc_accept_tempsave      023              내부자 임시 저장
-doc_request_outsider     030              문서 외부자 요청
-doc_reject_outsider      031              문서 외부자 반려
-doc_accept_outsider      032              문서 외부자 승인
-doc_rerequest_outsider   033              외부자 재요청
-doc_open_outsider        034              외부자 열람
-doc_outsider_tempsave    035              외부자 임시 저장
+doc_request_reception    020              문서 내부 멤버 요청
+doc_reject_reception     021              문서 내부 멤버 반려
+doc_accept_reception     022              문서 내부 멤버 승인
+doc_accept_tempsave      023              내부 멤버 임시 저장
+doc_request_outsider     030              문서 외부수신자 요청
+doc_reject_outsider      031              문서 외부수신자 반려
+doc_accept_outsider      032              문서 외부수신자 승인
+doc_rerequest_outsider   033              외부수신자 재요청
+doc_open_outsider        034              외부수신자 열람
+doc_outsider_tempsave    035              외부수신자 임시 저장
 doc_request_revoke       040              문서 취소 요청
 doc_refuse_revoke        041              문서 취소 요청 거절
 doc_revoke               042              문서 취소
@@ -704,7 +704,7 @@ doc_refuse_reject        046              문서 반려 요청 거절
 doc_request_delete       047              문서 삭제 요청
 doc_refuse_delete        048              문서 삭제 요청 거절
 doc_delete               049              문서 삭제
-doc_complete_send_pdf    050              완료 문서 pdf 전송
+doc_complete_send_pdf    050              완료 문서 PDF 전송
 doc_transfer             051              문서 이관
 ======================  ===============  ===================================
 
