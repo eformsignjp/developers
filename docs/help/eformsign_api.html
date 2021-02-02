@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html  lang="ko">
+<html  lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -23,8 +23,8 @@
       <script src="../_static/theme-vendors.js"></script>
       <script src="../_static/theme.js" defer></script>
     
-  <link rel="index" title="색인" href="../genindex.html" />
-  <link rel="search" title="검색" href="../search.html" />
+  <link rel="index" title="索引" href="../genindex.html" />
+  <link rel="search" title="検索" href="../search.html" />
   <link rel="next" title="eformsign Webhook 사용하기" href="eformsign_webhook.html" />
   <link rel="prev" title="eformsign 기능 직접 삽입하기" href="eformsign_embedding.html" /> 
   </head>
@@ -33,7 +33,7 @@
     <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
   <router-link to="../index.html" class="home-link">
     
-      <img class="logo" src="../_static/forcs.png" alt="doit logo"/>
+      <span class="site-name">eformsign API guide</span>
     
   </router-link>
 
@@ -58,11 +58,11 @@
 
             
           </navlinks><div id="searchbox" class="searchbox" role="search">
-  <div class="caption"><span class="caption-text">빠른 검색</span>
+  <div class="caption"><span class="caption-text">クイック検索</span>
     <div class="searchformwrapper">
       <form class="search" action="../search.html" method="get">
         <input type="text" name="q" />
-        <input type="submit" value="검색" />
+        <input type="submit" value="検索" />
         <input type="hidden" name="check_keywords" value="yes" />
         <input type="hidden" name="area" value="default" />
       </form>
@@ -76,7 +76,7 @@
       </p>
       <ul class="current">
         
-          <li class="toctree-l1 "><a href="eformsign_api_overview.html" class="reference internal ">개요</a>
+          <li class="toctree-l1 "><a href="eformsign_api_overview.html" class="reference internal ">概要</a>
 
             
           </li>
@@ -97,11 +97,11 @@
                 
                   <li class="toctree-l2"><a href="#id2" class="reference internal">서명 생성하기</a></li>
                 
-                  <li class="toctree-l2"><a href="#id3" class="reference internal">테스트해보기</a></li>
+                  <li class="toctree-l2"><a href="#id4" class="reference internal">테스트해보기</a></li>
                 
-                  <li class="toctree-l2"><a href="#id8" class="reference internal">API 제공 리스트</a></li>
+                  <li class="toctree-l2"><a href="#id9" class="reference internal">API 제공 리스트</a></li>
                 
-                  <li class="toctree-l2"><a href="#id12" class="reference internal">API 관련 정보</a></li>
+                  <li class="toctree-l2"><a href="#id13" class="reference internal">API 관련 정보</a></li>
                 
               </ul>
             
@@ -133,11 +133,11 @@
   <ul class="page-nav">
   <li class="prev">
     <a href="eformsign_embedding.html"
-       title="이전 장">← eformsign 기능 직접 삽입하기</a>
+       title="前の章へ">← eformsign 기능 직접 삽입하기</a>
   </li>
   <li class="next">
     <a href="eformsign_webhook.html"
-       title="다음 장">eformsign Webhook 사용하기 →</a>
+       title="次の章へ">eformsign Webhook 사용하기 →</a>
   </li>
 </ul>
   
@@ -146,34 +146,34 @@
           <div class="content" role="main">
             
   <div class="section" id="eformsign-api">
-<h1>eformsign API 사용하기<a class="headerlink" href="#eformsign-api" title="제목 주소">¶</a></h1>
+<h1>eformsign API 사용하기<a class="headerlink" href="#eformsign-api" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>eformsign이 제공하는 API를 사용해 eformsign의 기능을 고객의 시스템/서비스에서 호출해 사용할 수 있도록 해주는 기능입니다.</p>
 <div class="section" id="id1">
-<h2>시작하기<a class="headerlink" href="#id1" title="제목 주소">¶</a></h2>
+<h2>시작하기<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>eformsign API를 사용하기 위해서는 다음의 준비 작업이 필요합니다.</p>
 <ul class="simple">
 <li><p>회사 ID와 문서 ID 확인하기</p></li>
 <li><p>API 키 발급 및 비밀키 확인하기</p></li>
 <li><p>서명 생성하기</p></li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">참고</p>
+<div class="admonition caution">
+<p class="admonition-title">注意</p>
 <p>서명 생성에는 30초의 시간 제한이 있습니다. 30초 이내에 서명을 생성하고 토큰을 발급받아야 합니다.</p>
 </div>
 <div class="section" id="id-id">
-<h3>회사 ID와 문서 ID 확인하기<a class="headerlink" href="#id-id" title="제목 주소">¶</a></h3>
+<h3>회사 ID와 문서 ID 확인하기<a class="headerlink" href="#id-id" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>eformsign API를 사용하기 위해서는 소속 회사의 ID와 조회하고자 하는 문서의 ID를 알고 있어야 합니다.</p>
 <p>eformsign 서비스에 로그인하여 회사 ID와 문서 ID를 확인해 주십시오.</p>
 <div class="admonition note">
-<p class="admonition-title">참고</p>
-<p>회사 ID는 왼쪽 메뉴 트리의 회사 관리 &gt; 회사 정보 메뉴의 《기본 정보》 탭에서 확인할 수 있습니다.</p>
+<p class="admonition-title">注釈</p>
+<p>회사 ID는 왼쪽 메뉴 트리의 회사 관리 &gt; 회사 정보 메뉴의 &quot;기본 정보&quot; 탭에서 확인할 수 있습니다.</p>
 <p><a class="reference internal" href="../_images/company_id.png"><img alt="image1" src="../_images/company_id.png" style="width: 600px;" /></a></p>
 <p>문서 ID는 각 문서함 오른쪽 상단의 문서 아이콘(<img alt="image2" src="../_images/column_icon.png" />)을 클릭하여 문서 ID 컬럼을 추가하면 조회하고자 하는 문서의 ID를 확인할 수 있습니다.</p>
 <p><img alt="image3" src="../_images/document_id.png" /></p>
 </div>
 </div>
 <div class="section" id="api">
-<span id="apikey"></span><h3>API 키 발급 및 비밀키 확인하기<a class="headerlink" href="#api" title="제목 주소">¶</a></h3>
+<span id="apikey"></span><h3>API 키 발급 및 비밀키 확인하기<a class="headerlink" href="#api" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ol class="arabic simple">
 <li><p>eformsign에 대표 관리자로 로그인 후, 메뉴 트리에서 <strong>[커넥트] &gt; [API / Webhook]</strong> 페이지로 이동합니다.</p></li>
 </ol>
@@ -192,7 +192,7 @@
 <a class="reference internal image-reference" href="../_images/apikey4.PNG"><img alt="API 키보기 버튼 위치" src="../_images/apikey4.PNG" style="width: 700px;" /></a>
 <a class="reference internal image-reference" href="../_images/apikey5.PNG"><img alt="API 키 및 비밀 키 확인" src="../_images/apikey5.PNG" style="width: 700px;" /></a>
 <div class="admonition note">
-<p class="admonition-title">참고</p>
+<p class="admonition-title">注釈</p>
 <p><strong>API 키 수정 방법</strong></p>
 <dl class="simple">
 <dt>생성된 키 목록에서 <strong>수정</strong> 버튼을 클릭하면 별칭과 어플리케이션 이름을 수정할 수</dt><dd><p>있습니다. 또한, 상태 영역을 클릭하여 활성/비활성 상태로 변경할 수도 있습니다.</p>
@@ -200,41 +200,44 @@
 </dl>
 </div>
 <div class="admonition note">
-<p class="admonition-title">참고</p>
+<p class="admonition-title">注釈</p>
 <p><strong>API 키 삭제 방법</strong></p>
 <p>생성된 키 목록에서 <strong>삭제</strong> 버튼을 클릭하여 API 키를 삭제할 수 있습니다.</p>
 </div>
 </div>
 </div>
 <div class="section" id="id2">
-<h2>서명 생성하기<a class="headerlink" href="#id2" title="제목 주소">¶</a></h2>
+<h2>서명 생성하기<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>eformsign_signature는 비대칭 키 방식과 타원곡선 암호화(Elliptic curve cryptography)를 사용하고 있습니다.</p>
 <div class="admonition tip">
-<p class="admonition-title">팁</p>
+<p class="admonition-title">ちなみに</p>
 <p>타원곡선 암호화는 공개키 암호화 방식 중 하나로, 데이터 암호화 디지털 인증 등 현재 가장 많이 쓰이는 암호방식입니다.</p>
 </div>
 <p>서명 생성 방법에 대해서는  Java, Python, PHP 언어별로 설명합니다.</p>
 <div class="section" id="java">
-<h3>Java<a class="headerlink" href="#java" title="제목 주소">¶</a></h3>
+<h3>Java<a class="headerlink" href="#java" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>서버의 현재 시간을 String(UTF-8)으로 변환하고, <a class="reference external" href="#apikey">API Key 발급하기</a>에서 발급받은 private key로 서명한 후, 서명한 데이터를 hex string으로 변환합니다.</p>
 <div class="admonition note">
-<p class="admonition-title">참고</p>
+<p class="admonition-title">注釈</p>
 <p>서명 알고리즘은 SHA256withECDSA을 사용합니다.</p>
 </div>
 </div>
 <div class="section" id="python">
-<h3>Python<a class="headerlink" href="#python" title="제목 주소">¶</a></h3>
+<h3>Python<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>키 포맷 처리용 라이브러리를 사용해야 합니다. 작업전 다음의 명령어를 통해 해당 라이브러리를 설치해 주십시오.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">warner</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="n">ecdsa</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">master</span><span class="o">.</span><span class="n">zip</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="php">
-<h3>PHP<a class="headerlink" href="#php" title="제목 주소">¶</a></h3>
+<h3>PHP<a class="headerlink" href="#php" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>다음 예제의 keycheck.inc.php, test.php 파일이 동일한 패스에 위치하게 한 후에 진행해야 합니다.</p>
+</div>
+<div class="section" id="id3">
+<h3>각 언어별 예제<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>다음은 각 언어별 예제입니다.</p>
 <div class="admonition note">
-<p class="admonition-title">참고</p>
+<p class="admonition-title">注釈</p>
 <p>execution_time은 long 타입을 사용합니다. 따라서, execution_time 입력 시에는 Access Token 발급 시에 확인한 시간 뒤에 L을 넣어 입력합니다.</p>
 </div>
 <div class="code-tabs docutils container">
@@ -358,31 +361,31 @@
 </div></div>
 </div>
 </div>
-<div class="section" id="id3">
-<h2>테스트해보기<a class="headerlink" href="#id3" title="제목 주소">¶</a></h2>
+<div class="section" id="id4">
+<h2>테스트해보기<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>생성한 eformsign_signature를 테스트해 봅니다.</p>
 <p>다음의 eformsign_signature 생성 및 검증용 샘플은 Open API 또는 Webhook의 서명값을 생성 및 검증하는 테스트 샘플 소스코드입니다.</p>
 <div class="admonition note">
-<p class="admonition-title">참고</p>
+<p class="admonition-title">注釈</p>
 <p>샘플 키를 사용하고 있어 실 사용 시에는 정상 동작 하지 않습니다. 생성하신 서명 값의 검증용으로만 사용해 주세요.</p>
 </div>
-<div class="section" id="id4">
-<h3>Java<a class="headerlink" href="#id4" title="제목 주소">¶</a></h3>
+<div class="section" id="id5">
+<h3>Java<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>다음의 샘플 키로 서명 및 검틍 테스트를 해보시기 바랍니다.</p>
 </div>
-<div class="section" id="id5">
-<h3>Python<a class="headerlink" href="#id5" title="제목 주소">¶</a></h3>
+<div class="section" id="id6">
+<h3>Python<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>키 포맷 처리용 라이브러리를 사용해야 합니다. 작업전 다음의 명령어를 통해 해당 라이브러리를 설치해 주십시오.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">warner</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="n">ecdsa</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">master</span><span class="o">.</span><span class="n">zip</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="id6">
-<h3>PHP<a class="headerlink" href="#id6" title="제목 주소">¶</a></h3>
+<div class="section" id="id7">
+<h3>PHP<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>다음 예제의 keycheck.inc.php, test.php 파일이 동일한 패스에 위치하게 한 후에 진행해야 합니다.</p>
 </div>
-<div class="section" id="id7">
-<h3>각 언어별 예제<a class="headerlink" href="#id7" title="제목 주소">¶</a></h3>
+<div class="section" id="id8">
+<h3>각 언어별 예제<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>다음은 각 언어별 테스트 키와 예제입니다.</p>
 <div class="code-tabs docutils container">
 <div class="code-tab" data-title="Java">
@@ -532,41 +535,41 @@
 </div></div>
 </div>
 </div>
-<div class="section" id="id8">
-<h2>API 제공 리스트<a class="headerlink" href="#id8" title="제목 주소">¶</a></h2>
-<p>eformsign API는 서명 생성을 위한 API와 문서 작성 및 처리를 위한 API로 구분되어 있습니다.</p>
 <div class="section" id="id9">
-<h3>서명 생성을 위한 API<a class="headerlink" href="#id9" title="제목 주소">¶</a></h3>
+<h2>API 제공 리스트<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>eformsign API는 서명 생성을 위한 API와 문서 작성 및 처리를 위한 API로 구분되어 있습니다.</p>
+<div class="section" id="id10">
+<h3>서명 생성을 위한 API<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>서명 생성을 위해 먼저 <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth">Access Token API</a>를 활용해 주십시오.</p>
 <p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth#/eformsign/post-api_auth-access_token">/api_auth/access_token</a> Access Token 발급</p>
 <p>Access Token API에 대한 자세한 설명은
 <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth">다음</a>에서 확인하실 수 있습니다.</p>
-<div class="admonition note">
-<p class="admonition-title">참고</p>
+<div class="admonition caution">
+<p class="admonition-title">注意</p>
 <p>서명 생성에는 30초의 시간 제한이 있습니다. 30초 이내에 서명을 생성하고 토큰을 발급받아야 합니다.
-또한, 서버 상의 시간과 현재 시간이 일치하지 않을 수 있습니다. Access Token API를 호출한 후 수신한 응답 메시지의 《execution_time》을 확인하세요.</p>
+또한, 서버 상의 시간과 현재 시간이 일치하지 않을 수 있습니다. Access Token API를 호출한 후 수신한 응답 메시지의 &quot;execution_time&quot;을 확인하세요.</p>
 <div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;4000002&quot;</span><span class="p">,</span> <span class="nt">&quot;ErrorMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;The validation time has expired.&quot;</span><span class="p">,</span>     <span class="nt">&quot;execution_time&quot;</span><span class="p">:</span> <span class="mi">1611538409405</span> <span class="p">}</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth">다음</a>의 예제 위치에도 《execution_time》을 입력하세요.</p>
+<p><a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth">다음</a>의 예제 위치에도 &quot;execution_time&quot;을 입력하세요.</p>
 <p><a class="reference internal" href="../_images/execution_time.png"><img alt="image5" src="../_images/execution_time.png" style="width: 450px;" /></a></p>
-<p>Access Token은 멤버 권한에 대해서도 발급받을 수 있습니다. 멤버에 대한 Access Token을 발급받으려면 다음과 같이 《execution_time》 외에 《member_id》를 함께 입력해 주세요.</p>
+<p>Access Token은 멤버 권한에 대해서도 발급받을 수 있습니다. 멤버에 대한 Access Token을 발급받으려면 다음과 같이 &quot;execution_time&quot; 외에 &quot;member_id&quot;를 함께 입력해 주세요.</p>
 <p><a class="reference internal" href="../_images/execution_time2.png"><img alt="image6" src="../_images/execution_time2.png" style="width: 450px;" /></a></p>
 <p>이후 해당 API를 실행하면 Access Token이 발급되며, 다음과 같은 형태의 응답을 수신할 수 있습니다.</p>
 <div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nt">&quot;api_key&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;애플리케이션_&quot;</span><span class="p">,</span> <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;테스트용&quot;</span><span class="p">,</span> <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;company_id&quot;</span><span class="p">:</span> <span class="s2">&quot;dec5418e58694d90a65d6c38e3d226db&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;샘플 데모&quot;</span><span class="p">,</span> <span class="nt">&quot;api_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://kr-api.eformsign.com&quot;</span> <span class="p">}</span> <span class="p">},</span> <span class="nt">&quot;oauth_token&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;expires_in&quot;</span><span class="p">:</span> <span class="mi">3600</span><span class="p">,</span> <span class="nt">&quot;token_type&quot;</span><span class="p">:</span> <span class="s2">&quot;JWT&quot;</span><span class="p">,</span> <span class="nt">&quot;refresh_token&quot;</span><span class="p">:</span> <span class="s2">&quot;8fd0a3c1-44dc-4a03-96ad-01fa34cd159c&quot;</span><span class="p">,</span> <span class="nt">&quot;access_token&quot;</span><span class="p">:</span> <span class="s2">&quot;eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJlZm9ybXNpZ24uaWFtIiwiY29udGV4dCI6eyJjbGllbnRJZCI6IjY4MDk0ZWVhMjVhZjRhNjI5ZTI4ZGU5Y2ZlYzRlYmZjIiwiY2xpZW50S2V5IjoiZTNiM2IzZTUtMGEzMS00NTE1LWE5NzEtN2M4Y2FlNDI4NzZmIiwibWFuYWdlbWVudElkIjoiMzRhYWI4MDBjMmEwNDQwNThmZDRlZjc5OGFlY2RlY2EiLCJzY29wZXMiOiJzbWFydF9lZm9ybV9zY29wZSIsInR5cGUiOiJ1c2VyIiwidXNlck5hbWUiOiIzMmIzZDRmOC00MjdkLTRjZjQtOTZiYS1mYzAxNjIxNWRkNDciLCJ1c2VySWQiOiJhNTEyNGVkNmU2M2Y0OTMzOGJlOTA0MjVhNjFkYjlmNSIsInJlZnJlc2hUb2tlbiI6IjhmZDBhM2MxLTQ0ZGMtNGEwMy05NmFkLTAxZmEzNGNkMTU5YyJ9LCJjbGFpbSI6eyJjb21wYW55X2lkIjoiZGVjNTQxOGU1ODY5NGQ5MGE2NWQ2YzM4ZTNkMjI2ZGIiLCJhY2Nlc3Nfa2V5IjoiMzJiM2Q0ZjgtNDI3ZC00Y2Y0LTk2YmEtZmMwMTYyMTVkZDQ3In0sImV4cCI6MTYxMTU0MjIzNiwiaWF0IjoxNjExNTM4NjM2fQ.BltoXXBSabjXfpyLsZik9OZTE5XtLqe9lguMmJ_qfwZN1NyoVoxDqA5y1-_TLis7FvvNjfI1eegOroCZDZPFyXRaBxAj0CW8TijVjbhliJBuccHFyKXaJxmo_GMmTHYtxNNB1SUgLeFIrYROnpQndU8J7ZkfPDgYGwh1YSx-5s4&quot;</span> <span class="p">}</span> <span class="p">}</span>
 </pre></div>
 </div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">참고</p>
+<div class="admonition caution">
+<p class="admonition-title">注意</p>
 <p>발급한 API 키는 <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth">다음</a>의 위치에 있는 <strong>Authorize</strong> 버튼(<img alt="image4" src="../_images/authorize_icon.png" />)을 눌러 등록하세요. 단, API 키 값에는 <strong>반드시 Base64</strong>로 인코딩한 문자열을 넣어야 합니다. <a class="reference external" href="https://www.base64encode.org/">https://www.base64encode.org/</a> 에 접속하여 발급한 API 키를 넣고 인코딩된 텍스트를 받아 삽입하세요.</p>
 </div>
 </div>
-<div class="section" id="id10">
-<h3>문서 작성 및 처리를 위한 API<a class="headerlink" href="#id10" title="제목 주소">¶</a></h3>
+<div class="section" id="id11">
+<h3>문서 작성 및 처리를 위한 API<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>서명을 생성한 후에는 다음의 문서 API를 사용해 새 문서를 작성하거나 문서 정보를 조회할 수 있으며, 완료 문서 파일(문서 PDF, 감사추적증명서)  다운로드하거나 문서의 첨부파일을 다운로드할 수 있습니다.</p>
 <div class="admonition note">
-<p class="admonition-title">참고</p>
+<p class="admonition-title">注釈</p>
 <p>본 문서 API를 사용하기 위해서는 Access Token을 먼저 발급받아야 합니다.</p>
 </div>
 <p>현재 제공 중인 <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general">문서 API</a>는 다음과 같습니다.</p>
@@ -580,13 +583,13 @@
 <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general">다음</a>에서 확인하실 수 있습니다.</p>
 </div>
 </div>
-<div class="section" id="id12">
-<h2>API 관련 정보<a class="headerlink" href="#id12" title="제목 주소">¶</a></h2>
 <div class="section" id="id13">
-<h3>API 상태 코드<a class="headerlink" href="#id13" title="제목 주소">¶</a></h3>
-<p>API 상태 코드는 다음과 같습니다.</p>
+<h2>API 관련 정보<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id14">
-<h4>200<a class="headerlink" href="#id14" title="제목 주소">¶</a></h4>
+<h3>API 상태 코드<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>API 상태 코드는 다음과 같습니다.</p>
+<div class="section" id="id15">
+<h4>200<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 18%" />
@@ -607,8 +610,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="id15">
-<h4>202<a class="headerlink" href="#id15" title="제목 주소">¶</a></h4>
+<div class="section" id="id16">
+<h4>202<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 9%" />
@@ -625,16 +628,16 @@
 <tr class="row-even"><td><p>2020001</p></td>
 <td><p>PDF 생성 중</p></td>
 <td><ul class="simple">
-<li><p>PDF 파일 다운로드 시 파일은 비동기로 생성되기 때문에 문서 저장 후 PDF 생성까지 추가 시간 필요.</p></li>
-<li><p>수초에서 수분 내에 재 요청시 다운로드 가능.</p></li>
+<li><p>PDF 파일 다운로드 시 파일은 비동기로 생성되기 때문에 문서 저장 후 PDF 생성까지 추가 시간 필요</p></li>
+<li><p>수초에서 수분 내에 재 요청시 다운로드 가능</p></li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="id16">
-<h4>400<a class="headerlink" href="#id16" title="제목 주소">¶</a></h4>
+<div class="section" id="id17">
+<h4>400<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 12%" />
@@ -650,7 +653,7 @@
 <tbody>
 <tr class="row-even"><td><p>4000001</p></td>
 <td><p>필수 입력값 누락</p></td>
-<td><p>API 의 필수 입력값(헤더 값 또는 페러미터)이 누락 했을 경우</p></td>
+<td><p>API 의 필수 입력값(헤더 값 또는 파라미터)이 누락 했을 경우</p></td>
 </tr>
 <tr class="row-odd"><td><p>4000002</p></td>
 <td><p>인증 시간 만료</p></td>
@@ -667,8 +670,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="id17">
-<h4>403<a class="headerlink" href="#id17" title="제목 주소">¶</a></h4>
+<div class="section" id="id18">
+<h4>403<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 14%" />
@@ -701,8 +704,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="id18">
-<h4>405<a class="headerlink" href="#id18" title="제목 주소">¶</a></h4>
+<div class="section" id="id19">
+<h4>405<a class="headerlink" href="#id19" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 16%" />
@@ -723,8 +726,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="id19">
-<h4>500<a class="headerlink" href="#id19" title="제목 주소">¶</a></h4>
+<div class="section" id="id20">
+<h4>500<a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 28%" />
@@ -747,7 +750,7 @@
 </div>
 </div>
 <div class="section" id="step">
-<h3>Step 타입<a class="headerlink" href="#step" title="제목 주소">¶</a></h3>
+<h3>Step 타입<a class="headerlink" href="#step" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 18%" />
@@ -763,29 +766,29 @@
 <tbody>
 <tr class="row-even"><td><p>Start</p></td>
 <td><p>00</p></td>
-<td><p>시작단계</p></td>
+<td><p>시작 단계</p></td>
 </tr>
 <tr class="row-odd"><td><p>Complete</p></td>
 <td><p>01</p></td>
-<td><p>완료단계</p></td>
+<td><p>완료 단계</p></td>
 </tr>
 <tr class="row-even"><td><p>Approval</p></td>
 <td><p>02</p></td>
-<td><p>결재단계</p></td>
+<td><p>결재 단계</p></td>
 </tr>
 <tr class="row-odd"><td><p>External</p></td>
 <td><p>03</p></td>
-<td><p>외부수신자단계</p></td>
+<td><p>외부수신자 단계</p></td>
 </tr>
 <tr class="row-even"><td><p>Accept</p></td>
 <td><p>04</p></td>
-<td><p>내부수신자단계</p></td>
+<td><p>내부수신자 단계</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="user">
-<h3>User 타입<a class="headerlink" href="#user" title="제목 주소">¶</a></h3>
+<h3>User 타입<a class="headerlink" href="#user" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 18%" />
@@ -811,7 +814,7 @@
 </table>
 </div>
 <div class="section" id="status">
-<h3>Status 타입<a class="headerlink" href="#status" title="제목 주소">¶</a></h3>
+<h3>Status 타입<a class="headerlink" href="#status" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 31%" />
@@ -879,33 +882,33 @@
 </tr>
 <tr class="row-odd"><td><p>doc_request_reception</p></td>
 <td><p>020</p></td>
-<td><p>문서 내부자 요청</p></td>
+<td><p>문서 내부 멤버 요청</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_accept_reception</p></td>
 <td><p>022</p></td>
-<td><p>문서 내부자 승인</p></td>
+<td><p>문서 내부 멤버 승인</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_reject_reception</p></td>
 <td><p>021</p></td>
-<td><p>문서 내부자 반려</p></td>
+<td><p>문서 내부 멤버 반려</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_request_outsider</p></td>
 <td><p>030</p></td>
-<td><p>문서 외부자 요청</p></td>
+<td><p>문서 외부수신자 요청</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_accept_outsider</p></td>
 <td><p>032</p></td>
-<td><p>문서 외부자 승인</p></td>
+<td><p>문서 외부수신자 승인</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_reject_outsider</p></td>
 <td><p>031</p></td>
-<td><p>문서 외부자 반려</p></td>
+<td><p>문서 외부수신자 반려</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="action">
-<h3>Action 타입<a class="headerlink" href="#action" title="제목 주소">¶</a></h3>
+<h3>Action 타입<a class="headerlink" href="#action" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 31%" />
@@ -949,43 +952,43 @@
 </tr>
 <tr class="row-odd"><td><p>doc_request_reception</p></td>
 <td><p>020</p></td>
-<td><p>문서 내부자 요청</p></td>
+<td><p>문서 내부 멤버 요청</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_reject_reception</p></td>
 <td><p>021</p></td>
-<td><p>문서 내부자 반려</p></td>
+<td><p>문서 내부 멤버 반려</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_accept_reception</p></td>
 <td><p>022</p></td>
-<td><p>문서 내부자 승인</p></td>
+<td><p>문서 내부 멤버 승인</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_accept_tempsave</p></td>
 <td><p>023</p></td>
-<td><p>내부자 임시 저장</p></td>
+<td><p>내부 멤버 임시 저장</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_request_outsider</p></td>
 <td><p>030</p></td>
-<td><p>문서 외부자 요청</p></td>
+<td><p>문서 외부수신자 요청</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_reject_outsider</p></td>
 <td><p>031</p></td>
-<td><p>문서 외부자 반려</p></td>
+<td><p>문서 외부수신자 반려</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_accept_outsider</p></td>
 <td><p>032</p></td>
-<td><p>문서 외부자 승인</p></td>
+<td><p>문서 외부수신자 승인</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_rerequest_outsider</p></td>
 <td><p>033</p></td>
-<td><p>외부자 재요청</p></td>
+<td><p>외부수신자 재요청</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_open_outsider</p></td>
 <td><p>034</p></td>
-<td><p>외부자 열람</p></td>
+<td><p>외부수신자 열람</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_outsider_tempsave</p></td>
 <td><p>035</p></td>
-<td><p>외부자 임시 저장</p></td>
+<td><p>외부수신자 임시 저장</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_request_revoke</p></td>
 <td><p>040</p></td>
@@ -1029,7 +1032,7 @@
 </tr>
 <tr class="row-odd"><td><p>doc_complete_send_pdf</p></td>
 <td><p>050</p></td>
-<td><p>완료 문서 pdf 전송</p></td>
+<td><p>완료 문서 PDF 전송</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_transfer</p></td>
 <td><p>051</p></td>
@@ -1047,11 +1050,11 @@
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="eformsign_embedding.html"
-       title="이전 장">← eformsign 기능 직접 삽입하기</a>
+       title="前の章へ">← eformsign 기능 직접 삽입하기</a>
   </li>
   <li class="next">
     <a href="eformsign_webhook.html"
-       title="다음 장">eformsign Webhook 사용하기 →</a>
+       title="次の章へ">eformsign Webhook 사용하기 →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2021, forcs.
