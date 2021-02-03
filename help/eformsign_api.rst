@@ -23,13 +23,13 @@ eformsign API を使用するためには、次のような準備作業が必要
 会社 ID と 文書 ID の確認
 ---------------------------
 
-eformsign APIを使用するためには、会社のIDと照会したい文書のIDが必要です。 
+eformsign API を使用するためには、会社の ID と照会したい文書のIDが必要です。 
 
 eformsign サービスにログインし、会社 ID と文書 ID を確認してください。
 
 .. note:: 
 
-   会社 ID は、左のメニューツリーの会社管理 > 会社情報 メニューの"基本情報" タブで確認することができます。
+   会社 ID は、左のメニューツリーの会社管理 > 会社情報 メニューの「基本情報」タブで確認することができます。
 
    |image1|
 
@@ -44,14 +44,14 @@ eformsign サービスにログインし、会社 ID と文書 ID を確認し�
 API キーの作成および暗号化キーの確認
 ----------------------------------------
 
-1. eformsign に代表管理者としてログインし、メニューツリーで**[コネクト] > [API / Webhook]**に移動します。 
+1. eformsign に代表管理者としてログインし、メニューツリーで**[コネクト] > [API / Webhook]**\に移動します。 
 
 .. image:: resources/apikey1.PNG
     :width: 700
     :alt: コネクト > API/Webhook メニューの位置
 
 
-2. **[API キー]**タブを選択し、**API キーの作成**ボタンをクリックします。 
+2. **[API キー]**タブを選択し、**API キーの作成**\ボタンをクリックします。 
 
 .. image:: resources/apikey2.PNG
     :width: 700
@@ -65,7 +65,7 @@ API キーの作成および暗号化キーの確認
     :alt: API キー登録ポップアップ
 
 
-4. 生成されたキーリストから**キーを表示**ボタンをクリックし、API キーと暗号化キーを確認できます。
+4. 生成されたキーリストから**キーを表示**\ボタンをクリックし、API キーと暗号化キーを確認できます。
 
 .. image:: resources/apikey4.PNG
     :width: 700
@@ -114,7 +114,7 @@ Java
 Python
 -------
 
-キーフォーマット処理用のライブラリーを使用する必要があります。作業を実行する前に、次のコマンドを実行して ライブラリーを設置してください。
+キーフォーマット処理用のライブラリーを使用する必要があります。作業を実行する前に、次のコマンドを実行して ライブラリーをインストールしてください。
 
 .. code:: python
 
@@ -258,7 +258,7 @@ PHP
         $signature = eformsignECDSA\Sign(execution_time, $privateKey);
          
          
-        //現在時刻および現在時刻署名値
+        //現在時刻および現在時刻の署名値
         print 'execution_time : ' . execution_time . PHP_EOL;
         print 'eformsign_signature : ' . bin2hex($signature) . PHP_EOL;
         ?>
@@ -272,9 +272,9 @@ PHP
 API 提供リスト
 ======================
 
-eformsign API は、署名生成のための API と文書の作成や処理のための API からなります。
+eformsign API は、署名を生成するための API と文書の作成や処理のための API からなります。
 
-署名生成のための API
+署名を生成するための API
 -------------------------
 
 署名を生成するために、まず `Access Token API <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`_\を活用してください。 
@@ -287,14 +287,14 @@ Access Token API についての詳しい説明は
 
 .. caution:: 
    
-   署名生成には30秒の時間制限があります。30秒以内に署名を登録し、トークンを作成する必要があります。 
-   また、サーバー上の時間と現在時刻が一致しない場合があります。Access Token API を呼び出し、受信した応答メッセージの"execution_time"を確認してください。
+   署名の生成には30秒の時間制限があります。30秒以内に署名を登録し、トークンを作成する必要があります。 
+   また、サーバー上の時間と現在時刻が一致しない場合があります。Access Token API を呼び出し、受信した応答メッセージの"execution_time"\を確認してください。
 
    .. code:: JSON
 
       { "code": "4000002", "ErrorMessage": "The validation time has expired.",     "execution_time": 1611538409405 }
 
-   `次 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`__\ の例題の位置にも"execution_time"を入力してください。
+   `次 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`__\ の例題の位置にも"execution_time"\を入力してください。
    
    |image5| 
 
@@ -315,38 +315,38 @@ Access Token API についての詳しい説明は
 
 .. caution:: 
    
-   取得した API キーは、 `次 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`__\ の位置にある **Authorize** ボタン (|image4|) をクリックして登録してください。ただし、API キー値には**必ず Base64**\ でエンコードした 文字列を入力する必要があります。https://www.base64encode.org/ に接続し、取得した API キーを入力してエンコードされたテキストに変換して入力してください。
+   取得した API キーは、 `次 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`__\ の位置にある **Authorize** ボタン（|image4|） をクリックして登録してください。ただし、API キー値には**必ず Base64**\でエンコードした 文字列を入力する必要があります。https://www.base64encode.org/ に接続し、取得した API キーを入力してエンコードされたテキストに変換して入力してください。
 
 
 
 文書の作成および処理のための API
 ----------------------------------
 
-署名を登録すると、次の文書 API を使用して文書の新規作成や文書情報の照会ができ、完了文書ファイル (文書 PDF、監査証跡証明書) や文書の添付ファイルをダウンロードすることができます。 
+署名を登録すると、次の文書 API を使用して文書の新規作成や文書情報の照会ができ、完了文書ファイル（文書 PDF、監査証跡証明書）や添付ファイルをダウンロードすることができます。 
 
 
 .. note:: 
 
-   この文書 API を使用するためには、先に Access Token の発行が必要です。
+   文書 API を使用するためには、先に Access Token の発行が必要です。
 
 現在提供している `文書 API <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general>`_\は以下のとおりです。
 
 
 ``POST``: `/api_auth/refresh_token <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/post-api_auth-refresh_token>`_\  Access Token 更新
 
-``POST``: `/api/documents <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/post-api-documents>`_\  文書の新規作成(内部メンバー)
+``POST``: `/api/documents <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/post-api-documents>`_\  文書の新規作成（内部メンバー）
 
-``POST``: `/api/documents/external <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/post-api-documents-external>`_\  文書の新規作成(外部受信者)
+``POST``: `/api/documents/external <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/post-api-documents-external>`_\  文書の新規作成（外部受信者）
 
-``GET``: `/api/documents/{document_id} <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/get-api-documents-DOCUMENT_ID>`_\  文書情報 照会
+``GET``: `/api/documents/{document_id} <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/get-api-documents-DOCUMENT_ID>`_\  文書情報の照会
 
-``GET``: `/api/docuemnts/{document_id}/download_files <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/get-api-documents-DOCUMENT_ID-download_files>`_\  文書ファイルのダウンロード(文書 PDF、 監査証跡証明書)
+``GET``: `/api/docuemnts/{document_id}/download_files <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/get-api-documents-DOCUMENT_ID-download_files>`_\  文書ファイルのダウンロード（文書 PDF、 監査証跡証明書）
 
 ``GET``: `/api/doduments/{document_id}/download_attach_files <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/get-api-documents-DOCUMENT_ID-download_attach_files>`_\  添付ファイルのダウンロード
 
 
 各 eformsign 文書 API についての詳しい説明は 
-`次 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general>`__\ で確認することができます。
+`次 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general>`__\ をご覧ください。
 
 
 
@@ -374,7 +374,7 @@ Code         説明              備考
 ===========  ===============  =====================================================================================
 Code         説明              備考
 ===========  ===============  =====================================================================================
-2020001      PDF 生成中        - PDF ファイルとしてダウンロードする際、非同期で生成されるため、文書保存後に PDF 生成まで時間が所要 
+2020001      PDF 生成中       - PDF ファイルとしてダウンロードする際、非同期で生成されるため、文書保存後に PDF 生成まで時間が所要 
                               - 数秒から数分後数分後に再要請するとダウンロード可能
 ===========  ===============  =====================================================================================
 
@@ -386,8 +386,8 @@ Code         説明              備考
 Code         説明                  備考
 ===========  ===================  =======================================================
 4000001      必須入力値漏れ         API の必須入力値（ヘッダー値またはパラメーター）が入力されていない場合                        
-4000002      時間切れ              API認証の要請時間が時間切れとなった場合
-4000003      APIキーが存在しない      削除されたAPI キーまたは入力ミスの場合
+4000002      時間切れ              API 認証の要請時間が時間切れとなった場合
+4000003      API キーが存在しない     削除されたAPI キーまたは入力ミスの場合
 4000004      文書が存在しない        間違った文書 ID を入力した場合
 ===========  ===================  =======================================================
 
@@ -398,10 +398,10 @@ Code         説明                  備考
 ===========  =========================  ==========================================
 Code         説明                        備考
 ===========  =========================  ==========================================
-4030002      Access Token認証エラー        Access Tokenが正しくない場合
-4030003      Refresh Token認証エラー       Refresh Tokenが正しくない場合
+4030002      Access Token 認証エラー       Access Tokenが正しくない場合
+4030003      Refresh Token 認証エラー      Refresh Tokenが正しくない場合
 4030004      署名値検証エラー               署名値が正しくない場合
-4030005      サポートしないAPI               サポートしないAPIを呼び出した場合
+4030005      サポートしない API              サポートしないAPIを呼び出した場合
 ===========  =========================  ==========================================
 
 405
@@ -478,7 +478,6 @@ doc_reject_outsider      031              外部受信者返戻
 ======================  ===============  ===================================
 
 
-」
 Action タイプ
 --------------
 
@@ -524,6 +523,7 @@ doc_transfer             051              移管
 .. |image2| image:: resources/column_icon.png
 .. |image3| image:: resources/document_id.png
 .. |image4| image:: resources/authorize_icon.png
+   :width: 45px
 .. |image5| image:: resources/execution_time.png
    :width: 450px
 .. |image6| image:: resources/execution_time2.png
