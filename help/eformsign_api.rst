@@ -1,11 +1,11 @@
 --------------------------
-eformsign API 使用하기
+eformsign API の活用
 --------------------------
 
-eformsign が提供する API を使用し、eformsign の機能を顧客のシステム・サービスで呼び出して使用できる機能です。
+eformsign が提供する API を活用し、eformsign の機能を顧客のシステム/サービスで呼び出して使用できる機能です。
 
 
-시작하기 
+スタート 
 =========
 
 eformsign API を使用するためには、次のような準備作業が必要です。
@@ -23,7 +23,7 @@ eformsign API を使用するためには、次のような準備作業が必要
 会社 ID と 文書 ID の確認
 ---------------------------
 
-eformsign APIを使用するためには、소속 会社のIDと照会したい文書のIDが必要です。 
+eformsign APIを使用するためには、会社のIDと照会したい文書のIDが必要です。 
 
 eformsign サービスにログインし、会社 ID と文書 ID を確認してください。
 
@@ -42,7 +42,7 @@ eformsign サービスにログインし、会社 ID と文書 ID を確認し�
 .. _apikey:
 
 API キーの作成および暗号化キーの確認
-------------------------------
+-----------------------------------
 
 1. eformsign に代表管理者としてログインし、メニューツリーで**[コネクト] > [API / Webhook]**に移動します。 
 
@@ -51,7 +51,7 @@ API キーの作成および暗号化キーの確認
     :alt: コネクト > API/Webhook メニューの位置
 
 
-2. **[API キー管理]**タブを選択し、**API キーの作成**ボタンをクリックします。
+2. **[API キー]**タブを選択し、**API キーの作成**ボタンをクリックします。
 
 .. image:: resources/apikey2.PNG
     :width: 700
@@ -79,30 +79,30 @@ API キーの作成および暗号化キーの確認
 
 .. note:: **API キーを修正する方法**
 
-    생성されたキーリスト에서 **修正** ボタンをクリックし、エイリアスと어플리케이션 이름を修正することができます。
-  	있습니다. また、ステータス영역をクリックし、ステータスを활성/비활성に変更することもできます。
+    生成されたキーリストから**修正**ボタンをクリックし、エイリアスとアプリケーション名を修正することができます。
+  	また、ステータス領域をクリックし、ステータスを活性/非活性に変更することもできます。
 
 .. note:: **API キーを削除する方法**
 
-    생성されたキーリスト에서 **削除** ボタンをクリックし、API キーを削除することができます。
+    生成されたキーリストから**削除**ボタンをクリックし、API キーを削除することができます。
 
 
-署名 생성하기 
+署名の登録 
 ==============
 
-eformsign_signature は、비대칭 キー방식と타원곡선 暗号化(Elliptic curve cryptography)を使用しています。
+eformsign_signature は、非対称キー方式と楕円曲線暗号(Elliptic curve cryptography)を使用しています。
 
 .. tip:: 
    
-   타원곡선 暗号化は、공개キー暗号化 방식の一つで、デー暗号化デジタル認証など現在가장 많이 쓰이는 암호방식です。 
+   楕円曲線暗号は、公開キー暗号化方式の一つで、デー暗号化デジタル認証など現在もっとも広く使われている暗号化方式です。 
 
 
-署名の登録方法については、Java, Python, PHP 언어별로 説明합니다.
+署名の登録方法については、Java、Python、PHP言語別に分けて説明します。
 
 Java
 -------
 
-サーバーの現在時刻を String(UTF-8) に変換し、`API Key 발급하기 <#apikey>`__\にて발급された private key で署名すると、署名したデータを hex string に変換します。
+サーバーの現在時刻を String(UTF-8) に変換し、`API キーの作成 <#apikey>`__\で作成された private key で署名すると、署名したデータを hex string に変換します。
 
 .. note:: 
 
@@ -114,7 +114,7 @@ Java
 Python
 -------
 
-キー포맷 처리용 ライブラリーを使用해야 합니다. 작업전 次の명령어を통해 해당 ライブラリーを설치해 주십시오.
+キーフォーマット処理用のライブラリーを使用する必要があります。作業を実行する前に、次のコマンドを実行して ライブラリーを設置してください。
 
 .. code:: python
 
@@ -124,18 +124,18 @@ Python
 PHP
 -------
 
-以下の예제の keycheck.inc.php, test.php ファイルを同じパスに保存してから예제を行ってください。
+以下の例題の keycheck.inc.php、test.php ファイルを同じパスに保存してから例題を行ってください。
 
 
-각 언어별 예제
+各言語の例題
 ---------------------
 
-以下は각 언어별 예제です。
+以下は各言語の例題です。
 
 
 .. note:: 
 
-   execution_time は long タイプを使用しています。そのため、execution_time を入力する際は Access Token 발급の際に確認した時刻の次に L を追加してください。  
+   execution_time は long タイプを使用しています。そのため、execution_time を入力する際は Access Token 発行の際に確認した時刻の次に L を追加してください。  
 
 
 
@@ -150,17 +150,17 @@ PHP
         import java.security.Signature;
          
         //private key
-        String privateKeyHexStr = "발급 받은 private key(String)";    //会社コネクト > API Key の Private key 値を入力
+        String privateKeyHexStr = "取得した private key(String)";    //会社コネクト > API Key の Private key 値を入力
         KeyFactory keyFact = KeyFactory.getInstance("EC");
         PKCS8EncodedKeySpec psks8KeySpec = new PKCS8EncodedKeySpec(new BigInteger(privateKeyHexStr,16).toByteArray());
         PrivateKey privateKey = keyFact.generatePrivate(psks8KeySpec);
          
         //execution_time - サーバーの現在時刻
         //long execution_time = new Date().getTime();
-        long execution_time = 1611537340731L;     //Access_token 발급の際に취득した execute_time をこちらに入力。 long タイプのため、발급された時刻の次に L 追加     
+        long execution_time = 1611537340731L;     //Access_token 作成の際に取得した execute_time をこちらに入力。 long タイプのため、作成された時刻の次に L 追加     
         String execution_time_str = String.valueOf(execution_time);
          
-        //eformsign_signature 생성
+        //eformsign_signature 生成
         Signature ecdsa = Signature.getInstance("SHA256withECDSA");
         ecdsa.initSign(privateKey);
         ecdsa.update(execution_time_str.getBytes("UTF-8"));
@@ -183,13 +183,13 @@ PHP
         from ecdsa.util import sigencode_der, sigdecode_der
          
         # private key
-        privateKeyHex = "발급された private key(String)"
+        privateKeyHex = "取得した private key(String)"
         privateKey = SigningKey.from_der(binascii.unhexlify(privateKeyHex))
          
-        # execution_time - サーバーの 現在時刻
+        # execution_time - サーバーの現在時刻
         execution_time = int(time() * 1000)
           
-        # eformsign_signature 생성
+        # eformsign_signature 生成
         eformsign_signature = privateKey.sign(execution_time.encode('utf-8'), hashfunc=hashlib.sha256, sigencode=sigencode_der)
           
         # 現在時刻および現在時刻署名値
@@ -243,10 +243,10 @@ PHP
         use eformsignECDSA\PrivateKey;
          
          
-        define('PRIVATE_KEY', '발급 받은 private key(String)');
+        define('PRIVATE_KEY', '取得した private key(String)');
          
          
-        //private key 세팅
+        //private key 設定
         $privateKey = new PrivateKey(PRIVATE_KEY);
          
          
@@ -254,7 +254,7 @@ PHP
         $execution_time = eformsignECDSA\getNowMillisecond();
          
          
-        //eformsign_signature 생성
+        //eformsign_signature 生成
         $signature = eformsignECDSA\Sign(execution_time, $privateKey);
          
          
@@ -272,14 +272,14 @@ PHP
 API 提供リスト
 ======================
 
-eformsign API は、署名 생성のための API と文書の作成や処理のための API からなります。
+eformsign API は、署名生成のための API と文書の作成や処理のための API からなります。
 
-署名 생성のための API
+署名生成のための API
 -------------------------
 
-署名 생성のために、まず `Access Token API <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`_\を활용해 주십시오. 
+署名を生成するために、まず `Access Token API <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`_\を活用してください。 
 
-``POST``: `/api_auth/access_token <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth#/eformsign/post-api_auth-access_token>`_\  Access Token 발급
+``POST``: `/api_auth/access_token <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth#/eformsign/post-api_auth-access_token>`_\  Access Token 発行
 
 
 Access Token API についての詳しい説明は 
@@ -287,27 +287,27 @@ Access Token API についての詳しい説明は
 
 .. caution:: 
    
-   署名 생성には30秒の時間制限があります。30秒以内に署名を登録し、トークンを발급する必要があります。 
-   また、サーバー上の時間と現在時刻が一致しない場合があります。Access Token API を呼び出し、수신한 응답 메시지の"execution_time"を確認してください。
+   署名生成には30秒の時間制限があります。30秒以内に署名を登録し、トークンを作成する必要があります。 
+   また、サーバー上の時間と現在時刻が一致しない場合があります。Access Token API を呼び出し、受信した応答メッセージの"execution_time"を確認してください。
 
    .. code:: JSON
 
       { "code": "4000002", "ErrorMessage": "The validation time has expired.",     "execution_time": 1611538409405 }
 
-   `次 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`__\ の예제 位置にも"execution_time"を入力してください。
+   `次 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`__\ の例題の位置にも"execution_time"を入力してください。
    
    |image5| 
 
-   Access Token は、멤버 권한에 대해서도 발급받을 수 있습니다. 멤버に対する Access Token を발급받으려면 次のように "execution_time" と一緒に "member_id" を入力してください。 
+   Access Token は、メンバーの権限に応じて登録することができます。メンバーに対する Access Token を登録するためには、以下のように "execution_time" と一緒に "member_id" を入力してください。 
    
    |image6| 
 
 
-   이후 해당 APIを실행すると、Access Token が발급되며, 次のような형태の응답을 수신할 수 있습니다.
+   その後、取得したAPIを実行すると、Access Token が発行され、次のようなタイプの応答を受信することができます。
 
    .. code:: JSON
 
-      { "api_key": { "name": "애플리케이션_", "alias": "テスト용", "company": { "company_id": "dec5418e58694d90a65d6c38e3d226db", "name": "サンプルデモ", "api_url": "https://kr-api.eformsign.com" } }, "oauth_token": { "expires_in": 3600, "token_type": "JWT", "refresh_token": "8fd0a3c1-44dc-4a03-96ad-01fa34cd159c", "access_token": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJlZm9ybXNpZ24uaWFtIiwiY29udGV4dCI6eyJjbGllbnRJZCI6IjY4MDk0ZWVhMjVhZjRhNjI5ZTI4ZGU5Y2ZlYzRlYmZjIiwiY2xpZW50S2V5IjoiZTNiM2IzZTUtMGEzMS00NTE1LWE5NzEtN2M4Y2FlNDI4NzZmIiwibWFuYWdlbWVudElkIjoiMzRhYWI4MDBjMmEwNDQwNThmZDRlZjc5OGFlY2RlY2EiLCJzY29wZXMiOiJzbWFydF9lZm9ybV9zY29wZSIsInR5cGUiOiJ1c2VyIiwidXNlck5hbWUiOiIzMmIzZDRmOC00MjdkLTRjZjQtOTZiYS1mYzAxNjIxNWRkNDciLCJ1c2VySWQiOiJhNTEyNGVkNmU2M2Y0OTMzOGJlOTA0MjVhNjFkYjlmNSIsInJlZnJlc2hUb2tlbiI6IjhmZDBhM2MxLTQ0ZGMtNGEwMy05NmFkLTAxZmEzNGNkMTU5YyJ9LCJjbGFpbSI6eyJjb21wYW55X2lkIjoiZGVjNTQxOGU1ODY5NGQ5MGE2NWQ2YzM4ZTNkMjI2ZGIiLCJhY2Nlc3Nfa2V5IjoiMzJiM2Q0ZjgtNDI3ZC00Y2Y0LTk2YmEtZmMwMTYyMTVkZDQ3In0sImV4cCI6MTYxMTU0MjIzNiwiaWF0IjoxNjExNTM4NjM2fQ.BltoXXBSabjXfpyLsZik9OZTE5XtLqe9lguMmJ_qfwZN1NyoVoxDqA5y1-_TLis7FvvNjfI1eegOroCZDZPFyXRaBxAj0CW8TijVjbhliJBuccHFyKXaJxmo_GMmTHYtxNNB1SUgLeFIrYROnpQndU8J7ZkfPDgYGwh1YSx-5s4" } }
+      { "api_key": { "name": "アプリケーション_", "alias": "テスト用", "company": { "company_id": "dec5418e58694d90a65d6c38e3d226db", "name": "サンプルデモ", "api_url": "https://kr-api.eformsign.com" } }, "oauth_token": { "expires_in": 3600, "token_type": "JWT", "refresh_token": "8fd0a3c1-44dc-4a03-96ad-01fa34cd159c", "access_token": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJlZm9ybXNpZ24uaWFtIiwiY29udGV4dCI6eyJjbGllbnRJZCI6IjY4MDk0ZWVhMjVhZjRhNjI5ZTI4ZGU5Y2ZlYzRlYmZjIiwiY2xpZW50S2V5IjoiZTNiM2IzZTUtMGEzMS00NTE1LWE5NzEtN2M4Y2FlNDI4NzZmIiwibWFuYWdlbWVudElkIjoiMzRhYWI4MDBjMmEwNDQwNThmZDRlZjc5OGFlY2RlY2EiLCJzY29wZXMiOiJzbWFydF9lZm9ybV9zY29wZSIsInR5cGUiOiJ1c2VyIiwidXNlck5hbWUiOiIzMmIzZDRmOC00MjdkLTRjZjQtOTZiYS1mYzAxNjIxNWRkNDciLCJ1c2VySWQiOiJhNTEyNGVkNmU2M2Y0OTMzOGJlOTA0MjVhNjFkYjlmNSIsInJlZnJlc2hUb2tlbiI6IjhmZDBhM2MxLTQ0ZGMtNGEwMy05NmFkLTAxZmEzNGNkMTU5YyJ9LCJjbGFpbSI6eyJjb21wYW55X2lkIjoiZGVjNTQxOGU1ODY5NGQ5MGE2NWQ2YzM4ZTNkMjI2ZGIiLCJhY2Nlc3Nfa2V5IjoiMzJiM2Q0ZjgtNDI3ZC00Y2Y0LTk2YmEtZmMwMTYyMTVkZDQ3In0sImV4cCI6MTYxMTU0MjIzNiwiaWF0IjoxNjExNTM4NjM2fQ.BltoXXBSabjXfpyLsZik9OZTE5XtLqe9lguMmJ_qfwZN1NyoVoxDqA5y1-_TLis7FvvNjfI1eegOroCZDZPFyXRaBxAj0CW8TijVjbhliJBuccHFyKXaJxmo_GMmTHYtxNNB1SUgLeFIrYROnpQndU8J7ZkfPDgYGwh1YSx-5s4" } }
 
 
 
@@ -315,34 +315,34 @@ Access Token API についての詳しい説明は
 
 .. caution:: 
    
-   발급した API キーは、 `次 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`__\ の位置にある **Authorize** ボタン (|image4|) をクリックして登録してください。ただし、API キー値には**必ず Base64**\ で인코딩한 문자열を入力しなければなりません。https://www.base64encode.org/ に접속し、발급された API キーを入力して인코딩된 텍스트を받아 삽입하세요.
+   取得した API キーは、 `次 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`__\ の位置にある **Authorize** ボタン (|image4|) をクリックして登録してください。ただし、API キー値には**必ず Base64**\ でエンコードした 文字列を入力する必要があります。https://www.base64encode.org/ に接続し、取得した API キーを入力してエンコードされたテキストに変換して入力してください。
 
 
 
-文書の作成および처리のための API
+文書の作成および処理のための API
 ----------------------------------
 
-署名を登録すると、次の文書 API を使用して文書の新規作成や文書情報の照会ができ、完了文書ファイル (文書 PDF、감사추적증명서) や文書の添付ファイルをダウンロードすることができます。 
+署名を登録すると、次の文書 API を使用して文書の新規作成や文書情報の照会ができ、完了文書ファイル (文書 PDF、監査証跡証明書) や文書の添付ファイルをダウンロードすることができます。 
 
 
 .. note:: 
 
-   본 文書 API を使用するためには、先に Access Token の발급が必要です。
+   この文書 API を使用するためには、先に Access Token の発行が必要です。
 
 現在提供している `文書 API <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general>`_\は以下のとおりです。
 
 
-``POST``: `/api_auth/refresh_token <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/post-api_auth-refresh_token>`_\  Access Token 갱신
+``POST``: `/api_auth/refresh_token <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/post-api_auth-refresh_token>`_\  Access Token 更新
 
-``POST``: `/api/documents <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/post-api-documents>`_\  文書の新規作成(내부 수신자)
+``POST``: `/api/documents <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/post-api-documents>`_\  文書の新規作成(内部メンバー)
 
-``POST``: `/api/documents/external <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/post-api-documents-external>`_\  文書の新規作成(외부 수신자)
+``POST``: `/api/documents/external <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/post-api-documents-external>`_\  文書の新規作成(外部受信者)
 
 ``GET``: `/api/documents/{document_id} <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/get-api-documents-DOCUMENT_ID>`_\  文書情報 照会
 
-``GET``: `/api/docuemnts/{document_id}/download_files <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/get-api-documents-DOCUMENT_ID-download_files>`_\  文書ファイル 다운로드(文書 PDF, 감사추적증명서)
+``GET``: `/api/docuemnts/{document_id}/download_files <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/get-api-documents-DOCUMENT_ID-download_files>`_\  文書ファイルのダウンロード(文書 PDF、 監査証跡証明書)
 
-``GET``: `/api/doduments/{document_id}/download_attach_files <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/get-api-documents-DOCUMENT_ID-download_attach_files>`_\  文書 첨부 ファイル 다운로드
+``GET``: `/api/doduments/{document_id}/download_attach_files <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/get-api-documents-DOCUMENT_ID-download_attach_files>`_\  添付ファイルのダウンロード
 
 
 各 eformsign 文書 API についての詳しい説明は 
@@ -354,7 +354,7 @@ API 関連情報
 ===================
 
 API ステータスコード
---------------
+---------------------
 
 API ステータスコードは、以下の通りです。
 
@@ -364,7 +364,7 @@ API ステータスコードは、以下の通りです。
 ===========  ===============  ===================================
 Code         説明              備考
 ===========  ===============  ===================================
-200          성공              성공
+200          成功              成功
 ===========  ===============  ===================================
 
 
@@ -374,8 +374,8 @@ Code         説明              備考
 ===========  ===============  =====================================================================================
 Code         説明              備考
 ===========  ===============  =====================================================================================
-2020001      PDF 생성中        - PDF ファイルでダウンロードする際、비동기で생성されるため 文書保存後にPDF생성まで時間が所要 
-                              - 수초에서 수분 내에 재 要請시 다운로드 가능
+2020001      PDF 生成中        - PDF ファイルとしてダウンロードする際、非同期で生成されるため、文書保存後に PDF 生成まで時間が所要 
+                              - 数秒から数分後数分後に再要請するとダウンロード可能
 ===========  ===============  =====================================================================================
 
 
@@ -385,10 +385,10 @@ Code         説明              備考
 ===========  ===================  =======================================================
 Code         説明                  備考
 ===========  ===================  =======================================================
-4000001      必須入力値漏れ         API の必須入力値(ヘッダー値またはパラメーター)が入力されていない場合                        
+4000001      必須入力値漏れ         API の必須入力値（ヘッダー値またはパラメーター）が入力されていない場合                        
 4000002      時間切れ              API認証の要請時間が時間切れとなった場合
-4000003      APIキーが存在しない      削除されたAPI キーか入力ミスの場合
-4000004      文書が存在しない        間違った文書 IDを入力した場合
+4000003      APIキーが存在しない      削除されたAPI キーまたは入力ミスの場合
+4000004      文書が存在しない        間違った文書 ID を入力した場合
 ===========  ===================  =======================================================
 
 
@@ -446,8 +446,8 @@ User タイプ
 ================  ===============  ===================================
 Type               Code             説明
 ================  ===============  ===================================
-内部メンバー          01               内部メンバー인지 여부
-외부 使用자         02                内部メンバー가 아닌 외부 使用자 여부
+内部メンバー          01               内部メンバーである場合
+外部受信者          02               内部メンバーではなく、外部受信者である場合
 ================  ===============  ===================================
 
 Status タイプ
@@ -456,7 +456,7 @@ Status タイプ
 ======================  ===============  ===================================
 Type                     Code             説明
 ======================  ===============  ===================================
-doc_tempsave             001              下書き (作成者が下書き保存した状態)
+doc_tempsave             001              下書き（作成者が下書き保存した状態）
 doc_create               002              作成
 doc_complete             003              完了
 doc_update               043              修正
@@ -486,7 +486,7 @@ Action タイプ
 Type                     Code             説明
 ======================  ===============  ===================================
 doc_tempsave             001              下書き保存
-doc_create               002              文書 생성
+doc_create               002              文書 生成
 doc_complete             003              完了
 doc_request_approval     010              決裁要請
 doc_reject_approval      011              決裁返戻
