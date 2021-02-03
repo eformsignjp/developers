@@ -521,10 +521,10 @@ doc_transfer             051              移管
 .. |image1| image:: resources/company_id.png
    :width: 600px
 .. |image2| image:: resources/column_icon.png
-   :width: 45px
+   :width: 30px
 .. |image3| image:: resources/document_id.png
 .. |image4| image:: resources/authorize_icon.png
-   :width: 60px
+   :width: 70px
 .. |image5| image:: resources/execution_time.png
    :width: 450px
 .. |image6| image:: resources/execution_time2.png
