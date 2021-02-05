@@ -386,7 +386,7 @@ Code         説明              備考
 Code         説明                  備考
 ===========  ===================  ===========================================================
 4000001      必須入力値漏れ         API の必須入力値（ヘッダー値またはパラメーター）が入力されていない場合                        
-4000002      時間切れ              API 認証の要請時間が時間切れとなった場合
+4000002      時間切れ              API 認証のリクエスト時間が時間切れとなった場合
 4000003      API キーが存在しない     削除されたAPI キーまたは入力ミスの場合
 4000004      文書が存在しない        間違った文書 ID を入力した場合
 ===========  ===================  ===========================================================
@@ -432,7 +432,7 @@ Step タイプ
 ===========  ===============  ===================================
 Type         Code             説明
 ===========  ===============  ===================================
-Start         00               スタート段階
+Start         00               開始段階
 Complete      01               完了段階
 Approval      02               決裁段階
 External      03               外部受信者段階
@@ -460,19 +460,19 @@ doc_tempsave             001              下書き（作成者が下書き保�
 doc_create               002              作成
 doc_complete             003              完了
 doc_update               043              修正
-doc_request_delete       047              削除要請
+doc_request_delete       047              削除依頼
 doc_delete               049              削除
-doc_request_revoke       040              キャンセル要請
-doc_revoke               041              キャンセル
-doc_request_reject       045              返戻要請
-doc_request_approval     010              決裁要請
+doc_request_revoke       040              無効化依頼
+doc_revoke               041              無効化
+doc_request_reject       045              返戻依頼
+doc_request_approval     010              決裁依頼
 doc_accept_approval      012              決裁承認
 doc_reject_approval      011              決裁返戻
-doc_cancel               013              決裁キャンセル
-doc_request_reception    020              内部メンバー要請
+doc_cancel               013              決裁無効化
+doc_request_reception    020              内部メンバー依頼
 doc_accept_reception     022              内部メンバー承認
 doc_reject_reception     021              内部メンバー返戻
-doc_request_outsider     030              外部受信者要請
+doc_request_outsider     030              外部受信者依頼
 doc_accept_outsider      032              外部受信者承認
 doc_reject_outsider      031              外部受信者返戻
 ======================  ===============  ===================================
@@ -485,31 +485,31 @@ Action タイプ
 Type                     Code             説明
 ======================  ===============  ===================================
 doc_tempsave             001              下書き保存
-doc_create               002              文書 生成
+doc_create               002              文書作成
 doc_complete             003              完了
-doc_request_approval     010              決裁要請
+doc_request_approval     010              決裁依頼
 doc_reject_approval      011              決裁返戻
 doc_accept_approval      012              決裁承認
-doc_cancel               013              決裁キャンセル
-doc_request_reception    020              内部メンバー要請
+doc_cancel               013              決裁無効化
+doc_request_reception    020              内部メンバー依頼
 doc_reject_reception     021              内部メンバー返戻
 doc_accept_reception     022              内部メンバー承認
 doc_accept_tempsave      023              内部メンバーが下書きとして保存
-doc_request_outsider     030              外部受信者要請
-doc_reject_outsider      031              外部受信者返戻
-doc_accept_outsider      032              外部受信者承認
-doc_rerequest_outsider   033              外部受信者再要請
+doc_request_outsider     030              外部受信者に依頼
+doc_reject_outsider      031              外部受信者が返戻
+doc_accept_outsider      032              外部受信者が承認
+doc_rerequest_outsider   033              外部受信者に再依頼
 doc_open_outsider        034              外部受信者閲覧
 doc_outsider_tempsave    035              外部受信者が下書きとして保存
-doc_request_revoke       040              キャンセル要請
-doc_refuse_revoke        041              キャンセル要請返戻拒否
-doc_revoke               042              キャンセル
+doc_request_revoke       040              無効化依頼
+doc_refuse_revoke        041              無効化依頼返戻拒否
+doc_revoke               042              無効化
 doc_update               043              修正
-doc_cancel_update        044              修正キャンセル
-doc_request_reject       045              返戻要請
-doc_refuse_reject        046              返戻要請返戻
-doc_request_delete       047              削除要請
-doc_refuse_delete        048              削除要請返戻
+doc_cancel_update        044              修正無効化
+doc_request_reject       045              返戻依頼
+doc_refuse_reject        046              返戻依頼返戻
+doc_request_delete       047              削除依頼
+doc_refuse_delete        048              削除依頼返戻
 doc_delete               049              削除
 doc_complete_send_pdf    050              完了文書をPDFとして送信
 doc_transfer             051              移管
