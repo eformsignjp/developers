@@ -1,21 +1,21 @@
 
 ======================================
-eformsign 기능 직접 삽입하기
+eformsign 機能の直接挿入
 ======================================
 
 
-eformsign 기능을 직접 삽입해 연계하게 되면, 고객이 제공하고 있는 서비스(혹은 사이트) 내에서 고객사의 사용자(최종 사용자)가 eformsign 서비스 사이트를 통하지 않고 고객의 서비스를 통해 자연스럽게 eformsign 전자문서를 사용할 수 있습니다.
-예로 들면, 내 블로그에서 특정 YouTube 동영상을 소개하려고 할 때, 블로그에서 YouTube 동영상을 직접 삽입함으로써 해당 동영상을 블로그 내에서 바로 플레이할 수 있도록 하는 방식과 유사합니다.
+eformsign 機能を直接挿入して연계することになると、고객が提供しているサービス（またはサイト）内で고객사のユーザー(최종 ユーザー)が eformsign サービスサイトを介さず自然に eformsign の電子文書を利用することができます。
+例えば、ブログで特定のYouTube動画を表示したいとき、ブログに YouTube 動画を直接挿入することで、その動画をブログ内ですぐ再生できるようにする方式と유사합니다.
 
 ------------
-시작하기
+はじめに
 ------------
 
 
-설치하기
+設置
 =============
 
-eformsign의 기능을 사용하고자 하는 웹 페이지에 다음의 스크립트를 추가합니다.
+eformsign の機能を使用したい Web ページに次のスクリプトを追加します。
 
 .. code-block:: javascript
 
@@ -29,34 +29,34 @@ eformsign의 기능을 사용하고자 하는 웹 페이지에 다음의 스크�
 
 .. note::
 
-   eformsign 기능을 삽입하고자 하는 페이지에 이 스크립트를 추가하면 eformsign 객체를 전역변수로 사용할 수 있습니다.
+   eformsign 機能を挿入したいページに上記のスクリプトを追加すると、 eformsign オブジェクトを 전역변수として使用することができます。
 
 
---------------------------
-eformsign 객체에 대한 설명
---------------------------
+-------------------------------
+eformsign オブジェクトについての説明
+-------------------------------
 
-eformsign 객체는 embedding과 redirect의 두 가지 타입으로 구성되어 있습니다.
+eformsign オブジェクトは、 embedding と redirect の2つのタイプで構成されています。
 
 
 +----------+--------------------+--------------------------------------+
-| Type     | Name               | 설명                                 |
+| Type     | Name               | 説明                                 |
 +==========+====================+======================================+
-| embedding| eformsign.         | eformsign을 삽입해 문서를 작성할 수  |
-|          | document(          | 있도록 해주는 함수                   |
+| embedding| eformsign.         | eformsign を挿入し、文書を作成できるように  |
+|          | document(          | する関数                              |
 |          | document_option,   |                                      |
-|          | iframe_id,         | callback 파라미터는 옵션             |
+|          | iframe_id,         | callback パラメーターはオプション            |
 |          | success_callback,  |                                      |
-|          | error_callback)    | -  document_option, iframe_id: 필수  |
+|          | error_callback)    | -  document_option, iframe_id：必須  |
 |          |                    |                                      |
-|          |                    | -  success_callback: 옵션            |
+|          |                    | -  success_callback：オプション         |
 |          |                    |                                      |
-|          |                    | -  error_callback: 옵션              |
+|          |                    | -  error_callback：オプション           |
 +----------+--------------------+--------------------------------------+
-| redirect | eformsign.documen  | eformsign으로의 페이지 전환 방식으로 |
-|          | t(document_option) | 문서를 작성할 수 있도록 해주는 함수  |
+| redirect | eformsign.documen  | eformsign へのページ転換方式で           |
+|          | t(document_option) | 文書を作成できるようにする関数              |
 |          |                    |                                      |
-|          |                    | -  document_option : 필수            |
+|          |                    | -  document_option：必須             |
 +----------+--------------------+--------------------------------------+
 
 
@@ -64,7 +64,7 @@ eformsign 객체는 embedding과 redirect의 두 가지 타입으로 구성되�
 
 .. note::
 
-   redirect 방식은 추후 공개할 예정입니다. 
+   redirect 方式は、추후 공개할 예정です。 
 
 
 .. code-block:: javascript
@@ -73,26 +73,26 @@ eformsign 객체는 embedding과 redirect의 두 가지 타입으로 구성되�
      
      var document_option = {
        "company" : {
-          "id" : '', // company id 입력
-          "country_code" : "", // 국가 코드 입력 (ex: kr)
-          "user_key": ""  // 고객 시스템의 고유한 Key (고객시스템에 로그인한 사용자의 unique key) - option
+          "id" : '', // company id 入力
+          "country_code" : "", // 国コード 入力 (ex: kr)
+          "user_key": ""  // 고객 システムの固有な Key (고객システムにログインしたユーザーの unique key) - option
        },
        "user" : {
             "type" : "01" ,
-            "access_token" : "", // access Token 입력 openAPI accessToken 참조
-            "refresh_token" : "", // refresh Token 입력 openAPI accessToken 참조
-            "external_token" : "", // 외부자 처리 시 external Token 입력 openAPI accessToken 참조
+            "access_token" : "", // access Token 入力 openAPI accessToken 参照
+            "refresh_token" : "", // refresh Token 入力 openAPI accessToken 参照
+            "external_token" : "", // 外部処理 시 external Token 入力 openAPI accessToken 参照
             "external_user_info" : {
-               "name" : "" // 외부자 처리 시 외부자 이름 입력
+               "name" : "" // 外部処理 시 外部受信者 이름 入力
             }
         },
         "mode" : {
             "type" : "02",
-            "template_id" : "", // template id 입력
-            "document_id" : ""  // document_id 입력
+            "template_id" : "", // template id 入力
+            "document_id" : ""  // document_id 入力
         },
         "prefill" : {
-            "document_name": "", // 문서 제목 입력
+            "document_name": "", // 文書タイトルを入力
             "fields": [ {
                 "id" ; "고객명",
                 "value" : "홍길동",
@@ -107,9 +107,9 @@ eformsign 객체는 embedding과 redirect의 두 가지 타입으로 구성되�
      var success_callback = function(response){ 
         console.log(response.code); 
         if( response.code == "-1"){
-            //문서 작성 성공
+            //文書作成成功
             console.log(response.document_id);
-            // return_fields에 넘긴 데이터를 조회 가능함. fields는 폼을 작성할 때 만든 입력 컴포넌트의 id를 의미함.
+            // return_fields에 넘긴 データを照会することができる。fieldsとは、フォームを作成するときに作った入力コンポーネントの id を意味する。
             console.log(response.field_values["company_name"]);
             console.log(response.field_values["position"]);
         }
@@ -117,7 +117,7 @@ eformsign 객체는 embedding과 redirect의 두 가지 타입으로 구성되�
       
      var error_callback = function(response){
         console.log(response.code); 
-        //문서 작성 실패
+        //文書作成失敗
         alert(response.message);
          
      };
@@ -125,26 +125,26 @@ eformsign 객체는 embedding과 redirect의 두 가지 타입으로 구성되�
      eformsign.document(document_option , "eformsign_iframe" , success_callback , error_callback  );
 
 
-embedding_document 함수
+embedding_document 関数
 ===========================
 
 .. note::
 
-   함수 형태
+   関数タイプ
    document(document_option, iframe_id, success_callback , error_callback)
 
-eformsign을 삽입해 고객사의 사이트/서비스에서 문서를 작성할 수 있도록 해주는 함수입니다. eformsign 내 document 함수를 호출해 사용하세요.
+eformsign を挿入し、고객사のサイト/サービスで文書を作成できるようにする関数です。 eformsign 内の document 関数を呼び出して使用してください。
 
-크게 document_option과 callback의 2가지 파라미터를 사용할 수 있습니다.
+大きく document_option と callback の2つのパラメーターを使用することができます。
 
 
 ===================  ===============  ==========  ==========================================================
- Paramter Name       Paramter Type    필수여부      설명 
+ Paramter Name       Paramter Type    必須入力      説明 
 ===================  ===============  ==========  ==========================================================
- document_option      Json             필수         임베딩하여 eformsign 구동시, document 관련된 옵션을 지정 
- iframe_id            String           필수         임베딩되어 표시될 iframe id 
- success_callback     function         비필수       eformsign 문서 작성 성공 시, 호출될 callback 함수
- error_callback       function         비필수       eformsign 문서 작성 실패 시, 호출될 callback 함수 
+ document_option      Json             O          임베딩하여 eformsign 구동시, document 関連オプションを指定 
+ iframe_id            String           O          임베딩되어 표시될 iframe id 
+ success_callback     function         X          eformsign 文書作成に成功した場合、呼び出される callback 関数
+ error_callback       function         X          eformsign 文書作成に失敗した場合、呼び出される callback 関数 
 ===================  ===============  ==========  ==========================================================
 
 
@@ -154,26 +154,26 @@ eformsign을 삽입해 고객사의 사이트/서비스에서 문서를 작성�
      var eformsign = new EformSign();
      var document_option = {
         "company": {
-            "id": '', // company id 입력
-            "country_code": "", // 국가 코드 입력 (ex: kr)
-            "user_key": '' // 고객 시스템의 고유한 Key (고객시스템에 로그인한 사용자의 unique key) - option
+            "id": '', // company id 入力
+            "country_code": "", // 国コード入力 (ex: kr)
+            "user_key": '' // 고객 システムの고유한 Key (고객システムにログインしたユーザーの unique key) - option
         },
         "user": {
             "type": "01",
-            "access_token": "", // access Token 입력 openAPI accessToken 참조
-            "refresh_token": "", // refresh Token 입력 openAPI accessToken 참조
-            "external_token": "", // 외부자 처리 시 external Token 입력 openAPI accessToken 참조
+            "access_token": "", // access Token 入力 openAPI accessToken 参照
+            "refresh_token": "", // refresh Token 入力 openAPI accessToken 参照
+            "external_token": "", // 外部処理時の external Token 入力 openAPI accessToken 参照
             "external_user_info": {
-                "name": "" // 외부자 처리 시 외부자 이름 입력
+                "name": "" // 外部処理の場合、外部受信者名を入力
             }
         },
         "mode": {
             "type": "02",
-            "template_id": "", // template id 입력
-            "document_id": "" // document_id 입력
+            "template_id": "", // template id 入力
+            "document_id": "" // document_id 入力
         },
         "prefill": {
-            "document_name": "", // 문서 제목 입력
+            "document_name": "", // 文書タイトルを入力
             "fields": [{
                 "id" : "",
                 "고객명" : "",
@@ -189,9 +189,9 @@ eformsign을 삽입해 고객사의 사이트/서비스에서 문서를 작성�
      var success_callback = function (response) {
         console.log(response.code);
         if (response.code == "-1") {
-            //문서 작성 성공
+            //文書作成成功
             console.log(response.document_id);
-            // return_fields에 넘긴 데이터를 조회 가능함. fields는 폼을 작성할 때 만든 입력 컴포넌트의 id를 의미함.
+            // return_fields에 넘긴 データを照会することができる。fieldsとは、フォームを作成するときに作った入力コンポーネントの id を意味する。
             console.log(response.field_values["company_name"]);
             console.log(response.field_values["position"]);
         }
@@ -200,7 +200,7 @@ eformsign을 삽입해 고객사의 사이트/서비스에서 문서를 작성�
      
      var error_callback = function (response) {
         console.log(response.code);
-        //문서 작성 실패
+        //文書作成失敗
         alert(response.message);
      
      };
@@ -208,86 +208,86 @@ eformsign을 삽입해 고객사의 사이트/서비스에서 문서를 작성�
      eformsign.document(document_option, "eformsign_iframe", success_callback, error_callback);
 
 
-파라미터 설명: document-option
+パラメーターの説明: document-option
 ================================
 
 
-document-option에서는 크게 다음의 5가지 항목에 대해 설정할 수 있습니다. 
+document-option では大きく次の5項目について設定することができます。 
 
-- 회사 정보
-- 유저 정보
-- 모드
-- 리턴 필드
+- 会社情報
+- ユーザー情報
+- モード
+- リターンフィールド
 - 자동 기입
 
 .. note::
 
-   회사 정보와 모드는 필수 입력정보입니다. 
+   会社情報とモードは必須入力情報です。 
 
 
 
-1. 회사 정보(필수)
+1. 会社情報（必須）
 -------------------------
 
 .. code-block:: javascript
 
    var document_option = {
      "company" : {
-         "id" : 'f9aec832efef4133a1e849efaf8a9aed',  // 회사의 id - 회사관리 - 회사 정보 에서 확인 - 필수
-         "country_code" : "kr", // 비필수 이나, 지정해 주는 것이 좋음. ( 회사 관리의 회사 정보에서 국가에 대한 코드를 지정 ) - 빠른 open이 가능함.
+         "id" : 'f9aec832efef4133a1e849efaf8a9aed',  // 会社の id - 会社管理 - 会社情報 で確認 - 必須
+         "country_code" : "kr", // 必須ではないが、指定することを推奨。（会社管理の 会社情報で国コードを指定） - クィックな빠른 openが可能
          "user_key": "eformsign@forcs.com"
      }
  };
 
 
-2. 유저 정보(비필수)
+2. ユーザー情報（非必須）
 ---------------------------
 
-**회사 내 멤버 로그인을 통한 신규 작성**
-    - 유저 정보를 지정하지 않을 경우에 해당하며, 유저 정보를 지정하지 않습니다.	
-    - 이 경우, eformsign 로그인 페이지가 기동되며, 로그인 과정 이후에 문서를 작성할 수 있게 됩니다.
+**会社내 멤버 로그인을 통한 新規作成**
+    - ユーザー情報를 지정하지 않을 경우에 해당하며, ユーザー情報를 지정하지 않습니다.	
+    - この場合、eformsign 로그인 ページ가 기동되며, 로그인 과정 이후에 文書를 작성할 수 있게 됩니다.
 
 
-**회사 내 멤버의 토큰을 이용한 작성(신규 및 수신한 문서 포함)**	
-    - 임베딩시, eformsign 로그인 과정 없이, 특정 계정의 token을 이용하여 문서를 작성 및 수신한 문서를 작성합니다.
+**会社내 멤버의 토큰을 이용한 작성(신규 및 受信した文書 포함)**	
+    - 임베딩시, eformsign 로그인 과정 없이, 특정 계정의 token을 이용하여 文書를 작성 및 受信した文書를 작성합니다.
     - 토큰 발급 방법은 Open API의 Access token 발급을 통해 가능합니다.
 
 .. code-block:: javascript
 
     var document_option = {
         "user":{
-            "type" : "01" , // 01 - internal or  02 - external  (필수)
-            "access_token" : "", // access Token 입력 openAPI accessToken 참조
-            "refresh_token" : "", // refresh Token 입력 openAPI accessToken 참조
+            "type" : "01" , // 01 - internal or  02 - external  (必須)
+            "access_token" : "", // access Token 入力 openAPI accessToken 参照
+            "refresh_token" : "", // refresh Token 入力 openAPI accessToken 参照
         }
     };
 
 
-**회사 내 멤버가 아닌 사용자가 신규 문서 작성**  
-    - eformsign의 회원이 아닌 사용자로 하여금 문서를 작성하게 하는 방식
+**会社내 멤버ではないユーザーが新規文書を作成**  
+    - eformsign の会員ではないユーザー로 하여금 文書를 작성하게 하는 方式
 
 .. code-block:: javascript
 
     var document_option = {
         "user":{
-            "type" : "02" , // 01 - internal or  02 - external  (필수)
+            "type" : "02" , // 01 - internal or  02 - external  (必須)
             "external_user_info" : {
-                "name" : "" // 외부자 처리 시 외부자 이름 입력
+                "name" : "" // 外部処理 시 外部受信者 이름 入力
             }
         }
     };
 
-**회사 내 멤버가 아닌 사용자가 수신한 문서를 작성**
-    - 임베딩시, eformsign의 회원이 아닌 사용자가 수신한 문서를 작성하게 하는 방식
+**会社내 멤버ではないユーザーが受信した文書を作成**
+    - 임베딩시、eformsign の회원ではないユーザーが受信した文書를 작성하게 하는 方式
 
 .. code-block:: javascript 
 
     var document_option = {
         "user":{
-        "type" : "02" , // 01 - internal or  02 - external  (필수)
-        "external_token" : "", // 외부자 처리 시 external Token 입력 openAPI accessToken 참조
+        "type" : "02" , // 01 - internal or  02 - external  (必須)
+        "external_token" : "", // 外部処理 시 external Token 入力 openAPI accessToken 参照
         "external_user_info" : {
-        "name" : "" // 외부자 처리 시 외부자 이름 입력
+        "name" : "" // 外部処理 시 外部受信者 이름 入力
             }
         }
     };
@@ -296,55 +296,55 @@ document-option에서는 크게 다음의 5가지 항목에 대해 설정할 수
 
     var document_option = {
         "user":{
-            "type" : "01" , // 01 - internal or  02 - external  (필수)
-            "access_token" : "", // access Token 입력 openAPI accessToken 참조
-            "refresh_token" : "", // refresh Token 입력 openAPI accessToken 참조
-            "external_token" : "", // 외부자 처리 시 external Token 입력 openAPI accessToken 참조
+            "type" : "01" , // 01 - internal or  02 - external  (必須)
+            "access_token" : "", // access Token 入力 openAPI accessToken 参照
+            "refresh_token" : "", // refresh Token 入力 openAPI accessToken 参照
+            "external_token" : "", // 外部処理 시 external Token 入力 openAPI accessToken 参照
             "external_user_info" : {
-               "name" : "" // 외부자 처리 시 외부자 이름 입력
+               "name" : "" // 外部処理 시 外部受信者 이름 入力
             }
         }
     };
 
 
-3. 모드(필수)
+3. モード(必須)
 ---------------------
 
-**템플릿을 이용한 신규 작성** 
-    - 템플릿을 이용하여 문서를 새로 작성합니다.
+**テンプレートを利用した新規作成** 
+    - テンプレートを利用して文書を新規作成します。
 
 .. code-block:: javascript
 
     var document_option = {
         "mode" : {
-        "type" : "01" ,  // 01 : 문서 작성 , 02 : 문서 처리 , 03 : 미리 보기
-        "template_id" : "" // template id 입력
+        "type" : "01" ,  // 01 : 文書 작성 , 02 : 文書 처리 , 03 : プレビュー
+        "template_id" : "" // template id 入力
         }
     }
 
-**수신한 문서에 추가 작성** 
-    - 수신한 문서에 대해 추가 작성합니다.	
+**受信した文書に追記** 
+    - 受信した文書に追記します。	
 
 .. code-block:: javascript
 
     var document_option = {
         "mode" : {
-        "type" : "02" ,  // 01 : 문서 작성 , 02 : 문서 처리 , 03 : 미리 보기
-        "template_id" : "", // template id 입력
-        "document_id" : ""  // document_id 입력
+        "type" : "02" ,  // 01 : 文書 작성 , 02 : 文書 처리 , 03 : プレビュー
+        "template_id" : "", // template id 入力
+        "document_id" : ""  // document_id 入力
         }
     }
 
-**특정한 문서를 미리보기**
-    - 작성된 문서를 미리보기합니다.
+**特定の文書をプレビュー**
+    - 작성된 文書のプレビューを確認します。
 
 .. code-block:: javascript
 
     var document_option = {
         "mode" : {
-        "type" : "03" ,  // 01 : 문서 작성 , 02 : 문서 처리 , 03 : 미리 보기
-        "template_id" : "", // template id 입력
-        "document_id" : ""  // document_id 입력
+        "type" : "03" ,  // 01 : 文書 작성 , 02 : 文書 처리 , 03 : プレビュー
+        "template_id" : "", // template id 入力
+        "document_id" : ""  // document_id 入力
         }
     }
 
@@ -352,21 +352,21 @@ document-option에서는 크게 다음의 5가지 항목에 대해 설정할 수
 
     var document_option = {
       "mode" : {
-        "type" : "01" ,  //01 : 문서 작성 , 02 : 문서 처리 , 03 : 미리 보기
-        "template_id" : "", // template id 입력
-        "document_id" : ""  // document_id 입력
+        "type" : "01" ,  //01 : 文書 작성 , 02 : 文書 처리 , 03 : プレビュー
+        "template_id" : "", // template id 入力
+        "document_id" : ""  // document_id 入力
       }
     }
 
 
-4. 리턴 필드(비필수)
+4. リターンフィールド(X)
 --------------------------
 
-문서 작성 및 수정 후, 사용자가 작성한 필드의 내용 중 callback 함수를 통해 받을 수 있는 항목을 지정합니다.
+文書の作成や修正後、ユーザーが作成したフィールドの内容のうち callback 関数でリターンされる項目を指定します。
     
 .. note::
 
-   미 지정시 기본 필드만 제공합니다. 관련 내용은 callBack 파라미터를 참고하세요.
+   指定しない場合、基本フィールドのみ提供します。詳しい内容は callBack パラメーターをご覧ください。
 
 .. code-block:: javascript
 
@@ -374,11 +374,11 @@ document-option에서는 크게 다음의 5가지 항목에 대해 설정할 수
        "return_fields" : ['고객명']
     }
 
-5. 자동 기입(문서 작성 과정 중에 자동으로 기입 처리시 사용)
+5. 자동 기입(文書作成中に自動入力されるよう設定するときに使用)
 -----------------------------------------------------------
 
-**문서 제목**
-    - document_name에 작성할 문서의 제목을 지정합니다.
+**文書タイトル**
+    - document_name に作成したい文書タイトルを指定します。
 
 .. code-block:: javascript
 
@@ -388,21 +388,21 @@ document-option에서는 크게 다음의 5가지 항목에 대해 설정할 수
         }
     }
 
-**문서내 필드 설정 기입** 
-    - 폼 생성시에 지정한 입력 컴포넌트의 ID를 기준으로, 필드 초기값 및 활성 여부, 필수 여부를 지정합니다.
+**文書내 フィールド 設定 기입** 
+    - フォーム생성時に指定した入力コンポーネントの ID を基準に、フィールド初期値および활성 여부、必須入力を指定します。
 
   
 .. note::
 
    - enabled
-     - 지정하지 않을 경우, 템플릿 설정의 항목 제어 옵션에 따른다
-     - 지정할 경우, 템플릿 설정의 항목 제어 옵션보다 우선한다
+     - 指定しない場合、テンプレート設定の項目制御オプションに従う
+     - 指定する場合、テンプレート設定の項目制御オプションに優先する
    - required
-     - 지정하지 않을 경우, 템플릿 설정의 항목 제어 옵션에 따른다
-     - 지정할 경우, 템플릿 설정의 항목 제어 옵션보다 우선한다
+     - 指定しない場合、テンプレート設定の項目制御オプションに従う
+     - 指定する場合、テンプレート設定の項目制御オプションに優先する
    - value
-     - 지정하지 않을 경우, 신규 작성 시에 템플릿 설정의 필드 설정 옵션을 따른다
-     - 지정할 경우, 템플릿 설정의 필드 설정보다 우선한다
+     - 指定しない場合、新規作成時にテンプレート設定のフィールド設定オプションに従う
+     - 指定する場合、テンプレート設定のフィールド設定に優先する
 
 
            
@@ -438,21 +438,21 @@ document-option에서는 크게 다음의 5가지 항목에 대해 설정할 수
 
 
 
-파라미터 설명: Callback
+パラメーターの説明: Callback
 ============================
 
-==================  ===============  ===========  ===================================================
- Paramter Name       Paramter Type    필수 여부     설명        
-==================  ===============  ===========  ===================================================
- success_callback    function         비필수        eformsign 문서 작성 성공 시, 호출될 callback 함수 
- error_callback      function         비필수        eformsign 문서 작성 실패 시, 호출될 callback 함수
-==================  ===============  ===========  ===================================================
+==================  ===============  ===========  =============================================================
+ Paramter Name       Paramter Type    必須入力     説明        
+==================  ===============  ===========  =============================================================
+ success_callback    function         X           eformsign 文書作成に成功した場合、呼び出される callback 関数 
+ error_callback      function         X           eformsign 文書作成に失敗した場合、呼び出される callback 関数
+==================  ===============  ===========  =============================================================
 
-Callback 함수는 다음과 같이 설정합니다.
+Callback 関数は、次のように設定します。
 
 .. code-block:: javascript
 
-   var eformsign = new eformsign(); // iframe document 함수 인자로 이동
+   var eformsign = new eformsign(); // iframe document 関数因子に移動
  
  
    var document_option = {};
@@ -475,27 +475,27 @@ Callback 함수는 다음과 같이 설정합니다.
   eformsign.document(document_option , "eformsign_iframe" , sucess_callback , error_callback);
 
 
-document 함수의 파라미터로 Callback 함수를 설정한 경우, Callback 함수 호출 시에 다음과 같은 값을 반환합니다. 
+document 関数のパラメーターとして Callback 関数を設定した場合、Callback 関数を呼び出す際、次のような値を返します。 
 
 +----------+--------+--------------------------+----------------------+
-| Callback | Type   | 설명                     | 비고                 |
+| Callback | Type   | 説明                     | 備考                 |
 +==========+========+==========================+======================+
-| code     | string | 문서 제출 실패시 결과의  | -1 일 경우, 정상     |
-|          |        | 오류 코드를 반환한다     |                      |
+| code     | string | 文書제출に失敗した場合、     | -1 の場合、正常        |
+|          |        | 結果のエラーコードを返す       |                      |
 +----------+--------+--------------------------+----------------------+
-| doc      | string | 문서 제출 성공시, 작성한 | ex)                  |
-| ument_id |        | 문서의 document_id를     | 910b8a965f9          |
-|          |        | 반환한다                 | 402b82152f48c6da5a5c |
+| doc      | string | 文書제출に成功した場合、     | ex)                  |
+| ument_id |        | 作成した文書の document_id | 910b8a965f9          |
+|          |        | を返す                    | 402b82152f48c6da5a5c |
 +----------+--------+--------------------------+----------------------+
-| fiel     | object | document_option에 정의한 | ex).                 |
-| d_values |        | return_fields 컬럼에     | field_values["name"] |
-|          |        | 사용자가 입력한 값을     | // john              |
-|          |        | 가져올 수 있다           |                      |
+| fiel     | object | document_optionに定義した  | ex).                 |
+| d_values |        | return_fields コラムに      | field_values["name"] |
+|          |        | ユーザーが入力した値を        | // john              |
+|          |        | 가져올 수 있다            |                      |
 +----------+--------+--------------------------+----------------------+
-| message  | string | 문서 제출 실패시, 오류   | 빈 값일 경우, 정상   |
-|          |        | 메시지를 반환한다        |                      |
+| message  | string | 文書제출に失敗した場合、     | Nullの場合、正常       |
+|          |        | エラーメッセージを返す          |                      |
 +----------+--------+--------------------------+----------------------+
-| title    | string | 문서 제출 성공시, 작성한 | ex) 계약서           |
-|          |        | 문서의 제목을 반환한다   |                      |
+| title    | string | 文書제출に成功した場合、     | ex) 契約書           |
+|          |        | 作成した文書タイトルを返す     |                      |
 +----------+--------+--------------------------+----------------------+
 

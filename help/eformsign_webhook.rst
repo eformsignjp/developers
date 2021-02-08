@@ -2,11 +2,11 @@
 eformsign Webhook 사용하기
 ----------------------------
 
-eformsign에 이벤트가 발생했을 때 발생한 이벤트의 정보를 고객 시스템/서비스로 알려주는 기능입니다. Webhook을 설정하면, 고객의 Webhook endpoint로 해당 이벤트 정보를 HTTP POST형식으로 알려 줍니다.
+eformsign でイベントが発生した時、そのイベント情報を 고객 システム/サービス로 に通知する機能です。Webhook を設定すると、고객の Webhook endpoint にそのイベント情報を HTTP POST 形式で通知します。
 
 .. tip:: 
 
-   Webhook의 endpoint는 고객의 client callback URL을 뜻합니다. Open API를 지속적으로 호출하여 변경사항을 체크하는 방법(polling)과 비교하여 불필요한 호출 없이 eformsign 상의 이벤트에 대한 정보를 얻을 수 있습니다.
+   Webhook の endpoint とは、고객の client callback URL を意味します。Open API を持続的に呼び出して변경사항をチェックする方法（polling）に対し、不要な呼び出しを 없이 eformsign 上のイベントについての情報を取得できます。
 
 
 시작하기 
@@ -18,61 +18,61 @@ eformsign에 이벤트가 발생했을 때 발생한 이벤트의 정보를 고�
 Webhook 키 발급하기
 --------------------
 
-1. eformsign에 대표 관리자로 로그인 후, 메뉴 트리에서 **[커넥트] > [API / Webhook]** 페이지로 이동합니다. 
+1. eformsign에 대표 관리자로 로그인 후, 메뉴 트리에서 **[커넥트] > [API / Webhook]** ページに移動します。 
 
 .. image:: resources/apikey1.PNG
     :width: 700
     :alt: 커넥트 > API/Webhook 메뉴 위치
 
 
-2. **[Webhook 관리]** 탭을 선택하고 **Webhook 추가** 버튼을 클릭합니다.
+2. **[Webhook 관리]** 탭을 선택하고 **Webhook 추가** ボタンをクリックします。
 
 .. image:: resources/webhook2.PNG
     :width: 700
-    :alt: Webhook 추가 버튼
+    :alt: Webhook 추가 ボタン
 
 
-3. Webhook 키 생성 팝업창에 이름, Webhook URL, 활성 상태, 적용 템플릿을 입력하고 등록 버튼을 클릭합니다.
+3. Webhook 키 생성 팝업창에 이름, Webhook URL, 활성 상태, 적용 テンプレートを入力して「登録」ボタンをクリックします。
 
 .. image:: resources/webhook3.PNG
     :width: 700
     :alt: Webhook 키 생성 팝업창
 
 
-4. 생성된 Webhook 목록에서 **키보기** 버튼을 클릭하여 Webhook 공개키를 확인합니다.
+4. 생성된 Webhook 목록から **키보기** ボタンをクリックして Webhook 공개키を確認します。
 
 .. image:: resources/webhook4.PNG
     :width: 700
-    :alt: Webhook 키보기 버튼 위치
+    :alt: Webhook 키보기 ボタン 위치
 
 .. image:: resources/webhook5.PNG
     :width: 700
-    :alt: Webhook 키 확인 
+    :alt: Webhook 키 確認 
 
 
 
 .. note:: 
 
-    **키 재발행** 버튼을 클릭하면 해당 Webhook의 공개 키가 재발행되며, 이전의 키는 사용할 수 없게 됩니다.
+    **키 재발행** ボタンをクリックすると해당 Webhook の공개 키が재발행され、이전의 키는 사용할 수 없게 됩니다.
 
-.. note:: **Webhook 정보 수정 방법**
+.. note:: **Webhook 情報 수정 방법**
 
-    생성된 Webhook 목록에서 **수정** 버튼을 클릭하여 Webhook 정보를 변경할 수 있습니다.
+    생성된 Webhook 목록에서 **수정** ボタンをクリックしてWebhook 情報를 변경할 수 있습니다.
 
 
 .. note:: **Webhook 삭제 방법**
 
-    생성된 Webhook 목록에서 **삭제** 버튼을 클릭하여 Webhook을 삭제할 수 있습니다.    
+    생성된 Webhook 목록에서 **삭제** ボタンをクリックしてWebhook을 삭제할 수 있습니다.    
 
 
 
-5. 생성된 Webhook 리스트에서 테스트 버튼을 클릭하면 테스트 Webhook을 전송하고 결과를 반환합니다.
+5. 생성된 Webhook リスト에서 テスト ボタンをクリックするとテスト Webhook을 전송하고 결과를 반환합니다.
 
 .. image:: resources/webhook6.PNG
     :width: 700
-    :alt: Webhook 테스트 확인 
+    :alt: Webhook テスト 確認 
 
-다음은 테스트를 위한 json 파일입니다.
+次はテストのための json ファイルです。
 
 .. code:: json
 
@@ -91,30 +91,30 @@ Webhook 키 발급하기
 	   "updated_date" : "현재 시간(UTC Long)"
 	}
 	}
-	Test URL : 해당 Webhook의 URL
+	Test URL : 해당 Webhook の URL
 
 
 
 
-서명 생성하기 
+署名の登録 
 ==============
 
 
-서명 생성 방법에 대해서는  Java, Python, PHP 언어별로 설명합니다.
+署名の登録方法については、Java、Python、PHPの各言語に分けて説明します。
 
 Java
 -------
 
-eformsign 서버로 부터 전달 받은 이벤트 정보를 `Webhook Key 발급하기 <#webhook>`__\에서 발급받은 public key로 검증하여 eformsign에서 정상적으로 호출한 이벤트인지에 대한  검증을 진행합니다. 
+eformsign サーバー로 부터 전달 받은 イベント情報を `Webhook Key 발급하기 <#webhook>`__\에서 발급받은 public key で検証し、 eformsign で正常に呼び出したイベントであるかについての検証を行います。 
 
 .. note:: 
-  서명 알고리즘은 SHA256withECDSA을 사용합니다.
+  署名のアルゴリズムは SHA256withECDSA を使用します。
 
 
 Python
 -------
 
-키 포맷 처리용 라이브러리를 사용해야 합니다. 작업전 다음의 명령어를 통해 해당 라이브러리를 설치하세요.
+キーフォーマット処理用のライブラリーを使用する必要があります。作業を開始する前に、次のコマンドを実行してライブラリーをインストールしてください。
 
 .. code:: python
 
@@ -124,13 +124,13 @@ Python
 PHP
 -------
 
-다음 예제의 keycheck.inc.php, test.php 파일이 동일한 패스에 위치하게 한 후에 진행해야 합니다.
+次の例題の keycheck.inc.php、test.php ファイルを同じパスに保存してから例題を実行してください。
 
 
-각 언어별 예제
+各言語の例題
 ---------------------
 
-다음은 각 언어별 예제입니다.
+次は各言語の例題です。
 
 .. code-tabs::
 
@@ -155,7 +155,7 @@ PHP
          
          
         //2. get request body data
-        // eformsign signature 검증을 위해 body의 데이터를 String으로 변환 합니다.
+        // eformsign signature 検証のため body のデータを String に変換します。
         String eformsignEventBody = null;
         StringBuilder stringBuilder = new StringBuilder();
         BufferedReader bufferedReader = null;
@@ -200,7 +200,7 @@ PHP
             //verify success
             System.out.println("verify success");
             /*
-             * 이곳에서 이벤트에 맞는 처리를 진행합니다.
+             * 이곳에서 イベント에 맞는 처리를 진행합니다.
              */
         }else{
             //verify fail
@@ -227,7 +227,7 @@ PHP
     		 
     		 
     		# 2. get request body data
-    		# eformsign signature 검증을 위해 body의 데이터를 String으로 변환 합니다.
+    		# eformsign signature 検証のため body のデータを String に変換します。
     		data = request.json
     		 
     		 
@@ -240,7 +240,7 @@ PHP
     		try:
     		    if publickey.verify(eformsignSignature, data.encode('utf-8'), hashfunc=hashlib.sha256, sigdecode=sigdecode_der):
     		        print("verify success")
-    		        # 이곳에 이벤트에 맞는 처리를 진행 합니다.
+    		        # 이곳에 イベント에 맞는 처리를 진행 합니다.
     		except BadSignatureError:
     		    print("verify fail")
 
@@ -280,21 +280,21 @@ PHP
         require_once __DIR__ . '/keycheck.inc.php';
         use eformsignECDSA\PublicKey;
          
-        define('PUBLIC_KEY', '발급 받은 public key를 넣어주세요.');
+        define('PUBLIC_KEY', '발급 받은 public key を入力してください。');
         ...
         /*
-         *  request에서 header와 body를 읽습니다.
+         *  request で header と body を읽습니다.
          *
          */
          
          
         //1. get eformsign signature
-        //eformsignSignature는 request header에 담겨 있습니다.
+        //eformsignSignature は request header に담겨 있습니다.
         $eformsignSignature = $_SERVER['HTTP_eformsign_signature'];
          
          
         //2. get request body data
-        // eformsign signature 검증을 위해 body의 데이터를 읽습니다.
+        // eformsign signature 検証のため body のデータ를 읽습니다.
         $eformsignEventBody = json_decode(file_get_contents('php://input'), true);
          
          
@@ -309,7 +309,7 @@ PHP
         if ($ret == 1) {
             print 'verify success' . PHP_EOL;
             /*
-             * 이곳에서 이벤트에 맞는 처리를 진행합니다.
+             * 이곳에서 イベント에 맞는 처리를 진행합니다.
              */
         } else {
             print 'verify fail' . PHP_EOL;
@@ -320,28 +320,28 @@ PHP
 
 
 
-테스트해보기
+テスト
 ==========================
 
-생성한 eformsign_signature를 테스트해 봅니다. 
+생성한 eformsign_signatureをテストしてみましょう。 
 
-다음의 eformsign_signature 생성 및 검증용 샘플은 Open API 또는 Webhook의 서명값을 생성 및 검증하는 테스트 샘플 소스코드 입니다.
+次の eformsign_signature 생성および検証用サンプルは、Open API または Webhook の署名値を생성 및 検証するためのテストサンプルのソースコードです。
 
 .. note::
 
-   샘플 키를 사용하고 있어 실 사용시에는 정상 동작 하지 않습니다. 생성하신 서명 값의 검증용으로만 사용해 주세요.
+   サンプルキー를 사용하고 있어 실 사용시에는 정상 동작 하지 않습니다. 생성하신 署名値の検証용으로만 사용해 주세요.
 
 
 Java
 -------
 
-다음의 샘플 키로 서명 및 검틍 테스트를 해보시기 바랍니다.
+次のサンプルキーで署名および検証テストを行ってください。
 
 
 Python
 -------
 
-키 포맷 처리용 라이브러리를 사용해야 합니다. 작업전 다음의 명령어를 통해 해당 라이브러리를 설치해 주십시오.
+キーフォーマット処理用のライブラリーを使用する必要があります。作業を開始する前に、次のコマンドを実行してライブラリーをインストールしてください。
 
 .. code:: python
 
@@ -351,14 +351,14 @@ Python
 PHP
 -------
 
-다음 예제의 keycheck.inc.php, test.php 파일이 동일한 패스에 위치하게 한 후에 진행해야 합니다.
+次の例題の keycheck.inc.php、test.php ファイルを同じパスに保存してから例題を実行してください。
 
 
 
-각 언어별 예제
+各言語の例題
 ---------------------
 
-다음은 각 언어별 테스트 키와 예제입니다.
+次は各言語のテストキーと例題です。
 
 
 .. code-tabs::
@@ -517,66 +517,66 @@ PHP
 
 
 
-Webhook 제공 리스트
+Webhook 提供リスト
 ====================
 
-다음의 Webhook을 설정하면 해당 이벤트 발생 시 설정한 Webhook endpoint로 변경 정보를 수신할 수 있습니다. 
+次の Webhook を設定すると、해당 イベントが発生するとき、設定した Webhook endpoint に変更情報を受信することができます。 
 
-현재 제공 중인 `Webhook <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook>`_\은 다음과 같습니다.
-
-
-``POST``: `/webhook document event <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-document-event>`_\  문서 이벤트 전송
-
-``POST``: `/webhook pdf <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-pdf>`_\  PDF 생성 이벤트 전송
+現在提供している `Webhook <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook>`_\は次のとおりです。
 
 
-각 eformsign Webhook에 대한 자세한 설명은 
-`다음 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook>`__\ 에서 확인하실 수 있습니다.
+``POST``: `/webhook document event <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-document-event>`_\  文書イベント 전송
+
+``POST``: `/webhook pdf <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-pdf>`_\  PDF 생성 イベント 전송
+
+
+各 eformsign Webhook についての詳しい説明は 
+`次 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook>`__\ で確認することができます。
 
 
 
 
-Webhook 관련 정보
+Webhook 관련 情報
 ===================
 
-eformsign은 Webhook 이벤트로 **문서** 이벤트와 **PDF 생성** 이벤트를 제공하고 있습니다.
+eformsign は Webhook イベントとして **文書** イベントと **PDF 생성** イベントを提供しています。
 
 
-문서 이벤트
+文書イベント
 -------------
 
-eformsign에서 문서의 생성 또는 상태 변경 시 발생하는 이벤트입니다.
+eformsign で文書の作成または상태 변경 시 発生するイベントです。
 
 
 .. table:: 
 
    ================ ====== ================
-   Name             Type   설명
+   Name             Type   説明
    ================ ====== ================
-   id               String 문서 ID
-   template_id      String 템플릿 ID
-   template_name    String 템플릿 명
-   template_version String 템플릿 제목
-   workflow_seq     int    워크플로우 순서
-   workflow_name    String 워크플로우 명칭
-   history_id       String 문서 히스토리 ID
-   status           String 문서 상태
+   id               String 文書 ID
+   template_id      String テンプレート ID
+   template_name    String テンプレート 명
+   template_version String テンプレート 제목
+   workflow_seq     int    ワークフロー 순서
+   workflow_name    String ワークフロー 명칭
+   history_id       String 文書 히스토리 ID
+   status           String 文書 상태
    editor_id        String 작성자 ID
-   updated_date     long   문서 변경시간
+   updated_date     long   文書 변경시간
    ================ ====== ================
 
 
-이벤트 데이터 중 문서 상태를 나타내는 status의 의미는 다음을 참조하세요.
+イベントデータのうち、文書の상태を表す status の意味については、次をご覧ください。
 
 .. _status: 
 
 .. table:: 
-
+文書イベント
    ========================== ==================
-   Name                       설명
+   Name                       説明
    ========================== ==================
-   doc_create                 문서 생성시
-   doc_tempsave               문서 임시 저장시
+   doc_create                 文書 생성시
+   doc_tempsave               文書 임시 저장시
    doc_request_approval       결재 요청시
    doc_accept_approval        결재 승인시
    doc_reject_approval        결재 반려시
@@ -594,31 +594,31 @@ eformsign에서 문서의 생성 또는 상태 변경 시 발생하는 이벤트
    doc_decline_cancel_request 반려 요청 거절시
    doc_delete_request         삭제 요청시
    doc_decline_delete_request 삭제 요청 거절시
-   doc_deleted                문서 삭제시
-   doc_complete               문서 완료시
+   doc_deleted                文書 삭제시
+   doc_complete               文書 완료시
    ========================== ==================
 
 
-PDF 생성 이벤트
+PDF 생성 イベント
 ----------------
 
-eformsign에서 문서의 PDF 파일이 생성될 때 발생하는 이벤트입니다.
+eformsign で文書の PDF ファイルを生成するときに発生するイベントです。
 
 .. table:: 
 
    ===================== ====== ================
-   Name                  Type   설명
+   Name                  Type   説明
    ===================== ====== ================
-   document_id           String 문서 ID
-   template_id           String 템플릿 ID
-   template_name         String 템플릿 명
-   template_version      String 템플릿 제목
-   workflow_seq          int    워크플로우 순서
-   workflow_name         String 워크플로우 명칭
-   document_history_id   String 문서 히스토리 ID
-   document_status       String 문서 상태
+   document_id           String 文書 ID
+   template_id           String テンプレート ID
+   template_name         String テンプレート 명
+   template_version      String テンプレート 제목
+   workflow_seq          int    ワークフロー 순서
+   workflow_name         String ワークフロー 명칭
+   document_history_id   String 文書 히스토리 ID
+   document_status       String 文書 상태
    ===================== ====== ================
 
 
-이벤트 데이터 중 문서 상태를 나타내는 status의 의미는 `다음 <#status>`__\을 참조하세요.
+イベントデータのうち、文書の상태を表す status の意味については、`次 <#status>`__\をご覧ください。
 

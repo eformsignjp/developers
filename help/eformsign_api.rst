@@ -5,7 +5,7 @@ eformsign API の活用
 eformsign が提供する API を活用し、eformsign の機能を顧客のシステム/サービスで呼び出して使用できる機能です。
 
 
-スタート 
+はじめに 
 =========
 
 eformsign API を使用するためには、次のような準備作業が必要です。
@@ -44,32 +44,32 @@ eformsign サービスにログインし、会社 ID と文書 ID を確認し�
 API キーの作成および暗号化キーの確認
 ----------------------------------------
 
-1. eformsign に代表管理者としてログインし、メニューツリーで**[コネクト] > [API / Webhook]**\に移動します。 
+1. eformsign に代表管理者としてログインし、メニューツリーで **[コネクト] > [API / Webhook]** に移動します。 
 
 .. image:: resources/apikey1.PNG
     :width: 700
-    :alt: コネクト > API/Webhook メニューの位置
+    :alt: [コネクト] > [API/Webhook メニュー]
 
 
-2. **[API キー]**タブを選択し、**API キーの作成**\ボタンをクリックします。 
+2. **[API キー]** タブを選択し、**API キーの作成** ボタンをクリックします。 
 
 .. image:: resources/apikey2.PNG
     :width: 700
-    :alt: API キー登録ボタン
+    :alt: 「API キー登録」ボタン
 
 
-3. API キー作成ポップアップにエイリアスとアプリケーション名を入力し、保存ボタンをクリックします。
+3. 「API キー作成」ポップアップにエイリアスとアプリケーション名を入力し、「保存」ボタンをクリックします。
 
 .. image:: resources/apikey3.PNG
     :width: 700
-    :alt: API キー登録ポップアップ
+    :alt: 「API キー登録」ポップアップ
 
 
-4. 生成されたキーリストから**キーを表示**\ボタンをクリックし、API キーと暗号化キーを確認できます。
+4. 生成されたキーリストから **キーを表示** ボタンをクリックし、API キーと暗号化キーを確認できます。
 
 .. image:: resources/apikey4.PNG
     :width: 700
-    :alt: API キーを表示 ボタンの位置
+    :alt: 「API キーを表示」ボタン
 
 .. image:: resources/apikey5.PNG
     :width: 700
@@ -79,12 +79,12 @@ API キーの作成および暗号化キーの確認
 
 .. note:: **API キーを修正する方法**
 
-    生成されたキーリストから**修正**ボタンをクリックし、エイリアスとアプリケーション名を修正することができます。
+    作成されたキーリストから**「修正」**ボタンをクリックすると、エイリアスとアプリケーション名を修正することができます。
   	また、ステータス領域をクリックし、ステータスを活性/非活性に変更することもできます。
 
 .. note:: **API キーを削除する方法**
 
-    生成されたキーリストから**削除**ボタンをクリックし、API キーを削除することができます。
+    作成されたキーリストから**「削除」**ボタンをクリックすると、API キーを削除することができます。
 
 
 署名の登録 
@@ -97,12 +97,12 @@ eformsign_signature は、非対称キー方式と楕円曲線暗号(Elliptic cu
    楕円曲線暗号は、公開キー暗号化方式の一つで、データ暗号化デジタル認証など現在もっとも広く使われている暗号化方式です。 
 
 
-署名の登録方法については、Java、Python、PHP言語別に分けて説明します。
+署名の登録方法については、Java、Python、PHPの各言語に分けて説明します。
 
 Java
 -------
 
-サーバーの現在時刻を String(UTF-8) に変換し、`API キーの作成 <#apikey>`__\で作成された private key で署名すると、署名したデータを hex string に変換します。
+サーバーの現在時刻を String(UTF-8) に変換し、`API キーの作成 <#apikey>`__\で作成された private key で署名したあと、署名したデータを hex string に変換します。
 
 .. note:: 
 
@@ -114,7 +114,7 @@ Java
 Python
 -------
 
-キーフォーマット処理用のライブラリーを使用する必要があります。作業を実行する前に、次のコマンドを実行して ライブラリーをインストールしてください。
+キーフォーマット処理用のライブラリーを使用する必要があります。作業を開始する前に、次のコマンドを実行して ライブラリーをインストールしてください。
 
 .. code:: python
 
@@ -124,18 +124,18 @@ Python
 PHP
 -------
 
-以下の例題の keycheck.inc.php、test.php ファイルを同じパスに保存してから例題を行ってください。
+次の例題の keycheck.inc.php、test.php ファイルを同じパスに保存してから例題を実行してください。
 
 
 各言語の例題
 ---------------------
 
-以下は各言語の例題です。
+次は各言語の例題です。
 
 
 .. note:: 
 
-   execution_time は long タイプを使用しています。そのため、execution_time を入力する際は Access Token 発行の際に確認した時刻の次に L を追加してください。  
+   execution_time は long タイプを使用しています。そのため、execution_time を入力する際は Access Token 発行時に確認した時刻の次に L を追加してください。  
 
 
 
@@ -155,7 +155,7 @@ PHP
         PKCS8EncodedKeySpec psks8KeySpec = new PKCS8EncodedKeySpec(new BigInteger(privateKeyHexStr,16).toByteArray());
         PrivateKey privateKey = keyFact.generatePrivate(psks8KeySpec);
          
-        //execution_time - サーバーの現在時刻
+        //execution_time サーバーの現在時刻
         //long execution_time = new Date().getTime();
         long execution_time = 1611537340731L;     //Access_token 作成の際に取得した execute_time をこちらに入力。 long タイプのため、作成された時刻の次に L 追加     
         String execution_time_str = String.valueOf(execution_time);
@@ -272,18 +272,18 @@ PHP
 API 提供リスト
 ======================
 
-eformsign API は、署名を生成するための API と文書の作成や処理のための API からなります。
+eformsign API は、署名を生成するための API と文書の作成や処理のための API で構成されています。
 
 署名を生成するための API
 -------------------------
 
-署名を生成するために、まず `Access Token API <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`_\を活用してください。 
+署名を生成するために、まず `Access Token API <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`_\を使用してください。 
 
 ``POST``: `/api_auth/access_token <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth#/eformsign/post-api_auth-access_token>`_\  Access Token 発行
 
 
 Access Token API についての詳しい説明は 
-`以下 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`__\ で確認することができます。
+`次 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`__\ で確認することができます。
 
 .. caution:: 
    
@@ -315,7 +315,7 @@ Access Token API についての詳しい説明は
 
 .. caution:: 
    
-   取得した API キーは、 `次 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`__\ の位置にある **Authorize** ボタン（|image4|） をクリックして登録してください。ただし、API キー値には**必ず Base64**\でエンコードした 文字列を入力する必要があります。https://www.base64encode.org/ に接続し、取得した API キーを入力してエンコードされたテキストに変換して入力してください。
+   取得した API キーは、 `次 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`__\ の位置にある **「Authorize」** ボタン（|image4|）をクリックして登録してください。ただし、API キー値には **必ず Base64** でエンコードした 文字列を入力する必要があります。https://www.base64encode.org/ に接続し、取得した API キーを入力してエンコードされたテキストに変換してから入力してください。
 
 
 
@@ -329,7 +329,7 @@ Access Token API についての詳しい説明は
 
    文書 API を使用するためには、先に Access Token の発行が必要です。
 
-現在提供している `文書 API <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general>`_\は以下のとおりです。
+現在提供している `文書 API <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general>`_\は次のとおりです。
 
 
 ``POST``: `/api_auth/refresh_token <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/post-api_auth-refresh_token>`_\  Access Token 更新
@@ -356,7 +356,7 @@ API 関連情報
 API ステータスコード
 ---------------------
 
-API ステータスコードは、以下の通りです。
+API ステータスコードは、次の通りです。
 
 200
 '''''''
@@ -374,7 +374,7 @@ Code         説明              備考
 ===========  ===============  =====================================================================================
 Code         説明              備考
 ===========  ===============  =====================================================================================
-2020001      PDF 生成中       - PDF ファイルとしてダウンロードする際、非同期で生成されるため、文書保存後に PDF 生成まで時間が所要 
+2020001      PDF 生成中        - PDF ファイルとしてダウンロードする際、非同期で生成されるため、文書保存後に PDF 生成まで時間が所要 
                               - 数秒から数分後数分後に再要請するとダウンロード可能
 ===========  ===============  =====================================================================================
 
