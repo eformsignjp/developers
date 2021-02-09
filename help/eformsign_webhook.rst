@@ -2,11 +2,11 @@
 eformsign Webhook 사용하기
 ----------------------------
 
-eformsign でイベントが発生した時、そのイベント情報を 고객 システム/サービス로 に通知する機能です。Webhook を設定すると、고객の Webhook endpoint にそのイベント情報を HTTP POST 形式で通知します。
+eformsign でイベントが発生した時、そのイベント情報を 고객 システム/サービスに通知する機能です。Webhook を設定すると、고객の Webhook endpoint にそのイベント情報を HTTP POST 形式で通知します。
 
 .. tip:: 
 
-   Webhook の endpoint とは、고객の client callback URL を意味します。Open API を持続的に呼び出して변경사항をチェックする方法（polling）に対し、不要な呼び出しを 없이 eformsign 上のイベントについての情報を取得できます。
+   Webhook の endpoint とは、고객の client callback URL を意味します。Open API を持続的に呼び出して변경사항をチェックする方式（polling）に比べ、不要な呼び出しをせず eformsign 上のイベントについての情報を取得できます。
 
 
 시작하기 
@@ -18,28 +18,28 @@ eformsign でイベントが発生した時、そのイベント情報を 고객
 Webhook 키 발급하기
 --------------------
 
-1. eformsign에 대표 관리자로 로그인 후, 메뉴 트리에서 **[커넥트] > [API / Webhook]** ページに移動します。 
+1. eformsign に代表管理者로 ログインした後、メニューツリー에서 **[커넥트] > [API / Webhook]** ページに移動します。 
 
 .. image:: resources/apikey1.PNG
     :width: 700
     :alt: 커넥트 > API/Webhook 메뉴 위치
 
 
-2. **[Webhook 관리]** 탭을 선택하고 **Webhook 추가** ボタンをクリックします。
+2. **[Webhook 관리]** タブ을 선택하고 **Webhook 추가** ボタンをクリックします。
 
 .. image:: resources/webhook2.PNG
     :width: 700
     :alt: Webhook 추가 ボタン
 
 
-3. Webhook 키 생성 팝업창에 이름, Webhook URL, 활성 상태, 적용 テンプレートを入力して「登録」ボタンをクリックします。
+3. Webhook 키 생성 ポップアップ에 이름, Webhook URL, 활성 상태, 적용 テンプレートを入力して「登録」ボタンをクリックします。
 
 .. image:: resources/webhook3.PNG
     :width: 700
-    :alt: Webhook 키 생성 팝업창
+    :alt: Webhook 키 생성 ポップアップ
 
 
-4. 생성된 Webhook 목록から **키보기** ボタンをクリックして Webhook 공개키を確認します。
+4. 생성된 Webhook リストから **키보기** ボタンをクリックして Webhook 공개키を確認します。
 
 .. image:: resources/webhook4.PNG
     :width: 700
@@ -55,14 +55,14 @@ Webhook 키 발급하기
 
     **키 재발행** ボタンをクリックすると해당 Webhook の공개 키が재발행され、이전의 키는 사용할 수 없게 됩니다.
 
-.. note:: **Webhook 情報 수정 방법**
+.. note:: **Webhook 情報 修正 방법**
 
-    생성된 Webhook 목록에서 **수정** ボタンをクリックしてWebhook 情報를 변경할 수 있습니다.
+    생성된 Webhook リスト에서 **修正** ボタンをクリックしてWebhook 情報를 변경할 수 있습니다.
 
 
-.. note:: **Webhook 삭제 방법**
+.. note:: **Webhook 削除 방법**
 
-    생성된 Webhook 목록에서 **삭제** ボタンをクリックしてWebhook을 삭제할 수 있습니다.    
+    생성된 Webhook リスト에서 **削除** ボタンをクリックしてWebhook을 削除할 수 있습니다.    
 
 
 
@@ -283,7 +283,7 @@ PHP
         define('PUBLIC_KEY', '발급 받은 public key を入力してください。');
         ...
         /*
-         *  request で header と body を읽습니다.
+         *  request で header と body を読み取ります。
          *
          */
          
@@ -323,13 +323,13 @@ PHP
 テスト
 ==========================
 
-생성한 eformsign_signatureをテストしてみましょう。 
+생성한 eformsign_signature をテストしてみましょう。 
 
 次の eformsign_signature 생성および検証用サンプルは、Open API または Webhook の署名値を생성 및 検証するためのテストサンプルのソースコードです。
 
 .. note::
 
-   サンプルキー를 사용하고 있어 실 사용시에는 정상 동작 하지 않습니다. 생성하신 署名値の検証용으로만 사용해 주세요.
+   サンプルキーを使用しているため、실 사용시에는 正常動作しません。생성하신 署名値の検証用のみに使用してください。
 
 
 Java
@@ -576,26 +576,26 @@ eformsign で文書の作成または상태 변경 시 発生するイベント�
    Name                       説明
    ========================== ==================
    doc_create                 文書 생성시
-   doc_tempsave               文書 임시 저장시
-   doc_request_approval       결재 요청시
-   doc_accept_approval        결재 승인시
-   doc_reject_approval        결재 반려시
-   doc_request_external       외부자 요청시
-   doc_remind_external        외부자 재 요청시
+   doc_tempsave               文書 下書き保存
+   doc_request_approval       決裁 決裁
+   doc_accept_approval        決裁 承認
+   doc_reject_approval        決裁 返戻
+   doc_request_external       외부자 決裁
+   doc_remind_external        외부자 再決裁
    doc_open_external          외부자 열람시
-   doc_accept_external        외부자 승인시
-   doc_reject_external        외부자 반려시
-   doc_request_internal       내부자 요청시
-   doc_accept_internal        내부자 승인시
-   doc_reject_internal        내부자 반려시
-   doc_tempsave_internal      내부자 임시 저장시
-   doc_cancel_request         요청 취소시
-   doc_reject_request         반려 요청시
-   doc_decline_cancel_request 반려 요청 거절시
-   doc_delete_request         삭제 요청시
-   doc_decline_delete_request 삭제 요청 거절시
-   doc_deleted                文書 삭제시
-   doc_complete               文書 완료시
+   doc_accept_external        외부자 承認
+   doc_reject_external        외부자 返戻
+   doc_request_internal       내부자 決裁
+   doc_accept_internal        내부자 承認
+   doc_reject_internal        내부자 返戻
+   doc_tempsave_internal      내부자 下書き保存
+   doc_cancel_request         依頼 취소시
+   doc_reject_request         返戻 決裁
+   doc_decline_cancel_request 返戻 依頼 거절시
+   doc_delete_request         削除 決裁
+   doc_decline_delete_request 削除 依頼 거절시
+   doc_deleted                文書 削除
+   doc_complete               文書 完了
    ========================== ==================
 
 

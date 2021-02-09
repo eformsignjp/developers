@@ -33,10 +33,10 @@ eformsign の機能を使用したい Web ページに次のスクリプトを�
 
 
 -------------------------------
-eformsign オブジェクトについての説明
+eformsign のオブジェクトについての説明
 -------------------------------
 
-eformsign オブジェクトは、 embedding と redirect の2つのタイプで構成されています。
+eformsign のオブジェクトは、 embedding と redirect の2つのタイプで構成されています。
 
 
 +----------+--------------------+--------------------------------------+
@@ -83,7 +83,7 @@ eformsign オブジェクトは、 embedding と redirect の2つのタイプで
             "refresh_token" : "", // refresh Token 入力 openAPI accessToken 参照
             "external_token" : "", // 外部処理 시 external Token 入力 openAPI accessToken 参照
             "external_user_info" : {
-               "name" : "" // 外部処理 시 外部受信者 이름 入力
+               "name" : "" // 外部処理 시 外部受信者名を入力
             }
         },
         "mode" : {
@@ -243,14 +243,14 @@ document-option では大きく次の5項目について設定することがで
 2. ユーザー情報（非必須）
 ---------------------------
 
-**会社내 멤버 로그인을 통한 新規作成**
+**内部メンバー 로그인을 통한 新規作成**
     - ユーザー情報를 지정하지 않을 경우에 해당하며, ユーザー情報를 지정하지 않습니다.	
-    - この場合、eformsign 로그인 ページ가 기동되며, 로그인 과정 이후에 文書를 작성할 수 있게 됩니다.
+    - この場合、eformsign 로그인 ページ가 기동되며, 로그인 과정 이후에 文書를 作成할 수 있게 됩니다.
 
 
-**会社내 멤버의 토큰을 이용한 작성(신규 및 受信した文書 포함)**	
-    - 임베딩시, eformsign 로그인 과정 없이, 특정 계정의 token을 이용하여 文書를 작성 및 受信した文書를 작성합니다.
-    - 토큰 발급 방법은 Open API의 Access token 발급을 통해 가능합니다.
+**内部メンバー의 トークン을 이용한 作成（新規作成および受信した文書を含む）**	
+    - 임베딩시, eformsign 로그인 과정 없이, 특정 계정의 token을 이용하여 文書를 作成 및 受信した文書를 作成합니다.
+    - トークン 발급 방법은 Open API의 Access token 발급을 통해 가능합니다.
 
 .. code-block:: javascript
 
@@ -263,8 +263,8 @@ document-option では大きく次の5項目について設定することがで
     };
 
 
-**会社내 멤버ではないユーザーが新規文書を作成**  
-    - eformsign の会員ではないユーザー로 하여금 文書를 작성하게 하는 方式
+**内部メンバーではないユーザーが新規文書を作成**  
+    - eformsign の会員ではないユーザーが文書を作成できるようにする方式
 
 .. code-block:: javascript
 
@@ -272,13 +272,13 @@ document-option では大きく次の5項目について設定することがで
         "user":{
             "type" : "02" , // 01 - internal or  02 - external  (必須)
             "external_user_info" : {
-                "name" : "" // 外部処理 시 外部受信者 이름 入力
+                "name" : "" // 外部処理 시 外部受信者名を入力
             }
         }
     };
 
-**会社내 멤버ではないユーザーが受信した文書を作成**
-    - 임베딩시、eformsign の회원ではないユーザーが受信した文書를 작성하게 하는 方式
+**内部メンバーではないユーザーが受信した文書を作成**
+    - 임베딩시、eformsign の会員ではないユーザーが受信した文書を作成できるようにする方式
 
 .. code-block:: javascript 
 
@@ -287,7 +287,7 @@ document-option では大きく次の5項目について設定することがで
         "type" : "02" , // 01 - internal or  02 - external  (必須)
         "external_token" : "", // 外部処理 시 external Token 入力 openAPI accessToken 参照
         "external_user_info" : {
-        "name" : "" // 外部処理 시 外部受信者 이름 入力
+        "name" : "" // 外部処理 시 外部受信者名を入力
             }
         }
     };
@@ -301,7 +301,7 @@ document-option では大きく次の5項目について設定することがで
             "refresh_token" : "", // refresh Token 入力 openAPI accessToken 参照
             "external_token" : "", // 外部処理 시 external Token 入力 openAPI accessToken 参照
             "external_user_info" : {
-               "name" : "" // 外部処理 시 外部受信者 이름 入力
+               "name" : "" // 外部処理 시 外部受信者名を入力
             }
         }
     };
@@ -317,7 +317,7 @@ document-option では大きく次の5項目について設定することがで
 
     var document_option = {
         "mode" : {
-        "type" : "01" ,  // 01 : 文書 작성 , 02 : 文書 처리 , 03 : プレビュー
+        "type" : "01" ,  // 01 : 文書 作成 , 02 : 文書 처리 , 03 : プレビュー
         "template_id" : "" // template id 入力
         }
     }
@@ -329,20 +329,20 @@ document-option では大きく次の5項目について設定することがで
 
     var document_option = {
         "mode" : {
-        "type" : "02" ,  // 01 : 文書 작성 , 02 : 文書 처리 , 03 : プレビュー
+        "type" : "02" ,  // 01 : 文書 作成 , 02 : 文書 처리 , 03 : プレビュー
         "template_id" : "", // template id 入力
         "document_id" : ""  // document_id 入力
         }
     }
 
 **特定の文書をプレビュー**
-    - 작성된 文書のプレビューを確認します。
+    - 作成した文書のプレビューを確認します。
 
 .. code-block:: javascript
 
     var document_option = {
         "mode" : {
-        "type" : "03" ,  // 01 : 文書 작성 , 02 : 文書 처리 , 03 : プレビュー
+        "type" : "03" ,  // 01 : 文書 作成 , 02 : 文書 처리 , 03 : プレビュー
         "template_id" : "", // template id 入力
         "document_id" : ""  // document_id 入力
         }
@@ -352,7 +352,7 @@ document-option では大きく次の5項目について設定することがで
 
     var document_option = {
       "mode" : {
-        "type" : "01" ,  //01 : 文書 작성 , 02 : 文書 처리 , 03 : プレビュー
+        "type" : "01" ,  //01 : 文書 作成 , 02 : 文書 처리 , 03 : プレビュー
         "template_id" : "", // template id 入力
         "document_id" : ""  // document_id 入力
       }
@@ -384,7 +384,7 @@ document-option では大きく次の5項目について設定することがで
 
     var document_option = {
         "prefill" : {
-            "document_name": "휴가신청서"
+            "document_name": "休暇届"
         }
     }
 
