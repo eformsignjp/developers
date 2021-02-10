@@ -20,8 +20,8 @@ sys.path.insert(0, os.path.abspath('.'))
 # -- Project information -----------------------------------------------------
 
 project = 'eformsign API guide'
-copyright = '2021, forcs'
-author = 'forcs'
+copyright = '2021. FORCS CO., LTD. All rights reserved'
+author = 'FORCS'
 
 # The short X.Y version
 version = ''
