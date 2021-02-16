@@ -387,7 +387,7 @@ document-option では大きく次の5つの項目を設定することができ
 
     var document_option = {
         "mode" : {
-        "type" : "01" ,  // 01：文書の作成、02：文書の処理、03：プレビュー
+        "type" : "01" ,  // 01 : 文書の作成、02 : 文書の処理、03 : プレビュー
         "template_id" : "" // template idを入力
         }
     }
@@ -399,7 +399,7 @@ document-option では大きく次の5つの項目を設定することができ
 
     var document_option = {
         "mode" : {
-        "type" : "02" ,  // 01：文書の作成、02：文書の処理、03：プレビュー
+        "type" : "02" ,  // 01 : 文書の作成、02 : 文書の処理、03 : プレビュー
         "template_id" : "", // template idを入力
         "document_id" : ""  // document_idを入力
         }
@@ -412,7 +412,7 @@ document-option では大きく次の5つの項目を設定することができ
 
     var document_option = {
         "mode" : {
-        "type" : "03" ,  // 01：文書の作成、02：文書の処理、03：プレビュー
+        "type" : "03" ,  // 01 : 文書の作成、02 : 文書の処理、03 : プレビュー
         "template_id" : "", // template idを入力
         "document_id" : ""  // document_idを入力
         }
@@ -422,7 +422,7 @@ document-option では大きく次の5つの項目を設定することができ
 
     var document_option = {
       "mode" : {
-        "type" : "01" ,  //01：文書の作成、02：文書の処理、03：プレビュー
+        "type" : "01" ,  //01 : 文書の作成、02 : 文書の処理、03 : プレビュー
         "template_id" : "", // template idを入力
         "document_id" : ""  // document_idを入力
       }
