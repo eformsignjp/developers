@@ -1,6 +1,6 @@
-----------------------------
+--------------------------------
 eformsign Webhook の利用
-----------------------------
+--------------------------------
 
 eformsign でイベントが発生した時、そのイベント情報を顧客のシステム/サービスに通知する機能です。Webhook を設定すると、顧客の Webhook endpoint にそのイベント情報を HTTP POST 形式で通知します。
 
@@ -9,8 +9,8 @@ eformsign でイベントが発生した時、そのイベント情報を顧客�
    Webhook の endpoint とは、顧客の client callback URL を意味します。Open API を持続的に呼び出して変更内容をチェックする方式（polling）に比べ、不要な呼び出しをせず eformsign 上のイベントについての情報を取得できます。
 
 
-eformsign Webhookを始めよう 
-===========================
+始めてみよう 
+===============
 
 
 .. _webhook:
@@ -74,25 +74,25 @@ Webhook キーの発行
 
 次はテストのための json ファイルです。
 
-.. code:: json
 
-	{
-	"webhook_id" : "Webhook ID",
-	"webhook_name" : "Webhook名",
-	"company_id" : "会社ID",
-	"event_type" : “document”,
-	"document" : {
-	  "id" : “test_doc_id”,
-	   "template_id" : “test_template_id”,
-	   "template_version" : “1”,
-	   "document_history_id" : “test_document_history_id”,
-	   "doc_status" : “doc_create”,
-	   "editor_id" : "ユーザーID",
-	   "updated_date" : "現在時間(UTC Long)"
-	}
-	}
-	Test URL : そのWebhookのURL
+.. code:: JSON
 
+    {
+    "webhook_id" : "Webhook ID",
+    "webhook_name" : "Webhookの名前",
+    "company_id" : "会社ID",
+    "event_type" : “document”,
+    "document" : {
+      "id" : “test_doc_id”,
+       "template_id" : “test_template_id”,
+       "template_version" : “1”,
+       "document_history_id" : “test_document_history_id”,
+       "doc_status" : “doc_create”,
+       "editor_id" : "ユーザーID",
+       "updated_date" : "現在時間(UTC Long)"
+    }
+    }
+    Test URL : WebhookのURL
 
 
 
