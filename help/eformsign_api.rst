@@ -13,11 +13,11 @@ eformsign API を利用するためには、次のような事前作業が必要
 
 - 会社 ID と 文書 ID の確認
 - API キーの作成および秘密鍵の確認
-- 署名の登録
+- 署名の作成
 
 .. caution:: 
    
-   署名の登録には30秒の時間制限があります。30秒以内に署名を登録し、トークンを取得してください。 
+   署名の作成には30秒の時間制限があります。30秒以内に署名を作成し、トークンを取得してください。 
 
 
 
@@ -52,19 +52,18 @@ API キーの作成および秘密鍵の確認
     :alt: コネクト > API/Webhook メニューの位置
 
 
-2. **「API キー」
-** タブを選択し、**API キーの作成** ボタンをクリックします。 
+2. **「API キー」** タブを選択し、**API キーの作成** ボタンをクリックします。 
 
 .. image:: resources/apikey2.PNG
     :width: 700
     :alt: 「API キー登録」ボタン
 
 
-3. **「API キーの作成」** ポップアップにエイリアスとアプリケーション名を入力し、「保存」ボタンをクリックします。
+3. **「API キーの作成」** ポップアップ画面にエイリアスとアプリケーション名を入力し、「保存」ボタンをクリックします。
 
 .. image:: resources/apikey3.PNG
     :width: 700
-    :alt: 「API キーの作成」ポップアップ
+    :alt: 「API キーの作成」ポップアップ画面
 
 
 4. 作成されたキーリストから **「キーを表示」** ボタンをクリックすると、API キーと秘密鍵を確認できます。
@@ -89,7 +88,7 @@ API キーの作成および秘密鍵の確認
     作成されたキーリストから**「削除」**ボタンをクリックすると、API キーを削除することができます。
 
 
-署名の登録 
+署名の作成 
 ==============
 
 eformsign_signature は、非対称キー方式と楕円曲線暗号(Elliptic curve cryptography)を使用しています。
@@ -99,12 +98,12 @@ eformsign_signature は、非対称キー方式と楕円曲線暗号(Elliptic cu
    楕円曲線暗号は、公開キー暗号化方式の一つで、データ暗号化デジタル認証など現在もっとも広く使われている暗号化方式です。 
 
 
-署名の登録方法については、Java、Python、PHPの各言語に分けて説明します。
+署名の作成方法については、Java、Python、PHPの各言語に分けて説明します。
 
 Java
 -------
 
-サーバー時間を String(UTF-8) に変換し、`API キーの作成 <#apikey>`__\で作成された private key で署名したあと、署名したデータを hex string に変換します。
+サーバー時間を String(UTF-8) に変換し、`API キーの作成 <#apikey>`__\で作成された private key で署名した後、署名したデータを hex string に変換します。
 
 .. note:: 
 
@@ -129,8 +128,8 @@ PHP
 次の例題の keycheck.inc.php、test.php ファイルを同じパスに保存してから例題を実行してください。
 
 
-各言語の例題
----------------------
+例題
+---------
 
 次は各言語の例題です。
 
@@ -289,8 +288,8 @@ Access Token API についての詳しい説明は
 
 .. caution:: 
    
-   署名の作成には30秒の時間制限があります。30秒以内に署名を登録し、トークンを取得する必要があります。 
-   また、サーバー時間と現在時間が一致しない場合があります。Access Token API を呼び出し、受信した応答メッセージの"execution_time"\ を確認してください。
+   署名の作成には30秒の時間制限があります。30秒以内に署名を作成し、トークンを取得する必要があります。 
+   また、サーバー時間と現在時間が一致しない場合があります。Access Token API を呼び出し、受信した応答メッセージの「execution_time」\ を確認してください。
 
    .. code:: JSON
 
@@ -324,7 +323,7 @@ Access Token API についての詳しい説明は
 文書の作成・処理のための API
 ----------------------------------
 
-署名を登録すると、次の文書 API を使用して文書の新規作成や文書情報の照会ができ、完了文書ファイル（文書 PDF、監査証跡証明書）や添付ファイルをダウンロードすることができます。 
+署名を作成すると、次の文書 API を使用して文書の新規作成や文書情報の照会ができ、完了文書のファイル（文書の PDF ファイル、監査証跡証明書）や添付ファイルをダウンロードすることができます。 
 
 
 .. note:: 
@@ -342,7 +341,7 @@ Access Token API についての詳しい説明は
 
 ``GET``: `/api/documents/{document_id} <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/get-api-documents-DOCUMENT_ID>`_\  文書情報の照会
 
-``GET``: `/api/docuemnts/{document_id}/download_files <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/get-api-documents-DOCUMENT_ID-download_files>`_\  文書ファイルのダウンロード（文書 PDF、 監査証跡証明書）
+``GET``: `/api/docuemnts/{document_id}/download_files <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/get-api-documents-DOCUMENT_ID-download_files>`_\  文書ファイルのダウンロード（PDF ファイル、監査証跡証明書）
 
 ``GET``: `/api/doduments/{document_id}/download_attach_files <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/get-api-documents-DOCUMENT_ID-download_attach_files>`_\  添付ファイルのダウンロード
 
@@ -376,7 +375,7 @@ Code         説明              備考
 ===========  ===============  ===================================
 Code         説明              備考
 ===========  ===============  ===================================
-2020001      PDF 作成中         - PDFファイルとしてダウンロードする際、非同期で作成されるため、文書保存後に PDF の作成まで時間が所要 
+2020001      PDF作成中          - PDFファイルとしてダウンロードする際、非同期で作成されるため、文書保存後にPDFファイルの作成まで時間が所要 
                                 - 数秒から数分後数分後に再要請するとダウンロード可能
 ===========  ===============  ===================================
 
@@ -458,19 +457,19 @@ Status タイプ
 ======================  ===============  ===================================
 Type                     Code             説明
 ======================  ===============  ===================================
-doc_tempsave             001              下書き（作成者が下書き保存した状態）
+doc_tempsave             001              下書き保存
 doc_create               002              作成
 doc_complete             003              完了
 doc_update               043              修正
-doc_request_delete       047              削除を依頼
+doc_request_delete       047              削除の依頼
 doc_delete               049              削除
-doc_request_revoke       040              無効化を依頼
+doc_request_revoke       040              無効化の依頼
 doc_revoke               041              無効化
-doc_request_reject       045              返戻を依頼
-doc_request_approval     010              決裁を依頼
-doc_accept_approval      012              決裁を承認
-doc_reject_approval      011              決裁を返戻
-doc_cancel               013              決裁を無効化
+doc_request_reject       045              返戻の依頼
+doc_request_approval     010              決裁の依頼
+doc_accept_approval      012              決裁の承認
+doc_reject_approval      011              決裁の返戻
+doc_cancel               013              決裁のキャンセル
 doc_request_reception    020              内部受信者に依頼
 doc_accept_reception     022              内部受信者が承認
 doc_reject_reception     021              内部受信者が返戻
@@ -489,10 +488,10 @@ Type                     Code             説明
 doc_tempsave             001              下書き保存
 doc_create               002              作成
 doc_complete             003              完了
-doc_request_approval     010              決裁を依頼
-doc_reject_approval      011              決裁を返戻
-doc_accept_approval      012              決裁を承認
-doc_cancel               013              決裁を無効化
+doc_request_approval     010              決裁の依頼
+doc_reject_approval      011              決裁の返戻
+doc_accept_approval      012              決裁の承認
+doc_cancel               013              決裁のキャンセル
 doc_request_reception    020              内部受信者に依頼
 doc_reject_reception     021              内部受信者が返戻
 doc_accept_reception     022              内部受信者が承認
@@ -503,15 +502,15 @@ doc_accept_outsider      032              外部受信者が承認
 doc_rerequest_outsider   033              外部受信者に再依頼
 doc_open_outsider        034              外部受信者が閲覧
 doc_outsider_tempsave    035              外部受信者が下書き保存
-doc_request_revoke       040              無効化を依頼
-doc_refuse_revoke        041              無効化依頼を返戻拒否
+doc_request_revoke       040              無効化の依頼
+doc_refuse_revoke        041              無効化依頼の拒否
 doc_revoke               042              無効化
 doc_update               043              修正
-doc_cancel_update        044              修正を無効化
-doc_request_reject       045              返戻を依頼
-doc_refuse_reject        046              返戻依頼を返戻
-doc_request_delete       047              削除を依頼
-doc_refuse_delete        048              削除依頼を返戻
+doc_cancel_update        044              修正のキャンセル
+doc_request_reject       045              返戻の依頼
+doc_refuse_reject        046              返戻依頼の拒否
+doc_request_delete       047              削除の依頼
+doc_refuse_delete        048              削除依頼の拒否
 doc_delete               049              削除
 doc_complete_send_pdf    050              完了文書をPDFファイルで送信
 doc_transfer             051              移管

@@ -165,7 +165,7 @@ eformsign のオブジェクトは、 embedding と redirect の2つのタイプ
             "document_name": "", // 文書のタイトルを入力
             "fields": [ {
                 "id" ; "顧客名",
-                "value" : "田中太郎",
+                "value" : "木村",
                 "enabled" : true,
                 "required" : true 
             }]
@@ -247,7 +247,7 @@ eformsign を組み込み、顧客会社のサイト/サービスで文書を作
             "fields": [{
                 "id" : "",
                 "顧客名" : "",
-                "value": "田中太郎",
+                "value": "木村",
                 "enabled": true,
                 "required": true
             }]
@@ -444,7 +444,7 @@ document-option では大きく次の5つの項目を設定することができ
        "return_fields" : ['顧客名']
     }
 
-5. 自動入力（文書を作成するときに自動入力されるよう設定するときに利用）
+5. 自動入力（文書作成時に自動入力されるよう設定）
 --------------------------------------------------------------------------
 
 **文書のタイトル**
@@ -482,7 +482,7 @@ document-option では大きく次の5つの項目を設定することができ
         "prefill" : {
         "fields": [ {
             "id" ; "顧客名",
-            "value" : "田中太郎",
+            "value" : "山田太郎",
             "enabled" : true,
             "required" : true 
         }]
@@ -497,7 +497,7 @@ document-option では大きく次の5つの項目を設定することができ
             "fields": [
                 {
                     "id": "顧客名",
-                    "value": "田中太郎",
+                    "value": "山田太郎",
                 "enabled": true,
                     "required": true
                 }

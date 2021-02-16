@@ -322,13 +322,13 @@ PHP
 テスト
 ==========================
 
-生成した eformsign_signature をテストしてみましょう。 
+作成した eformsign_signature をテストしてみましょう。 
 
-次の eformsign_signature の生成および検証用サンプルは、Open API または Webhook の署名値を生成および検証するためのテストサンプルのソースコードです。
+次の eformsign_signature の作成・検証用のサンプルは、Open API または Webhook の署名値を作成および検証するためのテストサンプルのソースコードです。
 
 .. note::
 
-   サンプルキーを使用しているため、実際の環境では正常動作しません。例題で生成した署名値の検証用途としてのみご利用ください。
+   サンプルキーを使用しているため、実際の環境では正常動作しません。例題で作成した署名値の検証用途としてのみご利用ください。
 
 
 Java
@@ -526,7 +526,7 @@ Webhook 提供リスト
 
 ``POST``: `/webhook document event <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-document-event>`_\  文書イベント送信
 
-``POST``: `/webhook pdf <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-pdf>`_\  PDF 生成イベント送信
+``POST``: `/webhook pdf <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-pdf>`_\  PDF作成イベント送信
 
 
 各 eformsign Webhook についての詳しい説明は 
@@ -538,7 +538,7 @@ Webhook 提供リスト
 Webhook についての情報
 =========================
 
-eformsign は Webhook イベントとして **文書** イベントと **PDF 生成** イベントを提供しています。
+eformsign は Webhook イベントとして **文書** イベントと **PDF 作成** イベントを提供しています。
 
 
 文書イベント
@@ -576,9 +576,9 @@ eformsign で文書の作成または状態の変更があるときに発生す�
    ========================== ===========================
    doc_create                 作成
    doc_tempsave               下書き保存
-   doc_request_approval       決裁を依頼
-   doc_accept_approval        決裁を承認
-   doc_reject_approval        決裁を返戻
+   doc_request_approval       決裁の依頼
+   doc_accept_approval        決裁の承認
+   doc_reject_approval        決裁の返戻
    doc_request_external       外部受信者に依頼
    doc_remind_external        外部受信者に再依頼
    doc_open_external          外部受信者が閲覧
@@ -588,20 +588,20 @@ eformsign で文書の作成または状態の変更があるときに発生す�
    doc_accept_internal        内部受信者が承認
    doc_reject_internal        内部受信者が返戻
    doc_tempsave_internal      内部受信者が下書き保存
-   doc_cancel_request         依頼を無効化
-   doc_reject_request         返戻を依頼
-   doc_decline_cancel_request 返戻依頼を拒否
-   doc_delete_request         削除を依頼
-   doc_decline_delete_request 削除依頼を拒否
+   doc_cancel_request         依頼の無効化
+   doc_reject_request         返戻の依頼
+   doc_decline_cancel_request 返戻依頼の拒否
+   doc_delete_request         削除の依頼
+   doc_decline_delete_request 削除依頼の拒否
    doc_deleted                削除
    doc_complete               完了
    ========================== ===========================
 
 
-PDF 生成イベント
+PDF 作成イベント
 ----------------
 
-eformsign で文書の PDF ファイルを生成するときに発生するイベントです。
+eformsign で文書の PDF ファイルを作成するときに発生するイベントです。
 
 .. table:: 
 
