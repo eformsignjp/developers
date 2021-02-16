@@ -113,18 +113,18 @@ eformsign のオブジェクトは、 embedding と redirect の2つのタイプ
 +----------+-----------------------+--------------------------------------+
 | Type     | Name                  | 説明                                 |
 +==========+=======================+======================================+
-| embedding| eformsign.document    | eformsignを組み込み、文書を作成できる　  |
-|          | (document_option,     | ようにする関数                      |
+| embedding| eformsign.document    | eformsignを組み込み、文書を作成  　  |
+|          | (document_option,     | できる関数                        |
 |          | iframe_id,            |                                      |
-|          | success_callback,     | callbackパラメーターはオプション          |
+|          | success_callback,     | callbackパラメーターはオプション      |
 |          | error_callback)       |                                      |
 |          |                       | -  document_option, iframe_id: 必須  |
 |          |                       |                                      |
-|          |                       | -  success_callback: オプション         |
+|          |                       | -  success_callback: オプション       |
 |          |                       |                                      |
-|          |                       | -  error_callback: オプション           |
+|          |                       | -  error_callback: オプション         |
 +----------+-----------------------+--------------------------------------+
-| redirect | eformsign.document    | eformsignへのページ転換方式で      |
+| redirect | eformsign.document    | eformsignへのページ転換方式で       |
 |          | (document_option)     | 文書を作成できるようにする関数       |
 |          |                       |                                      |
 |          |                       | -  document_option : 必須            |
@@ -551,21 +551,21 @@ document 関数のパラメーターとして Callback 関数を設定した場�
 +----------+--------+--------------------------+----------------------+
 | Callback | Type   | 説明                     | 備考                 |
 +==========+========+==========================+======================+
-| code     | string | 送信に失敗した場合、結果の  | -1 の場合、正常　　     |
-|          |        | エラーコードを返す　　     |                      |
+| code     | string | 送信に失敗した場合、結果  | -1 の場合、正常　　  |
+|          |        | のエラーコードを返す　　   |                      |
 +----------+--------+--------------------------+----------------------+
-| document | string | 送信に成功した場合、作成した | ex)                  |
-| _id      |        | 文書の document_idを     | 910b8a965f9          |
+| document | string | 送信に成功した場合、作成 | ex)                  |
+| _id      |        | した文書の document_idを | 910b8a965f9          |
 |          |        | 返す　　                 | 402b82152f48c6da5a5c |
 +----------+--------+--------------------------+----------------------+
-| field    | object | document_optionに定義した | ex).                 |
-| _values  |        | return_fields コラムに    | field_values["name"] |
-|          |        | ユーザーが入力した値を     | // john              |
-|          |        | インポートできる           |                      |
+| field    | object | document_optionに定義した| ex).                 |
+| _values  |        | return_fields コラムに   | field_values["name"] |
+|          |        | ユーザーが入力した値を   | // john              |
+|          |        | インポートできる         |                      |
 +----------+--------+--------------------------+----------------------+
-| message  | string | 送信に失敗した場合、エラー   | Nullの場合、正常　   |
-|          |        | メッセージを返す　        |                      |
+| message  | string | 送信に失敗した場合、   | Nullの場合、正常　   |
+|          |        | エラーメッセージを返す　    |                      |
 +----------+--------+--------------------------+----------------------+
-| title    | string | 送信に成功した場合、作成した | ex) 契約書           |
-|          |        | 文書のタイトルを返す　　   |                      |
+| title    | string | 送信に成功した場合、作成 | ex) 契約書           |
+|          |        | した文書のタイトルを返す　　 |                      |
 +----------+--------+--------------------------+----------------------+
