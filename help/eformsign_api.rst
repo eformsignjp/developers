@@ -1,3 +1,4 @@
+
 --------------------------
 eformsign API の利用
 --------------------------
@@ -48,7 +49,7 @@ API キーの作成および秘密鍵の確認
 
 .. image:: resources/apikey1.PNG
     :width: 700
-    :alt: 「コネクト」 > 「API/Webhook」
+    :alt: コネクト > API/Webhook メニューの位置
 
 
 2. **「API キー」
@@ -70,7 +71,7 @@ API キーの作成および秘密鍵の確認
 
 .. image:: resources/apikey4.PNG
     :width: 700
-    :alt: 「API キーを表示」ボタン
+    :alt: 「API キーを表示」ボタンの位置
 
 .. image:: resources/apikey5.PNG
     :width: 700
@@ -522,10 +523,8 @@ doc_transfer             051              移管
 .. |image1| image:: resources/company_id.png
    :width: 600px
 .. |image2| image:: resources/column_icon.png
-   :width: 30px
 .. |image3| image:: resources/document_id.png
 .. |image4| image:: resources/authorize_icon.png
-   :width: 70px
 .. |image5| image:: resources/execution_time.png
    :width: 450px
 .. |image6| image:: resources/execution_time2.png
