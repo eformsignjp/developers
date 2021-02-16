@@ -4,19 +4,19 @@
 
 eformsign は、会社で発生する紙の文書を誰もが簡単に電子文書化し、いつ、どこでも、業務に活用できる上、保存されている情報を多様に活用できる電子文書サービスです。
 
-eformsign は、顧客のシステム/サービスで eformsign の機能を多様に活用できるよう、eformsign の電子文書機能を直接組み込む方式、Open API 方式、そして Webhook 方式の3つの方式に対応しています。  
+eformsign は、顧客のWebサイトやサービスで eformsign の機能を多様に活用できるよう、eformsign の電子文書機能を直接組み込む方式、Open API 方式、そして Webhook 方式の3つの方式に対応しています。  
 
 
 **eformsign 機能の組み込み**
 
-eformsign を顧客がシステム/サービス内に eformsign の電子文書機能を組み込む（embed）ことで、eformsign サイトに接続することなく、顧客のサービス内で eformsign の電子文書機能を利用することができます。
+eformsign を顧客がサービス（またはWebサイト）内に eformsign の電子文書機能を組み込む（embed）ことで、eformsign サイトに接続することなく、顧客のサービス内で eformsign の電子文書機能を利用することができます。
 
 
-**eformsign API の利用**
+**eformsign API の使い方**
 
 eformsign が提供する API を使用し、eformsign の機能を顧客のシステム/サービスで呼び出し、利用できるようにする機能です。
 
 
-**eformsign Webhook の利用**
+**eformsign Webhook の使い方**
 
 eformsign にイベントが発生した際、情報したイベントの情報を顧客のシステム/サービスに通知する機能です。 

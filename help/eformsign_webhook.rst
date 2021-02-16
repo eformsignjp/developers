@@ -1,5 +1,5 @@
 ----------------------------
-eformsign Webhook の利用
+eformsign Webhook の使い方
 ----------------------------
 eformsign でイベントが発生した時、そのイベント情報を顧客のシステム/サービスに通知する機能です。Webhook を設定すると、顧客の Webhook endpoint にそのイベント情報を HTTP POST 形式で通知します。
 
@@ -126,8 +126,8 @@ PHP
 次の例題の keycheck.inc.php、test.php ファイルを同じパスに保存してから例題を実施してください。
 
 
-各言語の例題
----------------------
+例題
+-----------
 
 次は各言語の例題です。
 
@@ -354,8 +354,8 @@ PHP
 
 
 
-各言語の例題
----------------------
+例題
+-----------
 
 次は各言語のテストキーと例題です。
 
@@ -552,15 +552,15 @@ eformsign で文書の作成または状態の変更があるときに発生す�
    ================ ====== ================
    Name             Type   説明
    ================ ====== ================
-   id               String 文書の ID
-   template_id      String テンプレートの ID
+   id               String 文書のID
+   template_id      String テンプレートのID
    template_name    String テンプレートの名前
    template_version String テンプレートのバージョン
    workflow_seq     int    ワークフローの順序
    workflow_name    String ワークフローの名前
-   history_id       String 文書履歴の ID
+   history_id       String 文書履歴のID
    status           String 文書の状態
-   editor_id        String 作成者の ID
+   editor_id        String 作成者のID
    updated_date     long   文書の変更時間
    ================ ====== ================
 
@@ -608,13 +608,13 @@ eformsign で文書の PDF ファイルを生成するときに発生するイ�
    ===================== ====== ===================
    Name                  Type   説明
    ===================== ====== ===================
-   document_id           String 文書の ID
-   template_id           String テンプレートの ID
+   document_id           String 文書のID
+   template_id           String テンプレートのID
    template_name         String テンプレートの名前
    template_version      String テンプレートのバージョン
    workflow_seq          int    ワークフローの順序
    workflow_name         String ワークフローの名前
-   document_history_id   String 文書履歴の ID
+   document_history_id   String 文書履歴のID
    document_status       String 文書の状態
    ===================== ====== ===================
 
