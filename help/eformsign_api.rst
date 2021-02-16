@@ -5,7 +5,7 @@ eformsign API の利用
 eformsign が提供する API を活用し、eformsign の機能を顧客のシステム/サービスで呼び出して使用できる機能です。
 
 
-eformsign API 開始する 
+eformsign API を開始する 
 =========================
 
 eformsign API を利用するためには、次のような事前作業が必要です。

@@ -29,7 +29,7 @@ eformsign embedding 機能を利用するためには、会社 ID とテンプ�
 
 
 
-会社管理 > 会社情報
+会社情報メニュー
 --------------------------------
 
 .. image:: resources/Dashboard_sidemenu_companyinfo.png
@@ -53,7 +53,7 @@ eformsign embedding 機能を利用するためには、会社 ID とテンプ�
 **「テンプレート管理」** メニューに移動し、使用したいテンプレートの設定アイコンをクリックすると、そのテンプレートの URL から form_id を確認することができます。 
 
 
-「テンプレート管理」メニュー
+テンプレート管理メニュー
 -----------------------------------
 
 .. image:: resources/sidemenu_managetemplate.png
