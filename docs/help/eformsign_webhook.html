@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>eformsign Webhook 사용하기</title>
+      <title>eformsign Webhook の使い方</title>
     
       <link rel="stylesheet" href="../_static/pygments.css">
       <link rel="stylesheet" href="../_static/theme.css">
@@ -25,14 +25,14 @@
     
   <link rel="index" title="索引" href="../genindex.html" />
   <link rel="search" title="検索" href="../search.html" />
-  <link rel="prev" title="eformsign API 사용하기" href="eformsign_api.html" /> 
+  <link rel="prev" title="eformsign API の使い方" href="eformsign_api.html" /> 
   </head>
 
   <body>
     <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
   <router-link to="../index.html" class="home-link">
     
-      <span class="site-name">eformsign API guide</span>
+      <img class="logo" src="../_static/forcs.png" alt="doit logo"/>
     
   </router-link>
 
@@ -81,32 +81,32 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="eformsign_embedding.html" class="reference internal ">eformsign 기능 직접 삽입하기</a>
+          <li class="toctree-l1 "><a href="eformsign_embedding.html" class="reference internal ">eformsign 機能の組み込み</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="eformsign_api.html" class="reference internal ">eformsign API 사용하기</a>
+          <li class="toctree-l1 "><a href="eformsign_api.html" class="reference internal ">eformsign API の使い方</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 current"><a href="#" class="reference internal current">eformsign Webhook 사용하기</a>
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">eformsign Webhook の使い方</a>
 
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#id1" class="reference internal">시작하기</a></li>
+                  <li class="toctree-l2"><a href="#id1" class="reference internal">始めてみよう</a></li>
                 
-                  <li class="toctree-l2"><a href="#id3" class="reference internal">서명 생성하기</a></li>
+                  <li class="toctree-l2"><a href="#id3" class="reference internal">署名の登録</a></li>
                 
-                  <li class="toctree-l2"><a href="#id5" class="reference internal">테스트해보기</a></li>
+                  <li class="toctree-l2"><a href="#id5" class="reference internal">テスト</a></li>
                 
-                  <li class="toctree-l2"><a href="#id10" class="reference internal">Webhook 제공 리스트</a></li>
+                  <li class="toctree-l2"><a href="#id10" class="reference internal">Webhook 提供リスト</a></li>
                 
-                  <li class="toctree-l2"><a href="#id12" class="reference internal">Webhook 관련 정보</a></li>
+                  <li class="toctree-l2"><a href="#id12" class="reference internal">Webhook についての情報</a></li>
                 
               </ul>
             
@@ -125,14 +125,14 @@
   <ul class="breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
     
-    <li>eformsign Webhook 사용하기</li>
+    <li>eformsign Webhook の使い方</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
     <a href="eformsign_api.html"
-       title="前の章へ">← eformsign API 사용하기</a>
+       title="前の章へ">← eformsign API の使い方</a>
   </li>
 </ul>
   
@@ -141,56 +141,56 @@
           <div class="content" role="main">
             
   <div class="section" id="eformsign-webhook">
-<h1>eformsign Webhook 사용하기<a class="headerlink" href="#eformsign-webhook" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>eformsign에 이벤트가 발생했을 때 발생한 이벤트의 정보를 고객 시스템/서비스로 알려주는 기능입니다. Webhook을 설정하면, 고객의 Webhook endpoint로 해당 이벤트 정보를 HTTP POST형식으로 알려 줍니다.</p>
+<h1>eformsign Webhook の使い方<a class="headerlink" href="#eformsign-webhook" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>eformsign でイベントが発生した時、そのイベント情報を顧客のシステム/サービスに通知する機能です。Webhook を設定すると、顧客の Webhook endpoint にそのイベント情報を HTTP POST 形式で通知します。</p>
 <div class="admonition tip">
 <p class="admonition-title">ちなみに</p>
-<p>Webhook의 endpoint는 고객의 client callback URL을 뜻합니다. Open API를 지속적으로 호출하여 변경사항을 체크하는 방법(polling)과 비교하여 불필요한 호출 없이 eformsign 상의 이벤트에 대한 정보를 얻을 수 있습니다.</p>
+<p>Webhook の endpoint とは、顧客の client callback URL を意味します。Open API を持続的に呼び出して変更内容をチェックする方式（polling）に比べ、不要な呼び出しをせず eformsign 上のイベントについての情報を取得できます。</p>
 </div>
 <div class="section" id="id1">
-<h2>시작하기<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>始めてみよう<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="webhook">
-<span id="id2"></span><h3>Webhook 키 발급하기<a class="headerlink" href="#webhook" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="id2"></span><h3>Webhook キーの発行<a class="headerlink" href="#webhook" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ol class="arabic simple">
-<li><p>eformsign에 대표 관리자로 로그인 후, 메뉴 트리에서 <strong>[커넥트] &gt; [API / Webhook]</strong> 페이지로 이동합니다.</p></li>
+<li><p>eformsign に代表管理者としてログインし、左側のメニューから <strong>「コネクト」 &gt; 「API/Webhook」</strong> ページに移動します。</p></li>
 </ol>
-<a class="reference internal image-reference" href="../_images/apikey1.PNG"><img alt="커넥트 &gt; API/Webhook 메뉴 위치" src="../_images/apikey1.PNG" style="width: 700px;" /></a>
+<a class="reference internal image-reference" href="../_images/apikey1.PNG"><img alt="コネクト &gt; API/Webhook メニューの位置" src="../_images/apikey1.PNG" style="width: 700px;" /></a>
 <ol class="arabic simple" start="2">
-<li><p><strong>[Webhook 관리]</strong> 탭을 선택하고 <strong>Webhook 추가</strong> 버튼을 클릭합니다.</p></li>
+<li><p><strong>「Webhook」</strong> タブを選択し、<strong>Webhookの作成</strong> ボタンをクリックします。</p></li>
 </ol>
-<a class="reference internal image-reference" href="../_images/webhook2.PNG"><img alt="Webhook 추가 버튼" src="../_images/webhook2.PNG" style="width: 700px;" /></a>
+<a class="reference internal image-reference" href="../_images/webhook2.PNG"><img alt="「Webhookの作成」ボタン" src="../_images/webhook2.PNG" style="width: 700px;" /></a>
 <ol class="arabic simple" start="3">
-<li><p>Webhook 키 생성 팝업창에 이름, Webhook URL, 활성 상태, 적용 템플릿을 입력하고 등록 버튼을 클릭합니다.</p></li>
+<li><p><strong>「Webhook の作成」</strong> ポップアップに名前、Webhook の URL、アクティブ状態、適用対象を選択し、「登録」ボタンをクリックします。</p></li>
 </ol>
-<a class="reference internal image-reference" href="../_images/webhook3.PNG"><img alt="Webhook 키 생성 팝업창" src="../_images/webhook3.PNG" style="width: 700px;" /></a>
+<a class="reference internal image-reference" href="../_images/webhook3.PNG"><img alt="「Webhookの作成」ポップアップ" src="../_images/webhook3.PNG" style="width: 700px;" /></a>
 <ol class="arabic simple" start="4">
-<li><p>생성된 Webhook 목록에서 <strong>키보기</strong> 버튼을 클릭하여 Webhook 공개키를 확인합니다.</p></li>
+<li><p>作成された Webhook リストから <strong>「キーを表示」</strong> ボタンをクリックして Webhook の公開鍵を確認します。</p></li>
 </ol>
-<a class="reference internal image-reference" href="../_images/webhook4.PNG"><img alt="Webhook 키보기 버튼 위치" src="../_images/webhook4.PNG" style="width: 700px;" /></a>
-<a class="reference internal image-reference" href="../_images/webhook5.PNG"><img alt="Webhook 키 확인" src="../_images/webhook5.PNG" style="width: 700px;" /></a>
+<a class="reference internal image-reference" href="../_images/webhook4.PNG"><img alt="「キーを表示」ボタンの位置" src="../_images/webhook4.PNG" style="width: 700px;" /></a>
+<a class="reference internal image-reference" href="../_images/webhook5.PNG"><img alt="Webhookのキーを確認" src="../_images/webhook5.PNG" style="width: 700px;" /></a>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p><strong>키 재발행</strong> 버튼을 클릭하면 해당 Webhook의 공개 키가 재발행되며, 이전의 키는 사용할 수 없게 됩니다.</p>
+<p><strong>「キーを再発行」</strong> ボタンをクリックすると、その Webhook の公開鍵が再発行され、以前のキーは使用できなくなります。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p><strong>Webhook 정보 수정 방법</strong></p>
-<p>생성된 Webhook 목록에서 <strong>수정</strong> 버튼을 클릭하여 Webhook 정보를 변경할 수 있습니다.</p>
+<p><strong>Webhook 情報の修正</strong></p>
+<p>作成された Webhook リストから <strong>修正</strong> ボタンをクリックして Webhook 情報を変更することができます。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p><strong>Webhook 삭제 방법</strong></p>
-<p>생성된 Webhook 목록에서 <strong>삭제</strong> 버튼을 클릭하여 Webhook을 삭제할 수 있습니다.</p>
+<p><strong>Webhook の削除</strong></p>
+<p>作成された Webhook リストから <strong>削除</strong> ボタンをクリックして Webhook を削除することができます。</p>
 </div>
 <ol class="arabic simple" start="5">
-<li><p>생성된 Webhook 리스트에서 테스트 버튼을 클릭하면 테스트 Webhook을 전송하고 결과를 반환합니다.</p></li>
+<li><p>作成された Webhook リストからテスト ボタンをクリックすると、テスト Webhook を送信して結果値を返します。</p></li>
 </ol>
-<a class="reference internal image-reference" href="../_images/webhook6.PNG"><img alt="Webhook 테스트 확인" src="../_images/webhook6.PNG" style="width: 700px;" /></a>
-<p>다음은 테스트를 위한 json 파일입니다.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
-&quot;webhook_id&quot; : &quot;해당 Webhook ID&quot;,
-&quot;webhook_name&quot; : &quot;해당 Webhook 이름&quot;,
-&quot;company_id&quot; : &quot;회사의 ID&quot;,
+<a class="reference internal image-reference" href="../_images/webhook6.PNG"><img alt="Webhook テスト 確認" src="../_images/webhook6.PNG" style="width: 700px;" /></a>
+<p>次はテストのための json ファイルです。</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>{
+&quot;webhook_id&quot; : &quot;Webhook ID&quot;,
+&quot;webhook_name&quot; : &quot;Webhookの名前&quot;,
+&quot;company_id&quot; : &quot;会社ID&quot;,
 &quot;event_type&quot; : “document”,
 &quot;document&quot; : {
   &quot;id&quot; : “test_doc_id”,
@@ -198,40 +198,40 @@
    &quot;template_version&quot; : “1”,
    &quot;document_history_id&quot; : “test_document_history_id”,
    &quot;doc_status&quot; : “doc_create”,
-   &quot;editor_id&quot; : &quot;사용자 ID&quot;,
-   &quot;updated_date&quot; : &quot;현재 시간(UTC Long)&quot;
+   &quot;editor_id&quot; : &quot;ユーザーID&quot;,
+   &quot;updated_date&quot; : &quot;現在時間(UTC Long)&quot;
 }
 }
-Test URL : 해당 Webhook의 URL
+Test URL : WebhookのURL
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="id3">
-<h2>서명 생성하기<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>서명 생성 방법에 대해서는  Java, Python, PHP 언어별로 설명합니다.</p>
+<h2>署名の登録<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>署名の登録方法については、Java、Python、PHPの各言語に分けて説明します。</p>
 <div class="section" id="java">
 <h3>Java<a class="headerlink" href="#java" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>eformsign 서버로 부터 전달 받은 이벤트 정보를 <a class="reference external" href="#webhook">Webhook Key 발급하기</a>에서 발급받은 public key로 검증하여 eformsign에서 정상적으로 호출한 이벤트인지에 대한  검증을 진행합니다.</p>
+<p>eformsign サーバーから送られたイベント情報を <a class="reference external" href="#webhook">Webhook キーの発行</a>で発行した公開鍵で検証し、 eformsign で正常に呼び出したイベントであるか検証します。</p>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>서명 알고리즘은 SHA256withECDSA을 사용합니다.</p>
+<p>署名のアルゴリズムは SHA256withECDSA を使用します。</p>
 </div>
 </div>
 <div class="section" id="python">
 <h3>Python<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>키 포맷 처리용 라이브러리를 사용해야 합니다. 작업전 다음의 명령어를 통해 해당 라이브러리를 설치하세요.</p>
+<p>キーフォーマット処理用のライブラリーを使用する必要があります。作業を開始する前に、次のコマンドを実行してライブラリーをインストールしてください。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">warner</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="n">ecdsa</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">master</span><span class="o">.</span><span class="n">zip</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="php">
 <h3>PHP<a class="headerlink" href="#php" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>다음 예제의 keycheck.inc.php, test.php 파일이 동일한 패스에 위치하게 한 후에 진행해야 합니다.</p>
+<p>次の例題の keycheck.inc.php、test.php ファイルを同じパスに保存してから例題を実施してください。</p>
 </div>
 <div class="section" id="id4">
-<h3>각 언어별 예제<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>다음은 각 언어별 예제입니다.</p>
+<h3>例題<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>次は各言語の例題です。</p>
 <div class="code-tabs docutils container">
 <div class="code-tab" data-title="java">
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.*</span><span class="p">;</span>
@@ -241,18 +241,18 @@ Test URL : 해당 Webhook의 URL
 
 <span class="p">....</span>
 <span class="cm">/**</span>
-<span class="cm"> *  request에서 header와 body를 읽습니다.</span>
+<span class="cm"> *  requestでheaderとbodyを読み取ります。</span>
 <span class="cm"> *</span>
 <span class="cm"> */</span>
 
 
 <span class="c1">//1. get eformsign signature</span>
-<span class="c1">//eformsignSignature는 request header에 담겨 있습니다.</span>
+<span class="c1">//eformsignSignatureはrequest headerに含まれています。</span>
 <span class="n">String</span> <span class="n">eformsignSignature</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="na">getHeader</span><span class="p">(</span><span class="s">&quot;eformsign_signature&quot;</span><span class="p">);</span>
 
 
 <span class="c1">//2. get request body data</span>
-<span class="c1">// eformsign signature 검증을 위해 body의 데이터를 String으로 변환 합니다.</span>
+<span class="c1">// eformsign signature 検証のため body のデータを String に変換します。</span>
 <span class="n">String</span> <span class="n">eformsignEventBody</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
 <span class="n">StringBuilder</span> <span class="n">stringBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="p">();</span>
 <span class="n">BufferedReader</span> <span class="n">bufferedReader</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
@@ -283,8 +283,8 @@ Test URL : 해당 Webhook의 URL
 
 
 
-<span class="c1">//3. publicKey 세팅</span>
-<span class="n">String</span> <span class="n">publicKeyHex</span> <span class="o">=</span> <span class="s">&quot;발급 받은 Public Key(String)&quot;</span><span class="p">;</span>
+<span class="c1">//3. publicKey設定</span>
+<span class="n">String</span> <span class="n">publicKeyHex</span> <span class="o">=</span> <span class="s">&quot;発行したPublic Key(String)&quot;</span><span class="p">;</span>
 <span class="n">KeyFactory</span> <span class="n">publicKeyFact</span> <span class="o">=</span> <span class="n">KeyFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;EC&quot;</span><span class="p">);</span>
 <span class="n">X509EncodedKeySpec</span> <span class="n">x509KeySpec</span> <span class="o">=</span> <span class="k">new</span> <span class="n">X509EncodedKeySpec</span><span class="p">(</span><span class="k">new</span> <span class="n">BigInteger</span><span class="p">(</span><span class="n">publicKeyHex</span><span class="p">,</span><span class="mi">16</span><span class="p">).</span><span class="na">toByteArray</span><span class="p">());</span>
 <span class="n">PublicKey</span> <span class="n">publicKey</span> <span class="o">=</span> <span class="n">publicKeyFact</span><span class="p">.</span><span class="na">generatePublic</span><span class="p">(</span><span class="n">x509KeySpec</span><span class="p">);</span>
@@ -297,7 +297,7 @@ Test URL : 해당 Webhook의 URL
     <span class="c1">//verify success</span>
     <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;verify success&quot;</span><span class="p">);</span>
     <span class="cm">/*</span>
-<span class="cm">     * 이곳에서 이벤트에 맞는 처리를 진행합니다.</span>
+<span class="cm">     * ここでイベントに応じた処理を行います。</span>
 <span class="cm">     */</span>
 <span class="p">}</span><span class="k">else</span><span class="p">{</span>
     <span class="c1">//verify fail</span>
@@ -315,19 +315,19 @@ Test URL : 해당 Webhook의 URL
 
 
         <span class="o">...</span>
-        <span class="c1"># request에서 header와 body를 읽습니다.</span>
+        <span class="c1"># requestでheaderとbodyを読み取ります。</span>
         <span class="c1"># 1. get eformsign signature</span>
-        <span class="c1"># eformsignSignature는 request header에 담겨 있습니다.</span>
+        <span class="c1"># eformsignSignatureはrequest headerに含まれています。</span>
         <span class="n">eformsignSignature</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;eformsign_signature&#39;</span><span class="p">]</span>
 
 
         <span class="c1"># 2. get request body data</span>
-        <span class="c1"># eformsign signature 검증을 위해 body의 데이터를 String으로 변환 합니다.</span>
+        <span class="c1"># eformsign signature検証のためbodyのデータをStringに変換します。</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span>
 
 
-        <span class="c1"># 3. publicKey 세팅</span>
-        <span class="n">publicKeyHex</span> <span class="o">=</span> <span class="s2">&quot;발급받은 public key&quot;</span>
+        <span class="c1"># 3. publicKey設定</span>
+        <span class="n">publicKeyHex</span> <span class="o">=</span> <span class="s2">&quot;発行したpublic key&quot;</span>
         <span class="n">publickey</span> <span class="o">=</span> <span class="n">VerifyingKey</span><span class="o">.</span><span class="n">from_der</span><span class="p">(</span><span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="n">publicKeyHex</span><span class="p">))</span>
 
 
@@ -335,7 +335,7 @@ Test URL : 해당 Webhook의 URL
         <span class="k">try</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">publickey</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span><span class="n">eformsignSignature</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">hashfunc</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">,</span> <span class="n">sigdecode</span><span class="o">=</span><span class="n">sigdecode_der</span><span class="p">):</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;verify success&quot;</span><span class="p">)</span>
-                <span class="c1"># 이곳에 이벤트에 맞는 처리를 진행 합니다.</span>
+                <span class="c1"># ここでイベントに応じた処理を行います。</span>
         <span class="k">except</span> <span class="n">BadSignatureError</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;verify fail&quot;</span><span class="p">)</span>
 </pre></div>
@@ -373,25 +373,25 @@ Test URL : 해당 Webhook의 URL
 <span class="k">require_once</span> <span class="no">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/keycheck.inc.php&#39;</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">eformsignECDSA\PublicKey</span><span class="p">;</span>
 
-<span class="nb">define</span><span class="p">(</span><span class="s1">&#39;PUBLIC_KEY&#39;</span><span class="p">,</span> <span class="s1">&#39;발급 받은 public key를 넣어주세요.&#39;</span><span class="p">);</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">&#39;PUBLIC_KEY&#39;</span><span class="p">,</span> <span class="s1">&#39;発行したpublic keyを入力してください。&#39;</span><span class="p">);</span>
 <span class="o">...</span>
 <span class="cm">/*</span>
-<span class="cm"> *  request에서 header와 body를 읽습니다.</span>
+<span class="cm"> *  request で header と body を読み取ります。</span>
 <span class="cm"> *</span>
 <span class="cm"> */</span>
 
 
 <span class="c1">//1. get eformsign signature</span>
-<span class="c1">//eformsignSignature는 request header에 담겨 있습니다.</span>
+<span class="c1">//eformsignSignatureはrequest headerに含まれています。</span>
 <span class="nv">$eformsignSignature</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_eformsign_signature&#39;</span><span class="p">];</span>
 
 
 <span class="c1">//2. get request body data</span>
-<span class="c1">// eformsign signature 검증을 위해 body의 데이터를 읽습니다.</span>
+<span class="c1">// eformsign signature検証のためbodyのデータを読み取ります。</span>
 <span class="nv">$eformsignEventBody</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">&#39;php://input&#39;</span><span class="p">),</span> <span class="k">true</span><span class="p">);</span>
 
 
-<span class="c1">//3. publicKey 세팅</span>
+<span class="c1">//3. publicKey設定</span>
 <span class="nv">$publicKey</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PublicKey</span><span class="p">(</span><span class="nx">PUBLIC_KEY</span><span class="p">);</span>
 
 
@@ -402,7 +402,7 @@ Test URL : 해당 Webhook의 URL
 <span class="k">if</span> <span class="p">(</span><span class="nv">$ret</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">print</span> <span class="s1">&#39;verify success&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
     <span class="cm">/*</span>
-<span class="cm">     * 이곳에서 이벤트에 맞는 처리를 진행합니다.</span>
+<span class="cm">     * ここでイベントに応じた処理を行います。</span>
 <span class="cm">     */</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
     <span class="k">print</span> <span class="s1">&#39;verify fail&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
@@ -416,31 +416,31 @@ Test URL : 해당 Webhook의 URL
 </div>
 </div>
 <div class="section" id="id5">
-<h2>테스트해보기<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>생성한 eformsign_signature를 테스트해 봅니다.</p>
-<p>다음의 eformsign_signature 생성 및 검증용 샘플은 Open API 또는 Webhook의 서명값을 생성 및 검증하는 테스트 샘플 소스코드 입니다.</p>
+<h2>テスト<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>作成した eformsign_signature をテストしてみましょう。</p>
+<p>次の eformsign_signature の作成・検証用のサンプルは、Open API または Webhook の署名値を作成および検証するためのテストサンプルのソースコードです。</p>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>샘플 키를 사용하고 있어 실 사용시에는 정상 동작 하지 않습니다. 생성하신 서명 값의 검증용으로만 사용해 주세요.</p>
+<p>サンプルキーを使用しているため、実際の環境では正常動作しません。例題で作成した署名値の検証用途としてのみご利用ください。</p>
 </div>
 <div class="section" id="id6">
 <h3>Java<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>다음의 샘플 키로 서명 및 검틍 테스트를 해보시기 바랍니다.</p>
+<p>次のサンプルキーで署名および検証テストを行ってください。</p>
 </div>
 <div class="section" id="id7">
 <h3>Python<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>키 포맷 처리용 라이브러리를 사용해야 합니다. 작업전 다음의 명령어를 통해 해당 라이브러리를 설치해 주십시오.</p>
+<p>キーフォーマット処理用のライブラリーを使用する必要があります。作業を開始する前に、次のコマンドを実行してライブラリーをインストールしてください。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">warner</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="n">ecdsa</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">master</span><span class="o">.</span><span class="n">zip</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id8">
 <h3>PHP<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>다음 예제의 keycheck.inc.php, test.php 파일이 동일한 패스에 위치하게 한 후에 진행해야 합니다.</p>
+<p>次の例題の keycheck.inc.php、test.php ファイルを同じパスに保存してから例題を実施してください。</p>
 </div>
 <div class="section" id="id9">
-<h3>각 언어별 예제<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>다음은 각 언어별 테스트 키와 예제입니다.</p>
+<h3>例題<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>次は各言語のテストキーと例題です。</p>
 <div class="code-tabs docutils container">
 <div class="code-tab" data-title="Java">
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">privateKeyHex</span> <span class="o">=</span> <span class="s">&quot;3041020100301306072a8648ce3d020106082a8648ce3d0301070427302502010104207eae51d5e4272ebb3fe2701d25026a8c2850965981fb2efa68c8db48b32ede07&quot;</span><span class="p">;</span>
@@ -590,204 +590,204 @@ Test URL : 해당 Webhook의 URL
 </div>
 </div>
 <div class="section" id="id10">
-<h2>Webhook 제공 리스트<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>다음의 Webhook을 설정하면 해당 이벤트 발생 시 설정한 Webhook endpoint로 변경 정보를 수신할 수 있습니다.</p>
-<p>현재 제공 중인 <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook">Webhook</a>은 다음과 같습니다.</p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-document-event">/webhook document event</a> 문서 이벤트 전송</p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-pdf">/webhook pdf</a> PDF 생성 이벤트 전송</p>
-<p>각 eformsign Webhook에 대한 자세한 설명은
-<a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook">다음</a>에서 확인하실 수 있습니다.</p>
+<h2>Webhook 提供リスト<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>次の Webhook を設定すると、そのイベントが発生するとき、設定した Webhook endpoint に変更情報を受信することができます。</p>
+<p>現在提供している <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook">Webhook</a>は次のとおりです。</p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-document-event">/webhook document event</a> 文書イベント送信</p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-pdf">/webhook pdf</a> PDF作成イベント送信</p>
+<p>各 eformsign Webhook についての詳しい説明は
+<a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook">次</a>で確認することができます。</p>
 </div>
 <div class="section" id="id12">
-<h2>Webhook 관련 정보<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>eformsign은 Webhook 이벤트로 <strong>문서</strong> 이벤트와 <strong>PDF 생성</strong> 이벤트를 제공하고 있습니다.</p>
+<h2>Webhook についての情報<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>eformsign は Webhook イベントとして <strong>文書</strong> イベントと <strong>PDF 作成</strong> イベントを提供しています。</p>
 <div class="section" id="id13">
-<h3>문서 이벤트<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>eformsign에서 문서의 생성 또는 상태 변경 시 발생하는 이벤트입니다.</p>
+<h3>文書イベント<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>eformsign で文書の作成または状態の変更があるときに発生するイベントです。</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 42%" />
-<col style="width: 16%" />
-<col style="width: 42%" />
+<col style="width: 35%" />
+<col style="width: 13%" />
+<col style="width: 52%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Type</p></th>
-<th class="head"><p>설명</p></th>
+<th class="head"><p>説明</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>id</p></td>
 <td><p>String</p></td>
-<td><p>문서 ID</p></td>
+<td><p>文書のID</p></td>
 </tr>
 <tr class="row-odd"><td><p>template_id</p></td>
 <td><p>String</p></td>
-<td><p>템플릿 ID</p></td>
+<td><p>テンプレートのID</p></td>
 </tr>
 <tr class="row-even"><td><p>template_name</p></td>
 <td><p>String</p></td>
-<td><p>템플릿 명</p></td>
+<td><p>テンプレートの名前</p></td>
 </tr>
 <tr class="row-odd"><td><p>template_version</p></td>
 <td><p>String</p></td>
-<td><p>템플릿 제목</p></td>
+<td><p>テンプレートのバージョン</p></td>
 </tr>
 <tr class="row-even"><td><p>workflow_seq</p></td>
 <td><p>int</p></td>
-<td><p>워크플로우 순서</p></td>
+<td><p>ワークフローの順序</p></td>
 </tr>
 <tr class="row-odd"><td><p>workflow_name</p></td>
 <td><p>String</p></td>
-<td><p>워크플로우 명칭</p></td>
+<td><p>ワークフローの名前</p></td>
 </tr>
 <tr class="row-even"><td><p>history_id</p></td>
 <td><p>String</p></td>
-<td><p>문서 히스토리 ID</p></td>
+<td><p>文書履歴のID</p></td>
 </tr>
 <tr class="row-odd"><td><p>status</p></td>
 <td><p>String</p></td>
-<td><p>문서 상태</p></td>
+<td><p>文書の状態</p></td>
 </tr>
 <tr class="row-even"><td><p>editor_id</p></td>
 <td><p>String</p></td>
-<td><p>작성자 ID</p></td>
+<td><p>作成者のID</p></td>
 </tr>
 <tr class="row-odd"><td><p>updated_date</p></td>
 <td><p>long</p></td>
-<td><p>문서 변경시간</p></td>
+<td><p>文書の変更時間</p></td>
 </tr>
 </tbody>
 </table>
-<p>이벤트 데이터 중 문서 상태를 나타내는 status의 의미는 다음을 참조하세요.</p>
+<p>イベントデータのうち、文書の状態を表す status の意味については、次をご覧ください。</p>
 <table class="docutils align-default" id="status">
 <colgroup>
-<col style="width: 59%" />
-<col style="width: 41%" />
+<col style="width: 49%" />
+<col style="width: 51%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>설명</p></th>
+<th class="head"><p>説明</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>doc_create</p></td>
-<td><p>문서 생성시</p></td>
+<td><p>作成</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_tempsave</p></td>
-<td><p>문서 임시 저장시</p></td>
+<td><p>下書き保存</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_request_approval</p></td>
-<td><p>결재 요청시</p></td>
+<td><p>決裁の依頼</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_accept_approval</p></td>
-<td><p>결재 승인시</p></td>
+<td><p>決裁の承認</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_reject_approval</p></td>
-<td><p>결재 반려시</p></td>
+<td><p>決裁の返戻</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_request_external</p></td>
-<td><p>외부자 요청시</p></td>
+<td><p>外部受信者に依頼</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_remind_external</p></td>
-<td><p>외부자 재 요청시</p></td>
+<td><p>外部受信者に再依頼</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_open_external</p></td>
-<td><p>외부자 열람시</p></td>
+<td><p>外部受信者が閲覧</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_accept_external</p></td>
-<td><p>외부자 승인시</p></td>
+<td><p>外部受信者が承認</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_reject_external</p></td>
-<td><p>외부자 반려시</p></td>
+<td><p>外部受信者が返戻</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_request_internal</p></td>
-<td><p>내부자 요청시</p></td>
+<td><p>内部受信者に依頼</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_accept_internal</p></td>
-<td><p>내부자 승인시</p></td>
+<td><p>内部受信者が承認</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_reject_internal</p></td>
-<td><p>내부자 반려시</p></td>
+<td><p>内部受信者が返戻</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_tempsave_internal</p></td>
-<td><p>내부자 임시 저장시</p></td>
+<td><p>内部受信者が下書き保存</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_cancel_request</p></td>
-<td><p>요청 취소시</p></td>
+<td><p>依頼の無効化</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_reject_request</p></td>
-<td><p>반려 요청시</p></td>
+<td><p>返戻の依頼</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_decline_cancel_request</p></td>
-<td><p>반려 요청 거절시</p></td>
+<td><p>返戻依頼の拒否</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_delete_request</p></td>
-<td><p>삭제 요청시</p></td>
+<td><p>削除の依頼</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_decline_delete_request</p></td>
-<td><p>삭제 요청 거절시</p></td>
+<td><p>削除依頼の拒否</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_deleted</p></td>
-<td><p>문서 삭제시</p></td>
+<td><p>削除</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_complete</p></td>
-<td><p>문서 완료시</p></td>
+<td><p>完了</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="pdf">
-<h3>PDF 생성 이벤트<a class="headerlink" href="#pdf" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>eformsign에서 문서의 PDF 파일이 생성될 때 발생하는 이벤트입니다.</p>
+<h3>PDF 作成イベント<a class="headerlink" href="#pdf" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>eformsign で文書の PDF ファイルを作成するときに発生するイベントです。</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 49%" />
-<col style="width: 14%" />
-<col style="width: 37%" />
+<col style="width: 41%" />
+<col style="width: 12%" />
+<col style="width: 47%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Type</p></th>
-<th class="head"><p>설명</p></th>
+<th class="head"><p>説明</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>document_id</p></td>
 <td><p>String</p></td>
-<td><p>문서 ID</p></td>
+<td><p>文書のID</p></td>
 </tr>
 <tr class="row-odd"><td><p>template_id</p></td>
 <td><p>String</p></td>
-<td><p>템플릿 ID</p></td>
+<td><p>テンプレートのID</p></td>
 </tr>
 <tr class="row-even"><td><p>template_name</p></td>
 <td><p>String</p></td>
-<td><p>템플릿 명</p></td>
+<td><p>テンプレートの名前</p></td>
 </tr>
 <tr class="row-odd"><td><p>template_version</p></td>
 <td><p>String</p></td>
-<td><p>템플릿 제목</p></td>
+<td><p>テンプレートのバージョン</p></td>
 </tr>
 <tr class="row-even"><td><p>workflow_seq</p></td>
 <td><p>int</p></td>
-<td><p>워크플로우 순서</p></td>
+<td><p>ワークフローの順序</p></td>
 </tr>
 <tr class="row-odd"><td><p>workflow_name</p></td>
 <td><p>String</p></td>
-<td><p>워크플로우 명칭</p></td>
+<td><p>ワークフローの名前</p></td>
 </tr>
 <tr class="row-even"><td><p>document_history_id</p></td>
 <td><p>String</p></td>
-<td><p>문서 히스토리 ID</p></td>
+<td><p>文書履歴のID</p></td>
 </tr>
 <tr class="row-odd"><td><p>document_status</p></td>
 <td><p>String</p></td>
-<td><p>문서 상태</p></td>
+<td><p>文書の状態</p></td>
 </tr>
 </tbody>
 </table>
-<p>이벤트 데이터 중 문서 상태를 나타내는 status의 의미는 <a class="reference external" href="#status">다음</a>을 참조하세요.</p>
+<p>イベントデータのうち、文書の状態を表す status の意味については、<a class="reference external" href="#status">次</a>をご覧ください。</p>
 </div>
 </div>
 </div>
@@ -798,10 +798,10 @@ Test URL : 해당 Webhook의 URL
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="eformsign_api.html"
-       title="前の章へ">← eformsign API 사용하기</a>
+       title="前の章へ">← eformsign API の使い方</a>
   </li>
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright 2021, forcs.
+      &#169; Copyright 2021. FORCS CO., LTD. All rights reserved.
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a>.
 </div>
