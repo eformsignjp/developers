@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>eformsign API / Webhook 연계 가이드</title>
+      <title>eformsign API / Webhook 連携ガイド</title>
     
       <link rel="stylesheet" href="_static/pygments.css">
       <link rel="stylesheet" href="_static/theme.css">
@@ -32,7 +32,7 @@
     <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
   <router-link to="#" class="home-link">
     
-      <span class="site-name">eformsign API guide</span>
+      <img class="logo" src="_static/forcs.png" alt="doit logo"/>
     
   </router-link>
 
@@ -81,19 +81,19 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="help/eformsign_embedding.html" class="reference internal ">eformsign 기능 직접 삽입하기</a>
+          <li class="toctree-l1 "><a href="help/eformsign_embedding.html" class="reference internal ">eformsign 機能の組み込み</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="help/eformsign_api.html" class="reference internal ">eformsign API 사용하기</a>
+          <li class="toctree-l1 "><a href="help/eformsign_api.html" class="reference internal ">eformsign API の使い方</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="help/eformsign_webhook.html" class="reference internal ">eformsign Webhook 사용하기</a>
+          <li class="toctree-l1 "><a href="help/eformsign_webhook.html" class="reference internal ">eformsign Webhook の使い方</a>
 
             
           </li>
@@ -111,7 +111,7 @@
   <ul class="breadcrumbs">
     <li><a href="#">Docs</a> &raquo;</li>
     
-    <li>eformsign API / Webhook 연계 가이드</li>
+    <li>eformsign API / Webhook 連携ガイド</li>
   </ul>
   
 
@@ -127,30 +127,30 @@
           <div class="content" role="main">
             
   <div class="section" id="eformsign-api-webhook">
-<h1>eformsign API / Webhook 연계 가이드<a class="headerlink" href="#eformsign-api-webhook" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>eformsign API / Webhook 連携ガイド<a class="headerlink" href="#eformsign-api-webhook" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="help/eformsign_api_overview.html">概要</a></li>
-<li class="toctree-l1"><a class="reference internal" href="help/eformsign_embedding.html">eformsign 기능 직접 삽입하기</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="help/eformsign_embedding.html#id1">시작하기</a></li>
-<li class="toctree-l2"><a class="reference internal" href="help/eformsign_embedding.html#id3">eformsign 객체에 대한 설명</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help/eformsign_embedding.html">eformsign 機能の組み込み</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="help/eformsign_embedding.html#id1">始めてみよう</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help/eformsign_embedding.html#id9">インストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help/eformsign_embedding.html#id10">eformsign のオブジェクトについての情報</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="help/eformsign_api.html">eformsign API 사용하기</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="help/eformsign_api.html#id1">시작하기</a></li>
-<li class="toctree-l2"><a class="reference internal" href="help/eformsign_api.html#id2">서명 생성하기</a></li>
-<li class="toctree-l2"><a class="reference internal" href="help/eformsign_api.html#id4">테스트해보기</a></li>
-<li class="toctree-l2"><a class="reference internal" href="help/eformsign_api.html#id9">API 제공 리스트</a></li>
-<li class="toctree-l2"><a class="reference internal" href="help/eformsign_api.html#id13">API 관련 정보</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help/eformsign_api.html">eformsign API の使い方</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="help/eformsign_api.html#id1">始めてみよう</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help/eformsign_api.html#id2">署名の作成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help/eformsign_api.html#id4">API 提供リスト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help/eformsign_api.html#id8">API についての情報</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="help/eformsign_webhook.html">eformsign Webhook 사용하기</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="help/eformsign_webhook.html#id1">시작하기</a></li>
-<li class="toctree-l2"><a class="reference internal" href="help/eformsign_webhook.html#id3">서명 생성하기</a></li>
-<li class="toctree-l2"><a class="reference internal" href="help/eformsign_webhook.html#id5">테스트해보기</a></li>
-<li class="toctree-l2"><a class="reference internal" href="help/eformsign_webhook.html#id10">Webhook 제공 리스트</a></li>
-<li class="toctree-l2"><a class="reference internal" href="help/eformsign_webhook.html#id12">Webhook 관련 정보</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help/eformsign_webhook.html">eformsign Webhook の使い方</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="help/eformsign_webhook.html#id1">始めてみよう</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help/eformsign_webhook.html#id3">署名の登録</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help/eformsign_webhook.html#id5">テスト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help/eformsign_webhook.html#id10">Webhook 提供リスト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help/eformsign_webhook.html#id12">Webhook についての情報</a></li>
 </ul>
 </li>
 </ul>
@@ -166,7 +166,7 @@
        title="次の章へ">概要 →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright 2021, forcs.
+      &#169; Copyright 2021. FORCS CO., LTD. All rights reserved.
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a>.
 </div>
