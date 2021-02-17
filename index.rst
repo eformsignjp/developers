@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-eformsign API / Webhook 연계 가이드
+eformsign API / Webhook 連携ガイド
 ====================================
 
 .. toctree::

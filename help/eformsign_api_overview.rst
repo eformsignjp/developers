@@ -14,7 +14,7 @@ eformsign を顧客がサービス（またはWebサイト）内に eformsign �
 
 **eformsign API の使い方**
 
-eformsign が提供する API を使用し、eformsign の機能を顧客のシステム/サービスで呼び出し、利用できるようにする機能です。
+eformsign が提供する API を利用し、eformsign の機能を顧客のシステム/サービスで呼び出し、利用できるようにする機能です。
 
 
 **eformsign Webhook の使い方**
