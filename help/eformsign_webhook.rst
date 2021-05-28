@@ -17,28 +17,28 @@ eformsign でイベントが発生した時、そのイベント情報を顧客�
 Webhook キーの発行
 --------------------
 
-1. eformsign に代表管理者としてログインし、左側のメニューから **「コネクト」 > 「API/Webhook」** ページに移動します。 
+1. eformsign に代表管理者としてログインし、左側のメニューから **コネクト > API/Webhook** ページに移動します。 
 
 .. image:: resources/apikey1.PNG
     :width: 700
     :alt: コネクト > API/Webhook メニューの位置
 
 
-2. **「Webhook」** タブを選択し、**Webhookの作成** ボタンをクリックします。
+2. **Webhook** タブを選択し、**Webhookの作成** ボタンをクリックします。
 
 .. image:: resources/webhook2.PNG
     :width: 700
     :alt: 「Webhookの作成」ボタン
 
 
-3. **「Webhook の作成」** ポップアップに名前、Webhook の URL、アクティブ状態、適用対象を選択し、「登録」ボタンをクリックします。
+3. **Webhook の作成** ポップアップに名前、Webhook の URL、アクティブ状態、適用対象を選択し、**登録** ボタンをクリックします。
 
 .. image:: resources/webhook3.PNG
     :width: 700
     :alt: 「Webhookの作成」ポップアップ
 
 
-4. 作成された Webhook リストから **「キーを表示」** ボタンをクリックして Webhook の公開鍵を確認します。
+4. 作成された Webhook リストから **キーを表示** ボタンをクリックして Webhook の公開鍵を確認します。
 
 .. image:: resources/webhook4.PNG
     :width: 700
@@ -52,7 +52,7 @@ Webhook キーの発行
 
 .. note:: 
 
-    **「キーを再発行」** ボタンをクリックすると、その Webhook の公開鍵が再発行され、以前のキーは使用できなくなります。
+    **キーを再発行** ボタンをクリックすると、その Webhook の公開鍵が再発行され、以前のキーは使用できなくなります。
 
 .. note:: **Webhook 情報の修正**
 
@@ -538,7 +538,8 @@ Webhook 提供リスト
 Webhook についての情報
 =========================
 
-eformsign は Webhook イベントとして **文書** イベントと **PDF 作成** イベントを提供しています。
+eformsign は Webhook イベントとして**文書**イベントと**PDF 作成**
+イベントを提供しています。
 
 
 文書イベント

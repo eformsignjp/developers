@@ -273,29 +273,31 @@ PHP
 API 提供リスト
 ======================
 
-eformsign API は、署名を作成するための API と文書の作成や処理のための API で構成されています。
+eformsign API は、署名を作成するための API と文書の作成および処理のための API、メンバーおよびグループ管理のための API で構成されています。
+
+
 
 署名を作成するための API
 -------------------------
 
-署名を作成するために、まず `Access Token API <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`_\ を使用してください。 
+署名を作成するために、まず `Access Token API <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_\ を使用してください。 
 
-``POST``: `/api_auth/access_token <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth#/eformsign/post-api_auth-access_token>`_\  Access Token 発行
+``POST``: `Access Token 発行 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_\
 
 
 Access Token API についての詳しい説明は 
-`次 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`__\ で確認することができます。
+`次 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`__\ で確認することができます。
 
 .. caution:: 
    
    署名の作成には30秒の時間制限があります。30秒以内に署名を作成し、トークンを取得する必要があります。 
-   また、サーバー時刻と現在時刻が一致しない場合があります。Access Token API を呼び出し、受信した応答メッセージの"execution_time"を確認してください。
+   また、サーバー時刻と現在時刻が一致しない場合があります。Access Token API を呼び出し、受信した応答メッセージの "execution_time" を確認してください。
 
    .. code:: JSON
 
       { "code": "4000002", "ErrorMessage": "The validation time has expired.",     "execution_time": 1611538409405 }
 
-   `次 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`__\ の例題の位置にも "execution_time" を入力してください。
+   `次 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`__\ の例題の位置にも "execution_time" を入力してください。
    
    |image5| 
 
@@ -316,16 +318,16 @@ Access Token API についての詳しい説明は
 
 .. caution:: 
    
-   発行した API キーは、 `次 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`__\ の位置にある **Authorize** ボタン（|image4|）をクリックして登録してください。ただし、API キー値には**必ず Base64** でエンコードした 文字列を入力する必要があります。https://www.base64encode.org/ に接続し、発行した API キーを入力してエンコードされたテキストに変換してから入力してください。
+   発行した API キーは、 `次 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`__\ の位置にある **Authorize** ボタン（|image4|）をクリックして登録してください。ただし、API キー値には**必ず Base64** でエンコードした 文字列を入力する必要があります。https://www.base64encode.org/ に接続し、発行した API キーを入力してエンコードされたテキストに変換してから入力してください。
 
 
 .. note:: 
   
-   API の **Authorize** ボタンには API キー値を入力する必要があります。
+   Access Token API の **Authorize** ボタンには API キー値を入力する必要があります。
 
 
 
-文書の作成・処理のための API
+文書の作成および処理のための API
 --------------------------------
 
 署名を作成すると、次の文書 API を使用して文書の新規作成や文書情報の照会ができ、完了文書のファイル（文書の PDF ファイル、監査証跡証明書）や添付ファイルをダウンロードすることができます。 
@@ -333,42 +335,48 @@ Access Token API についての詳しい説明は
 
 .. caution:: 
 
-   本文書の API を使用するためにはまず Access Token の取得が必要です。`Access Token API <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0_auth>`_\で取得した Access Token を`次 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0>`__\ のパスにある **Authorize** ボタン (|image4|) を押して登録してください。 
+   本文書の API を使用するためにはまず Access Token の取得が必要です。`Access Token API <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_\で取得した Access Token を`次 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/>`__\ のパスにある **Authorize** ボタン (|image4|) を押して登録してください。 
 
 
 .. note:: 
 
-   API の **Authorize** ボタンには API キー値を入力する必要があります。
+   文書 API の **Authorize** ボタンには API キー値を入力する必要があります。
 
-現在提供している `文書 API <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general>`_\は次のとおりです。
+現在提供している `文書 API <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/document>`_\は次のとおりです。
 
 
-``POST``: `/api/documents <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/post-api-documents>`_\  文書の新規作成（内部受信者）
 
-``POST``: `/api/documents/external <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/eformsign/post-api-documents-external>`_\  文書の新規作成（外部受信者）
+``POST``: `文書の新規作成_内部受信者 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/post-api-documents>`_\ 
 
-``GET``: `/api/documents/{document_id} <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/eformsign/get-api-documents-DOCUMENT_ID>`_\  文書情報の照会
+``POST``: `文書の新規作成_外部受信者 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/eformsign/post-api-documents-external>`_\ 
 
-``GET``: `/api/documents/{document_id}/download_files <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/eformsign/get-api-documents-DOCUMENT_ID-download_files>`_\  文書ファイルのダウンロード（PDF ファイル、監査証跡証明書）
+``GET``: `文書情報の照会 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/eformsign/get-api-documents-DOCUMENT_ID>`_\
 
-``GET``: `/api/documents/{document_id}/download_attach_files <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/eformsign/get-api-documents-DOCUMENT_ID-download_attach_files>`_\  添付ファイルのダウンロード
+``GET``: `文書ファイルのダウンロード_文書 PDFおよび監査証跡証明書 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/eformsign/get-api-documents-DOCUMENT_ID-download_files>`_\
 
-``GET``: `/api/documents <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/get-api-documents>`_\  文書リストの照会
+``GET``: `添付ファイルのダウンロード <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/eformsign/get-api-documents-DOCUMENT_ID-download_attach_files>`_\ 
 
-``DELETE``: `/api/documents <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/delete-api-documents>`_\  文書の削除
+``GET``: `文書リストの照会 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/get-api-documents>`_\ 
 
-``POST``: `/api/documents/{document_id}/re_request_outsider <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/post-api-documents-document_id-re_request_outsider>`_\  外部受信者に対する再依頼
+``DELETE``: `文書の削除 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/delete-api-documents>`_\ 
+
+``POST``: `外部受信者に対する再依頼 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/post-api-documents-document_id-re_request_outsider>`_\ 
+
+``GET``: `作成可能なテンプレートリストの照会 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/get-api-forms>`_\  
+
+``POST``: `文書の一括生成 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\
+
 
 
 メンバーおよびグループ管理のための API
-----------------------------------
+---------------------------------------------
 
 APIを使用してメンバーおよびグループを管理することができます。メンバーおよびグループのリストを照会することができ、メンバーおよびグループを追加、修正、削除することができます。
 
 
 .. caution:: 
 
-   本文書の API を使用するためにはまず Access Token の取得が必要です。`Access Token API <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0_auth>`_\で取得した Access Token を`次 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0>`__\ のパスにある **Authorize** ボタン (|image4|) を押して登録してください。 
+   本文書の API を使用するためにはまず Access Token の取得が必要です。`Access Token API <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0_auth>`_\で取得した Access Token を`次 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/>`__\ のパスにある **Authorize** ボタン (|image4|) を押して登録してください。 
 
 
 .. note:: 
@@ -376,53 +384,42 @@ APIを使用してメンバーおよびグループを管理することがで�
    APIの **Authorize** ボタンには API キー値を入力する必要があります。 
 
 
-現在提供している `メンバーおよびグループ管理 API <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0>`_\は次のとおりです。
+現在提供している `メンバーおよびグループ管理 API <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/members>`_\は次のとおりです。
 
 
-``GET``: `/api/members <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/get-api-members>`_\  멤버 목록 조회
-
-``POST``: `/api/members <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/post-api-members>`_\  멤버 추가
-
-``PATCH``: `/api/members/{member_id} <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/patch-api-members-member_id>`_\  멤버 수정
-
-``DELETE``: `/api/members/{member_id} <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/delete-api-members-member_id>`_\  멤버 삭제
-
-``GET``: `/api/groups <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/get-api-groups>`_\  그룹 목록 조회
-
-``POST``: `/api/groups <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/post-api-groups>`_\  그룹 추가
-
-``PATCH``: `/api/groups/{group_id} <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/patch-api-groups>`_\  그룹 수정
-
-``DELETE``: `/api/groups <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/delete-api-groups>`_\  그룹 삭제
+メンバー管理 API
+^^^^^^^^^^^^^^^^^
 
 
-テンプレート管理のための API
-----------------------------------
+``GET``: `メンバーリストの照会 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/get-api-members>`_\  
 
-APIを使用して作成可能なテンプレートリストの照会、テンプレートを使った일괄 작성ができます。
+``POST``: `メンバー追加 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/post-api-members>`_\  
+
+``PATCH``: `メンバー修正 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/patch-api-members-member_id>`_\  
+
+``DELETE``: `メンバー削除 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/delete-api-members-member_id>`_\  
 
 
-.. caution:: 
+グループ管理 API
+^^^^^^^^^^^^^^^^^
 
-   本文書の API を使用するためにはまず Access Token の取得が必要です。`Access Token API <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0_auth>`_\で取得した Access Token を`次 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0>`__\ のパスにある **Authorize** ボタン (|image4|) を押して登録してください。 
+
+``GET``: `グループリストの照会 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/get-api-groups>`_\  
+
+``POST``: `グループ追加 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/post-api-groups>`_\  
+
+``PATCH``: `グループ修正 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/patch-api-groups>`_\  
+
+``DELETE``: `グループ削除 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/delete-api-groups>`_\  
 
 
 
 .. note:: 
-  
-   APIの **Authorize** ボタンには API キー値を入力する必要があります。 
+
+    各 eformsign API についての詳しい説明は `次 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/>`__\ をご覧ください。
 
 
-現在提供している `テンプレート API <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0>`_\は次のとおりです。
 
-
-``GET``: `/api/forms <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/get-api-forms>`_\  作成可能なテンプレートリストの照会
-
-``POST``: `/api/forms/mass_documents?template_id={{form_id}} <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\  文書の일괄 작성
-
-
-各 eformsign API についての詳しい説明は 
-`次 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general>`__\ をご覧ください。
 
 
 
@@ -437,7 +434,7 @@ API ステータスコード
 API ステータスコードは、次の通りです。
 
 200
-'''''''
+^^^^^^^^
 
 ===========  ===============  ===================================
 Code         説明              備考
@@ -447,7 +444,7 @@ Code         説明              備考
 
 
 202
-'''''''
+^^^^^^^^
 
 ===========  ===============  ===================================
 Code         説明              備考
@@ -458,21 +455,21 @@ Code         説明              備考
 
 
 400
-'''''''
+^^^^^^^^
 
-===========  =====================  ==========================================================================
+===========  =====================  ======================================================================
 Code         説明                    備考
-===========  =====================  ==========================================================================
-4000001      必須入力値漏れ         API の必須入力値（ヘッダー値またはパラメーター）が入力されていない場合                        
-4000002      時間切れ               API 認証のリクエスト時間が時間切れとなった場合
-4000003      API キーが存在しない   削除された API キーまたは入力ミスの場合
-4000004      文書が存在しない       間違った文書 ID を入力した場合
-4000005      会社が存在しない       会社が削除された場合
-===========  =====================  ==========================================================================
+===========  =====================  ======================================================================
+4000001      必須入力値漏れ            API の必須入力値（ヘッダー値またはパラメーター）が入力されていない場合                        
+4000002      時間切れ                 API 認証のリクエスト時間が時間切れとなった場合
+4000003      API キーが存在しない        削除された API キーまたは入力ミスの場合
+4000004      文書が存在しない           間違った文書 ID を入力した場合
+4000005      会社が存在しない           会社が削除された場合
+===========  =====================  ======================================================================
 
 
 403
-'''''''
+^^^^^^^^
 
 ===========  =========================  ==========================================
 Code         説明                        備考
@@ -481,11 +478,11 @@ Code         説明                        備考
 4030002      Access Token 認証エラー       Access Tokenが正しくない場合
 4030003      Refresh Token 認証エラー       Refresh Tokenが正しくない場合
 4030004      署名値検証エラー               署名値が正しくない場合
-4030005      サポートしない API              サポートしないAPIを呼び出した場合
+4030005      サポートしないAPI               サポートしないAPIを呼び出した場合
 ===========  =========================  ==========================================
 
 405
-'''''''
+^^^^^^^^
 
 ===========  =====================  ===================================
 Code         説明                    備考
@@ -495,7 +492,7 @@ Code         説明                    備考
 
 
 500
-'''''''
+^^^^^^^^
 
 ===================  ===============  ===================================
 Code                 説明              備考
@@ -504,6 +501,7 @@ Code                 説明              備考
 ===================  ===============  ===================================
 
 
+---------
 
 
 Step タイプ
@@ -528,104 +526,33 @@ User タイプ
 ================  ===============  ===================================
 Type               Code             説明
 ================  ===============  ===================================
-内部受信者          01               内部メンバーである場合
-外部受信者          02               内部メンバーではなく、外部受信者である場合
+メンバー　　          01               メンバーである場合
+外部ユーザー          02               メンバーではなく、外部ユーザーである場合
 ================  ===============  ===================================
 
-Status タイプ
---------------
-
-======================  ===============  ===================================
-Type                     Code             説明
-======================  ===============  ===================================
-doc_tempsave             001              下書き保存
-doc_create               002              作成
-doc_complete             003              完了
-doc_update               043              修正
-doc_request_delete       047              削除の依頼
-doc_delete               049              削除
-doc_request_revoke       040              無効化の依頼
-doc_revoke               041              無効化
-doc_request_reject       045              返戻の依頼
-doc_request_approval     010              決裁の依頼
-doc_accept_approval      012              決裁の承認
-doc_reject_approval      011              決裁の返戻
-doc_cancel               013              決裁のキャンセル
-doc_request_reception    020              内部受信者に依頼
-doc_accept_reception     022              内部受信者が承認
-doc_reject_reception     021              内部受信者が返戻
-doc_request_outsider     030              外部受信者に依頼
-doc_accept_outsider      032              外部受信者が承認
-doc_reject_outsider      031              外部受信者が返戻
-======================  ===============  ===================================
-
 
 Status タイプ
 --------------
 
-===========  ===============  ==================================================
+===========  ===============  ==========================================================
 Type          Code             説明
-===========  ===============  ==================================================
-下書き　　       00               開始ステップで下書きとして保存した状態
+===========  ===============  ==========================================================
+下書き保存     00               開始ステップで下書きとして保存した状態
 進行中　       01               決裁依頼、外部受信者に依頼、閲覧、内部受信者に依頼
-修正中　       02               文書を修正中(メンバー、最初の作成者)
+修正中　       02               文書を修正中 (内部受信者、作成者)
 完了          03               完了した状態
 返戻          04               決済の返戻、内部受信者が返戻、外部受信者が返戻
 無効化         05              文書が無効化された状態
-無効化依頼     06               内部受信者の段階
-===========  ===============  ==================================================
+無効化依頼     06               内部受信者のステップ
+===========  ===============  ==========================================================
 
 
 Action タイプ
 --------------
 
 ==========================  ===============  ===================================
-Type                         Code             설명
-==========================  ===============  ===================================
-doc_tempsave                 001              문서 임시 저장
-doc_create                   002              문서 생성
-doc_complete                 003              문서 최종 완료
-doc_request_approval         010              결재 요청
-doc_reject_approval          011              결재 반려
-doc_accept_approval          012              결재 승인
-doc_cancel                   013              결재 요청 취소
-doc_request_reception        020              내부 멤버 요청
-doc_reject_reception         021              내부 멤버 반려
-doc_accept_reception         022              내부 멤버 승인
-doc_accept_tempsave          023              내부 멤버 임시 저장
-doc_request_outsider         030              외부수신자 요청
-doc_reject_outsider          031              외부수신자 반려
-doc_accept_outsider          032              외부수신자 승인
-doc_rerequest_outsider       033              외부수신자 재요청
-doc_open_outsider            034              외부수신자 열람
-doc_outsider_tempsave        035              외부수신자 임시 저장
-doc_request_revoke           040              문서 취소 요청
-doc_refuse_revoke            041              문서 취소 요청 거절
-doc_revoke                   042              문서 취소
-doc_update                   043              문서 수정
-doc_cancel_update            044              문서 수정 취소
-doc_request_reject           045              문서 반려 요청
-doc_refuse_reject            046              문서 반려 요청 거절
-doc_request_delete           047              문서 삭제 요청
-doc_refuse_delete            048              문서 삭제 요청 거절
-doc_delete                   049              문서 삭제
-doc_complete_send_pdf        050              완료 문서 PDF 전송
-doc_transfer                 051              문서 이관
-doc_request_participant      060              参加者 요청
-doc_reject_participant       061              参加者 반려
-doc_accept_participant       062              参加者 승인
-doc_rerequest_participant    063              参加者 재요청(외부자)
-doc_open_participant         064              参加者 문서 열람(외부자)
-doc_request_reviewer         070              検討者 요청
-doc_reject_reviewer          071              検討者 반려
-doc_request_reviewer         072              検討者 승인 
-doc_rerequest_reviewer       073              検討者 재요청(외부자)
-doc_open_review              074              検討者 문서 열람(외부자)
-==========================  ===============  ===================================
-
-======================      ===============  ===================================
 Type                         Code             説明
-======================      ===============  ===================================
+==========================  ===============  ===================================
 doc_tempsave                 001              下書き保存
 doc_create                   002              作成
 doc_complete                 003              完了
@@ -665,16 +592,16 @@ doc_reject_reviewer          071              検討者が返戻
 doc_request_reviewer         072              検討者が承認 
 doc_rerequest_reviewer       073              検討者に再依頼(外部受信者)
 doc_open_review              074              検討者が閲覧(外部受信者)
-==========================  ===============  ====================================
+==========================  ===============  ===================================
 
 
 詳細 Status タイプ
 -----------------------
 
-==========================  ===============  ===================================
+==========================  ===============  ===========================================
 Type                         Code             説明
-==========================  ===============  ===================================
-doc_tempsave                 001              下書き保存
+==========================  ===============  ===========================================
+doc_tempsave                 001              下書き保存 (作成者が下書きとして保存した状態)
 doc_create                   002              作成
 doc_complete                 003              完了
 doc_update                   043              修正
@@ -699,7 +626,7 @@ doc_reject_participant       061              参加者が返戻
 doc_request_reviewer         070              検討者に依頼
 doc_accept_reviewer          072              検討者が承認 
 doc_reject_reviewer          071              検討者が返戻
-==========================  ===============  ===================================
+==========================  ===============  ===========================================
 
 
 .. |image1| image:: resources/company_id.png
