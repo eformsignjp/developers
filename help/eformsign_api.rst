@@ -110,6 +110,16 @@ Java
    署名アルゴリズムは SHA256withECDSA を使用します。
 
 
+Javascript(Node.JS)
+------------------------
+
+Jsrsasign(https://kjur.github.io/jsrsasign/) npm 종속성이 설치되어 있어야 합니다.
+
+.. code:: Javascript
+
+   npm install jsrsasign
+
+
 
 
 Python
@@ -125,7 +135,7 @@ Python
 PHP
 -------
 
-次の例題の keycheck.inc.php、test.php ファイルを同じパスに保存してから例題を実行してください。
+PHP 예제를 사용하려면 PHP OpenSSL 라이브러리가 설치되어 있어야 하며, 次の例題の keycheck.inc.php、test.php ファイルを同じパスに保存してから例題を実行してください。
 
 
 例題
@@ -171,6 +181,29 @@ PHP
         //現在時刻および現在時刻の署名値
         System.out.print("execution_time : "+execution_time);
         System.out.print("eformsign_signature : "+eformsign_signature);
+
+
+    .. code-tab:: javascript
+        :title: Javascript(Node.JS)
+
+        const rs = require('jsrsasign');
+
+
+        // User-Data-Here
+        const execution_time  = Date.now()+"";
+        const privateKeyHex = "発行したprivate key(String)";
+
+        // User-Data-Here
+        var privateKey = rs.KEYUTIL.getKeyFromPlainPrivatePKCS8Hex(privateKeyHex);
+
+        // Sign
+        var s_sig = new rs.Signature({alg: 'SHA256withECDSA'});
+        s_sig.init(privateKey);
+        s_sig.updateString(execution_time);
+        var signature = s_sig.sign();
+        console.log('data:', execution_time);
+        console.log('eformsign_signature:', signature);
+
 
 
     .. code-tab:: python
@@ -219,6 +252,25 @@ PHP
                 $this->openSslPublicKey = openssl_get_publickey($pem);
             }
         }
+
+        class PrivateKey
+        {         
+
+            function __construct($str)
+            {
+                $pem_data = base64_encode(hex2bin($str));
+                $offset = 0;
+                $pem = "-----BEGIN EC PRIVATE KEY-----\n";
+                while ($offset < strlen($pem_data)) {
+                    $pem = $pem . substr($pem_data, $offset, 64) . "\n";
+                    $offset = $offset + 64;
+                }
+                $pem = $pem . "-----END EC PRIVATE KEY-----\n";
+                $this->openSslPrivateKey = openssl_get_privatekey($pem);
+            }
+        }
+
+
         function getNowMillisecond()
         {
           list($microtime,$timestamp) = explode(' ',microtime());
@@ -326,6 +378,8 @@ Access Token API についての詳しい説明は
    Access Token API の **Authorize** ボタンには API キー値を入力する必要があります。
 
 
+-------------------
+
 
 文書の作成および処理のための API
 --------------------------------
@@ -367,11 +421,13 @@ Access Token API についての詳しい説明は
 ``POST``: `文書の一括生成 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\
 
 
+------------------------
+
 
 メンバーおよびグループ管理のための API
 ---------------------------------------------
 
-APIを使用してメンバーおよびグループを管理することができます。メンバーおよびグループのリストを照会することができ、メンバーおよびグループを追加、修正、削除することができます。
+APIを使用してメンバーおよびグループを管理することができます。メンバーおよびグループのリストを照会することができ、メンバーおよびグループを修正、削除することができます。
 
 
 .. caution:: 
@@ -391,9 +447,7 @@ APIを使用してメンバーおよびグループを管理することがで�
 ^^^^^^^^^^^^^^^^^
 
 
-``GET``: `メンバーリストの照会 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/get-api-members>`_\  
-
-``POST``: `メンバー追加 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/post-api-members>`_\  
+``GET``: `メンバーリストの照会 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/get-api-members>`_\   
 
 ``PATCH``: `メンバー修正 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/patch-api-members-member_id>`_\  
 
@@ -595,7 +649,7 @@ doc_open_review              074              検討者が閲覧(外部受信者
 ==========================  ===============  ===================================
 
 
-詳細 Status タイプ
+詳細ステータスタイプ
 -----------------------
 
 ==========================  ===============  ===========================================

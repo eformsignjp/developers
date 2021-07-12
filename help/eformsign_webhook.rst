@@ -208,7 +208,7 @@ PHP
 
 
     .. code-tab:: python
-        :title: Python
+        :title: Python 3.9.6
 
         import hashlib
     		import binascii
@@ -222,12 +222,13 @@ PHP
     		# requestでheaderとbodyを読み取ります。
     		# 1. get eformsign signature
     		# eformsignSignatureはrequest headerに含まれています。
-    		eformsignSignature = request.headers['eformsign_signature']
+                eformsign_signature_str= request.headers['eformsign_signature']
+                eformsign_signature = binascii.unhexlify(eformsign_signature_str)
     		 
     		 
     		# 2. get request body data
     		# eformsign signature検証のためbodyのデータをStringに変換します。
-    		data = request.json
+    		data = request.data
     		 
     		 
     		# 3. publicKey設定
@@ -237,7 +238,7 @@ PHP
     		 
     		# 4. verify
     		try:
-    		    if publickey.verify(eformsignSignature, data.encode('utf-8'), hashfunc=hashlib.sha256, sigdecode=sigdecode_der):
+    		    if publickey.verify(eformsignSignature, data, hashfunc=hashlib.sha256, sigdecode=sigdecode_der):
     		        print("verify success")
     		        # ここでイベントに応じた処理を行います。
     		except BadSignatureError:
@@ -401,13 +402,14 @@ PHP
 
 
     .. code-tab:: python
-        :title: Python
+        :title: Python 3.9.6
 
         import hashlib
         import binascii
          
-        from ecdsa import SigningKey, VerifyingKey, BadSignatureError
+        from ecdsa import VerifyingKey, BadSignatureError
         from ecdsa.util import sigencode_der, sigdecode_der
+        from flask import request
          
         privateKeyHex = "3041020100301306072a8648ce3d020106082a8648ce3d0301070427302502010104207eae51d5e4272ebb3fe2701d25026a8c2850965981fb2efa68c8db48b32ede07"
         publicKeyHex = "3059301306072a8648ce3d020106082a8648ce3d030107034200045ac8a472cee38601e99b2a2d731c958e738eee1ee6aca28f6f5637f231e9a8444f3cb80d9ce6c5bace1d0e71167673ff81743e0ea811ebd999f2f314f1d0a676"
