@@ -390,7 +390,7 @@ Access Token API についての詳しい説明は
 
 .. caution:: 
 
-   本文書の API を使用するためにはまず Access Token の取得が必要です。`Access Token API <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_\で取得した Access Token を`次 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/>`__\ のパスにある **Authorize** ボタン (|image4|) を押して登録してください。 
+   本文書の API を使用するためにはまず Access Token の取得が必要です。`Access Token API <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_\で取得した Access Token を `次 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/>`__\ のパスにある **Authorize** ボタン (|image4|) を押して登録してください。 
 
 
 .. note:: 
@@ -433,7 +433,7 @@ APIを使用してメンバーおよびグループを管理することがで�
 
 .. caution:: 
 
-   本文書の API を使用するためにはまず Access Token の取得が必要です。`Access Token API <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0_auth>`_\で取得した Access Token を`次 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/>`__\ のパスにある **Authorize** ボタン (|image4|) を押して登録してください。 
+   本文書の API を使用するためにはまず Access Token の取得が必要です。`Access Token API <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0_auth>`_\で取得した Access Token を `次 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/>`__\ のパスにある **Authorize** ボタン (|image4|) を押して登録してください。 
 
 
 .. note:: 
