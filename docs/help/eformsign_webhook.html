@@ -72,7 +72,7 @@
   
     <div class="sidebar-group">
       <p class="caption">
-        <span class="caption-text"><a href="../index.html#eformsign-api-webhook">eformsign api / webhook 連携ガイド</a></span>
+        <span class="caption-text"><a href="../index.html#eformsign-api-webhook">eformsign api/webhook 連携ガイド</a></span>
       </p>
       <ul class="current">
         
@@ -153,25 +153,25 @@
 <div class="section" id="webhook">
 <span id="id2"></span><h3>Webhook キーの発行<a class="headerlink" href="#webhook" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ol class="arabic simple">
-<li><p>eformsign に代表管理者としてログインし、左側のメニューから <strong>「コネクト」 &gt; 「API/Webhook」</strong> ページに移動します。</p></li>
+<li><p>eformsign に代表管理者としてログインし、左側のメニューから <strong>コネクト &gt; API/Webhook</strong> ページに移動します。</p></li>
 </ol>
 <a class="reference internal image-reference" href="../_images/apikey1.PNG"><img alt="コネクト &gt; API/Webhook メニューの位置" src="../_images/apikey1.PNG" style="width: 700px;" /></a>
 <ol class="arabic simple" start="2">
-<li><p><strong>「Webhook」</strong> タブを選択し、<strong>Webhookの作成</strong> ボタンをクリックします。</p></li>
+<li><p><strong>Webhook</strong> タブを選択し、<strong>Webhookの作成</strong> ボタンをクリックします。</p></li>
 </ol>
 <a class="reference internal image-reference" href="../_images/webhook2.PNG"><img alt="「Webhookの作成」ボタン" src="../_images/webhook2.PNG" style="width: 700px;" /></a>
 <ol class="arabic simple" start="3">
-<li><p><strong>「Webhook の作成」</strong> ポップアップに名前、Webhook の URL、アクティブ状態、適用対象を選択し、「登録」ボタンをクリックします。</p></li>
+<li><p><strong>Webhook の作成</strong> ポップアップに名前、Webhook の URL、アクティブ状態、適用対象を選択し、<strong>登録</strong> ボタンをクリックします。</p></li>
 </ol>
 <a class="reference internal image-reference" href="../_images/webhook3.PNG"><img alt="「Webhookの作成」ポップアップ" src="../_images/webhook3.PNG" style="width: 700px;" /></a>
 <ol class="arabic simple" start="4">
-<li><p>作成された Webhook リストから <strong>「キーを表示」</strong> ボタンをクリックして Webhook の公開鍵を確認します。</p></li>
+<li><p>作成された Webhook リストから <strong>キーを表示</strong> ボタンをクリックして Webhook の公開鍵を確認します。</p></li>
 </ol>
 <a class="reference internal image-reference" href="../_images/webhook4.PNG"><img alt="「キーを表示」ボタンの位置" src="../_images/webhook4.PNG" style="width: 700px;" /></a>
 <a class="reference internal image-reference" href="../_images/webhook5.PNG"><img alt="Webhookのキーを確認" src="../_images/webhook5.PNG" style="width: 700px;" /></a>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p><strong>「キーを再発行」</strong> ボタンをクリックすると、その Webhook の公開鍵が再発行され、以前のキーは使用できなくなります。</p>
+<p><strong>キーを再発行</strong> ボタンをクリックすると、その Webhook の公開鍵が再発行され、以前のキーは使用できなくなります。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
@@ -306,7 +306,7 @@ Test URL : WebhookのURL
 <span class="p">}</span>
 </pre></div>
 </div>
-</div><div class="code-tab" data-title="Python">
+</div><div class="code-tab" data-title="Python 3.9.6">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hashlib</span>
         <span class="kn">import</span> <span class="nn">binascii</span>
 
@@ -319,12 +319,13 @@ Test URL : WebhookのURL
         <span class="c1"># requestでheaderとbodyを読み取ります。</span>
         <span class="c1"># 1. get eformsign signature</span>
         <span class="c1"># eformsignSignatureはrequest headerに含まれています。</span>
-        <span class="n">eformsignSignature</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;eformsign_signature&#39;</span><span class="p">]</span>
+        <span class="n">eformsign_signature_str</span><span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;eformsign_signature&#39;</span><span class="p">]</span>
+        <span class="n">eformsign_signature</span> <span class="o">=</span> <span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="n">eformsign_signature_str</span><span class="p">)</span>
 
 
         <span class="c1"># 2. get request body data</span>
         <span class="c1"># eformsign signature検証のためbodyのデータをStringに変換します。</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">data</span>
 
 
         <span class="c1"># 3. publicKey設定</span>
@@ -334,7 +335,7 @@ Test URL : WebhookのURL
 
         <span class="c1"># 4. verify</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">publickey</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span><span class="n">eformsignSignature</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">hashfunc</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">,</span> <span class="n">sigdecode</span><span class="o">=</span><span class="n">sigdecode_der</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">publickey</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span><span class="n">eformsign_signature</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">hashfunc</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">,</span> <span class="n">sigdecode</span><span class="o">=</span><span class="n">sigdecode_der</span><span class="p">):</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;verify success&quot;</span><span class="p">)</span>
                 <span class="c1"># ここでイベントに応じた処理を行います。</span>
         <span class="k">except</span> <span class="n">BadSignatureError</span><span class="p">:</span>
@@ -478,12 +479,13 @@ Test URL : WebhookのURL
 <span class="p">}</span>
 </pre></div>
 </div>
-</div><div class="code-tab" data-title="Python">
+</div><div class="code-tab" data-title="Python 3.9.6">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hashlib</span>
 <span class="kn">import</span> <span class="nn">binascii</span>
 
-<span class="kn">from</span> <span class="nn">ecdsa</span> <span class="kn">import</span> <span class="n">SigningKey</span><span class="p">,</span> <span class="n">VerifyingKey</span><span class="p">,</span> <span class="n">BadSignatureError</span>
+<span class="kn">from</span> <span class="nn">ecdsa</span> <span class="kn">import</span> <span class="n">VerifyingKey</span><span class="p">,</span> <span class="n">BadSignatureError</span>
 <span class="kn">from</span> <span class="nn">ecdsa.util</span> <span class="kn">import</span> <span class="n">sigencode_der</span><span class="p">,</span> <span class="n">sigdecode_der</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">request</span>
 
 <span class="n">privateKeyHex</span> <span class="o">=</span> <span class="s2">&quot;3041020100301306072a8648ce3d020106082a8648ce3d0301070427302502010104207eae51d5e4272ebb3fe2701d25026a8c2850965981fb2efa68c8db48b32ede07&quot;</span>
 <span class="n">publicKeyHex</span> <span class="o">=</span> <span class="s2">&quot;3059301306072a8648ce3d020106082a8648ce3d030107034200045ac8a472cee38601e99b2a2d731c958e738eee1ee6aca28f6f5637f231e9a8444f3cb80d9ce6c5bace1d0e71167673ff81743e0ea811ebd999f2f314f1d0a676&quot;</span>
@@ -593,11 +595,10 @@ Test URL : WebhookのURL
 <div class="section" id="id10">
 <h2>Webhook 提供リスト<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>次の Webhook を設定すると、そのイベントが発生するとき、設定した Webhook endpoint に変更情報を受信することができます。</p>
-<p>現在提供している <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook">Webhook</a>は次のとおりです。</p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-document-event">/webhook document event</a> 文書イベント送信</p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-pdf">/webhook pdf</a> PDF作成イベント送信</p>
+<p>現在提供している <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.jp/eformsign_API_2.0/Webhook">Webhook</a>は次のとおりです。</p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.jp/eformsign_API_2.0/Webhook#/default/post-webhook-document-event">/webhook document event</a> Webhook送信</p>
 <p>各 eformsign Webhook についての詳しい説明は
-<a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook">次</a>で確認することができます。</p>
+<a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.jp/eformsign_API_2.0/Webhook">次</a>で確認することができます。</p>
 </div>
 <div class="section" id="id12">
 <h2>Webhook についての情報<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h2>

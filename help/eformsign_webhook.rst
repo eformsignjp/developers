@@ -238,7 +238,7 @@ PHP
     		 
     		# 4. verify
     		try:
-    		    if publickey.verify(eformsignSignature, data, hashfunc=hashlib.sha256, sigdecode=sigdecode_der):
+    		    if publickey.verify(eformsign_signature, data, hashfunc=hashlib.sha256, sigdecode=sigdecode_der):
     		        print("verify success")
     		        # ここでイベントに応じた処理を行います。
     		except BadSignatureError:
@@ -524,16 +524,15 @@ Webhook 提供リスト
 
 次の Webhook を設定すると、そのイベントが発生するとき、設定した Webhook endpoint に変更情報を受信することができます。 
 
-現在提供している `Webhook <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook>`_\は次のとおりです。
+現在提供している `Webhook <https://app.swaggerhub.com/apis/eformsign_api.jp/eformsign_API_2.0/Webhook>`_\は次のとおりです。
 
 
-``POST``: `/webhook document event <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-document-event>`_\  文書イベント送信
+``POST``: `/webhook document event <https://app.swaggerhub.com/apis/eformsign_api.jp/eformsign_API_2.0/Webhook#/default/post-webhook-document-event>`_\  Webhook送信
 
-``POST``: `/webhook pdf <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-pdf>`_\  PDF作成イベント送信
 
 
 各 eformsign Webhook についての詳しい説明は 
-`次 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook>`__\ で確認することができます。
+`次 <https://app.swaggerhub.com/apis/eformsign_api.jp/eformsign_API_2.0/Webhook>`__\ で確認することができます。
 
 
 

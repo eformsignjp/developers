@@ -113,7 +113,7 @@ Java
 Javascript(Node.JS)
 ------------------------
 
-Jsrsasign(https://kjur.github.io/jsrsasign/) npm 종속성이 설치되어 있어야 합니다.
+Jsrsasign(https://kjur.github.io/jsrsasign/) npmをインストールしてください。
 
 .. code:: Javascript
 
@@ -135,7 +135,7 @@ Python
 PHP
 -------
 
-PHP 예제를 사용하려면 PHP OpenSSL 라이브러리가 설치되어 있어야 하며, 次の例題の keycheck.inc.php、test.php ファイルを同じパスに保存してから例題を実行してください。
+PHPの例を使用するには、PHP OpenSSLライブラリがインストールされているし、次の例題の keycheck.inc.php、test.php ファイルを同じパスに保存してから例題を実行してください。
 
 
 例題
@@ -221,7 +221,8 @@ PHP 예제를 사용하려면 PHP OpenSSL 라이브러리가 설치되어 있어
         privateKey = SigningKey.from_der(binascii.unhexlify(privateKeyHex))
          
         # execution_time - サーバー時刻
-        execution_time = int(time() * 1000)
+        execution_time_int = int(time() * 1000)
+        execution_time = str(execution_time_int)
           
         # eformsign_signature作成
         eformsign_signature = privateKey.sign(execution_time.encode('utf-8'), hashfunc=hashlib.sha256, sigencode=sigencode_der)
@@ -370,7 +371,7 @@ Access Token API についての詳しい説明は
 
 .. caution:: 
    
-   発行した API キーは、 `次 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`__\ の位置にある **Authorize** ボタン（|image4|）をクリックして登録してください。ただし、API キー値には**必ず Base64** でエンコードした 文字列を入力する必要があります。https://www.base64encode.org/ に接続し、発行した API キーを入力してエンコードされたテキストに変換してから入力してください。
+   発行した API キーは、 `次 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`__\ の位置にある **Authorize** ボタン（|image4|）をクリックして登録してください。ただし、API キー値には **必ず Base64** でエンコードした 文字列を入力する必要があります。https://www.base64encode.org/ に接続し、発行した API キーを入力してエンコードされたテキストに変換してから入力してください。
 
 
 .. note:: 
