@@ -333,13 +333,13 @@ eformsign API は、署名を作成するための API と文書の作成およ�
 署名を作成するための API
 -------------------------
 
-署名を作成するために、まず `Access Token API <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_\ を使用してください。 
+署名を作成するために、まず `Access Token API <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_\ を使用してください。 
 
-``POST``: `Access Token 発行 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_\
+``POST``: `Access Token 発行 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_\
 
 
 Access Token API についての詳しい説明は 
-`次 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`__\ で確認することができます。
+`次 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`__\ で確認することができます。
 
 .. caution:: 
    
@@ -350,7 +350,7 @@ Access Token API についての詳しい説明は
 
       { "code": "4000002", "ErrorMessage": "The validation time has expired.",     "execution_time": 1611538409405 }
 
-   `次 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`__\ の例題の位置にも "execution_time" を入力してください。
+   `次 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`__\ の例題の位置にも "execution_time" を入力してください。
    
    |image5| 
 
@@ -371,7 +371,7 @@ Access Token API についての詳しい説明は
 
 .. caution:: 
    
-   発行した API キーは、 `次 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`__\ の位置にある **Authorize** ボタン（|image4|）をクリックして登録してください。ただし、API キー値には **必ず Base64** でエンコードした 文字列を入力する必要があります。https://www.base64encode.org/ に接続し、発行した API キーを入力してエンコードされたテキストに変換してから入力してください。
+   発行した API キーは、 `次 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`__\ の位置にある **Authorize** ボタン（|image4|）をクリックして登録してください。ただし、API キー値には **必ず Base64** でエンコードした 文字列を入力する必要があります。https://www.base64encode.org/ に接続し、発行した API キーを入力してエンコードされたテキストに変換してから入力してください。
 
 
 .. note:: 
@@ -390,36 +390,36 @@ Access Token API についての詳しい説明は
 
 .. caution:: 
 
-   本文書の API を使用するためにはまず Access Token の取得が必要です。`Access Token API <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_\で取得した Access Token を `次 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/>`__\ のパスにある **Authorize** ボタン (|image4|) を押して登録してください。 
+   本文書の API を使用するためにはまず Access Token の取得が必要です。`Access Token API <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_\で取得した Access Token を `次 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/>`__\ のパスにある **Authorize** ボタン (|image4|) を押して登録してください。 
 
 
 .. note:: 
 
    文書 API の **Authorize** ボタンには API キー値を入力する必要があります。
 
-現在提供している `文書 API <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/document>`_\は次のとおりです。
+現在提供している `文書 API <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document>`_\は次のとおりです。
 
 
 
-``POST``: `文書の新規作成_内部受信者 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/post-api-documents>`_\ 
+``POST``: `文書の新規作成_内部受信者 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/post-api-documents>`_\ 
 
-``POST``: `文書の新規作成_外部受信者 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/eformsign/post-api-documents-external>`_\ 
+``POST``: `文書の新規作成_外部受信者 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/eformsign/post-api-documents-external>`_\ 
 
-``GET``: `文書情報の照会 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/eformsign/get-api-documents-DOCUMENT_ID>`_\
+``GET``: `文書情報の照会 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/eformsign/get-api-documents-DOCUMENT_ID>`_\
 
-``GET``: `文書ファイルのダウンロード_文書 PDFおよび監査証跡証明書 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/eformsign/get-api-documents-DOCUMENT_ID-download_files>`_\
+``GET``: `文書ファイルのダウンロード_文書 PDFおよび監査証跡証明書 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/eformsign/get-api-documents-DOCUMENT_ID-download_files>`_\
 
-``GET``: `添付ファイルのダウンロード <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/eformsign/get-api-documents-DOCUMENT_ID-download_attach_files>`_\ 
+``GET``: `添付ファイルのダウンロード <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/eformsign/get-api-documents-DOCUMENT_ID-download_attach_files>`_\ 
 
-``GET``: `文書リストの照会 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/get-api-documents>`_\ 
+``GET``: `文書リストの照会 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/get-api-documents>`_\ 
 
-``DELETE``: `文書の削除 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/delete-api-documents>`_\ 
+``DELETE``: `文書の削除 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/delete-api-documents>`_\ 
 
-``POST``: `外部受信者に対する再依頼 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/post-api-documents-document_id-re_request_outsider>`_\ 
+``POST``: `外部受信者に対する再依頼 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/post-api-documents-document_id-re_request_outsider>`_\ 
 
-``GET``: `作成可能なテンプレートリストの照会 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/get-api-forms>`_\  
+``GET``: `作成可能なテンプレートリストの照会 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/get-api-forms>`_\  
 
-``POST``: `文書の一括生成 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\
+``POST``: `文書の一括生成 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\
 
 
 ------------------------
@@ -433,7 +433,7 @@ APIを使用してメンバーおよびグループを管理することがで�
 
 .. caution:: 
 
-   本文書の API を使用するためにはまず Access Token の取得が必要です。`Access Token API <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0_auth>`_\で取得した Access Token を `次 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/>`__\ のパスにある **Authorize** ボタン (|image4|) を押して登録してください。 
+   本文書の API を使用するためにはまず Access Token の取得が必要です。`Access Token API <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0_auth>`_\で取得した Access Token を `次 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/>`__\ のパスにある **Authorize** ボタン (|image4|) を押して登録してください。 
 
 
 .. note:: 
@@ -441,37 +441,37 @@ APIを使用してメンバーおよびグループを管理することがで�
    APIの **Authorize** ボタンには API キー値を入力する必要があります。 
 
 
-現在提供している `メンバーおよびグループ管理 API <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/members>`_\は次のとおりです。
+現在提供している `メンバーおよびグループ管理 API <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/members>`_\は次のとおりです。
 
 
 メンバー管理 API
 ^^^^^^^^^^^^^^^^^
 
 
-``GET``: `メンバーリストの照会 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/get-api-members>`_\   
+``GET``: `メンバーリストの照会 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/get-api-members>`_\   
 
-``PATCH``: `メンバー修正 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/patch-api-members-member_id>`_\  
+``PATCH``: `メンバー修正 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/patch-api-members-member_id>`_\  
 
-``DELETE``: `メンバー削除 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/delete-api-members-member_id>`_\  
+``DELETE``: `メンバー削除 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/delete-api-members-member_id>`_\  
 
 
 グループ管理 API
 ^^^^^^^^^^^^^^^^^
 
 
-``GET``: `グループリストの照会 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/get-api-groups>`_\  
+``GET``: `グループリストの照会 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/get-api-groups>`_\  
 
-``POST``: `グループ追加 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/post-api-groups>`_\  
+``POST``: `グループ追加 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/post-api-groups>`_\  
 
-``PATCH``: `グループ修正 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/patch-api-groups>`_\  
+``PATCH``: `グループ修正 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/patch-api-groups>`_\  
 
-``DELETE``: `グループ削除 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/delete-api-groups>`_\  
+``DELETE``: `グループ削除 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/delete-api-groups>`_\  
 
 
 
 .. note:: 
 
-    各 eformsign API についての詳しい説明は `次 <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/>`__\ をご覧ください。
+    各 eformsign API についての詳しい説明は `次 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/>`__\ をご覧ください。
 
 
 

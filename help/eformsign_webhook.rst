@@ -524,15 +524,15 @@ Webhook 提供リスト
 
 次の Webhook を設定すると、そのイベントが発生するとき、設定した Webhook endpoint に変更情報を受信することができます。 
 
-現在提供している `Webhook <https://app.swaggerhub.com/apis/eformsign_api.jp/eformsign_API_2.0/Webhook>`_\は次のとおりです。
+現在提供している `Webhook <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/Webhook>`_\は次のとおりです。
 
 
-``POST``: `/webhook document event <https://app.swaggerhub.com/apis/eformsign_api.jp/eformsign_API_2.0/Webhook#/default/post-webhook-document-event>`_\  Webhook送信
+``POST``: `/webhook  <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/Webhook#/default/post-webhook-document-event>`_\  ウェブフック送信
 
 
 
 各 eformsign Webhook についての詳しい説明は 
-`次 <https://app.swaggerhub.com/apis/eformsign_api.jp/eformsign_API_2.0/Webhook>`__\ で確認することができます。
+`次 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/Webhook>`__\ で確認することができます。
 
 
 

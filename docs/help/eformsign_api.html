@@ -412,10 +412,10 @@
 <p>eformsign API は、署名を作成するための API と文書の作成および処理のための API、メンバーおよびグループ管理のための API で構成されています。</p>
 <div class="section" id="id5">
 <h3>署名を作成するための API<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>署名を作成するために、まず <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">Access Token API</a>を使用してください。</p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">Access Token 発行</a></p>
+<p>署名を作成するために、まず <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">Access Token API</a>を使用してください。</p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">Access Token 発行</a></p>
 <p>Access Token API についての詳しい説明は
-<a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">次</a>で確認することができます。</p>
+<a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">次</a>で確認することができます。</p>
 <div class="admonition caution">
 <p class="admonition-title">注意</p>
 <p>署名の作成には30秒の時間制限があります。30秒以内に署名を作成し、トークンを取得する必要があります。
@@ -423,7 +423,7 @@
 <div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;4000002&quot;</span><span class="p">,</span> <span class="nt">&quot;ErrorMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;The validation time has expired.&quot;</span><span class="p">,</span>     <span class="nt">&quot;execution_time&quot;</span><span class="p">:</span> <span class="mi">1611538409405</span> <span class="p">}</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">次</a>の例題の位置にも &quot;execution_time&quot; を入力してください。</p>
+<p><a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">次</a>の例題の位置にも &quot;execution_time&quot; を入力してください。</p>
 <p><a class="reference internal" href="../_images/execution_time.png"><img alt="image5" src="../_images/execution_time.png" style="width: 450px;" /></a></p>
 <p>Access Token は、メンバーの権限に応じて取得することができます。メンバーに対する Access Token を取得するためには、以下のように &quot;execution_time&quot; と一緒に &quot;member_id&quot; を入力してください。</p>
 <p><a class="reference internal" href="../_images/execution_time2.png"><img alt="image6" src="../_images/execution_time2.png" style="width: 450px;" /></a></p>
@@ -434,7 +434,7 @@
 </div>
 <div class="admonition caution">
 <p class="admonition-title">注意</p>
-<p>発行した API キーは、 <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">次</a>の位置にある <strong>Authorize</strong> ボタン（<img alt="image4" src="../_images/authorize_icon.png" />）をクリックして登録してください。ただし、API キー値には <strong>必ず Base64</strong> でエンコードした 文字列を入力する必要があります。<a class="reference external" href="https://www.base64encode.org/">https://www.base64encode.org/</a> に接続し、発行した API キーを入力してエンコードされたテキストに変換してから入力してください。</p>
+<p>発行した API キーは、 <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">次</a>の位置にある <strong>Authorize</strong> ボタン（<img alt="image4" src="../_images/authorize_icon.png" />）をクリックして登録してください。ただし、API キー値には <strong>必ず Base64</strong> でエンコードした 文字列を入力する必要があります。<a class="reference external" href="https://www.base64encode.org/">https://www.base64encode.org/</a> に接続し、発行した API キーを入力してエンコードされたテキストに変換してから入力してください。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
@@ -447,23 +447,23 @@
 <p>署名を作成すると、次の文書 API を使用して文書の新規作成や文書情報の照会ができ、完了文書のファイル（文書の PDF ファイル、監査証跡証明書）や添付ファイルをダウンロードすることができます。</p>
 <div class="admonition caution">
 <p class="admonition-title">注意</p>
-<p>本文書の API を使用するためにはまず Access Token の取得が必要です。<a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">Access Token API</a>で取得した Access Token を`次 &lt;<a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/">https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/</a>&gt;`__のパスにある <strong>Authorize</strong> ボタン (<img alt="image4" src="../_images/authorize_icon.png" />) を押して登録してください。</p>
+<p>本文書の API を使用するためにはまず Access Token の取得が必要です。<a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">Access Token API</a>で取得した Access Token を <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/">次</a>のパスにある <strong>Authorize</strong> ボタン (<img alt="image4" src="../_images/authorize_icon.png" />) を押して登録してください。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
 <p>文書 API の <strong>Authorize</strong> ボタンには API キー値を入力する必要があります。</p>
 </div>
-<p>現在提供している <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/document">文書 API</a>は次のとおりです。</p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/post-api-documents">文書の新規作成_内部受信者</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/eformsign/post-api-documents-external">文書の新規作成_外部受信者</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/eformsign/get-api-documents-DOCUMENT_ID">文書情報の照会</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/eformsign/get-api-documents-DOCUMENT_ID-download_files">文書ファイルのダウンロード_文書 PDFおよび監査証跡証明書</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/eformsign/get-api-documents-DOCUMENT_ID-download_attach_files">添付ファイルのダウンロード</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/get-api-documents">文書リストの照会</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/delete-api-documents">文書の削除</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/post-api-documents-document_id-re_request_outsider">外部受信者に対する再依頼</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/get-api-forms">作成可能なテンプレートリストの照会</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id">文書の一括生成</a></p>
+<p>現在提供している <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document">文書 API</a>は次のとおりです。</p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/post-api-documents">文書の新規作成_内部受信者</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/eformsign/post-api-documents-external">文書の新規作成_外部受信者</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/eformsign/get-api-documents-DOCUMENT_ID">文書情報の照会</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/eformsign/get-api-documents-DOCUMENT_ID-download_files">文書ファイルのダウンロード_文書 PDFおよび監査証跡証明書</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/eformsign/get-api-documents-DOCUMENT_ID-download_attach_files">添付ファイルのダウンロード</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/get-api-documents">文書リストの照会</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/delete-api-documents">文書の削除</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/post-api-documents-document_id-re_request_outsider">外部受信者に対する再依頼</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/get-api-forms">作成可能なテンプレートリストの照会</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id">文書の一括生成</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="id18">
@@ -471,28 +471,28 @@
 <p>APIを使用してメンバーおよびグループを管理することができます。メンバーおよびグループのリストを照会することができ、メンバーおよびグループを修正、削除することができます。</p>
 <div class="admonition caution">
 <p class="admonition-title">注意</p>
-<p>本文書の API を使用するためにはまず Access Token の取得が必要です。<a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0_auth">Access Token API</a>で取得した Access Token を`次 &lt;<a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/">https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/</a>&gt;`__のパスにある <strong>Authorize</strong> ボタン (<img alt="image4" src="../_images/authorize_icon.png" />) を押して登録してください。</p>
+<p>本文書の API を使用するためにはまず Access Token の取得が必要です。<a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0_auth">Access Token API</a>で取得した Access Token を <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/">次</a>のパスにある <strong>Authorize</strong> ボタン (<img alt="image4" src="../_images/authorize_icon.png" />) を押して登録してください。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
 <p>APIの <strong>Authorize</strong> ボタンには API キー値を入力する必要があります。</p>
 </div>
-<p>現在提供している <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/members">メンバーおよびグループ管理 API</a>は次のとおりです。</p>
+<p>現在提供している <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/members">メンバーおよびグループ管理 API</a>は次のとおりです。</p>
 <div class="section" id="id21">
 <h4>メンバー管理 API<a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/get-api-members">メンバーリストの照会</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">PATCH</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/patch-api-members-member_id">メンバー修正</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/delete-api-members-member_id">メンバー削除</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/get-api-members">メンバーリストの照会</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">PATCH</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/patch-api-members-member_id">メンバー修正</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/delete-api-members-member_id">メンバー削除</a></p>
 </div>
 <div class="section" id="id25">
 <h4>グループ管理 API<a class="headerlink" href="#id25" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/get-api-groups">グループリストの照会</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/post-api-groups">グループ追加</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">PATCH</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/patch-api-groups">グループ修正</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/default/delete-api-groups">グループ削除</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/get-api-groups">グループリストの照会</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/post-api-groups">グループ追加</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">PATCH</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/patch-api-groups">グループ修正</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/delete-api-groups">グループ削除</a></p>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>各 eformsign API についての詳しい説明は <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0#/">次</a>をご覧ください。</p>
+<p>各 eformsign API についての詳しい説明は <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/">次</a>をご覧ください。</p>
 </div>
 </div>
 </div>
