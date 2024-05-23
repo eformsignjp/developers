@@ -48,7 +48,6 @@ eformsign APIを使用して文書を作成し、送信するには、事前にe
     :alt: テンプレート管理メニュー
 
 
-
 4. **文書参加者** 設定ポップアップで **文書作成の参加者** を設定します。本ガイドでは、初回作成者である **開始**\ と受信者である **会員**\ の設定を行います。
 
 .. image:: resources/2_set_stepname.png
@@ -56,13 +55,11 @@ eformsign APIを使用して文書を作成し、送信するには、事前にe
     :alt: 文書参加者ポップアップ
 
 
-
 5. **開始**\ と **会員**\ が作成する入力項目を文書に追加し、入力項目IDの入力、各参加者の入力項目の作成権限の設定を行います。
 
 .. image:: resources/3_webform_comp_properties.png
     :width: 700
     :alt: 入力項目の追加
-
 
 
 6. 画面上部の **設定する**\ をクリックして移動後、ワークフローを設定します。 **ワークフロー**\ は **開始(参加者) - 会員(参加者)**\ の二段階に設定し、 **会員** ステップの右側のプロパティから通知 - **メールで送信** を選択します。
@@ -73,15 +70,12 @@ eformsign APIを使用して文書を作成し、送信するには、事前にe
 
 
 
-
 7. テンプレートを保存・配布後、テンプレートの設定アイコンを再度クリックします。この時、URLのUUIDに表示されたテンプレートIDをコピーしておきます。
 **テンプレートID**\ は、テンプレートを使用して文書を作成する際に必要です。
 
 .. image:: resources/5_check_formID.png
     :width: 700
     :alt: テンプレートID
-
-
 
 
 
@@ -99,13 +93,11 @@ eformsign APIを使用して文書を作成し、送信するには、事前にe
     :alt: API/Webhookメニュー
 
 
-
 2. 画面右側の **APIキーの作成** ボタンをクリックします。
 
 .. image:: resources/7_click_apiKey_button.png
     :width: 700
     :alt: APIキーの作成ボタン
-
 
 
 3. **APIキーの作成** ポップアップが表示されたら、 **エイリアス** と **アプリケーション名** を入力、 **検証タイプ** は **Bearer token** を選択し、**値** を入力して **保存** します。
@@ -144,7 +136,6 @@ APIキーの作成後は、認証をしてAccessトークンを発行する必�
     :alt: Run in Postmanボタン
     :width: 150
     :target: https://god.gw.postman.com/run-collection/27891557-58257a8f-c07a-4237-af80-15f4b43b04b3?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D27891557-58257a8f-c07a-4237-af80-15f4b43b04b3%26entityType%3Dcollection%26workspaceId%3D3cf5d467-c05f-46a3-9995-7bf5a33b5379 
-
 
 
 2. 上記のボタンをクリックするとログイン画面が表示されます。あらかじめ登録したアカウントでログインしてください。
@@ -271,6 +262,8 @@ APIキーの認証とAccessトークンの発行が終わり、準備ができ�
     :alt: 文書情報の入力
 
 **サンプル**
+=============
+
 
 .. code-block:: JSON
 
