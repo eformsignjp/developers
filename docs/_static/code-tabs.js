@@ -1,31 +1,29 @@
-const onclick = function(event) {
-	const select = this.parentNode;
-	const book = select.parentNode;
-	for (const button of select.children) {
-    button.classList.toggle('selected', Object.is(button, this));
-	}
-  for (const page of book.children) {
-    if (page.hasAttribute('data-id')) {
-      page.classList.toggle('hidden', page.dataset.id != this.dataset.id);
-		}
-  }
-};
+const sphinx_code_tabs_onclick = function(clicked) {
+  const tabid = clicked.dataset.id;
+  const tabgroup = clicked.parentNode.parentNode.dataset.tabgroup;
+  const books = [];
 
-window.addEventListener('load', function() {
-  for (const book of document.querySelectorAll('div.code-tabs')) {
-    let i = 0;
-    let navbar = document.createElement('ul');
-    for (const page of book.children) {
-      const button = document.createElement('li');
-      page.setAttribute('data-id', i);
-			button.setAttribute('data-id', i);
-      button.onclick = onclick;
-      button.innerText = page.getAttribute('data-title');
-      button.classList.toggle('selected', i == 0);
-      page.classList.toggle('hidden', i != 0);
-      navbar.appendChild(button);
-      ++i;
+  if (tabgroup) {
+    for (const book of document.querySelectorAll("div.tabs")) {
+      if (book.dataset.tabgroup == tabgroup) {
+        books.push(book);
+      }
     }
-    book.prepend(navbar);
   }
-}, false);
+  else {
+    books.push(clicked.parentNode.parentNode);
+  }
+
+  for (const book of books) {
+    const select = book.children[0];
+    for (const button of select.children) {
+      button.classList.toggle('selected', button.dataset.id == tabid);
+    }
+    for (const page of book.children) {
+      if (page.hasAttribute('data-id')) {
+        page.classList.toggle('selected', page.dataset.id == tabid);
+      }
+    }
+  }
+
+};
