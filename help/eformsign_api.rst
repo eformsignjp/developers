@@ -52,14 +52,14 @@ APIキーの作成および秘密鍵の確認
 
 1. eformsignに代表管理者としてログインし、メニューツリーから **[コネクト] >[ API/Webhook]** に移動します。 
 
-.. image:: resources/apikey1.PNG
+.. image:: resources/apikey1.png
     :width: 700
     :alt: コネクト > API/Webhook メニューの位置
 
 
 2. **[APIキー]** タブを選択し、**APIキーの作成** ボタンをクリックします。 
 
-.. image:: resources/apikey2.PNG
+.. image:: resources/apikey2.png
     :width: 700
     :alt: 「APIキー登録」ボタン
 

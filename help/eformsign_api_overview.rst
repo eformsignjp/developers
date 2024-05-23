@@ -12,7 +12,7 @@ eformsignは、お客様のWebサイト・サービスでもeformsignの機能�
 
 
 
-`eformsignの機能の埋め込み <https://eformsignjp.github.io/developers/help/eformsign_embedding_JP.html#eformsign>`_
+`eformsignの機能の埋め込み <https://eformsignjp.github.io/developers/help/eformsign_embedding.html#eformsign>`_
 
 お客様のサービス（Webサイトなど）内にeformsignの電子文書機能を埋め込む（embed）ことで、eformsignのサイトに接続することなく、お客様のサービス内でeformsignの電子文書機能をご利用いただけます。
 
@@ -28,7 +28,6 @@ eformsign内でイベントが発生した際、イベントの情報をお客�
 
 
 .. note:: 
-
 
   本 **eformsign API ガイド**\ は、v2.0です。以前のバージョン(v1.0)が必要な方は  
   **eformsignサービスチーム**\ (eformsign@forcs.com)までお問い合わせください。

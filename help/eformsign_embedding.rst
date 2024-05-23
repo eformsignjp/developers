@@ -633,7 +633,7 @@ comment                            次の受信者に伝えるメッセージ   
     
 .. note::
 
-   設定しない場合、基本フィールドの情報のみリターンします。詳しい情報は `作業成功/失敗時 <https://eformsignjp.github.io/developers/help/eformsign_embedding_JP.html#success-fail>`_ callBackパラメータをご参照ください。
+   設定しない場合、基本フィールドの情報のみリターンします。詳しい情報は `作業成功失敗時 <https://eformsignjp.github.io/developers/help/eformsign_embedding.html#success-fail>`_\ callBackパラメータをご参照ください。
 
 .. note::
 
