@@ -20,13 +20,13 @@ sys.path.insert(0, os.path.abspath('.'))
 # -- Project information -----------------------------------------------------
 
 project = 'eformsign API guide'
-copyright = '2021. FORCS CO., LTD. All rights reserved'
+copyright = '2024. FORCS CO., LTD. All rights reserved'
 author = 'FORCS'
 
 # The short X.Y version
 version = ''
 # The full version, including alpha/beta/rc tags
-release = '2021.01.11'
+release = '2024.05.23'
 
 # -- General configuration ---------------------------------------------------
 
@@ -38,9 +38,11 @@ release = '2021.01.11'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinx.ext.napoleon',
 #'sphinxcontrib.httpdomain', 'sphinxcontrib.openapi'
 #'sphinxcontrib.redoc',
-'sphinx_code_tabs',
+    'sphinx_code_tabs',
+    'sphinx_rtd_theme',
 ]
 
 
@@ -78,6 +80,7 @@ pygments_style = None
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
+html_theme_path = ["_themes", ]
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -88,9 +91,10 @@ html_theme = 'sphinx_rtd_theme'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+#html_static_path = ['_static']
 
-html_favicon = 'C:\docbook\eformsignkr.github.io\images\\favicon.ico'
+html_favicon = 'C:\eformsign_manual\developers\images\\favicon.ico'
+
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
@@ -181,5 +185,5 @@ html_theme_options = {
     'logo_only': True,
     # ...
 }
-html_logo = "C:\docbook\eformsignkr_developers\images\\forcs_b.png"
+html_logo = "C:\eformsign_manual\developers\images\\forcs_b.png"
 
