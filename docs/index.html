@@ -1,246 +1,143 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="ja" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>eformsign API/Webhook 連携ガイド &mdash; eformsign API guide 2021.01.11 ドキュメント</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/code-tabs.css" type="text/css" />
-
-  
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/code-tabs.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-  
-  
-  
-
-  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/translations.js"></script>
         <script src="_static/code-tabs.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
-    <link rel="next" title="概要" href="help/eformsign_api_overview.html" /> 
+    <link rel="next" title="eformsign APIガイド" href="help/eformsign_api_overview.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="#">
           
-
-          
+          <a href="#">
             
-            <img src="_static/forcs_b.png" class="logo" alt="Logo"/>
-          
+              <img src="_static/forcs_b.png" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="help/eformsign_api_overview.html">概要</a></li>
-<li class="toctree-l1"><a class="reference internal" href="help/eformsign_embedding.html">eformsign 機能の組み込み</a></li>
-<li class="toctree-l1"><a class="reference internal" href="help/eformsign_api.html">eformsign API の使い方</a></li>
-<li class="toctree-l1"><a class="reference internal" href="help/eformsign_webhook.html">eformsign Webhook の使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help/eformsign_api_overview.html">eformsign APIガイド</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help/eformsign_api_quickstart.html">eformsign APIの始め方：実践ガイド</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help/eformsign_embedding.html">eformsign機能の埋め込み</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help/eformsign_api.html">eformsign APIの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help/eformsign_webhook.html">eformsign Webhookの使い方</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="#">eformsign API guide</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>eformsign API/Webhook 連携ガイド</li>
-    
-    
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">eformsign API/Webhook 連携ガイド</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="eformsign-api-webhook">
-<h1>eformsign API/Webhook 連携ガイド<a class="headerlink" href="#eformsign-api-webhook" title="このヘッドラインへのパーマリンク">¶</a></h1>
+             
+  <section id="eformsign-api-webhook">
+<h1>eformsign API/Webhook 連携ガイド<a class="headerlink" href="#eformsign-api-webhook" title="この見出しへのパーマリンク"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="help/eformsign_api_overview.html">概要</a></li>
-<li class="toctree-l1"><a class="reference internal" href="help/eformsign_embedding.html">eformsign 機能の組み込み</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="help/eformsign_embedding.html#id1">始めてみよう</a></li>
-<li class="toctree-l2"><a class="reference internal" href="help/eformsign_embedding.html#id9">インストール</a></li>
-<li class="toctree-l2"><a class="reference internal" href="help/eformsign_embedding.html#id10">eformsign のオブジェクトについての情報</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help/eformsign_api_overview.html">eformsign APIガイド</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help/eformsign_api_quickstart.html">eformsign APIの始め方：実践ガイド</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="help/eformsign_api_quickstart.html#id1">eformsign APIを使用して文書を作成し、受信者に送信</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="help/eformsign_api.html">eformsign API の使い方</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="help/eformsign_embedding.html">eformsign機能の埋め込み</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="help/eformsign_embedding.html#id1">チュートリアル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help/eformsign_embedding.html#id5">埋め込みオプションの設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help/eformsign_embedding.html#id27">応答確認とコールバックの設定(オプション)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help/eformsign_embedding.html#id38">機能の埋め込みと実行</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="help/eformsign_api.html">eformsign APIの使い方</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="help/eformsign_api.html#id1">始める前に</a></li>
-<li class="toctree-l2"><a class="reference internal" href="help/eformsign_api.html#id2">署名の作成</a></li>
-<li class="toctree-l2"><a class="reference internal" href="help/eformsign_api.html#id4">API 提供リスト</a></li>
-<li class="toctree-l2"><a class="reference internal" href="help/eformsign_api.html#id30">API コード</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help/eformsign_api.html#eformsign-signature">署名の作成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help/eformsign_api.html#id4">API提供リスト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help/eformsign_api.html#id39">APIコード</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="help/eformsign_webhook.html">eformsign Webhook の使い方</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="help/eformsign_webhook.html#id1">始めてみよう</a></li>
-<li class="toctree-l2"><a class="reference internal" href="help/eformsign_webhook.html#id3">署名の登録</a></li>
-<li class="toctree-l2"><a class="reference internal" href="help/eformsign_webhook.html#id5">テスト</a></li>
-<li class="toctree-l2"><a class="reference internal" href="help/eformsign_webhook.html#id10">Webhook 提供リスト</a></li>
-<li class="toctree-l2"><a class="reference internal" href="help/eformsign_webhook.html#id13">Webhook についての情報</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help/eformsign_webhook.html">eformsign Webhookの使い方</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="help/eformsign_webhook.html#id1">準備</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help/eformsign_webhook.html#webhookauth">Webhookの検証</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help/eformsign_webhook.html#webhookevent">Webhookイベント</a></li>
 </ul>
 </li>
 </ul>
 </div>
-</div>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="help/eformsign_api_overview.html" class="btn btn-neutral float-right" title="概要" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="help/eformsign_api_overview.html" class="btn btn-neutral float-right" title="eformsign APIガイド" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; 著作権 2021. FORCS CO., LTD. All rights reserved
-
-    </p>
+    <p>&#169; Copyright 2021. FORCS CO., LTD. All rights reserved.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

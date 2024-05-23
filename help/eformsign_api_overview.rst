@@ -1,32 +1,34 @@
 ==========================
-概要
+eformsign APIガイド 
 ==========================
 
 
 
-eformsign は、会社で発生する紙の文書を誰もが簡単に電子文書化し、いつ、どこでも、業務に活用できる上、保存されている情報を多様に活用できる電子文書サービスです。
+eformsignは、会社で発生する紙の文書を誰もが簡単に電子文書化し、時間・場所問わず業務に活用でき、保存されている情報をあらゆる用途でご活用いただける電子文書サービスです。
 
 ---------------
 
-eformsign は、顧客のWebサイトまたはサービスで eformsign の機能を多様に活用できるよう、eformsign の電子文書機能を直接組み込む方式、Open API 方式、そして Webhook 方式の3つの方式に対応しています。  
+eformsignは、お客様のWebサイト・サービスでもeformsignの機能を様々な用途でご利用いただけるよう、eformsignの電子文書機能の埋め込み、Open API、Webhookの3つの方式に対応しています。
 
 
-**eformsign 機能の組み込み**
 
-eformsign を顧客がサービス（またはWebサイト）内に eformsign の電子文書機能を組み込む（embed）ことで、eformsign サイトに接続することなく、顧客のサービス内で eformsign の電子文書機能を利用することができます。
+`eformsignの機能の埋め込み <https://eformsignjp.github.io/developers/help/eformsign_embedding_JP.html#eformsign>`_
 
-
-**eformsign API の使い方**
-
-eformsign が提供する API を利用し、eformsign の機能を顧客のシステム/サービスで呼び出し、利用できるようにする機能です。
+お客様のサービス（Webサイトなど）内にeformsignの電子文書機能を埋め込む（embed）ことで、eformsignのサイトに接続することなく、お客様のサービス内でeformsignの電子文書機能をご利用いただけます。
 
 
-**eformsign Webhook の使い方**
+`eformsign API の使い方 <https://eformsignjp.github.io/developers/help/eformsign_api.html#eformsign-api>`_
 
-eformsign にイベントが発生した際、そのイベントの情報を顧客のシステム/サービスに通知する機能です。 
+eformsignが提供するAPIを利用し、eformsignの機能をお客様のシステム/サービスで呼び出し、ご利用いただけます。
+
+
+`eformsign Webhook の使い方 <https://eformsignjp.github.io/developers/help/eformsign_webhook.html#eformsign-webhook>`_
+
+eformsign内でイベントが発生した際、イベントの情報をお客様のシステム/サービスに通知することができます。 
 
 
 .. note:: 
 
 
-  本 **eformsign API ガイド**\ は、v2.0 です。以前の v1.0 が必要な方は **eformsign サービスチーム**\ (eformsign@forcs.com) までご相談ください。
+  本 **eformsign API ガイド**\ は、v2.0です。以前のバージョン(v1.0)が必要な方は  
+  **eformsignサービスチーム**\ (eformsign@forcs.com)までお問い合わせください。

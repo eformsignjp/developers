@@ -1,256 +1,226 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="ja" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>eformsign API の使い方 &mdash; eformsign API guide 2021.01.11 ドキュメント</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/code-tabs.css" type="text/css" />
-
-  
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>eformsign APIの使い方 &mdash; eformsign API guide 2021.01.11 ドキュメント</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/code-tabs.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/translations.js"></script>
         <script src="../_static/code-tabs.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="eformsign Webhook の使い方" href="eformsign_webhook.html" />
-    <link rel="prev" title="eformsign 機能の組み込み" href="eformsign_embedding.html" /> 
+    <link rel="next" title="eformsign Webhookの使い方" href="eformsign_webhook.html" />
+    <link rel="prev" title="eformsign機能の埋め込み" href="eformsign_embedding.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html">
           
-
-          
+          <a href="../index.html">
             
-            <img src="../_static/forcs_b.png" class="logo" alt="Logo"/>
-          
+              <img src="../_static/forcs_b.png" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="eformsign_api_overview.html">概要</a></li>
-<li class="toctree-l1"><a class="reference internal" href="eformsign_embedding.html">eformsign 機能の組み込み</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">eformsign API の使い方</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="eformsign_api_overview.html">eformsign APIガイド</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eformsign_embedding.html">eformsign機能の埋め込み</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">eformsign APIの使い方</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">始める前に</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id-id">会社 ID と 文書 ID の確認</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#api">API キーの作成および秘密鍵の確認</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#idid">会社IDと文書IDの確認</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api">APIキーの作成および秘密鍵の確認</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">署名の作成</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#eformsign-signature">署名の作成</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#java">Java</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#javascript-node-js">Javascript(Node.JS)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#python">Python</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#php">PHP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">例題</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#c-net">C# (.NET)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">各言語のコード作成例</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">API 提供リスト</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id5">署名を作成するための API</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">文書の作成および処理のための API</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id18">メンバーおよびグループ管理のための API</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id21">メンバー管理 API</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id25">グループ管理 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">API提供リスト</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#access-token-api">トークンの発行と更新のAPI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6"><strong>トークンの発行</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8"><strong>トークンの更新</strong></a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#id30">API コード</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id31">API ステータスコード</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id32">200</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id33">202</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id34">400</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id35">403</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id36">405</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id37">500</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#id38">ステップタイプ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id39">ユーザータイプ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id40">ステータスタイプ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id41">アクションタイプ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id42">詳細ステータスタイプ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">文書の作成と処理のAPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id27">メンバーとグループ管理のAPI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id30">メンバー管理 API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id34">グループ管理 API</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="eformsign_webhook.html">eformsign Webhook の使い方</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id39">APIコード</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id40">APIステータスコード</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id41">200</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id42">202</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id43">400</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id44">403</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id45">405</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id46">500</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#user-type">ユーザータイプ(user_type)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id47">ステップタイプ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#current-status-status-type">文書の現在のステータスタイプ (current_status.status_type)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#next-status-status-type">文書の문서 다음 상태 타입(next_status.status_type)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#action-type">アクションタイプ(action_type)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eformsign_webhook.html">eformsign Webhookの使い方</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">eformsign API guide</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>eformsign API の使い方</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">eformsign APIの使い方</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../_sources/help/eformsign_api.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="eformsign-api">
-<h1>eformsign API の使い方<a class="headerlink" href="#eformsign-api" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>eformsign が提供する API を利用し、eformsign の機能を顧客のシステム/サービスで呼び出して使用できる機能です。</p>
-<div class="section" id="id1">
-<h2>始める前に<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>eformsign API を利用するためには、次のような事前作業が必要です。</p>
+             
+  <section id="eformsign-api">
+<h1>eformsign APIの使い方<a class="headerlink" href="#eformsign-api" title="この見出しへのパーマリンク"></a></h1>
+<p>eformsignが提供するAPIを利用し、eformsignの機能をお客様のシステム/サービス内で呼び出し、ご利用いただけます。</p>
+<section id="id1">
+<h2>始める前に<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h2>
+<p>eformsign APIを利用するためには、以下のような事前準備が必要です。</p>
 <ul class="simple">
-<li><p>会社 ID と 文書 ID の確認</p></li>
-<li><p>API キーの作成および秘密鍵の確認</p></li>
+<li><p>会社IDと文書IDの確認</p></li>
+<li><p>APIキーの作成および秘密鍵の確認</p></li>
 <li><p>署名の作成</p></li>
 </ul>
 <div class="admonition caution">
 <p class="admonition-title">注意</p>
 <p>署名の作成には30秒の時間制限があります。30秒以内に署名を作成し、トークンを取得してください。</p>
 </div>
-<div class="section" id="id-id">
-<h3>会社 ID と 文書 ID の確認<a class="headerlink" href="#id-id" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>eformsign API を使用するためには、会社 ID と照会対象の文書 ID が必要です。</p>
-<p>eformsign サービスにログインし、会社 ID と文書 ID を確認してください。</p>
+<section id="idid">
+<h3>会社IDと文書IDの確認<a class="headerlink" href="#idid" title="この見出しへのパーマリンク"></a></h3>
+<p>eformsign APIを使用するためには、会社IDと照会対象の文書IDが必要です。</p>
+<p>eformsignサービスにログインし、会社IDと文書IDを確認してください。</p>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>会社 ID は、左側のメニューの <strong>会社管理 &gt; 会社情報</strong> メニューの <strong>基本情報</strong> タブで確認することができます。</p>
+<p>会社IDは、左側のメニューの <strong>会社管理 &gt; 会社情報</strong> メニューの <strong>基本情報</strong> タブから確認することができます。</p>
 <p><a class="reference internal" href="../_images/company_id.png"><img alt="image1" src="../_images/company_id.png" style="width: 600px;" /></a></p>
-<p>文書 ID は、各文書トレイの右上にある文書アイコン(<img alt="image2" src="../_images/column_icon.png" />)をクリックし、文書 ID コラムを追加すると、照会したい文書の ID を確認することができます。</p>
+<p>文書IDは、各文書トレイの右上にある文書アイコン(<img alt="image2" src="../_images/column_icon.png" />)をクリックし、文書IDコラムを追加すると、照会したい文書のID を確認することができます。</p>
 <p><img alt="image3" src="../_images/document_id.png" /></p>
 </div>
+</section>
+<section id="api">
+<span id="apikey"></span><h3>APIキーの作成および秘密鍵の確認<a class="headerlink" href="#api" title="この見出しへのパーマリンク"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>APIキーは代表管理者のみ発行することができます。代表管理者でない場合は、代表管理者にご確認ください。</p>
 </div>
-<div class="section" id="api">
-<span id="apikey"></span><h3>API キーの作成および秘密鍵の確認<a class="headerlink" href="#api" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ol class="arabic simple">
-<li><p>eformsign に代表管理者としてログインし、メニューツリーで <strong>コネクト &gt; API/Webhook</strong> に移動します。</p></li>
+<li><p>eformsignに代表管理者としてログインし、メニューツリーから <strong>[コネクト] &gt;[ API/Webhook]</strong> に移動します。</p></li>
 </ol>
 <a class="reference internal image-reference" href="../_images/apikey1.PNG"><img alt="コネクト &gt; API/Webhook メニューの位置" src="../_images/apikey1.PNG" style="width: 700px;" /></a>
 <ol class="arabic simple" start="2">
-<li><p><strong>API キー</strong> タブを選択し、<strong>API キーの作成</strong> ボタンをクリックします。</p></li>
+<li><p><strong>[APIキー]</strong> タブを選択し、<strong>APIキーの作成</strong> ボタンをクリックします。</p></li>
 </ol>
-<a class="reference internal image-reference" href="../_images/apikey2.PNG"><img alt="「API キー登録」ボタン" src="../_images/apikey2.PNG" style="width: 700px;" /></a>
+<a class="reference internal image-reference" href="../_images/apikey2.PNG"><img alt="「APIキー登録」ボタン" src="../_images/apikey2.PNG" style="width: 700px;" /></a>
 <ol class="arabic simple" start="3">
-<li><p><strong>API キーの作成</strong> ポップアップ画面にエイリアスとアプリケーション名を入力し、<strong>保存</strong> ボタンをクリックします。</p></li>
+<li><p><strong>APIキーの作成</strong> ポップアップ画面にエイリアスとアプリケーション名を入力し、<strong>保存</strong> ボタンをクリックします。</p></li>
 </ol>
-<a class="reference internal image-reference" href="../_images/apikey3.PNG"><img alt="「API キーの作成」ポップアップ画面" src="../_images/apikey3.PNG" style="width: 700px;" /></a>
+<a class="reference internal image-reference" href="../_images/apikey3.PNG"><img alt="「APIキーの作成」ポップアップ画面" src="../_images/apikey3.PNG" style="width: 700px;" /></a>
 <ol class="arabic simple" start="4">
-<li><p>作成されたキーリストから <strong>キーを表示</strong> ボタンをクリックすると、API キーと秘密鍵を確認できます。</p></li>
+<li><p><strong>検証タイプ</strong>を選択し、保存します。</p></li>
 </ol>
-<a class="reference internal image-reference" href="../_images/apikey4.PNG"><img alt="「API キーを表示」ボタンの位置" src="../_images/apikey4.PNG" style="width: 700px;" /></a>
-<a class="reference internal image-reference" href="../_images/apikey5.PNG"><img alt="API キーと秘密鍵の確認" src="../_images/apikey5.PNG" style="width: 700px;" /></a>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p><strong>API キーの修正</strong></p>
+<p>検証タイプは <strong>Bearer token, Basic authentication, eformsign signature</strong> の中から選択することができます。</p>
+<ul class="simple">
+<li><p><strong>Bearer Token</strong>: 事前に設定した値をもとに検証を行う方式です。</p></li>
+</ul>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/apikeyauth1.PNG"><img alt="「APIキーの作成」ポップアップ1" src="../_images/apikeyauth1.PNG" style="width: 300px;" /></a>
+<p>検証タイプを <strong>Bearer token</strong>に設定し、トークンの値を <strong>値</strong>欄に入力し、 <strong>保存</strong>します。 <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">Access Tokenの発行</a>の際に要請ヘッダeformsign_signatureにトークンの値を <strong>Bearer トークンの値</strong> の形式で入力します。以下の例をご参照ください。</p>
+<div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">curl</span><span class="w"> </span><span class="o">--</span><span class="nx">location</span><span class="w"> </span><span class="o">--</span><span class="nx">request</span><span class="w"> </span><span class="nx">POST</span><span class="w"> </span><span class="s1">&#39;https://service.eformsign.com/v2.0/api_auth/access_token&#39;</span><span class="w"> </span><span class="o">\</span>
+<span class="o">--</span><span class="nx">header</span><span class="w"> </span><span class="s1">&#39;eformsign_signature: Bearer {トークンの値}&#39;</span><span class="w"> </span><span class="o">\</span>
+<span class="o">--</span><span class="nx">header</span><span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="o">\</span>
+<span class="o">--</span><span class="nx">header</span><span class="w"> </span><span class="s1">&#39;Authorization: Bearer {base64 encoded api key }&#39;</span><span class="w"> </span><span class="o">\</span>
+<span class="o">--</span><span class="nx">data</span><span class="o">-</span><span class="nx">raw</span><span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1"> &quot;execution_time&quot;:{現在時刻ms},</span>
+<span class="s1"> &quot;member_id&quot;: {eformsignアカウント}</span>
+<span class="s1">}&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Basic Authentication</strong>: IDとパスワードをもとに検証を行う方式です。</p></li>
+</ul>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/apikeyauth2.PNG"><img alt="「APIキーの作成」ポップアップ2" src="../_images/apikeyauth2.PNG" style="width: 300px;" /></a>
+<p>検証タイプを <strong>Basic authentication</strong>に設定し、使用するIDとパスワードを入力後 <strong>保存</strong>します。 <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">Access Tokenの発行</a>の際は要請ヘッダeformsign_signatureに <strong>ID:パスワード</strong> の形式でBase64インコードした値を入力します。以下の例をご参照ください。</p>
+<div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">curl</span><span class="w"> </span><span class="o">--</span><span class="nx">location</span><span class="w"> </span><span class="o">--</span><span class="nx">request</span><span class="w"> </span><span class="nx">POST</span><span class="w"> </span><span class="s1">&#39;https://service.eformsign.com/v2.0/api_auth/access_token&#39;</span><span class="w"> </span><span class="o">\</span>
+<span class="o">--</span><span class="nx">header</span><span class="w"> </span><span class="s1">&#39;eformsign_signature: Basic {base64 encoded &quot;id:password&quot;}&#39;</span><span class="w"> </span><span class="o">\</span>
+<span class="o">--</span><span class="nx">header</span><span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="o">\</span>
+<span class="o">--</span><span class="nx">header</span><span class="w"> </span><span class="s1">&#39;Authorization: Bearer {base64 encoded api key }&#39;</span><span class="w"> </span><span class="o">\</span>
+<span class="o">--</span><span class="nx">data</span><span class="o">-</span><span class="nx">raw</span><span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1"> &quot;execution_time&quot;:{現在時刻ms},</span>
+<span class="s1"> &quot;member_id&quot;: {eformsignアカウント}</span>
+<span class="s1">}&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>eformsign Signature</strong>: eformsign Signatureの署名の値を利用して検証を行う方式です。検証タイプを <strong>eformsign signature</strong>に設定し、保存します。eformsign Signatureで署名を生成する方法は <a class="reference external" href="#eformsign-signature">署名の生成方法</a>をご参照ください。</p></li>
+</ul>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>作成されたキーリストから <strong>キーを表示</strong> ボタンをクリックすると、APIキーと秘密鍵を確認することができます。</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/apikey4.PNG"><img alt="「APIキーを表示」ボタンの位置" src="../_images/apikey4.PNG" style="width: 700px;" /></a>
+<a class="reference internal image-reference" href="../_images/apikey5.PNG"><img alt="APIキーと秘密鍵の確認" src="../_images/apikey5.PNG" style="width: 700px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p><strong>APIキーの修正方法</strong></p>
 <dl class="simple">
 <dt>作成されたキーリストから <strong>修正</strong> ボタンをクリックし、エイリアスとアプリケーション名を修正することができます。</dt><dd><p>また、ステータス領域をクリックし、活性/非活性状態に変更することもできます。</p>
 </dd>
@@ -258,103 +228,122 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p><strong>API キーの削除</strong></p>
-<p>作成されたキーリストから <strong>削除</strong> ボタンをクリックして、API キーを削除することができます。</p>
+<p><strong>APIキーの削除</strong></p>
+<p>作成されたキーリストから <strong>削除</strong> ボタンをクリックして、APIキーを削除することができます。</p>
 </div>
-</div>
-</div>
-<div class="section" id="id2">
-<h2>署名の作成<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>eformsign_signature は、非対称キー方式と楕円曲線暗号(Elliptic curve cryptography)を使用しています。</p>
+</section>
+</section>
+<section id="eformsign-signature">
+<span id="id2"></span><h2>署名の作成<a class="headerlink" href="#eformsign-signature" title="この見出しへのパーマリンク"></a></h2>
+<p>APIを使用するためのトークンを発行するためには、まずeformsign_signatureという署名を生成する必要があります。
+eformsign_signatureは非対称キー方式と楕円曲線暗号化(Elliptic curve cryptography)を使用しています。
+サーバーの現在時刻をString(UTF-8)に変換し、<a class="reference external" href="#apikey">API Keyの発行</a>で発行された秘密鍵(Private key)で署名後、署名したデータをhex stringに変換することで署名を生成することができます。</p>
 <div class="admonition tip">
-<p class="admonition-title">ちなみに</p>
+<p class="admonition-title">Tip</p>
 <p>楕円曲線暗号は、公開キー暗号化方式の一つで、データ暗号化デジタル認証など現在もっとも広く使われている暗号化方式です。</p>
 </div>
-<p>署名の作成方法については、Java、Python、PHPの各言語に分けて説明します。</p>
-<div class="section" id="java">
-<h3>Java<a class="headerlink" href="#java" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>サーバー時刻を String(UTF-8) に変換し、<a class="reference external" href="#apikey">API キーの作成</a>で作成された private key で署名した後、署名したデータを hex string に変換します。</p>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>署名アルゴリズムは SHA256withECDSA を使用します。</p>
+<p>署名アルゴリズムには、SHA256withECDSAを使用しています。</p>
 </div>
-</div>
-<div class="section" id="javascript-node-js">
-<h3>Javascript(Node.JS)<a class="headerlink" href="#javascript-node-js" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>署名の生成方法については、Java、JavaScript (Node.js)、Python、PHPと言語ごとにご説明します。</p>
+<p>署名の作成方法については、Java、Python、PHPの各言語に分けて説明します。</p>
+<section id="java">
+<h3>Java<a class="headerlink" href="#java" title="この見出しへのパーマリンク"></a></h3>
+<p>Javaの例では、署名生成のためにjava.securityパッケージを使用します。</p>
+</section>
+<section id="javascript-node-js">
+<h3>Javascript(Node.JS)<a class="headerlink" href="#javascript-node-js" title="この見出しへのパーマリンク"></a></h3>
 <p>Jsrsasign(<a class="reference external" href="https://kjur.github.io/jsrsasign/">https://kjur.github.io/jsrsasign/</a>) npmをインストールしてください。</p>
-<div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">npm</span> <span class="nx">install</span> <span class="nx">jsrsasign</span>
+<div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">npm</span><span class="w"> </span><span class="nx">install</span><span class="w"> </span><span class="nx">jsrsasign</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="python">
-<h3>Python<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>キーフォーマット処理用のライブラリーを使用する必要があります。作業を開始する前に、次のコマンドを実行してライブラリーをインストールしてください。</p>
+</section>
+<section id="python">
+<h3>Python<a class="headerlink" href="#python" title="この見出しへのパーマリンク"></a></h3>
+<p>キーフォーマット処理用のライブラリーを使用する必要があります。作業の開始前に、以下のコマンドを実行してライブラリーをインストールしてください。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">warner</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="n">ecdsa</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">master</span><span class="o">.</span><span class="n">zip</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="php">
-<h3>PHP<a class="headerlink" href="#php" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>PHPの例を使用するには、PHP OpenSSLライブラリがインストールされているし、次の例題の keycheck.inc.php、test.php ファイルを同じパスに保存してから例題を実行してください。</p>
-</div>
-<div class="section" id="id3">
-<h3>例題<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>次は各言語の例題です。</p>
+</section>
+<section id="php">
+<h3>PHP<a class="headerlink" href="#php" title="この見出しへのパーマリンク"></a></h3>
+<p>PHPの例を使用するには、PHP OpenSSLライブラリがインストールされている必要があります。以下のようにkeycheck.inc.php、test.phpファイルが同じパス上に位置するように設定し、作業を進めてください。</p>
+</section>
+<section id="c-net">
+<h3>C# (.NET)<a class="headerlink" href="#c-net" title="この見出しへのパーマリンク"></a></h3>
+<p>暗号化に関する処理のため、BouncyCastleライブラリをインストールする必要があります。(NuGetパッケージでもインストール可、MIT License)</p>
+</section>
+<section id="id3">
+<h3>各言語のコード作成例<a class="headerlink" href="#id3" title="この見出しへのパーマリンク"></a></h3>
+<p>各言語のコード作成例をご紹介します。</p>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>execution_time は long タイプを使用しています。そのため、execution_time を入力する際は Access Token 発行時に確認した時間の次に L を追加してください。</p>
+<p>execution_timeはlong型です。そのため、execution_timeを入力する際はAccess Token 発行時に確認した時間の後ろに「L」を追記してください。</p>
 </div>
-<div class="code-tabs docutils container">
-<div class="code-tab" data-title="Java">
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.security.KeyFactory</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.security.spec.PKCS8EncodedKeySpec</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.security.PrivateKey</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.security.Signature</span><span class="p">;</span>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>署名を生成するには秘密鍵が必要です。
+秘密鍵を確認する方法は <a class="reference external" href="#apikey">API Keyの発行と確認</a>をご参照ください。</p>
+</div>
+<div class="tabs docutils container" data-tabgroup="">
+<ul class="tabbar">
+<li class="tabbutton selected" data-id="0" onclick="sphinx_code_tabs_onclick(this)">
+Java</li><li class="tabbutton" data-id="1" onclick="sphinx_code_tabs_onclick(this)">
+Javascript(Node.JS)</li><li class="tabbutton" data-id="2" onclick="sphinx_code_tabs_onclick(this)">
+Python</li><li class="tabbutton" data-id="3" onclick="sphinx_code_tabs_onclick(this)">
+PHP - keycheck.inc.php</li><li class="tabbutton" data-id="4" onclick="sphinx_code_tabs_onclick(this)">
+PHP - test.php</li><li class="tabbutton" data-id="5" onclick="sphinx_code_tabs_onclick(this)">
+C#(.NET) - Program.cs</li></ul><div class="tab codetab selected" data-id="0">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.security.KeyFactory</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.security.spec.PKCS8EncodedKeySpec</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.security.PrivateKey</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.security.Signature</span><span class="p">;</span>
 
 <span class="c1">//private key</span>
-<span class="n">String</span> <span class="n">privateKeyHexStr</span> <span class="o">=</span> <span class="s">&quot;発行したprivate key(String)&quot;</span><span class="p">;</span>    <span class="c1">//会社アカウントのコネクト&gt;API KeyのPrivate key値を入力</span>
-<span class="n">KeyFactory</span> <span class="n">keyFact</span> <span class="o">=</span> <span class="n">KeyFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;EC&quot;</span><span class="p">);</span>
-<span class="n">PKCS8EncodedKeySpec</span> <span class="n">psks8KeySpec</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PKCS8EncodedKeySpec</span><span class="p">(</span><span class="k">new</span> <span class="n">BigInteger</span><span class="p">(</span><span class="n">privateKeyHexStr</span><span class="p">,</span><span class="mi">16</span><span class="p">).</span><span class="na">toByteArray</span><span class="p">());</span>
-<span class="n">PrivateKey</span> <span class="n">privateKey</span> <span class="o">=</span> <span class="n">keyFact</span><span class="p">.</span><span class="na">generatePrivate</span><span class="p">(</span><span class="n">psks8KeySpec</span><span class="p">);</span>
+<span class="n">String</span><span class="w"> </span><span class="n">privateKeyHexStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;発行したprivate keyを入力(String型)&quot;</span><span class="p">;</span>
+<span class="n">KeyFactory</span><span class="w"> </span><span class="n">keyFact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">KeyFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;EC&quot;</span><span class="p">);</span>
+<span class="n">PKCS8EncodedKeySpec</span><span class="w"> </span><span class="n">psks8KeySpec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PKCS8EncodedKeySpec</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BigInteger</span><span class="p">(</span><span class="n">privateKeyHexStr</span><span class="p">,</span><span class="mi">16</span><span class="p">).</span><span class="na">toByteArray</span><span class="p">());</span>
+<span class="n">PrivateKey</span><span class="w"> </span><span class="n">privateKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">keyFact</span><span class="p">.</span><span class="na">generatePrivate</span><span class="p">(</span><span class="n">psks8KeySpec</span><span class="p">);</span>
 
 <span class="c1">//execution_time サーバー時刻</span>
-<span class="c1">//long execution_time = new Date().getTime();</span>
-<span class="kt">long</span> <span class="n">execution_time</span> <span class="o">=</span> <span class="mi">1611537340731L</span><span class="p">;</span>     <span class="c1">//Access_token作成のときに発行したexecute_timeをこちらに入力。longタイプのため、作成された時間の次にLを追加</span>
-<span class="n">String</span> <span class="n">execution_time_str</span> <span class="o">=</span> <span class="n">String</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">execution_time</span><span class="p">);</span>
+<span class="kt">long</span><span class="w"> </span><span class="n">execution_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">().</span><span class="na">getTime</span><span class="p">();</span>
+<span class="c1">//long execution_time = 1611537340731L;     //long型のため、作成された時間の後ろにLを追記</span>
+<span class="n">String</span><span class="w"> </span><span class="n">execution_time_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">execution_time</span><span class="p">);</span>
 
-<span class="c1">//eformsign_signature作成</span>
-<span class="n">Signature</span> <span class="n">ecdsa</span> <span class="o">=</span> <span class="n">Signature</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;SHA256withECDSA&quot;</span><span class="p">);</span>
+<span class="c1">//eformsign_signatureの生成</span>
+<span class="n">Signature</span><span class="w"> </span><span class="n">ecdsa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Signature</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;SHA256withECDSA&quot;</span><span class="p">);</span>
 <span class="n">ecdsa</span><span class="p">.</span><span class="na">initSign</span><span class="p">(</span><span class="n">privateKey</span><span class="p">);</span>
 <span class="n">ecdsa</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">execution_time_str</span><span class="p">.</span><span class="na">getBytes</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">));</span>
-<span class="n">String</span> <span class="n">eformsign_signature</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigInteger</span><span class="p">(</span><span class="n">ecdsa</span><span class="p">.</span><span class="na">sign</span><span class="p">()).</span><span class="na">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span>
+<span class="n">String</span><span class="w"> </span><span class="n">eformsign_signature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BigInteger</span><span class="p">(</span><span class="n">ecdsa</span><span class="p">.</span><span class="na">sign</span><span class="p">()).</span><span class="na">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span>
 
 
-<span class="c1">//現在時刻および現在時刻の署名値</span>
+<span class="c1">//現在時刻と現在時刻の署名値</span>
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;execution_time : &quot;</span><span class="o">+</span><span class="n">execution_time</span><span class="p">);</span>
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;eformsign_signature : &quot;</span><span class="o">+</span><span class="n">eformsign_signature</span><span class="p">);</span>
 </pre></div>
 </div>
-</div><div class="code-tab" data-title="Javascript(Node.JS)">
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">rs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;jsrsasign&#39;</span><span class="p">);</span>
+</div><div class="tab codetab" data-id="1">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;jsrsasign&#39;</span><span class="p">);</span>
 
 
 <span class="c1">// User-Data-Here</span>
-<span class="kr">const</span> <span class="nx">execution_time</span>  <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="o">+</span><span class="s2">&quot;&quot;</span><span class="p">;</span>
-<span class="kr">const</span> <span class="nx">privateKeyHex</span> <span class="o">=</span> <span class="s2">&quot;発行したprivate key(String)&quot;</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">execution_time</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="o">+</span><span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">privateKeyHex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;発行したprivate key(String型)&quot;</span><span class="p">;</span>
 
 <span class="c1">// User-Data-Here</span>
-<span class="kd">var</span> <span class="nx">privateKey</span> <span class="o">=</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">KEYUTIL</span><span class="p">.</span><span class="nx">getKeyFromPlainPrivatePKCS8Hex</span><span class="p">(</span><span class="nx">privateKeyHex</span><span class="p">);</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">privateKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">rs</span><span class="p">.</span><span class="nx">KEYUTIL</span><span class="p">.</span><span class="nx">getKeyFromPlainPrivatePKCS8Hex</span><span class="p">(</span><span class="nx">privateKeyHex</span><span class="p">);</span>
 
 <span class="c1">// Sign</span>
-<span class="kd">var</span> <span class="nx">s_sig</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">Signature</span><span class="p">({</span><span class="nx">alg</span><span class="o">:</span> <span class="s1">&#39;SHA256withECDSA&#39;</span><span class="p">});</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">s_sig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">rs</span><span class="p">.</span><span class="nx">Signature</span><span class="p">({</span><span class="nx">alg</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;SHA256withECDSA&#39;</span><span class="p">});</span>
 <span class="nx">s_sig</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">);</span>
 <span class="nx">s_sig</span><span class="p">.</span><span class="nx">updateString</span><span class="p">(</span><span class="nx">execution_time</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">signature</span> <span class="o">=</span> <span class="nx">s_sig</span><span class="p">.</span><span class="nx">sign</span><span class="p">();</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;data:&#39;</span><span class="p">,</span> <span class="nx">execution_time</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;eformsign_signature:&#39;</span><span class="p">,</span> <span class="nx">signature</span><span class="p">);</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">signature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">s_sig</span><span class="p">.</span><span class="nx">sign</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;data:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">execution_time</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;eformsign_signature:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">signature</span><span class="p">);</span>
 </pre></div>
 </div>
-</div><div class="code-tab" data-title="Python">
+</div><div class="tab codetab" data-id="2">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hashlib</span>
 <span class="kn">import</span> <span class="nn">binascii</span>
 
@@ -363,7 +352,7 @@
 <span class="kn">from</span> <span class="nn">ecdsa.util</span> <span class="kn">import</span> <span class="n">sigencode_der</span><span class="p">,</span> <span class="n">sigdecode_der</span>
 
 <span class="c1"># private key</span>
-<span class="n">privateKeyHex</span> <span class="o">=</span> <span class="s2">&quot;発行したprivate key(String)&quot;</span>
+<span class="n">privateKeyHex</span> <span class="o">=</span> <span class="s2">&quot;発行したprivate key(String型)&quot;</span>
 <span class="n">privateKey</span> <span class="o">=</span> <span class="n">SigningKey</span><span class="o">.</span><span class="n">from_der</span><span class="p">(</span><span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="n">privateKeyHex</span><span class="p">))</span>
 
 <span class="c1"># execution_time - サーバー時刻</span>
@@ -373,12 +362,12 @@
 <span class="c1"># eformsign_signature作成</span>
 <span class="n">eformsign_signature</span> <span class="o">=</span> <span class="n">privateKey</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">execution_time</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">hashfunc</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">,</span> <span class="n">sigencode</span><span class="o">=</span><span class="n">sigencode_der</span><span class="p">)</span>
 
-<span class="c1"># 現在時刻および現在時刻の署名値</span>
+<span class="c1"># 現在時刻と現在時刻の署名値</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;execution_time : &quot;</span> <span class="o">+</span> <span class="n">execution_time</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;eformsign_signature : &quot;</span> <span class="o">+</span> <span class="n">binascii</span><span class="o">.</span><span class="n">hexlify</span><span class="p">(</span><span class="n">signature</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;eformsign_signature : &quot;</span> <span class="o">+</span> <span class="n">binascii</span><span class="o">.</span><span class="n">hexlify</span><span class="p">(</span><span class="n">eformsign_signature</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
-</div><div class="code-tab" data-title="PHP - keycheck.inc.php">
+</div><div class="tab codetab" data-id="3">
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
 <span class="k">namespace</span> <span class="nx">eformsignECDSA</span><span class="p">;</span>
 
@@ -431,17 +420,17 @@
     <span class="nb">openssl_sign</span><span class="p">(</span><span class="nv">$message</span><span class="p">,</span> <span class="nv">$signature</span><span class="p">,</span> <span class="nv">$privateKey</span><span class="o">-&gt;</span><span class="na">openSslPrivateKey</span><span class="p">,</span> <span class="nx">OPENSSL_ALGO_SHA256</span><span class="p">);</span>
     <span class="k">return</span> <span class="nv">$signature</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="cp">?&gt;</span><span class="x"></span>
+<span class="cp">?&gt;</span>
 </pre></div>
 </div>
-</div><div class="code-tab" data-title="PHP - test.php">
+</div><div class="tab codetab" data-id="4">
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
 <span class="k">require_once</span> <span class="no">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/keycheck.inc.php&#39;</span><span class="p">;</span>
 
 <span class="k">use</span> <span class="nx">eformsignECDSA\PrivateKey</span><span class="p">;</span>
 
 
-<span class="nb">define</span><span class="p">(</span><span class="s1">&#39;PRIVATE_KEY&#39;</span><span class="p">,</span> <span class="s1">&#39;発行したprivate key(String)&#39;</span><span class="p">);</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">&#39;PRIVATE_KEY&#39;</span><span class="p">,</span> <span class="s1">&#39;発行したprivate key(String型)&#39;</span><span class="p">);</span>
 
 
 <span class="c1">//private key設定</span>
@@ -452,123 +441,214 @@
 <span class="nv">$execution_time</span> <span class="o">=</span> <span class="nx">eformsignECDSA\getNowMillisecond</span><span class="p">();</span>
 
 
-<span class="c1">//eformsign_signature作成</span>
-<span class="nv">$signature</span> <span class="o">=</span> <span class="nx">eformsignECDSA\Sign</span><span class="p">(</span><span class="nx">execution_time</span><span class="p">,</span> <span class="nv">$privateKey</span><span class="p">);</span>
+<span class="c1">//eformsign_signatureの生成</span>
+<span class="nv">$signature</span> <span class="o">=</span> <span class="nx">eformsignECDSA\Sign</span><span class="p">(</span><span class="nv">$execution_time</span><span class="p">,</span> <span class="nv">$privateKey</span><span class="p">);</span>
 
 
 <span class="c1">//現在時刻および現在時刻の署名値</span>
-<span class="k">print</span> <span class="s1">&#39;execution_time : &#39;</span> <span class="o">.</span> <span class="nx">execution_time</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="k">print</span> <span class="s1">&#39;execution_time : &#39;</span> <span class="o">.</span> <span class="nv">$execution_time</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
 <span class="k">print</span> <span class="s1">&#39;eformsign_signature : &#39;</span> <span class="o">.</span> <span class="nb">bin2hex</span><span class="p">(</span><span class="nv">$signature</span><span class="p">)</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-<span class="cp">?&gt;</span><span class="x"></span>
+<span class="cp">?&gt;</span>
 </pre></div>
 </div>
-</div></div>
+</div><div class="tab codetab" data-id="5">
+<div class="highlight-C# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Text</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Org.BouncyCastle.Crypto</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Org.BouncyCastle.Security</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Org.BouncyCastle.Crypto.Parameters</span><span class="p">;</span>
+
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">eformsign_signature</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">Program</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">HASH_ENCRYPTION_ALGORITHM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;SHA256withECDSA&quot;</span><span class="p">;</span>
+
+
+<span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">privateKeyBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HexStringToByteArray</span><span class="p">(</span><span class="s">&quot;ここに発行した秘密鍵を入力(String型)&quot;</span><span class="p">);</span>
+
+<span class="w">            </span><span class="n">DateTime</span><span class="w"> </span><span class="n">unixEpoch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DateTime</span><span class="p">(</span><span class="m">1970</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
+<span class="w">            </span><span class="n">DateTime</span><span class="w"> </span><span class="n">currentTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DateTime</span><span class="p">.</span><span class="n">UtcNow</span><span class="p">;</span>
+<span class="w">            </span><span class="n">TimeSpan</span><span class="w"> </span><span class="n">timeDiff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currentTime</span><span class="p">.</span><span class="n">Subtract</span><span class="p">(</span><span class="n">unixEpoch</span><span class="p">);</span>
+<span class="w">            </span><span class="kt">long</span><span class="w"> </span><span class="n">unixCurrentTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">timeDiff</span><span class="p">.</span><span class="n">TotalMilliseconds</span><span class="p">;</span>
+<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">execution_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unixCurrentTime</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
+
+
+<span class="w">            </span><span class="n">ISigner</span><span class="w"> </span><span class="n">signer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SignerUtilities</span><span class="p">.</span><span class="n">GetSigner</span><span class="p">(</span><span class="s">&quot;SHA256withECDSA&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="n">signer</span><span class="p">.</span><span class="n">Init</span><span class="p">(</span><span class="k">true</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">ECPrivateKeyParameters</span><span class="p">)</span><span class="n">PrivateKeyFactory</span><span class="p">.</span><span class="n">CreateKey</span><span class="p">(</span><span class="n">privateKeyBytes</span><span class="p">));</span>
+
+
+<span class="w">            </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">dataBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="n">execution_time</span><span class="p">);</span>
+
+
+<span class="w">            </span><span class="n">signer</span><span class="p">.</span><span class="n">BlockUpdate</span><span class="p">(</span><span class="n">dataBytes</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">dataBytes</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+<span class="w">            </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">signatureBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">signer</span><span class="p">.</span><span class="n">GenerateSignature</span><span class="p">();</span>
+
+
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;execution_time : {0}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">execution_time</span><span class="p">);</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;eformsign_signature : {0}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ByteArrayToHexString</span><span class="p">(</span><span class="n">signatureBytes</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+
+
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">ByteArrayToHexString</span><span class="p">(</span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">data</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">StringBuilder</span><span class="w"> </span><span class="n">builder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">builder</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ToString</span><span class="p">(</span><span class="s">&quot;x2&quot;</span><span class="p">));</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">builder</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+
+
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="nf">HexStringToByteArray</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">hexString</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hexString</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">ArgumentException</span><span class="p">(</span><span class="s">&quot;{0} must have an even length&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">nameof</span><span class="p">(</span><span class="n">hexString</span><span class="p">));</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">byte</span><span class="p">[</span><span class="n">hexString</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="p">];</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">bytes</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="kt">string</span><span class="w"> </span><span class="n">currentHex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hexString</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">);</span>
+<span class="w">                </span><span class="n">bytes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Convert</span><span class="p">.</span><span class="n">ToByte</span><span class="p">(</span><span class="n">currentHex</span><span class="p">,</span><span class="w"> </span><span class="m">16</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">bytes</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></div></section>
+</section>
+<section id="id4">
+<h2>API提供リスト<a class="headerlink" href="#id4" title="この見出しへのパーマリンク"></a></h2>
+<p>eformsign APIは、署名を作成するためのAPIと文書の作成・処理のためのAPI、メンバーおよびグループ管理のためのAPIの3つのAPIで構成されています。</p>
+<section id="access-token-api">
+<span id="id5"></span><h3>トークンの発行と更新のAPI<a class="headerlink" href="#access-token-api" title="この見出しへのパーマリンク"></a></h3>
+<p>APIを使用するためには、まずAccess Tokenを発行する必要があります。発行したトークンには有効期限があり、有効期間経過後は更新または再発行が必要です。</p>
+<section id="id6">
+<h4><strong>トークンの発行</strong><a class="headerlink" href="#id6" title="この見出しへのパーマリンク"></a></h4>
+<p>API KeyによりAccess Tokenを発行するAPIです。</p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">Access Tokenの発行</a></p>
+<p>Access Token APIに関するより詳しい説明は
+<a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token">こちら</a>からご確認いただけます。</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>トークンを発行するには、以下の各内容を入力してください。</p>
+<ul class="simple">
+<li><p>Authorize: eformsignから発行されたAPIキーをBase64でエンコードした値を入力します。</p></li>
+<li><p>Header: 生成した署名値(eformsign_signature) (* <a class="reference external" href="#apikey">参考</a>: APIキー発行の際に設定した検証タイプによって異なります)</p></li>
+<li><p>Request body: 署名生成時間(execution_time)とアカウントID(member_id)を入力します。</p></li>
+</ul>
+<p><a class="reference internal" href="../_images/execution_time.png"><img alt="image5" src="../_images/execution_time.png" style="width: 450px;" /></a></p>
+<p>メンバーの情報なしでトークンを発行することもできます。この場合、Request bodyに署名生成時間(execution_time)のみを入力してください。
+ただし、このトークンでは、新規文書作成などのメンバー情報が必要なAPIを利用することはできません。</p>
+<p><a class="reference internal" href="../_images/execution_time2.png"><img alt="image6" src="../_images/execution_time2.png" style="width: 450px;" /></a></p>
+<p>必要な値を入力してAPIを呼び出すとAccess Tokenが発行され、以下のような形式の応答を受け取ることができます。APIの利用に必要なoauth_token.access_token、トークンの更新に必要なoauth_token.refresh_token、トークンの有効時間を表すoauth_token.expires_in、API呼び出しサーバーを表すapi_key.company.api_urlをご確認ください。</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;アプリケーション_&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;alias&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;テスト用&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;company&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;company_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dec5418e58694d90a65d6c38e3d226db&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;サンプル デモ&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;api_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://jp-api.eformsign.com&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nt">&quot;oauth_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;expires_in&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;token_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;JWT&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;refresh_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;8fd0a3c1-44dc-4a03-96ad-01fa34cd159c&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;access_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJlZm9ybXNpZ24uaWFtIiwiY29udGV4dCI6eyJjbGllbnRJZCI6IjY4MDk0ZWVhMjVhZjRhNjI5ZTI4ZGU5Y2ZlYzRlYmZjIiwiY2xpZW50S2V5IjoiZTNiM2IzZTUtMGEzMS00NTE1LWE5NzEtN2M4Y2FlNDI4NzZmIiwibWFuYWdlbWVudElkIjoiMzRhYWI4MDBjMmEwNDQwNThmZDRlZjc5OGFlY2RlY2EiLCJzY29wZXMiOiJzbWFydF9lZm9ybV9zY29wZSIsInR5cGUiOiJ1c2VyIiwidXNlck5hbWUiOiIzMmIzZDRmOC00MjdkLTRjZjQtOTZiYS1mYzAxNjIxNWRkNDciLCJ1c2VySWQiOiJhNTEyNGVkNmU2M2Y0OTMzOGJlOTA0MjVhNjFkYjlmNSIsInJlZnJlc2hUb2tlbiI6IjhmZDBhM2MxLTQ0ZGMtNGEwMy05NmFkLTAxZmEzNGNkMTU5YyJ9LCJjbGFpbSI6eyJjb21wYW55X2lkIjoiZGVjNTQxOGU1ODY5NGQ5MGE2NWQ2YzM4ZTNkMjI2ZGIiLCJhY2Nlc3Nfa2V5IjoiMzJiM2Q0ZjgtNDI3ZC00Y2Y0LTk2YmEtZmMwMTYyMTVkZDQ3In0sImV4cCI6MTYxMTU0MjIzNiwiaWF0IjoxNjExNTM4NjM2fQ.BltoXXBSabjXfpyLsZik9OZTE5XtLqe9lguMmJ_qfwZN1NyoVoxDqA5y1-_TLis7FvvNjfI1eegOroCZDZPFyXRaBxAj0CW8TijVjbhliJBuccHFyKXaJxmo_GMmTHYtxNNB1SUgLeFIrYROnpQndU8J7ZkfPDgYGwh1YSx-5s4&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
 </div>
 </div>
-<div class="section" id="id4">
-<h2>API 提供リスト<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>eformsign API は、署名を作成するための API と文書の作成および処理のための API、メンバーおよびグループ管理のための API で構成されています。</p>
-<div class="section" id="id5">
-<h3>署名を作成するための API<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>署名を作成するために、まず <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">Access Token API</a>を使用してください。</p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">Access Token 発行</a></p>
-<p>Access Token API についての詳しい説明は
-<a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">次</a>で確認することができます。</p>
 <div class="admonition caution">
 <p class="admonition-title">注意</p>
 <p>署名の作成には30秒の時間制限があります。30秒以内に署名を作成し、トークンを取得する必要があります。
-また、サーバー時刻と現在時刻が一致しない場合があります。Access Token API を呼び出し、受信した応答メッセージの &quot;execution_time&quot; を確認してください。</p>
-<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;4000002&quot;</span><span class="p">,</span> <span class="nt">&quot;ErrorMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;The validation time has expired.&quot;</span><span class="p">,</span>     <span class="nt">&quot;execution_time&quot;</span><span class="p">:</span> <span class="mi">1611538409405</span> <span class="p">}</span>
-</pre></div>
-</div>
-<p><a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">次</a>の例題の位置にも &quot;execution_time&quot; を入力してください。</p>
-<p><a class="reference internal" href="../_images/execution_time.png"><img alt="image5" src="../_images/execution_time.png" style="width: 450px;" /></a></p>
-<p>Access Token は、メンバーの権限に応じて取得することができます。メンバーに対する Access Token を取得するためには、以下のように &quot;execution_time&quot; と一緒に &quot;member_id&quot; を入力してください。</p>
-<p><a class="reference internal" href="../_images/execution_time2.png"><img alt="image6" src="../_images/execution_time2.png" style="width: 450px;" /></a></p>
-<p>その後、発行した API を実行すると、Access Token が発行され、次のようなタイプの応答を受信することができます。</p>
-<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nt">&quot;api_key&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;アプリケーション_&quot;</span><span class="p">,</span> <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;テスト用&quot;</span><span class="p">,</span> <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;company_id&quot;</span><span class="p">:</span> <span class="s2">&quot;dec5418e58694d90a65d6c38e3d226db&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;サンプルデモ&quot;</span><span class="p">,</span> <span class="nt">&quot;api_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://kr-api.eformsign.com&quot;</span> <span class="p">}</span> <span class="p">},</span> <span class="nt">&quot;oauth_token&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;expires_in&quot;</span><span class="p">:</span> <span class="mi">3600</span><span class="p">,</span> <span class="nt">&quot;token_type&quot;</span><span class="p">:</span> <span class="s2">&quot;JWT&quot;</span><span class="p">,</span> <span class="nt">&quot;refresh_token&quot;</span><span class="p">:</span> <span class="s2">&quot;8fd0a3c1-44dc-4a03-96ad-01fa34cd159c&quot;</span><span class="p">,</span> <span class="nt">&quot;access_token&quot;</span><span class="p">:</span> <span class="s2">&quot;eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJlZm9ybXNpZ24uaWFtIiwiY29udGV4dCI6eyJjbGllbnRJZCI6IjY4MDk0ZWVhMjVhZjRhNjI5ZTI4ZGU5Y2ZlYzRlYmZjIiwiY2xpZW50S2V5IjoiZTNiM2IzZTUtMGEzMS00NTE1LWE5NzEtN2M4Y2FlNDI4NzZmIiwibWFuYWdlbWVudElkIjoiMzRhYWI4MDBjMmEwNDQwNThmZDRlZjc5OGFlY2RlY2EiLCJzY29wZXMiOiJzbWFydF9lZm9ybV9zY29wZSIsInR5cGUiOiJ1c2VyIiwidXNlck5hbWUiOiIzMmIzZDRmOC00MjdkLTRjZjQtOTZiYS1mYzAxNjIxNWRkNDciLCJ1c2VySWQiOiJhNTEyNGVkNmU2M2Y0OTMzOGJlOTA0MjVhNjFkYjlmNSIsInJlZnJlc2hUb2tlbiI6IjhmZDBhM2MxLTQ0ZGMtNGEwMy05NmFkLTAxZmEzNGNkMTU5YyJ9LCJjbGFpbSI6eyJjb21wYW55X2lkIjoiZGVjNTQxOGU1ODY5NGQ5MGE2NWQ2YzM4ZTNkMjI2ZGIiLCJhY2Nlc3Nfa2V5IjoiMzJiM2Q0ZjgtNDI3ZC00Y2Y0LTk2YmEtZmMwMTYyMTVkZDQ3In0sImV4cCI6MTYxMTU0MjIzNiwiaWF0IjoxNjExNTM4NjM2fQ.BltoXXBSabjXfpyLsZik9OZTE5XtLqe9lguMmJ_qfwZN1NyoVoxDqA5y1-_TLis7FvvNjfI1eegOroCZDZPFyXRaBxAj0CW8TijVjbhliJBuccHFyKXaJxmo_GMmTHYtxNNB1SUgLeFIrYROnpQndU8J7ZkfPDgYGwh1YSx-5s4&quot;</span> <span class="p">}</span> <span class="p">}</span>
+また、サーバー時刻と現在時刻が一致しない場合があります。Access Token APIを呼び出し、受信した応答メッセージの &quot;execution_time&quot; を確認してください。</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4000002&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;ErrorMessage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The validation time has expired.&quot;</span><span class="p">,</span><span class="w">     </span><span class="nt">&quot;execution_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1611538409405</span><span class="w"> </span><span class="p">}</span>
 </pre></div>
 </div>
 </div>
-<div class="admonition caution">
-<p class="admonition-title">注意</p>
-<p>発行した API キーは、 <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">次</a>の位置にある <strong>Authorize</strong> ボタン（<img alt="image4" src="../_images/authorize_icon.png" />）をクリックして登録してください。ただし、API キー値には <strong>必ず Base64</strong> でエンコードした 文字列を入力する必要があります。<a class="reference external" href="https://www.base64encode.org/">https://www.base64encode.org/</a> に接続し、発行した API キーを入力してエンコードされたテキストに変換してから入力してください。</p>
-</div>
+</section>
+<section id="id8">
+<h4><strong>トークンの更新</strong><a class="headerlink" href="#id8" title="この見出しへのパーマリンク"></a></h4>
+<p>トークンの有効期限は3600秒（1時間）となっています。
+トークンの有効期限が切れると、トークンによりAPIを利用できなくなります。以下のAPIを使用してトークンを更新してください。</p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-refresh_token">Access Token 갱신</a></p>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>Access Token API の <strong>Authorize</strong> ボタンには API キー値を入力する必要があります。</p>
+<p>トークン更新のためにはAccess TokenをAuthorizeに、Refresh TokenをQueryに入力する必要があります。</p>
 </div>
+<div class="admonition caution">
+<p class="admonition-title">注意</p>
+<p>トークンの有効期限が切れてから一定時間が経過すると、refresh_tokenが無効であるという応答を受け取ることがあります。この場合、<a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">Access Tokenの発行API</a>によりトークンを再発行してください。</p>
 </div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="id6">
-<h3>文書の作成および処理のための API<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>署名を作成すると、次の文書 API を使用して文書の新規作成や文書情報の照会ができ、完了文書のファイル（文書の PDF ファイル、監査証跡証明書）や添付ファイルをダウンロードすることができます。</p>
+<section id="id10">
+<h3>文書の作成と処理のAPI<a class="headerlink" href="#id10" title="この見出しへのパーマリンク"></a></h3>
+<p>署名の生成後は、以下の文書APIを使用して新規文書の作成、文書情報の照会、完了文書ファイル(文書PDF、監査証跡証明書)のダウンロード、文書の添付ファイルのダウンロードを行うことができます。</p>
 <div class="admonition caution">
 <p class="admonition-title">注意</p>
-<p>本文書の API を使用するためにはまず Access Token の取得が必要です。<a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">Access Token API</a>で取得した Access Token を <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/">次</a>のパスにある <strong>Authorize</strong> ボタン (<img alt="image4" src="../_images/authorize_icon.png" />) を押して登録してください。</p>
+<p>本文書のAPIを使用するためには、Access Tokenを先に発行する必要があります。Access Token API &lt;<a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token</a>&gt;`_で発行したAccess Tokenを <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/">こちら</a>にある <strong>Authorize</strong> ボタン(<img alt="image4" src="../_images/authorize_icon.png" />)を押して登録してください。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>文書 API の <strong>Authorize</strong> ボタンには API キー値を入力する必要があります。</p>
+<p>Access Token APIの <strong>Authorize</strong> ボタンにはAPIキー値の入力が必要です。</p>
 </div>
-<p>現在提供している <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document">文書 API</a>は次のとおりです。</p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/post-api-documents">文書の新規作成_内部受信者</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/eformsign/post-api-documents-external">文書の新規作成_外部受信者</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/eformsign/get-api-documents-DOCUMENT_ID">文書情報の照会</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/eformsign/get-api-documents-DOCUMENT_ID-download_files">文書ファイルのダウンロード_文書 PDFおよび監査証跡証明書</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/eformsign/get-api-documents-DOCUMENT_ID-download_attach_files">添付ファイルのダウンロード</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/get-api-documents">文書リストの照会</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/delete-api-documents">文書の削除</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/post-api-documents-document_id-re_request_outsider">外部受信者に対する再依頼</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/get-api-forms">作成可能なテンプレートリストの照会</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id">文書の一括生成</a></p>
-</div>
+<p>現在提供中の <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document">文書API</a>は以下のとおりです。</p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document/post-api-documents">文書の新規作成_内部受信者</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document/post-api-documents-external">文書の新規作成_外部受信者</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document/get-api-documents-DOCUMENT_ID">文書情報の照会</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document/get-api-documents-DOCUMENT_ID-download_files">文書ファイルのダウンロード_文書PDFおよび監査証跡証明書</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document/get-api-documents-DOCUMENT_ID-download_attach_files">添付ファイルのダウンロード</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document/get-api-documents">文書リストの照会</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document/post-api-list-documents">文書リストの照会(POST)</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document/delete-api-documents">文書の削除</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document/post-api-documents-cancel">文書の無効化</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document/post-api-documents-document_id-re_request_outsider">外部受信者に対する再依頼</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id">文書の一括生成</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document/post-api-forms%2Fmass_multi_documents">文書の一括作成_複数テンプレート</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document/get-api-companies-COMPANY_ID-use_status">利用状況の照会</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document/post-api-document-DOCUMENT_ID-decline">内部受信者の差戻し</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document/post-api-document-DOCUMENT_ID-external_decline">外部受信者の差戻し</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document/get-api-forms">作成可能なテンプレートリストの照会</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document/delete-forms">テンプレートの削除</a></p>
+</section>
 <hr class="docutils" />
-<div class="section" id="id18">
-<h3>メンバーおよびグループ管理のための API<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>APIを使用してメンバーおよびグループを管理することができます。メンバーおよびグループのリストを照会することができ、メンバーおよびグループを修正、削除することができます。</p>
+<section id="id27">
+<h3>メンバーとグループ管理のAPI<a class="headerlink" href="#id27" title="この見出しへのパーマリンク"></a></h3>
+<p>APIを使用してメンバーとグループを管理することができます。メンバーとグループのリストの照会、メンバーとグループの修正、削除を行うことができます。</p>
 <div class="admonition caution">
 <p class="admonition-title">注意</p>
-<p>本文書の API を使用するためにはまず Access Token の取得が必要です。<a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0_auth">Access Token API</a>で取得した Access Token を <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/">次</a>のパスにある <strong>Authorize</strong> ボタン (<img alt="image4" src="../_images/authorize_icon.png" />) を押して登録してください。</p>
+<p>本文書のAPIを使用するには、Access Tokenの取得が必要です。<a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0_auth">Access Token API</a>で取得した Access Tokenを <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/">こちら</a>にある <strong>Authorize</strong> ボタン (<img alt="image4" src="../_images/authorize_icon.png" />) を押して登録してください。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>APIの <strong>Authorize</strong> ボタンには API キー値を入力する必要があります。</p>
+<p>APIの <strong>Authorize</strong> ボタンにはAPIキー値の入力が必要です。</p>
 </div>
-<p>現在提供している <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/members">メンバーおよびグループ管理 API</a>は次のとおりです。</p>
-<div class="section" id="id21">
-<h4>メンバー管理 API<a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/get-api-members">メンバーリストの照会</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">PATCH</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/patch-api-members-member_id">メンバー修正</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/delete-api-members-member_id">メンバー削除</a></p>
-</div>
-<div class="section" id="id25">
-<h4>グループ管理 API<a class="headerlink" href="#id25" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/get-api-groups">グループリストの照会</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/post-api-groups">グループ追加</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">PATCH</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/patch-api-groups">グループ修正</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/default/delete-api-groups">グループ削除</a></p>
+<p>現在提供している <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/members">メンバーとグループ管理のAPI</a>は以下のとおりです。</p>
+<section id="id30">
+<h4>メンバー管理 API<a class="headerlink" href="#id30" title="この見出しへのパーマリンク"></a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/members/get-api-members">メンバーリストの照会</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">PATCH</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/members/patch-api-members-member_id">メンバー修正</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/members/delete-api-members-member_id">メンバー削除</a></p>
+</section>
+<section id="id34">
+<h4>グループ管理 API<a class="headerlink" href="#id34" title="この見出しへのパーマリンク"></a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/groups/get-api-groups">グループリストの照会</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/groups/post-api-groups">グループ追加</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">PATCH</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/groups/patch-api-groups">グループ修正</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/groups/delete-api-groups">グループ削除</a></p>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>各 eformsign API についての詳しい説明は <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/">次</a>をご覧ください。</p>
+<p>各eformsign APIについての詳しい説明は <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/">こちら</a>をご覧ください。</p>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="id30">
-<h2>API コード<a class="headerlink" href="#id30" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Open API を使用するときは、次のコードをご参照ください。</p>
-<div class="section" id="id31">
-<h3>API ステータスコード<a class="headerlink" href="#id31" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>API ステータスコードは、次の通りです。</p>
-<div class="section" id="id32">
-<h4>200<a class="headerlink" href="#id32" title="このヘッドラインへのパーマリンク">¶</a></h4>
+</section>
+</section>
+</section>
+<section id="id39">
+<h2>APIコード<a class="headerlink" href="#id39" title="この見出しへのパーマリンク"></a></h2>
+<p>Open APIを使用する際は、以下のコードをご参照ください。</p>
+<section id="id40">
+<h3>APIステータスコード<a class="headerlink" href="#id40" title="この見出しへのパーマリンク"></a></h3>
+<p>APIステータスコードは、以下の通りです。</p>
+<section id="id41">
+<h4>200<a class="headerlink" href="#id41" title="この見出しへのパーマリンク"></a></h4>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 18%" />
-<col style="width: 25%" />
-<col style="width: 57%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Code</p></th>
 <th class="head"><p>説明</p></th>
@@ -582,15 +662,10 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="id33">
-<h4>202<a class="headerlink" href="#id33" title="このヘッドラインへのパーマリンク">¶</a></h4>
+</section>
+<section id="id42">
+<h4>202<a class="headerlink" href="#id42" title="この見出しへのパーマリンク"></a></h4>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 8%" />
-<col style="width: 11%" />
-<col style="width: 81%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Code</p></th>
 <th class="head"><p>説明</p></th>
@@ -599,24 +674,19 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>2020001</p></td>
-<td><p>PDF作成中</p></td>
+<td><p>PDF生成中</p></td>
 <td><ul class="simple">
-<li><p>PDFファイルとしてダウンロードする際、非同期で作成されるため、文書保存後にPDFファイルの作成まで時間が所要</p></li>
-<li><p>数秒から数分後数分後に再要請するとダウンロード可能</p></li>
+<li><p>PDFファイルとしてダウンロードする際、非同期で作成されるため、文書保存後にPDFファイルの生成まで時間が必要</p></li>
+<li><p>数秒から数分後に再度リクエストすることでダウンロード可能</p></li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="id34">
-<h4>400<a class="headerlink" href="#id34" title="このヘッドラインへのパーマリンク">¶</a></h4>
+</section>
+<section id="id43">
+<h4>400<a class="headerlink" href="#id43" title="この見出しへのパーマリンク"></a></h4>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 20%" />
-<col style="width: 70%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Code</p></th>
 <th class="head"><p>説明</p></th>
@@ -626,19 +696,19 @@
 <tbody>
 <tr class="row-even"><td><p>4000001</p></td>
 <td><p>必須入力値漏れ</p></td>
-<td><p>API の必須入力値（ヘッダー値またはパラメーター）が入力されていない場合</p></td>
+<td><p>APIの必須入力値（ヘッダー値またはパラメーター）が入力されていない場合</p></td>
 </tr>
 <tr class="row-odd"><td><p>4000002</p></td>
 <td><p>時間切れ</p></td>
-<td><p>API 認証のリクエスト時間が時間切れとなった場合</p></td>
+<td><p>API認証のリクエストが時間切れとなった場合</p></td>
 </tr>
 <tr class="row-even"><td><p>4000003</p></td>
-<td><p>API キーが存在しない</p></td>
-<td><p>削除された API キーまたは入力ミスの場合</p></td>
+<td><p>APIキーが存在しない</p></td>
+<td><p>削除されたAPIキーまたは入力ミスの場合</p></td>
 </tr>
 <tr class="row-odd"><td><p>4000004</p></td>
 <td><p>文書が存在しない</p></td>
-<td><p>間違った文書 ID を入力した場合</p></td>
+<td><p>間違った文書IDを入力した場合</p></td>
 </tr>
 <tr class="row-even"><td><p>4000005</p></td>
 <td><p>会社が存在しない</p></td>
@@ -646,15 +716,10 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="id35">
-<h4>403<a class="headerlink" href="#id35" title="このヘッドラインへのパーマリンク">¶</a></h4>
+</section>
+<section id="id44">
+<h4>403<a class="headerlink" href="#id44" title="この見出しへのパーマリンク"></a></h4>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 32%" />
-<col style="width: 54%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Code</p></th>
 <th class="head"><p>説明</p></th>
@@ -667,11 +732,11 @@
 <td><p>APIが非活性状態の場合</p></td>
 </tr>
 <tr class="row-odd"><td><p>4030002</p></td>
-<td><p>Access Token 認証エラー</p></td>
+<td><p>Access Token認証エラー</p></td>
 <td><p>Access Tokenが正しくない場合</p></td>
 </tr>
 <tr class="row-even"><td><p>4030003</p></td>
-<td><p>Refresh Token 認証エラー</p></td>
+<td><p>Refresh Token認証エラー</p></td>
 <td><p>Refresh Tokenが正しくない場合</p></td>
 </tr>
 <tr class="row-odd"><td><p>4030004</p></td>
@@ -679,20 +744,15 @@
 <td><p>署名値が正しくない場合</p></td>
 </tr>
 <tr class="row-even"><td><p>4030005</p></td>
-<td><p>サポートしないAPI</p></td>
-<td><p>サポートしないAPIを呼び出した場合</p></td>
+<td><p>サポートされていないAPI</p></td>
+<td><p>サポートされていないAPIを呼び出した場合</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="id36">
-<h4>405<a class="headerlink" href="#id36" title="このヘッドラインへのパーマリンク">¶</a></h4>
+</section>
+<section id="id45">
+<h4>405<a class="headerlink" href="#id45" title="この見出しへのパーマリンク"></a></h4>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 15%" />
-<col style="width: 29%" />
-<col style="width: 56%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Code</p></th>
 <th class="head"><p>説明</p></th>
@@ -701,20 +761,15 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>4050001</p></td>
-<td><p>サポートしないmethod</p></td>
-<td><p>サポートしないmethodを呼び出した場合</p></td>
+<td><p>サポートされていないmethod</p></td>
+<td><p>サポートされていないmethodを呼び出した場合</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="id37">
-<h4>500<a class="headerlink" href="#id37" title="このヘッドラインへのパーマリンク">¶</a></h4>
+</section>
+<section id="id46">
+<h4>500<a class="headerlink" href="#id46" title="この見出しへのパーマリンク"></a></h4>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 28%" />
-<col style="width: 22%" />
-<col style="width: 51%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Code</p></th>
 <th class="head"><p>説明</p></th>
@@ -728,17 +783,33 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="id38">
-<h3>ステップタイプ<a class="headerlink" href="#id38" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<section id="user-type">
+<h3>ユーザータイプ(user_type)<a class="headerlink" href="#user-type" title="この見出しへのパーマリンク"></a></h3>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 18%" />
-<col style="width: 25%" />
-<col style="width: 57%" />
-</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Code</p></th>
+<th class="head"><p>설명</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>内部受信者</p></td>
+<td><p>01</p></td>
+<td><p>会社に所属する内部メンバーの場合</p></td>
+</tr>
+<tr class="row-odd"><td><p>外部受信者</p></td>
+<td><p>02</p></td>
+<td><p>会社に所属しない外部メンバーの場合</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id47">
+<h3>ステップタイプ<a class="headerlink" href="#id47" title="この見出しへのパーマリンク"></a></h3>
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Type</p></th>
 <th class="head"><p>Code</p></th>
@@ -748,23 +819,23 @@
 <tbody>
 <tr class="row-even"><td><p>Start</p></td>
 <td><p>00</p></td>
-<td><p>開始</p></td>
+<td><p>開始ステップ</p></td>
 </tr>
 <tr class="row-odd"><td><p>Complete</p></td>
 <td><p>01</p></td>
-<td><p>完了</p></td>
+<td><p>完了ステップ</p></td>
 </tr>
 <tr class="row-even"><td><p>Approval</p></td>
 <td><p>02</p></td>
-<td><p>決裁</p></td>
+<td><p>決裁ステップ(旧)</p></td>
 </tr>
 <tr class="row-odd"><td><p>External</p></td>
 <td><p>03</p></td>
-<td><p>外部受信者</p></td>
+<td><p>外部受信者ステップ(旧)</p></td>
 </tr>
 <tr class="row-even"><td><p>Accept</p></td>
 <td><p>04</p></td>
-<td><p>内部受信者</p></td>
+<td><p>内部受信者ステップ(旧)</p></td>
 </tr>
 <tr class="row-odd"><td><p>Participant</p></td>
 <td><p>05</p></td>
@@ -774,17 +845,16 @@
 <td><p>06</p></td>
 <td><p>検討者</p></td>
 </tr>
+<tr class="row-odd"><td><p>Viewer</p></td>
+<td><p>07</p></td>
+<td><p>閲覧者</p></td>
+</tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="id39">
-<h3>ユーザータイプ<a class="headerlink" href="#id39" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+<section id="current-status-status-type">
+<h3>文書の現在のステータスタイプ (current_status.status_type)<a class="headerlink" href="#current-status-status-type" title="この見出しへのパーマリンク"></a></h3>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 21%" />
-<col style="width: 20%" />
-<col style="width: 59%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Type</p></th>
 <th class="head"><p>Code</p></th>
@@ -792,25 +862,72 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>メンバー</p></td>
-<td><p>01</p></td>
-<td><p>メンバーである場合</p></td>
+<tr class="row-even"><td><p>doc_tempsave</p></td>
+<td><p>001</p></td>
+<td><p>下書き保存 (作成者が下書きとして保存した状態)</p></td>
 </tr>
-<tr class="row-odd"><td><p>外部ユーザー</p></td>
-<td><p>02</p></td>
-<td><p>メンバーではなく、外部ユーザーである場合</p></td>
+<tr class="row-odd"><td><p>doc_create</p></td>
+<td><p>002</p></td>
+<td><p>文書の作成</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_complete</p></td>
+<td><p>003</p></td>
+<td><p>文書の完了</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_update</p></td>
+<td><p>043</p></td>
+<td><p>文書の修正</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_request_delete</p></td>
+<td><p>047</p></td>
+<td><p>文書の削除依頼</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_delete</p></td>
+<td><p>049</p></td>
+<td><p>文書の削除</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_request_revoke</p></td>
+<td><p>040</p></td>
+<td><p>文書の無効化依頼</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_revoke</p></td>
+<td><p>042</p></td>
+<td><p>文書の無効化</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_request_reject</p></td>
+<td><p>045</p></td>
+<td><p>文書の差戻し依頼</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_request_participant</p></td>
+<td><p>060</p></td>
+<td><p>参加者に依頼</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_accept_participant</p></td>
+<td><p>062</p></td>
+<td><p>参加者の承認</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_reject_participant</p></td>
+<td><p>061</p></td>
+<td><p>参加者の差戻し</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_request_reviewer</p></td>
+<td><p>070</p></td>
+<td><p>検討者に依頼</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_accept_reviewer</p></td>
+<td><p>072</p></td>
+<td><p>検討者の承認</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_reject_reviewer</p></td>
+<td><p>071</p></td>
+<td><p>検討者の差戻し</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="id40">
-<h3>ステータスタイプ<a class="headerlink" href="#id40" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+<section id="next-status-status-type">
+<h3>文書の문서 다음 상태 타입(next_status.status_type)<a class="headerlink" href="#next-status-status-type" title="この見出しへのパーマリンク"></a></h3>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 13%" />
-<col style="width: 18%" />
-<col style="width: 69%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Type</p></th>
 <th class="head"><p>Code</p></th>
@@ -828,15 +945,15 @@
 </tr>
 <tr class="row-even"><td><p>修正中</p></td>
 <td><p>02</p></td>
-<td><p>文書を修正中 (内部受信者、作成者)</p></td>
+<td><p>文書の修正中 (内部受信者、作成者)</p></td>
 </tr>
 <tr class="row-odd"><td><p>完了</p></td>
 <td><p>03</p></td>
-<td><p>完了した状態</p></td>
+<td><p>文書が完了した状態</p></td>
 </tr>
-<tr class="row-even"><td><p>返戻</p></td>
+<tr class="row-even"><td><p>差戻し</p></td>
 <td><p>04</p></td>
-<td><p>決済の返戻、内部受信者が返戻、外部受信者が返戻</p></td>
+<td><p>決済の差戻し、内部受信者の差戻し、外部受信者の差戻し</p></td>
 </tr>
 <tr class="row-odd"><td><p>無効化</p></td>
 <td><p>05</p></td>
@@ -848,15 +965,10 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="id41">
-<h3>アクションタイプ<a class="headerlink" href="#id41" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+<section id="action-type">
+<h3>アクションタイプ(action_type)<a class="headerlink" href="#action-type" title="この見出しへのパーマリンク"></a></h3>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 34%" />
-<col style="width: 20%" />
-<col style="width: 46%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Type</p></th>
 <th class="head"><p>Code</p></th>
@@ -866,15 +978,15 @@
 <tbody>
 <tr class="row-even"><td><p>doc_tempsave</p></td>
 <td><p>001</p></td>
-<td><p>下書き保存</p></td>
+<td><p>文書の下書き保存</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_create</p></td>
 <td><p>002</p></td>
-<td><p>作成</p></td>
+<td><p>文書の生成</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_complete</p></td>
 <td><p>003</p></td>
-<td><p>完了</p></td>
+<td><p>文書の完了</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_request_approval</p></td>
 <td><p>010</p></td>
@@ -882,7 +994,7 @@
 </tr>
 <tr class="row-even"><td><p>doc_reject_approval</p></td>
 <td><p>011</p></td>
-<td><p>決裁の返戻</p></td>
+<td><p>決裁の差戻し</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_accept_approval</p></td>
 <td><p>012</p></td>
@@ -890,7 +1002,7 @@
 </tr>
 <tr class="row-even"><td><p>doc_cancel</p></td>
 <td><p>013</p></td>
-<td><p>決裁のキャンセル</p></td>
+<td><p>決裁依頼のキャンセル</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_request_reception</p></td>
 <td><p>020</p></td>
@@ -898,15 +1010,15 @@
 </tr>
 <tr class="row-even"><td><p>doc_reject_reception</p></td>
 <td><p>021</p></td>
-<td><p>内部受信者が返戻</p></td>
+<td><p>内部受信者の差戻し</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_accept_reception</p></td>
 <td><p>022</p></td>
-<td><p>内部受信者が承認</p></td>
+<td><p>内部受信者の承認</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_accept_tempsave</p></td>
 <td><p>023</p></td>
-<td><p>内部受信者が下書き保存</p></td>
+<td><p>内部受信者の下書き保存</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_request_outsider</p></td>
 <td><p>030</p></td>
@@ -914,11 +1026,11 @@
 </tr>
 <tr class="row-even"><td><p>doc_reject_outsider</p></td>
 <td><p>031</p></td>
-<td><p>外部受信者が返戻</p></td>
+<td><p>外部受信者の差戻し</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_accept_outsider</p></td>
 <td><p>032</p></td>
-<td><p>外部受信者が承認</p></td>
+<td><p>外部受信者の承認</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_rerequest_outsider</p></td>
 <td><p>033</p></td>
@@ -926,11 +1038,11 @@
 </tr>
 <tr class="row-odd"><td><p>doc_open_outsider</p></td>
 <td><p>034</p></td>
-<td><p>外部受信者が閲覧</p></td>
+<td><p>外部受信者の閲覧</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_outsider_tempsave</p></td>
 <td><p>035</p></td>
-<td><p>外部受信者が下書き保存</p></td>
+<td><p>外部受信者の下書き保存</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_request_revoke</p></td>
 <td><p>040</p></td>
@@ -938,7 +1050,7 @@
 </tr>
 <tr class="row-even"><td><p>doc_refuse_revoke</p></td>
 <td><p>041</p></td>
-<td><p>無効化依頼の拒否</p></td>
+<td><p>無効化依頼の依頼拒否</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_revoke</p></td>
 <td><p>042</p></td>
@@ -946,31 +1058,31 @@
 </tr>
 <tr class="row-even"><td><p>doc_update</p></td>
 <td><p>043</p></td>
-<td><p>修正</p></td>
+<td><p>文書の修正</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_cancel_update</p></td>
 <td><p>044</p></td>
-<td><p>修正のキャンセル</p></td>
+<td><p>文書修正のキャンセル</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_request_reject</p></td>
 <td><p>045</p></td>
-<td><p>返戻の依頼</p></td>
+<td><p>文書差戻しの依頼</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_refuse_reject</p></td>
 <td><p>046</p></td>
-<td><p>返戻依頼の拒否</p></td>
+<td><p>文書差戻し依頼の拒否</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_request_delete</p></td>
 <td><p>047</p></td>
-<td><p>削除の依頼</p></td>
+<td><p>文書削除の依頼</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_refuse_delete</p></td>
 <td><p>048</p></td>
-<td><p>削除依頼の拒否</p></td>
+<td><p>文書削除依頼の拒否</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_delete</p></td>
 <td><p>049</p></td>
-<td><p>削除</p></td>
+<td><p>文書の削除</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_complete_send_pdf</p></td>
 <td><p>050</p></td>
@@ -978,19 +1090,19 @@
 </tr>
 <tr class="row-even"><td><p>doc_transfer</p></td>
 <td><p>051</p></td>
-<td><p>移管</p></td>
+<td><p>文書の移管</p></td>
 </tr>
-<tr class="row-odd"><td><p>oc_request_participant</p></td>
+<tr class="row-odd"><td><p>doc_request_participant</p></td>
 <td><p>060</p></td>
 <td><p>参加者に依頼</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_reject_participant</p></td>
 <td><p>061</p></td>
-<td><p>参加者が返戻</p></td>
+<td><p>参加者の差戻し</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_accept_participant</p></td>
 <td><p>062</p></td>
-<td><p>参加者が承認</p></td>
+<td><p>参加者の承認</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_rerequest_participant</p></td>
 <td><p>063</p></td>
@@ -998,7 +1110,7 @@
 </tr>
 <tr class="row-odd"><td><p>doc_open_participant</p></td>
 <td><p>064</p></td>
-<td><p>参加者が閲覧(外部受信者)</p></td>
+<td><p>参加者の閲覧(外部受信者)</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_request_reviewer</p></td>
 <td><p>070</p></td>
@@ -1006,11 +1118,11 @@
 </tr>
 <tr class="row-odd"><td><p>doc_reject_reviewer</p></td>
 <td><p>071</p></td>
-<td><p>検討者が返戻</p></td>
+<td><p>検討者の差戻し</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_request_reviewer</p></td>
 <td><p>072</p></td>
-<td><p>検討者が承認</p></td>
+<td><p>検討者の承認</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_rerequest_reviewer</p></td>
 <td><p>073</p></td>
@@ -1018,186 +1130,43 @@
 </tr>
 <tr class="row-even"><td><p>doc_open_review</p></td>
 <td><p>074</p></td>
-<td><p>検討者が閲覧(外部受信者)</p></td>
+<td><p>検討者の閲覧(外部受信者)</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="id42">
-<h3>詳細ステータスタイプ<a class="headerlink" href="#id42" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 30%" />
-<col style="width: 17%" />
-<col style="width: 53%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Type</p></th>
-<th class="head"><p>Code</p></th>
-<th class="head"><p>説明</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>doc_tempsave</p></td>
-<td><p>001</p></td>
-<td><p>下書き保存 (作成者が下書きとして保存した状態)</p></td>
-</tr>
-<tr class="row-odd"><td><p>doc_create</p></td>
-<td><p>002</p></td>
-<td><p>作成</p></td>
-</tr>
-<tr class="row-even"><td><p>doc_complete</p></td>
-<td><p>003</p></td>
-<td><p>完了</p></td>
-</tr>
-<tr class="row-odd"><td><p>doc_update</p></td>
-<td><p>043</p></td>
-<td><p>修正</p></td>
-</tr>
-<tr class="row-even"><td><p>doc_request_delete</p></td>
-<td><p>047</p></td>
-<td><p>削除の依頼</p></td>
-</tr>
-<tr class="row-odd"><td><p>doc_delete</p></td>
-<td><p>049</p></td>
-<td><p>削除</p></td>
-</tr>
-<tr class="row-even"><td><p>doc_request_revoke</p></td>
-<td><p>040</p></td>
-<td><p>無効化の依頼</p></td>
-</tr>
-<tr class="row-odd"><td><p>doc_revoke</p></td>
-<td><p>042</p></td>
-<td><p>無効化</p></td>
-</tr>
-<tr class="row-even"><td><p>doc_request_reject</p></td>
-<td><p>045</p></td>
-<td><p>返戻の依頼</p></td>
-</tr>
-<tr class="row-odd"><td><p>doc_request_approval</p></td>
-<td><p>010</p></td>
-<td><p>決裁の依頼</p></td>
-</tr>
-<tr class="row-even"><td><p>doc_accept_approval</p></td>
-<td><p>012</p></td>
-<td><p>決裁の承認</p></td>
-</tr>
-<tr class="row-odd"><td><p>doc_reject_approval</p></td>
-<td><p>011</p></td>
-<td><p>決裁の返戻</p></td>
-</tr>
-<tr class="row-even"><td><p>doc_cancel</p></td>
-<td><p>013</p></td>
-<td><p>決裁のキャンセル</p></td>
-</tr>
-<tr class="row-odd"><td><p>doc_request_reception</p></td>
-<td><p>020</p></td>
-<td><p>内部受信者に依頼</p></td>
-</tr>
-<tr class="row-even"><td><p>doc_accept_reception</p></td>
-<td><p>022</p></td>
-<td><p>内部受信者が承認</p></td>
-</tr>
-<tr class="row-odd"><td><p>doc_reject_reception</p></td>
-<td><p>021</p></td>
-<td><p>内部受信者が返戻</p></td>
-</tr>
-<tr class="row-even"><td><p>doc_request_outsider</p></td>
-<td><p>030</p></td>
-<td><p>外部受信者に依頼</p></td>
-</tr>
-<tr class="row-odd"><td><p>doc_accept_outsider</p></td>
-<td><p>032</p></td>
-<td><p>外部受信者が承認</p></td>
-</tr>
-<tr class="row-even"><td><p>doc_reject_outsider</p></td>
-<td><p>031</p></td>
-<td><p>外部受信者が返戻</p></td>
-</tr>
-<tr class="row-odd"><td><p>doc_request_participant</p></td>
-<td><p>060</p></td>
-<td><p>参加者に依頼</p></td>
-</tr>
-<tr class="row-even"><td><p>doc_accept_participant</p></td>
-<td><p>062</p></td>
-<td><p>参加者が承認</p></td>
-</tr>
-<tr class="row-odd"><td><p>doc_reject_participant</p></td>
-<td><p>061</p></td>
-<td><p>参加者が返戻</p></td>
-</tr>
-<tr class="row-even"><td><p>doc_request_reviewer</p></td>
-<td><p>070</p></td>
-<td><p>検討者に依頼</p></td>
-</tr>
-<tr class="row-odd"><td><p>doc_accept_reviewer</p></td>
-<td><p>072</p></td>
-<td><p>検討者が承認</p></td>
-</tr>
-<tr class="row-even"><td><p>doc_reject_reviewer</p></td>
-<td><p>071</p></td>
-<td><p>検討者が返戻</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="eformsign_webhook.html" class="btn btn-neutral float-right" title="eformsign Webhook の使い方" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="eformsign_embedding.html" class="btn btn-neutral float-left" title="eformsign 機能の組み込み" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="eformsign_embedding.html" class="btn btn-neutral float-left" title="eformsign機能の埋め込み" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="eformsign_webhook.html" class="btn btn-neutral float-right" title="eformsign Webhookの使い方" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; 著作権 2021. FORCS CO., LTD. All rights reserved
-
-    </p>
+    <p>&#169; Copyright 2021. FORCS CO., LTD. All rights reserved.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
