@@ -1,4 +1,4 @@
-__version__ = '0.5.5'
+__version__ = '0.5.3'
 
 from docutils.parsers.rst import directives
 from docutils import nodes
@@ -226,8 +226,3 @@ def setup(app):
     app.add_directive("code-tabs", TabsDirective)
     app.add_directive("code-tab", CodeTabDirective)
     app.connect("builder-inited", add_assets)
-
-    return {
-        "version": __version__,
-        "parallel_read_safe": True,
-    }

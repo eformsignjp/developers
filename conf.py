@@ -93,7 +93,7 @@ html_theme_path = ["_themes", ]
 # so a file named "default.css" will overwrite the builtin "default.css".
 #html_static_path = ['_static']
 
-html_favicon = 'C:\eformsign_manual\developers\images\\favicon.ico'
+html_favicon = 'C:\Docbook\eformsignjp_developers\images\\favicon.ico'
 
 
 # Custom sidebar templates, must be a dictionary that maps document names
@@ -185,5 +185,5 @@ html_theme_options = {
     'logo_only': True,
     # ...
 }
-html_logo = "C:\eformsign_manual\developers\images\\forcs_b.png"
+html_logo = "C:\Docbook\eformsignjp_developers\images\\forcs_b.png"
 

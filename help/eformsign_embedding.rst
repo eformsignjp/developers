@@ -421,7 +421,7 @@ document_option
 
 **会社のメンバーのログインによる文書の作成及び処理**
 
-- ユーザー情報を指定していない場合に該当します。	
+- ユーザー情報を指定していない場合に該当します。   
 - eformsignのログインページが起動し、ログイン後に文書を作成することができます。
 
 
@@ -1548,7 +1548,6 @@ step_settings[].recipient[].auth                                           本�
 step_settings[].recipient[].auth.valid                                     文書の送信期限情報                     Object         X         当該ステップの受信者指定時のみ
                                                                                                                                          入力しない場合、デフォルト値に設定: 7日 0時間
 step_settings[].recipient[].auth.valid.day                                 文書の送信期限 (日)                    Integer         X        当該ステップの受信者指定時のみ
-
 step_settings[].recipient[].auth.valid.hour                                文書の送信期限 (時間)                  Integer         X        当該ステップの受信者指定時のみ
 step_settings[].auth                                                       本人確認及び文書の送信期限情報         Object          X        当該ステップの受信者の指定をしない場合のみ
 
