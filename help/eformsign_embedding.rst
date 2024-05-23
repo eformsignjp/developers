@@ -1,45 +1,166 @@
 
 ======================================
-eformsign機能の組み込み
+<<<<<<< HEAD
+eformsign機能の埋め込み
 ======================================
 
 
-eformsign機能を組み込み連動すれば、顧客が提供しているサービス（もしくはサイト）内ユーザー（エンドユーザー）がeformsignサービスサイトを介さずともeformsignの電子帳票を利用することができます。
-例えるなら、本人のブログで特定のYouTube動画を紹介したい場合に、ブログにYouTube動画を挿入するのに似ています。
+eformsignの機能をお客様の提供するサービス・サイト内に埋め込むことで、サービス・サイトを利用するユーザー（エンドユーザー）がeformsignのサイトに接続することなく、eformsignの電子帳票をご利用いただくことができます。
+
+※ブログ内にYouTubeの動画を挿入するようなイメージです。
 
 
 ------------------
-始めてみましょう
+チュートリアル 
 ------------------
 
-eformsign embedding 機能を利用するためには、会社IDとテンプレートIDが必要です。
-
-会社IDの確認
+概要
 ========================
 
-会社管理 > 会社情報 > 基本情報 から会社IDを確認することができます。
+eformsignの埋め込みは、次のような機能に対応しています。 
+
+- テンプレートで文書作成
+- マイファイルで文書作成
+- 文書の処理(入力・承認・差戻し)
+- 文書のプレビュー
+- テンプレートの生成
+- テンプレートの修正
+- テンプレートの複製
 
 
-eformsignのメインメニュー
+
+上記の機能を埋め込むためのオブジェクトは、現在EformSignDocumentとEformSignTemplateの2種類をご提供しています。各オブジェクトが対応している機能を確認し、インストールしてください。
+
+
+eformsignの埋め込みオブジェクト
+--------------------------------------------
+
+
+===================  ====================
+オブジェクト名      　対応機能
+===================  ====================
+EformSignDocument     - テンプレートで文書作成
+
+                      - 文書の処理(入力・承認・差戻し)
+
+                      - 文書のプレビュー
+EformSignTemplate     - マイファイルで文書作成
+
+                      - テンプレートの生成
+
+                      - テンプレートの修正
+
+                      - テンプレートの複製
+===================  ====================
+
+
+
+
+インストール方法
+========================
+
+eformsignの機能を使用するウェブページに次のスクリプトを追加します。
+
+
+.. code-block:: javascript
+
+    <!--jQuery-->
+    <script src="https://www.eformsign.com/plugins/jquery/jquery.min.js"/>
+    <!--EformSignDocumentオブジェクト-->
+    <script src="https://www.eformsign.com/lib/js/efs_embedded_v2.js"/>
+    <!--EformSignTemplateオブジェクト-->
+    <script src="https://www.eformsign.com/lib/js/efs_embedded_form.js"/>
+
+
+.. note::
+
+   eformsign機能を挿入するページにこのスクリプトを追加することで、eformsign埋め込み用オブジェクトをグローバル変数として使用することができます。
+   スクリプトはHTMLファイル内のhead、bodyなど、どの位置に追加しても構いませんが、eformsign埋め込み用オブジェクトを使用する前に先に宣言する必要があります。
+   jQueryの場合、すでに他の方法でウェブページに追加されているなら、重複して追加する必要はありません。
+
+
+
+
+--------------------------
+埋め込みオプションの設定
+--------------------------
+
+eformsignの機能を埋め込む場合、埋め込む機能の詳細オプションをJSON形式で設定する必要があります。
+会社情報、埋め込みモード、ユーザー情報、レイアウト、自動入力などを設定することができます。
+
+
+
+**各機能の設定値**
+========================
+
+eformsignの機能埋め込みは、使用するオブジェクト、モードによって動作する機能が異なります。
+以下の表から各機能で使用するオブジェクトと埋め込みモードをご確認ください。
+
+.. note::
+
+   埋め込みモードの設定は、document_optionまたはtemplate_optionサブの"mode" Objectに値を入力することで行います。詳しい設定方法は各機能ページをご参照ください。
+
+========================  ======================  ================
+埋め込み可能               使用するオブジェクト    埋め込みモード  
+========================  ======================  ================
+テンプレートで文書作成     EformSignDocument       "type": "01"
+文書の処理                 EformSignDocument       "type": "02"     
+文書のプレビュー           EformSignDocument       "type": "03"    
+マイファイルで文書作成     EformSignTemplate       "type": "01", "template_type": "unstructured_form"  
+テンプレートの生成         EformSignTemplate       "type": "01", "template_type": "form"
+テンプレートの修正         EformSignTemplate       "type": "02", "template_type": "form"
+テンプレートの複製         EformSignTemplate       "type": "03", "template_type": "form"
+========================  ======================  ================
+
+
+
+**必要な値の確認**
+========================
+
+埋め込みオプションを設定する際、挿入する機能によっては、会社ID、テンプレートID、文書IDを入力する必要があります。
+
+
+会社IDの確認方法
+=======
+eformsign 機能の組み込み
+======================================
+
+
+eformsign 機能を組み込んで連動すると、顧客が提供しているサイト/サービス内で顧客会社のユーザー（エンドユーザー）が eformsign サービスサイトを介さず自然に eformsign の電子文書を利用することができます。
+例えば、ブログで特定の YouTube 動画を表示したいとき、ブログに YouTube 動画を直接挿入することで、その動画をブログ内ですぐ再生できるようにする方式と類似しています。
+
+
+-------------
+始めてみよう
+-------------
+
+eformsign embedding 機能を利用するためには、会社 ID とテンプレート ID が必要です。
+
+会社 ID の確認
+========================
+
+**会社管理 > 会社情報 > 基本情報** で会社 ID を確認することができます。
+
+
+メインメニュー
+>>>>>>> parent of 72c99e6 (embedding 업데이트)
 -------------------------
 
-.. image:: resources/Dashboard_menu_icon.png
-    :alt: メニュー
-    :width: 700px
+
+会社IDは、会社管理者または代表管理者アカウントでログイン後、**会社管理 > 会社情報 > 基本情報**\ で会社IDを確認することができます。
 
 
+1. eformsignのサイドバーメニューから **会社情報** メニューをクリックします。
 
-会社情報メニュー
---------------------------------
 
 .. image:: resources/Dashboard_sidemenu_companyinfo.png
-    :alt: 会社管理 > 会社情報
+    :alt: eformsign　会社情報メニュー
     :width: 700px
 
 
+2. **会社情報 > 基本情報**\ から **会社ID**\ を確認します。
 
-会社情報 > 基本情報
--------------------------
+
 
 .. image:: resources/companyinfo_companyid.png
     :alt: 会社情報 > 基本情報
@@ -47,10 +168,23 @@ eformsignのメインメニュー
 
 
 
-テンプレートIDの確認
+<<<<<<< HEAD
+テンプレートIDの確認方法
+-------------------------
+
+テンプレート管理メニューに移動し、テンプレートの設定アイコンをクリックすると、テンプレートのURLからform_idを確認することができます。
+
+
+
+1. eformsignサイドバーメニューの **テンプレート管理**\ をクリックします。
+
+.. image:: resources/sidemenu_managetemplate.png
+    :alt: eformsign メニュー、テンプレート管理
+=======
+テンプレート ID の確認
 ===========================
 
-テンプレート管理メニューに移動し、使用したいテンプレートの設定アイコンをクリックすると、そのテンプレートのURLからテンプレートIDを確認することができます。 
+**テンプレート管理** メニューに移動し、使用したいテンプレートの設定アイコンをクリックすると、そのテンプレートの URL から form_id を確認することができます。 
 
 
 テンプレート管理メニュー
@@ -71,22 +205,79 @@ eformsignのメインメニュー
 
 
 
-テンプレートIDの場所
+テンプレート ID の位置
 -------------------------
 
 .. image:: resources/templateURL_templateID.png
-    :alt: テンプレートIDの場所
+    :alt: テンプレート ID の位置
+>>>>>>> parent of 72c99e6 (embedding 업데이트)
     :width: 700px
 
 
 
+2. eformsignテンプレート管理画面で、当該テンプレートの **設定** ボタンをクリックします。
+
+.. image:: resources/managetemplate.png
+    :alt: eformsign テンプレート管理画面
+    :width: 700px
 
 
----------------
-インストール
----------------
+3. テンプレートのURLから **テンプレートID(=form_id)**\ を確認します。
 
-eformsignの機能を利用したいWebページに、次のスクリプトを追加します。
+<<<<<<< HEAD
+.. image:: resources/templateURL_templateID.png
+    :alt: テンプレートIDの位置
+    :width: 700px
+
+
+文書IDの確認方法
+-------------------------
+
+文書IDは、文書が存在する文書トレイから確認できます。
+
+
+1.eformsignサイドバーのメニューから **文書が存在する文書トレイ** メニューをクリックします。
+
+.. image:: resources/sidemenu_documentinbox.png
+    :alt: eformsign メニュー　テンプレート管理
+    :width: 700px
+
+
+
+2.文書トレイの右上の **カラム選択アイコン** (|image1|)\をクリック後、文書IDをチェックすると、リストに **文書ID** の列が追加され、文書IDを確認することができます。
+
+.. image:: resources/document_id_column.png
+    :alt: eformsign 文書トレイ　文書ID列の追加
+    :width: 700px
+
+
+
+テンプレート文書作成、文書の処理、文書のプレビュー
+==========================================================
+
+eformsignを埋め込んでテンプレートで文書の作成・受信した文書の処理・生成された文書のプレビュー機能を挿入する場合について説明します。
+
+.. code-block:: javascript
+
+    var eformsign = new EformSignDocument();
+
+    var document_option = {
+       "company" : {
+          "id" : "",            // Company IDを入力
+          "country_code" : "",  // 国コードを入力 (例: ja)
+          "user_key": ""        // 顧客側のシステムにログインしたユーザーのunique key. ブラウザクッキーのeformsignログイン情報との比較に使用
+       },
+       "user" : {
+            "type" : "01" ,         // ユーザーの識別 (01: メンバー、02: 外部者)
+            "id": "test1@forcs.com" // ユーザーID（メールアドレス）
+            "access_token" : "",    // Access Tokenの入力（eformsign APIの使い方 - OpenAPI Access Tokenを参照）
+            "refresh_token" : "",   // Refresh Tokenの入力（eformsign APIの使い方 - OpenAPI Access Tokenを参照）
+            "external_token" : "",  // 外部者が処理する際に、ユーザーを認証するExternal Tokenを入力（Webhookから提供）
+            "external_user_info" : {
+               "name" : ""          // 外部者が処理する際に、外部者の名前を入力
+
+=======
+eformsign の機能を利用したい Web ページに次のスクリプトを追加します。
 
 .. code-block:: javascript
 
@@ -100,23 +291,23 @@ eformsignの機能を利用したいWebページに、次のスクリプトを�
 
 .. note::
 
-   eformsign機能を組み込みたいページに上記のスクリプトを追加すると、eformsign のオブジェクトをグローバル変数として使用することができます。
+   eformsign の機能を組み込みたいページに上記のスクリプトを追加すると、eformsign のオブジェクトをグローバル変数として使用することができます。
 
 
 ------------------------------------------
-eformsignのオブジェクトについての情報
+eformsign のオブジェクトについての情報
 ------------------------------------------
 
-eformsignのオブジェクトは、embeddingとredirectの2つのタイプで構成されています。
+eformsign のオブジェクトは、 embedding と redirect の2つのタイプで構成されています。
 
 
 +----------+-----------------------+--------------------------------------+
-| Type     | Name                  | Description                          |
+| Type     | Name                  | 説明                                 |
 +==========+=======================+======================================+
-| embedding| eformsign.document    | eformsignを組み込んで文書を作成      |
-|          | (document_option,     | できるようにする関数                 |
+| embedding| eformsign.document    | eformsignを組み込み、文書を作成  　  |
+|          | (document_option,     | できる関数                           |
 |          | iframe_id,            |                                      |
-|          | success_callback,     | callbackパラメータはオプション       |
+|          | success_callback,     | callbackパラメーターはオプション     |
 |          | error_callback)       |                                      |
 |          |                       | -  document_option, iframe_id: 必須  |
 |          |                       |                                      |
@@ -124,7 +315,7 @@ eformsignのオブジェクトは、embeddingとredirectの2つのタイプで�
 |          |                       |                                      |
 |          |                       | -  error_callback: オプション        |
 +----------+-----------------------+--------------------------------------+
-| redirect | eformsign.document    | eformsignへのページ転換で            |
+| redirect | eformsign.document    | eformsignへのページ転換方式で        |
 |          | (document_option)     | 文書を作成できるようにする関数       |
 |          |                       |                                      |
 |          |                       | -  document_option : 必須            |
@@ -132,27 +323,89 @@ eformsignのオブジェクトは、embeddingとredirectの2つのタイプで�
 
 
 
-１．EformSignDocument.document関数
-============================================
+.. note::
+
+   redirect 方式は、今後対応する予定です。 
+
+
+.. code-block:: javascript
+
+     var eformsign = new EformSign();
+     
+     var document_option = {
+       "company" : {
+          "id" : '', // company id 入力
+          "country_code" : "", // 国コード入力 (ex: kr)
+          "user_key": ""  // 顧客システムの固有なキー（顧客システムにログインしたユーザーの unique key）- option
+       },
+       "user" : {
+            "type" : "01" ,
+            "access_token" : "", // access Tokenを入力。openAPI accessTokenを参照
+            "refresh_token" : "", // refresh Tokenを入力。openAPI accessTokenを参照
+            "external_token" : "", // 外部処理の場合、external Tokenを入力。openAPI accessTokenを参照
+            "external_user_info" : {
+               "name" : "" // 外部処理の場合、外部受信者の名前を入力
+            }
+        },
+        "mode" : {
+            "type" : "02",
+            "template_id" : "", // template idを入力
+            "document_id" : ""  // document_idを入力
+        },
+        "prefill" : {
+            "document_name": "", // 文書のタイトルを入力
+            "fields": [ {
+                "id" ; "顧客名",
+                "value" : "木村",
+                "enabled" : true,
+                "required" : true 
+            }]
+        },
+        "return_fields" : ['顧客名']
+     };
+     
+     //callback option
+     var success_callback = function(response){ 
+        console.log(response.code); 
+        if( response.code == "-1"){
+            //文書の作成に成功
+            console.log(response.document_id);
+            // return_fieldsに返したデータを照会することができる。fields とは、フォームを作成するときに作った入力コンポーネントのidを意味する。
+            console.log(response.field_values["company_name"]);
+            console.log(response.field_values["position"]);
+        }
+     };
+      
+     var error_callback = function(response){
+        console.log(response.code); 
+        //文書の作成に失敗
+        alert(response.message);
+         
+     };
+     
+     eformsign.document(document_option , "eformsign_iframe" , success_callback , error_callback  );
+
+
+embedding_document 関数
+=============================
 
 .. note::
 
    関数タイプ
    document(document_option, iframe_id, success_callback , error_callback)
 
-eformsignを組み込み、顧客のサイト/サービスで文書を作成・検討・プレビューできるようにする関数です。
-EformSignDocument.documentは、組み込む文書の詳細オプションを設定する関数です。
+eformsign を組み込み、顧客会社のサイト/サービスで文書を作成できるようにする関数です。 eformsign の document 関数を呼び出して使用してください。
 
-document_optionとcallbackの2つのパラメータを使用することができます。
+大きく document_option と callback の2つのパラメーターを使用することができます。
 
 
 ===================  ===============  ==========  ==========================================================
- Parameter Name       Parameter Type   必須入力      説明 
+ Paramter Name       Paramter Type    必須入力      説明 
 ===================  ===============  ==========  ==========================================================
- document_option      Json             必須         eformsignを組み込んで起動する会社、ユーザー、文書などのオプションを指定 
- iframe_id            String           必須         eformsignが組み込まれて表示されるiframe id 
- success_callback     Function         非必須       eformsignによる文書作成が成功した際呼び出されるcallback関数
- error_callback       Function         非必須       eformsignによる文書作成が失敗した際呼び出されるcallback関数
+ document_option      Json             O          組み込み後にeformsignを起動すると、document関連オプションを指定 
+ iframe_id            String           O          組み込み後に表示されるiframe id 
+ success_callback     function         X          eformsign文書の作成に成功した場合、呼び出されるcallback関数
+ error_callback       function         X          eformsign文書の作成に失敗した場合、呼び出されるcallback関数 
 ===================  ===============  ==========  ==========================================================
 
 
@@ -160,31 +413,30 @@ document_optionとcallbackの2つのパラメータを使用することがで�
 .. code-block:: javascript
 
      var eformsign = new EformSign();
-
-    var document_option = {
-       "company" : {
-          "id" : "",            // company idを入力
-          "country_code" : "",  // 国コードを入力 (例: kr)
-          "user_key": ""        // 顧客側のシステムにログインしたユーザーのunique key. ブラウザクッキーのeformsignログイン情報との比較に使用
-       },
-       "user" : {
-            "type" : "01" ,         // ユーザーの区分 (01: メンバー、02: 外部者)
-            "id": "test1@forcs.com" // ユーザーID（メールアドレス）
-            "access_token" : "",    // Access Tokenの入力（OpenAPI Access Token参照）
-            "refresh_token" : "",   // Refresh Tokenの入力（OpenAPI Access Token参照）
-            "external_token" : "",  // 外部者が処理する際、ユーザーを認証するExternal Tokenを入力（Webhookから提供）
-            "external_user_info" : {
-               "name" : ""          // 外部者が処理する際、外部者の名前を入力
-
+     var document_option = {
+        "company": {
+            "id": '', // company idを入力
+            "country_code": "", // 国コードを入力 (ex: kr)
+            "user_key": '' // 顧客システムの固有なKey (顧客システムにログインしたユーザーのunique key) - option
+        },
+        "user": {
+            "type": "01",
+            "access_token": "", // access Tokenを入力。openAPIのaccessTokenを参照
+            "refresh_token": "", // refresh Tokenを入力。openAPIのaccessTokenを参照
+            "external_token": "", // 外部処理の場合、external Tokenを入力。openAPIのaccessTokenを参照
+            "external_user_info": {
+                "name": "" // 外部処理の場合、外部受信者の名前を入力
+>>>>>>> parent of 72c99e6 (embedding 업데이트)
             }
         },
-        "mode" : {
-            "type" : "02",      // モード (01: 文書の新規作成、02: 文書の検討、03: 文書のプレビュー)
-            "template_id" : "", // template idの入力
-            "document_id" : ""  // document_idの入力
+        "mode": {
+            "type": "02",
+            "template_id": "", // template idを入力
+            "document_id": "" // document_idを入力
         },
+<<<<<<< HEAD
         "layout" : {
-            "lang_code" : "ko" // eformsignの言語 ko, en, ja
+            "lang_code" : "ja" // eformsignの言語 ja, en, ko
         },
         "prefill" : {
             "document_name": "", // 文書タイトルの入力
@@ -192,22 +444,22 @@ document_optionとcallbackの2つのパラメータを使用することがで�
                 {
                     "id" ; "顧客名",       // フィールド名
                     "value" : "田中太郎",    // フィールド値
-                    "enabled" : true,   // 活性化
-                    "required" : true   // 必須
+                    "enabled" : true,   // true:活性化 false:非活性化
+                    "required" : true   // true:入力必須 false:入力任意
                 }
             ],
             "recipients": [
                 {
-                    "step_idx" : "2",       // ワークフローの順番。受信者がいる場合は２からスタート
+                    "step_idx" : "2",       // ワークフローの順序。受信者がいる場合は２からスタート
                     "step_type": "06",      // ステップの種類 05: 参加者、06: 検討者
-                    "name" : '田中太郎',        // 受信者の名前
-                    "id": "test@forcs.com", // 受信者ID/アドレス
+                    "name" : '田中太郎',        // 受信者の氏名
+                    "id": "test@forcs.com", // 受信者ID/メールアドレス
                     "sms": "01023456789",   // 受信者の携帯電話番号
-                    "use_mail": true,       // メール通知の使用
-                    "use_sms": true,        // SMS通知の使用
+                    "use_mail": true,       // true: メール通知を使用 false: 不使用
+                    "use_sms": true,        // true: SMS通知を使用 false: 不使用
                     "auth": {
-                        "password": "",     // ワークフロー設定で文書のプレービュー前に本人確認の設定 - 本人確認情報にチェックした場合パスワードを入力
-                        "password_hint": "",// 上記条件に従ってパスワードを入力する際、表示されるパスワードのヒント
+                        "password": "",     // ワークフロー設定で文書のプレビュー前に本人確認の設定 - 本人確認情報にチェックした場合、パスワードを入力
+                        "password_hint": "",// 上記の条件に従ってパスワードを入力する際、表示されるパスワードのヒント
                         "valid": {
                             "day": 7,       // 文書の送信期限 (日)
                             "hour": 0       // 文書の送信期限 (時間)
@@ -215,7 +467,7 @@ document_optionとcallbackの2つのパラメータを使用することがで�
                     }
                 }
             ],
-            "comment": "こちらにコメントを入力"     // メッセージ
+            "comment": "ここにコメントを入力"     // メッセージ
         },
         "return_fields" : ['顧客名']           // Success Callbackで値を確認するためのフィールド名
     };
@@ -224,86 +476,107 @@ document_optionとcallbackの2つのパラメータを使用することがで�
     var success_callback = function(response){ 
         console.log(response.code); 
         if( response.code == "-1"){
-            //文書作成の成功
+            // 文書作成に成功
+=======
+        "prefill": {
+            "document_name": "", // 文書のタイトルを入力
+            "fields": [{
+                "id" : "",
+                "顧客名" : "",
+                "value": "木村",
+                "enabled": true,
+                "required": true
+            }]
+        },
+        "return_fields": ['顧客名']
+     };
+     
+     //callback option
+     var success_callback = function (response) {
+        console.log(response.code);
+        if (response.code == "-1") {
+            //文書の作成に成功
+>>>>>>> parent of 72c99e6 (embedding 업데이트)
             console.log(response.document_id);
-            // return_fieldsに渡したデータの表示が可能。 fieldsはフォームを作成する際の入力コンポーネントのIDに当たる。
+            // return_fieldsに返したデータを照会することができる。fieldsとは、フォームを作成するときに作った入力コンポーネントのidを意味する。
             console.log(response.field_values["company_name"]);
             console.log(response.field_values["position"]);
         }
-    };
+     };
      
+<<<<<<< HEAD
     var error_callback = function(response){
         console.log(response.code); 
-        //文書作成の失敗
+        // 文書作成に失敗
+=======
+     
+     var error_callback = function (response) {
+        console.log(response.code);
+        //文書の作成に失敗
+>>>>>>> parent of 72c99e6 (embedding 업데이트)
         alert(response.message);
+     
+<<<<<<< HEAD
+     
+    var action_callback = function (response) {
+        console.table(response.data);
     };
      
-    eformsign.document(document_option, "eformsign_iframe", success_callback, error_callback);
-    eformsign.open();
-
-
-
-２．EformSignDocument.open関数
-=============================================
-
-文書の組み込みを開始する関数です。
-
-EformSignDocument.document関数で文書オプションを設定した後、EformSignDocument.openを実行してください。
-
-
-.. code-block:: javascript
-
-    var eformsign = new EformSignDocument();
-    //中略
     eformsign.document(document_option, "eformsign_iframe", success_callback, error_callback, action_callback);
     eformsign.open();
 
 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-document-optionパラメータ
+document_option
 =======================================
 
-document-optionでは以下6つの項目を設定することができます。 
+オプション設定のためのJSONは次のような構造になっています。
 
 ===============  ==================  ==============  =====  ================================================================================
- 変数名           説明                データタイプ   必須    下位オプション 
+ 変数名           説明                データ型       必須    下位オプション 
 ===============  ==================  ==============  =====  ================================================================================
  company          会社情報             Object        O      id, country_code, user_key
- mode             組み込みモード         Object        O      type, template_id, document_id
- user             ユーザー情報           Object        X      type, id, access_token, refresh_token, external_token, external_user_info
- layout           レイアウト             Object        X       lang_code
- prefill          自動記入             Object        X       document_name, fields, recipients, comment
- return_fields    returnフィールド       Array         X     
+ mode             組み込みモード       Object        O      type, template_id, document_id
+ user             ユーザー情報         Object        X      type, id, access_token, refresh_token, external_token, external_user_info
+ layout           レイアウト           Object        X      lang_code
+ prefill          自動記入             Object        X      document_name, fields, recipients, comment
+ return_fields    returnフィールド     Array         X     
 ===============  ==================  ==============  =====  ================================================================================
+=======
+     };
+     
+     eformsign.document(document_option, "eformsign_iframe", success_callback, error_callback);
 
 
+パラメーターの説明：document-option
+=======================================
 
+>>>>>>> parent of 72c99e6 (embedding 업데이트)
+
+document-option では大きく次の5つの項目を設定することができます。 
+
+<<<<<<< HEAD
 .. note::
 
    会社情報とモードは入力必須項目です。 
 
 
 
-１．company(会社情報/必須)
+1．company(会社情報/必須)
 -------------------------------------
 
 
 ===============  ==============================  =============  =======  =================================================================================================================
- 変数名           説明                           データタイプ     必須      備考 
+ 変数名           説明                           データ型        必須      備考 
 ===============  ==============================  =============  =======  =================================================================================================================
- id               会社ID                           String          O        会社管理 - 会社情報から確認
+ id               会社ID                           String          O       会社管理 - 会社情報から確認
 
- country_code     国コード                         String          X        会社管理 - 会社情報の国コードを指定。任意入力項目だが、入力後即open可能
+ country_code     国コード                         String          X       会社管理 - 会社情報の国コードを指定。任意入力項目だが、入力後即open可能
 
- user_key         顧客システムユーザー固有キー       String          X        組み込みをする顧客のシステム上で、対象のユーザーが誰かを明らかにするため、eformsignに渡すユーザーのアカウント情報
+ user_key         顧客システムユーザー固有キー     String          X       組み込みをする顧客のシステム上で、対象のユーザーが誰かを明らかにするため、eformsignに渡すユーザーのアカウント情報
 
-                                                                           ブラウザに既にログイン情報がある場合、対象のkeyと比較を行う。ログイン情報と対象のkeyが一致しない場合、自動的にログアウトされる。
-
+                                                                           ブラウザに既にログイン情報がある場合、対象のkeyと比較を行う。ログイン情報と対象のkeyが一致しない場合、自動的にログアウトする。
 ===============  ==============================  =============  =======  =================================================================================================================
-
-
-
 
 
 .. code-block:: javascript
@@ -311,22 +584,51 @@ document-optionでは以下6つの項目を設定することができます。
    var document_option = {
          "company" : {
              "id" : 'f9aec832efef4133a1e849efaf8a9aed',
-             "country_code" : "kr",
+             "country_code" : "ja",
              "user_key": "eformsign@forcs.com"
          }
     };
+=======
+- 会社情報
+- ユーザー情報
+- モード
+- リターンフィールド
+- 自動入力
+
+.. note::
+
+   会社情報とモードは必須入力情報です。 
 
 
 
-２．mode(組み込みモード/必須)
+1. 会社情報（必須）
+-------------------------
+
+.. code-block:: javascript
+
+   var document_option = {
+     "company" : {
+         "id" : 'f9aec832efef4133a1e849efaf8a9aed',  // 会社管理 > 会社情報 の会社idを確認 (必須)
+         "country_code" : "kr", // 必須ではないが、クィックオープンのため、指定することを推奨 (会社管理 > 会社情報 で国コードを指定)
+         "user_key": "eformsign@forcs.com"
+     }
+ };
+>>>>>>> parent of 72c99e6 (embedding 업데이트)
+
+
+2. ユーザー情報（オプション）
+--------------------------------
+
+<<<<<<< HEAD
+2．mode(埋め込みモード/必須)
 ========================================
 
 ===============  ================  ==============  =====  ==================================================
- 変数名           説明              データタイプ   必須    備考 
+ 変数名           説明              データ型       必須    備考 
 ===============  ================  ==============  =====  ==================================================
- type             機能タイプ         String        O      01: 文書作成、02: 文書検討、03: プレビュー
- template_id      テンプレートID       String       X      
- document_id      文書ID            String          X      文書検討, プレビュー時必須
+ type             機能タイプ        String           O      01: 文書作成、02: 文書処理、03: プレビュー
+ template_id      テンプレートID    String           O      
+ document_id      文書ID            String           X      文書処理、プレビュー設定時には必須
 ===============  ================  ==============  =====  ==================================================
 
 
@@ -334,43 +636,42 @@ document-optionでは以下6つの項目を設定することができます。
 
 **テンプレートを利用した新規作成** 
 
-
-- テンプレートを利用して文書を新規作成します。
+テンプレートを利用して文書を新規作成します。
 
 .. code-block:: javascript
 
     var document_option = {
         "mode" : {
-        "type" : "01" ,  // 01 : 文書作成、02 : 文書検討、03 : プレビュー
-        "template_id" : "" // template idを入力
+        "type" : "01" ,  // 01 : 文書作成、02 : 文書処理、03 : プレビュー
+        "template_id" : "a2c6ed9df9b642f2ade43c7efe58c9a3" // template idを入力
         }
     }
 
-**受信した文書に追記** 
-    
 
-- 受信した文書に追記します。 
+**受信した文書を利用した文書作成** 
+
+受信した文書を利用して、新たに文書を作成します。 
 
 .. code-block:: javascript
 
     var document_option = {
         "mode" : {
-        "type" : "02" ,  // 01 : 文書作成、02 : 文書検討、03 : プレビュー
+        "type" : "02" ,  // 01 : 文書作成、02 : 文書処理、03 : プレビュー
         "template_id" : "a2c6ed9df9b642f2ade43c7efe58c9a3", // template idの入力
         "document_id" : "5c19ff8c703f401c968236837d701e92"  // document_idの入力
       }
     }
+
 
 **特定の文書をプレビュー**
 
-
-- 作成した文書のプレビューを確認します。
+作成済みの文書をプレビューします。
 
 .. code-block:: javascript
 
     var document_option = {
         "mode" : {
-        "type" : "03" ,  // 01 : 文書作成、02 : 文書検討、03 : プレビュー
+        "type" : "03" ,  // 01 : 文書作成、02 : 文書処理、03 : プレビュー
         "template_id" : "a2c6ed9df9b642f2ade43c7efe58c9a3", // template idの入力
         "document_id" : "5c19ff8c703f401c968236837d701e92"  // document_idの入力
       }
@@ -378,172 +679,262 @@ document-optionでは以下6つの項目を設定することができます。
 
 
 
-３．user（ユーザー情報/任意）
+3．user（ユーザー情報/任意）
 ========================================
 
 =========================  ==============================  =============  =======  ==========================================================================
- 変数名                     説明                            データタイプ    必須     備考 
+ 変数名                     説明                            データ型       必須     備考 
 =========================  ==============================  =============  =======  ==========================================================================
  type                       ユーザータイプ                  String         O        01: 会社メンバー、02: 外部作成者
- id                         アカウント（メールアドレス）       String         X        ユーザーID/メールアドレスの入力
- access_token               Access Token                    String         X        Open API > Access Token 発行参照
- refresh_token              Refresh Token                   String         X        Open API > Access Token 発行参照
- external_token             外部者処理用トークン            String         X        メンバーではないユーザーが受信した文書を検討する際、必須入力（Webhookから提供）
- external_user_info         外部作成者の情報                String         X        メンバーではないユーザーが受信した文書を作成及び検討する際、必須入力
- external_user_info.name    外部作成者の名前                String         X        メンバーではないユーザーが受信した文書を作成及び検討する際、必須入力
+ id                         アカウント（メールアドレス）    String         X        ユーザーID/メールアドレスの入力
+ access_token               Access Token                    String         X        Open API > `Access Token 発行 <https://eformsignjp.github.io/developers/help/eformsign_api.html#id5>`__\ を参照
+ refresh_token              Refresh Token                   String         X        Open API > `Access Token 発行 <https://eformsignjp.github.io/developers/help/eformsign_api.html#id5>`__\ を参照
+ external_token             外部者処理用トークン            String         X        メンバーではないユーザーが受信した文書を検討する際は必須入力（`Webhook <https://eformsignjp.github.io/developers/help/eformsign_webhook.html>`__\ で提供）
+ external_user_info         外部作成者の情報                String         X        メンバーではないユーザーが受信した文書を作成及び処理する際は必須入力
+ external_user_info.name    外部作成者の氏名                String         X        メンバーではないユーザーが受信した文書を作成及び処理する際は必須入力
 =========================  ==============================  =============  =======  ==========================================================================
 
 
 
+**会社のメンバーのログインによる文書の作成及び処理**
 
-**会社のメンバーのログインによる文書の作成及び検討**
-
-- ユーザー情報を指定していない場合に該当します。	
-- eformsignのログインページが起動し、ログイン後に文書を作成できます。
+- ユーザー情報を指定していない場合に該当します。   
+- eformsignのログインページが起動し、ログイン後に文書を作成することができます。
 
 
 **会社のメンバーのログインによる文書の作成及び検討（IDの事前入力)**   
 
-- eformsignのログインページが起動し、ログイン後に文書を作成できます。このとき、事前入力したIDがログイン画面に表示されます。
+eformsignのログインページが起動し、ログイン後に文書を作成することができます。この際、IDがログイン画面にあらかじめ入力されます。
+=======
+**メンバーログインによる新規作成**
+    - ユーザー情報を指定しない場合に該当し、ユーザー情報を指定しません。	
+    - この場合、eformsign ログインページが起動され、ログイン後に文書を作成することができます。
+
+
+**メンバーのトークンを利用した作成（新規作成および受信した文書を含む）**	
+    - 組み込むと、eformsign にログインせず、特定のアカウントの token を利用して文書を作成したり、受信した文書を作成することができます。
+    - トークンの発行は、Open API の Access token の発行によって可能です。
+>>>>>>> parent of 72c99e6 (embedding 업데이트)
 
 .. code-block:: javascript
 
     var document_option = {
         "user":{
+<<<<<<< HEAD
             "type" : "01",
-            "access_token" : "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJlZ...",
-            "refresh_token" : "0161ac6c-0f47-4cc3-9301-381f57c41495"
+            "id" : "eformsign@forcs.com"
+=======
+            "type" : "01" , // 01 - internal or  02 - external  (必須)
+            "access_token" : "", // access Tokenを入力。openAPI accessTokenを参照
+            "refresh_token" : "", // refresh Tokenを入力。openAPI accessTokenを参照
+>>>>>>> parent of 72c99e6 (embedding 업데이트)
         }
     };
 
 
+<<<<<<< HEAD
+**会社のメンバーのトークンを利用した作成及び処理**
 
-**会社のメンバーのトークンを利用した作成及び検討**
-
-- eformsignにログインせず、特定のアカウントのトークンを使用して文書の作成及び受信した文書を検討・作成することができます。
-- トークンは、Open APIのAccess tokenで発行可能です。
+埋め込みの際、eformsignにログインすることなく、特定のアカウントのトークンを利用して文書を作成し、受信した文書を作成します。- トークンは、Open APIのAccess tokenで発行可能です。
+トークンの発行方法は eformsign APIの使い方 - `Access Tokenの発行 <https://eformsignjp.github.io/developers/help/eformsign_api.html#id5>`__\ をご確認ください。
+=======
+**メンバーではないユーザーが新規文書を作成**  
+    - eformsign の会員ではないユーザーが文書を作成できるようにする方式
+>>>>>>> parent of 72c99e6 (embedding 업데이트)
 
 .. code-block:: javascript
 
     var document_option = {
         "user":{
+<<<<<<< HEAD
             "type" : "01",
+            "id" : "eformsign@forcs.com",
             "access_token" : "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJlZ...",
             "refresh_token" : "0161ac6c-0f47-4cc3-9301-381f57c41495"
         }
     };
-
 
 
 **メンバーではないユーザーが文書を新規作成**  
 
-- eformsignの会員ではないユーザーが文書を作成できます。
+eformsignの会員ではないユーザーが文書を作成することができます。
 
 .. code-block:: javascript
 
     var document_option = {
         "user":{
             "type" : "02",
+=======
+            "type" : "02" , // 01 - internal or  02 - external  (必須)
+>>>>>>> parent of 72c99e6 (embedding 업데이트)
             "external_user_info" : {
-               "name" : "田中太郎"
+                "name" : "" // 外部処理の場合、外部受信者の名前を入力
             }
         }
     };
 
-**メンバーではないユーザーが受信した文書を検討・作成**
-    
-- eformsignのメンバーではないユーザーが、受信した文書を検討・作成できます。
+<<<<<<< HEAD
+**メンバーではないユーザーが受信した文書に入力**
+
+eformsignのメンバーではないユーザーが、受信した文書に入力することができます。
+=======
+**メンバーではないユーザーが受信した文書を作成**
+    - 組み込みのとき、eformsign の会員ではないユーザーが受信した文書を作成できるようにする方式
+>>>>>>> parent of 72c99e6 (embedding 업데이트)
 
 .. code-block:: javascript 
 
     var document_option = {
         "user":{
-            "type" : "02",
-            "external_token" : "f8e2ff29114445dcac1e2889ac2f8a5e",
+        "type" : "02" , // 01 - internal or  02 - external  (必須)
+        "external_token" : "", // 外部処理の場合、external Tokenを入力。openAPI accessTokenを参照
+        "external_user_info" : {
+        "name" : "" // 外部処理の場合、外部受信者の名前を入力
+            }
+        }
+    };
+
+.. code-block:: javascript
+
+    var document_option = {
+        "user":{
+            "type" : "01" , // 01 - internal or  02 - external  (必須)
+            "access_token" : "", // access Tokenを入力。openAPI accessTokenを参照
+            "refresh_token" : "", // refresh Tokenを入力。openAPI accessTokenを参照
+            "external_token" : "", // 外部処理の場合、external Tokenを入力。openAPIのaccessTokenを参照
             "external_user_info" : {
-                "name" : "田中太郎"
+               "name" : "" // 外部処理の場合、外部受信者の名前を入力
             }
         }
     };
 
 
+3. モード（必須）
+-----------------------
 
-４．layout(レイアウト/任意)
+<<<<<<< HEAD
+4．layout(レイアウト/任意)
 ========================================
 
-===============  ===============  ==============  =====  ==================================================
- 変数名           説明             データタイプ    必須    備考 
-===============  ===============  ==============  =====  ==================================================
- lang_code        eformsign言語    String          X      ko: 韓国語、en: 英語、ja: 日本語
-===============  ===============  ==============  =====  ==================================================
+===============  =======================  ==============  =====  ==================================================
+ 変数名           説明                    データ型        必須    備考 
+===============  =======================  ==============  =====  ==================================================
+lang_code         eformsign言語           String            X       ja: 日本語、en: 英語、ko: 韓国語
+header            ヘッダの表示ON/OFF      Boolean           X      未入力時のデフォルト値: true
+
+                                                                   ヘッダを非表示(false)にした場合、 '送信' の同意ボタンも非表示となるため、別途ボタンの配置が必要
+
+                                                                   (`画面ロード時のアクションボタン生成 <#creating-button>`__\ を参照)
+
+footer            フッタの表示有無         Boolean          X      未入力時のデフォルト値: true 
+===============  =======================  ==============  =====  ==================================================
+=======
+**テンプレートを利用した新規作成** 
+    - テンプレートを利用して文書を新規作成します。
+>>>>>>> parent of 72c99e6 (embedding 업데이트)
 
 .. code-block:: javascript
 
     var document_option = {
+<<<<<<< HEAD
         "layout" : {
-              "lang_code" : "ko"
+              "lang_code" : "ja",
+              "header" : false,
+              "footer" : true
         }
     }
 
 
-
-５．prefill(自動入力/任意)
+5．prefill(自動入力/任意)
 ========================================
 
 文書の作成中に自動でされる情報を設定します。
 
 
-=================================  ==============================  =============  ======  ===========================================================================================
- 変数名                             説明                            データタイプ   必須     備考 
-=================================  ==============================  =============  ======  ===========================================================================================
-document_name                      文書タイトル                        String         X   
-fields                             フィールドリスト                    Array          X       フィールド設定Objectのリスト
-fields[].id                        フィールド名                      String         X      フィールド設定Object内では必須（フィールド名基に設定適用)
-fields[].value                     フィールド値                      String         X       - 設定しない場合、または新規作成の場合はテンプレートのフィールド設定オプションに基づく
-                                                                                          - 設定する場合、優先順位はテンプレートのフィールド設定よりも高くなる。
-                                                                                          
-fields[].enabled                   フィールド活性化                  Boolean        X       - 設定しない場合、テンプレート設定の項目制御オプションに基づく
+.. important::
 
-                                                                                          - 設定する場合、優先順位はテンプレートの項目制御オプションよりも高くなる。
+   mode.typeが "03"の場合(文書のプレビュー時)には、自動入力はされません。
 
-fields[].required                  フィールド必須                    Boolean        X      - 設定しない場合、テンプレート設定の項目制御オプションに基づく
 
-                                                                                          - 設定する場合、優先順位はテンプレートの項目制御オプションよりも高くなる。
-recipients                         受信者リスト                        Array          X        受信者情報Objectのリスト
-recipients[].step_idx              ワークフローの順番                  String         X        １人目の受信者: "2"、2人目以降の受信者: 順番に沿って1ずつ増加
+=================================  ==============================  =============  =======  ===========================================================================================
+ 変数名                             説明                            データ型       必須     備考 
+=================================  ==============================  =============  =======  ===========================================================================================
+document_name                      文書タイトル                      String         X   
+fields                             フィールドリスト                  Array          X      フィールド設定Objectのリスト
+fields[].id                        フィールド名                      String         X      フィールド設定Object内では必須（フィールド名をもとに設定を適用)
+fields[].value                     フィールド値                      String         X      - 設定しない場合、新規作成時にテンプレートのフィールド設定オプションを利用
 
-recipients[].step_type             受信者の種類                       String         X      - 既存のワークフロー: "01"（完了）、"02"（決裁）、"03"（外部受信者）、"04"(内部受信者)
+                                                                                           - 設定した場合、テンプレートのフィールド設定よりも優先して適用
 
-                                                                                          - 新規ワークフロー: "01"（完了）、"05"（参加者）、"06"（検討者）
+fields[].enabled                   フィールドの活性化                  Boolean        X    - 指定しない場合、テンプレート設定の項目制御オプションを適用
 
-                                                                                            recipients内、それぞれのObjectに設定必須
+                                                                                           - 指定した場合、テンプレートの項目制御オプションよりも優先して適用
 
-recipients[].name                  受信者の名前                       String         X 
-recipients[].id                    アカウント（メールアドレス）      String         X       - 会社のメンバーのアカウント情報（ID/メールアドレス）の入力
+fields[].required                  フィールド必須/任意                 Boolean        X      - 指定しない場合、テンプレート設定の項目制御オプションを適用
+
+                                                                                           - 指定した場合、テンプレートの項目制御オプションよりも優先して適用
+
+recipients                         受信者リスト                        Array          X      受信者情報Objectのリスト
+recipients[].step_idx              ワークフローの順序                  String         X    recipients内の各オブジェクトに設定必須
+
+                                                                                           - 1人目の受信者: "2"、2人目以降の受信者: 3、4...と順番に沿って1ずつ増加
+
+
+recipients[].step_type             受信者のステップ種類                String         X    recipients内の各オブジェクトに設定必須
+
+                                                                                           - 既存ワークフロー: "01"（完了）、"02"（決裁）、"03"（外部受信者）、"04"(内部受信者)
+
+                                                                                           - 新規ワークフロー: "01"（完了）、"05"（参加者）、"06"（検討者）
+
+recipients[].recipient_type        受信者の種類                      String          X      step_typeが、02(決裁), 03(外部受信者), 04(内部受信者)の場合にのみ入力必須
+
+                                                                                           -"01": 受信者がメンバーの場合
+
+                                                                                           -"02": 外部受信者の場合
+
+recipients[].name                  受信者の氏名                      String          X 
+recipients[].id                    アカウント（メールアドレス）      String          X      - 会社のメンバーのアカウント情報（ID/メールアドレス）の入力
+
                                                                                             - step_typeが05（参加者）もしくは06（検討者）である場合、メンバーではなくてもメールアドレスの入力が可能
-recipients[].sms                   携帯番号                           String        X   
-recipients[].use_mail              メール送信                         Boolean        X   
-recipients[].use_sms               SMS送信                          Boolean        X   
+
+recipients[].email                 メールアドレス                      String        X        step_typeが03(外部受信者)の場合にのみ使用
+
+                                                                                            - 外部受信者のメールアドレス入力
+recipients[].sms                   携帯電話番号                       String        X   
+recipients[].use_mail              メールの送信有無                 Boolean         X        step_typeが05(参加者)または06(検討者)の場合にのみ使用   
+recipients[].use_sms               SMS送信                          Boolean         X        step_typeが05(参加者)または06(検討者)の場合にのみ使用
 recipients[].auth                  本人確認及び                      Object         X   
-                                    文書の送信期限情報
-recipients[].auth.password         本人確認情報（パスワード）         String         X        ワークフローの設定における本人確認を設定 - 本人確認情報にチェックを入れた場合、パスワードを入力
-recipients[].auth.password_hint    本人確認情報のヘルプ             String         X        上記条件に従ってパスワードを入力する際、表示されるパスワードのヒント
+                                   文書の送信期限情報
+recipients[].auth.password         本人確認情報（パスワード）        String         X        ワークフローの設定における本人確認を設定 - 本人確認情報にチェックを入れた場合、パスワードを入力
+recipients[].auth.password_hint    本人確認情報のヘルプ              String         X        上記条件に従ってパスワードを入力する際、表示されるパスワードのヒント
+                                   (パスワードのヒント)
 recipients[].auth.valid            文書の送信期限情報               Object          X        未入力時の初期値: 0日0時間（メンバーである場合は無制限、外部受信者の場合は画面上再入力が必要）
 recipients[].auth.valid.day        文書の送信期限（日）             Integer         X   
 recipients[].auth.valid.hour       文書の送信期限（時間）           Integer         X   
 comment                            次の受信者に伝えるメッセージ      String          X   
-=================================  ==============================  =============  ======  ===========================================================================================
+=================================  ==============================  =============  =======  ===========================================================================================
 
 
+=======
+        "mode" : {
+        "type" : "01" ,  // 01 : 文書の作成、02 : 文書の処理、03 : プレビュー
+        "template_id" : "" // template idを入力
+        }
+    }
+
+**受信した文書に追記** 
+    - 受信した文書に追記します。	
+>>>>>>> parent of 72c99e6 (embedding 업데이트)
 
 .. code-block:: javascript
 
     var document_option = {
+<<<<<<< HEAD
         "prefill" : {
-            "document_name": "個人情報取扱同意書"、   // 文書タイトルの入力
+            "document_name": "個人情報取扱同意書",   // 文書タイトルの入力
             "fields": [
                 {
-                    "id" ; "顧客名"、       // フィールド名
+                    "id" ; "顧客名",       // フィールド名
                     "value" : "田中太郎",    // フィールド値
                     "enabled" : true,   // 活性化
                     "required" : true   // 必須
@@ -560,7 +951,7 @@ comment                            次の受信者に伝えるメッセージ   
                     "use_sms": true,        // SMS通知の使用
                     "auth": {
                         "password": "6789", // ワークフローの設定における本人確認を設定 - 本人確認情報にチェックを入れた場合、パスワードを入力
-                        "password_hint": "携帯番号の下3桁を入力してください。"、// 上記条件に従ってパスワードを入力する際、表示されるパスワードのヒント
+                        "password_hint": "携帯番号の下3桁を入力してください。", // 上記条件に従ってパスワードを入力する際、表示されるパスワードのヒント
                         "valid": {
                             "day": 7,       // 文書の送信期限（日）
                             "hour": 0       // 文書の送信期限（時間）
@@ -569,19 +960,65 @@ comment                            次の受信者に伝えるメッセージ   
                 }
             ],
             "comment": "確認及び署名をお願いします。"  // メッセージ
+=======
+        "mode" : {
+        "type" : "02" ,  // 01 : 文書の作成、02 : 文書の処理、03 : プレビュー
+        "template_id" : "", // template idを入力
+        "document_id" : ""  // document_idを入力
+>>>>>>> parent of 72c99e6 (embedding 업데이트)
         }
-    };
+    }
+
+**特定の文書をプレビュー**
+    - 作成した文書のプレビューを確認します。
+
+.. code-block:: javascript
+
+    var document_option = {
+        "mode" : {
+        "type" : "03" ,  // 01 : 文書の作成、02 : 文書の処理、03 : プレビュー
+        "template_id" : "", // template idを入力
+        "document_id" : ""  // document_idを入力
+        }
+    }
+
+.. code-block:: javascript
+
+    var document_option = {
+      "mode" : {
+        "type" : "01" ,  //01 : 文書の作成、02 : 文書の処理、03 : プレビュー
+        "template_id" : "", // template idを入力
+        "document_id" : ""  // document_idを入力
+      }
+    }
 
 
-６．リターンフィールド（任意）
+<<<<<<< HEAD
+
+6．リターンフィールド（任意）
 --------------------------------------
 
 文書の作成及び修正後、ユーザーが作成したフィールドの内容のうちcallback関数でリターンする項目を設定します。
+"return_fields" Array 内にフィールド名をString型で入力します。
     
 .. note::
 
-   設定しない場合、基本フィールドの情報のみリターンします。詳しい情報は callBackパラメータをご参照ください。
+   設定しない場合、基本フィールドの情報のみリターンします。詳しい情報は `作業成功/失敗時 <https://eformsignjp.github.io/developers/help/eformsign_embedding_JP.html#success-fail>`_ callBackパラメータをご参照ください。
 
+.. note::
+
+    mode.typeが"03"の場合(文書のプレビュー時)には動作しません。
+
+=======
+4. リターンフィールド（オプション）
+--------------------------------------
+
+文書を作成または修正した後、ユーザーが作成したフィールドの内容のうち callback 関数でリターンされる項目を指定します。
+    
+.. note::
+
+   指定しない場合、基本フィールドのみ提供します。詳しい内容は callBack パラメーターをご覧ください。
+>>>>>>> parent of 72c99e6 (embedding 업데이트)
 
 .. code-block:: javascript
 
@@ -589,62 +1026,1335 @@ comment                            次の受信者に伝えるメッセージ   
        "return_fields" : ['顧客名']
     }
 
+5. 自動入力（文書作成時に自動入力されるよう設定）
+-----------------------------------------------------
+
+<<<<<<< HEAD
 
 
 
+
+マイファイルで文書作成
+===========================================
+
+eformsignを埋め込むことで、マイファイル作成機能を使用することができます。
+
+.. code-block:: javascript
+
+    var eformsign = new EformSignTemplate();
+     
+    var template_option = {
+       "company" : {
+          "id" : "76440d70fae242e09c4b0fac40b6a6be",            // Company IDを入力
+          "country_code" : "ja",    // 国コードを入力 (例: ja)
+          "user_key": ""        // 埋め込んだ顧客側システムにログインしたユーザーのunique key。ブラウザのクッキーのeformsignログイン情報と比較。
+       },
+       "user" : {
+            "id": "test1@forcs.com"
+            "access_token" : "",    // Access Tokenを入力 (OpenAPI Access Tokenを参照)
+            "refresh_token" : "",   // Refresh Tokenを入力 (OpenAPI Access Tokenを参照)
+        },
+        "mode" : {
+            "type" : "01",      // 01 : 生成
+            "template_id" : "", // template idを入力
+            "template_type": "unstructured_form"    // form : テンプレート管理, unstructured_form: マイファイルで文書作成
+        },
+        "layout" : {
+            "lang_code" : "ja", // eformsignの表示言語. ja, en, ko
+            "header" : true,    // ヘッダ(青色)の表示有無。非表示の場合アクションボタンから送信などの操作が可能
+            "footer" : true     // フッタ(eformsignのロゴ、言語設定など)の表示有無
+        },
+        "prefill": {
+            "template_name": "テンプレート埋め込みテスト_新規",
+            "fields": [
+                {
+                    "id": "テキスト1",
+                    "value": "あいうえお",
+                    "enabled": true,
+                    "required": true
+                },
+                {
+                    "id": "テキスト2",
+                    "value": "かきくけこ",
+                    "enabled": true,
+                    "required": true
+                }
+            ],
+            "step_settings": [
+                {
+                    "step_type": "05", // 05: 参加者, 06: 検討者
+                    "step_name": "参加者2",
+                    "use_mail": true,
+                    "use_sms": true,
+                    "use_alimtalk" : true,
+                    "recipients" : [
+                        {
+                            "id": "test2@forcs.com",
+                            "name" : 'John Doe'
+                        },
+                        {
+                            "id" : "5a3e47a2f5a04909836ddf4189d10fc4",
+                            "name" : 'グループ3'
+                        }
+                    ],
+                    "auth": {
+                        "valid": {
+                            "day": '7',
+                            "hour": '7'
+                        }
+                    },
+                    "additional_auth" : {  // 追加認証手段
+                        use_pincode : true, //メール/SMS PINコード認証
+                        use_pincode_result : true, //文書の最終完了時、メール/SMS PINコードで認証
+                        use_mobile_verifyAuth : true, //携帯電話本人確認
+                        use_mobile_verifyAuth_result : true //文書の最終完了時、携帯電話本人確認を使用
+                    }
+                }
+            ],
+            "is_form_id_numbering" : false,
+            "disabled_form_id" : true,
+            "quick_processing" : false
+        },
+        "template_file": {
+            "name": "添付テスト.pdf",
+            "mime": "@file/octet-stream",
+            "data": "JVBERi0xLjUNCiW1tbW1DQoxIDAgb2JqDQo8PC9UeXBlL0NhdGFsb2cvUGFnZXMgMiAwIFIvTGFuZyhrby1LUikgL1N0cnVjdFRyZWVSb290IDE1IDAgUi..."
+        }
+    };
+     
+    //callback option
+    var sucess_callback = function (response) {
+        if (response.type ==='template'){
+            console.log(response.template_id);
+            console.log(response.template_name);
+            console.table(response.step_settings);
+            if ("-1" == response.code) {
+                alert("テンプレートが生成されました。\n" + "- document_id : " + response.template_id + "\n- title : " + response.template_name);
+            } else {
+                alert("テンプレートの生成に失敗しました。\n" + "- code : " + response.code + "\n- message : " + response.message);
+            }
+        }
+        window.close();
+    };
+     
+     
+    var error_callback = function (response) {
+        alert("テンプレートの生成に失敗しました。\n" + "- code : " + response.code + "\n- message : " + response.message);
+        console.log(response.code);
+        console.log(response.message);
+        window.close();
+    };
+     
+    var action_callback = function (response) {
+        console.table(response.data);
+    };
+     
+    eformsign.template(template_option, "eformsign_iframe", success_callback, error_callback, action_callback);
+    eformsign.open();
+
+
+
+template_option
 -------------------------------
+
+オプション設定のためのJSONは次のような構造になっています。
+
+===============  =======================  ============  =====  ================================================================================
+ 変数名           説明                    データ型      必須   下位オプション
+===============  =======================  ============  =====  ================================================================================
+ company          会社情報                  Object        O      id, country_code, user_key
+ mode             埋め込みモード            Object        O      type, template_id, document_id
+ user             ユーザー情報              Object        X      type, id, access_token, refresh_token, external_token, external_user_info
+ layout           レイアウト                Object        X      lang_code
+ prefill          自動入力                  Object        X      document_name, fields, recipients, comment
+ template_file    テンプレートファイル      Object        X      name, mime, data
+===============  =======================  ============  =====  ================================================================================
+
+
+.. note::
+
+   会社情報とモードは必須入力項目です。
+
+
+
+1. company(会社情報/必須)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+===============  =============================  =============  =======  =================================================================================================================
+ 変数名           説明                          データ型        必須    備考
+===============  =============================  =============  =======  =================================================================================================================
+ id               会社ID                        String          O       会社管理 - 会社情報で確認
+
+ country_code     国コード                      String          X       会社管理 - 会社情報の国に対するコードを指定。任意項目ですが、openが高速化
+
+ user_key         顧客システムユーザー固有キー  String          X       埋め込みする顧客システムでユーザーが誰か明確に設定するためにeformsignに残すユーザーアカウント情報
+
+                                                                        既にブラウザにログイン情報がある場合、keyと比較して一致しない場合にログアウト処理
+===============  =============================  =============  =======  =================================================================================================================
+
+
+
+.. code-block:: javascript
+
+    var template_option= {
+         "company" : {
+             "id" : 'f9aec832efef4133a1e849efaf8a9aed',
+             "country_code" : "ja",
+             "user_key": "eformsign@forcs.com"
+         }
+    };
+
+
+2. mode(埋め込みモード/必須)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+===============  ==================  =============  =====  ==================================================
+ 変数名           説明               データ型       必須   備考 
+===============  ==================  =============  =====  ==================================================
+ type             機能タイプ            String       O      01: 生成
+ template_type    埋め込みタイプ         String       O     "unstructured_form": マイファイルで文書作成
+===============  ==================  =============  =====  ==================================================
+
+
+**マイファイルで文書作成** 
+
+
+マイファイルで文飾作成により、文書を新規作成します。
+
+.. code-block:: javascript
+
+    var template_option= {
+       "mode" : {
+        "type" : "01",
+        "template_type" : "unstructured_form"
+      }
+    }
+
+
+
+
+3. user(ユーザー情報/任意)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+=========================  ============================  =============  =======  ==========================================================================
+ 変数名                     説明                         データ型        必須     備考 
+=========================  ============================  =============  =======  ==========================================================================
+ id                         アカウント(メールアドレス)      String         X        ユーザーID/メールアドレスを入力
+ access_token               Access Token                    String         X        Open API > `Access Tokenを発行 <https://eformsignjp.github.io/developers/help/eformsign_api.html#id5>`__\  を参照
+ refresh_token              Refresh Token                   String         X        Open API > `Access Tokenを発行 <https://eformsignjp.github.io/developers/help/eformsign_api.html#id5>`__\  を参照
+=========================  ============================  =============  =======  ==========================================================================
+
+
+
+
+**社内メンバーのログインによる作業(IDの事前入力)**
+
+埋め込みの際、eformsignのログインページが起動し、ログイン後にテンプレート管理を行うことができます。この際、IDがログイン画面に自動入力されます。
+
+.. code-block:: javascript
+
+    var document_option = {
+        "user":{
+            "id" : "eformsign@forcs.com"
+        }
+    };
+
+
+**社内メンバーのトークンによる作業**   
+
+埋め込みの際、eformsignにログインせず、アカウントのtokenを使ってテンプレート管理を行います。
+トークンの発行方法はeformsign APIの使い方 - `Access Tokenの発行 <https://eformsignjp.github.io/developers/help/eformsign_api.html#id5>`__\ をご参照ください。
+
+.. code-block:: javascript
+
+    var document_option = {
+        "user":{
+            "id" : "eformsign@forcs.com",
+            "access_token" : "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJlZ...",
+            "refresh_token" : "0161ac6c-0f47-4cc3-9301-381f57c41495"
+        }
+    };
+
+
+
+4. layout(レイアウト/任意)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+===============  =======================  ==============  =====  ==================================================
+変数名            説明                     データ型       必須   備考 
+===============  =======================  ==============  =====  ==================================================
+lang_code         eformsignの言語           String          X    ja: 日本語, en: 英語, ko: 韓国語
+header            ヘッダの表示有無          Boolean         X    入力しない場合、デフォルト値に設定: true
+
+                                                                  ヘッダを非表示(false)にした場合、「送信」などのボタンも非表示になるため、別途ボタンの生成が必要
+
+                                                                  (`画面ロード時のアクションボタン生成 <#creating-button>`__\ を参照)
+
+footer            フッタの表示有無          Boolean         X     入力しない場合、デフォルト値に設定: true 
+===============  =======================  ==============  =====  ==================================================
+
+.. code-block:: javascript
+
+    var template_option = {
+        "layout" : {
+              "lang_code" : "ja",
+              "header" : true,
+              "footer" : true
+        }
+    }
+
+
+
+5. prefill(自動入力/任意)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+文書作成中に自動入力を行う場合に使用します。
+
+=========================================================================  =====================================  ============  ======  ======================================================================================
+ 変数名                                                                     説明                                  データ型       必須    備考 
+=========================================================================  =====================================  ============  ======  ======================================================================================
+template_name                                                              文書タイトル                            String         X   
+fields                                                                     文書作成時のデフォルト値リスト          Array          X      フィールド設定Objectのリスト
+fields[].id                                                                デフォルト値を入力するフィールド名      String         X       
+fields[].value                                                             フィールドに入力するデフォルト値        String         X       
+fields[].enabled                                                           文書作成時のフィールド活性化有無        Boolean        X       -指定しない場合、「デザインする」ステップの項目制御オプションを適用
+
+                                                                                                                                          -設定する場合、「デザインする」ステップの項目制御オプションより優先して適用
+
+fields[].required                                                          文書作成時のフィールド必須入力有無       Boolean       X      -指定しない場合、「デザインする」ステップの項目制御オプションを適用
+
+                                                                                                                                          -設定する場合、「デザインする」ステップの項目制御オプションより優先して適用
+
+step_settings                                                              ワークフローステップのリスト             Array          X        ステップ情報Objectのリスト
+
+step_settings[].step_type                                                  ワークフロー受信者のタイプ               String         X       -旧ワークフロー: "02"(決裁), "03"(内部受信者), "04"(外部受信者)
+
+                                                                                                                                           -現行ワークフロー: "05"(参加者), "06"(検討者)
+
+                                                                                                                                           step_settings内の各オブジェクトに入力必須
+step_settings[].step_name                                                  ワークフローステップ名                   String         X
+step_settings[].selected                                                   「デザインする」ステップで               Boolean        X        -入力しない場合、デフォルト値に設定: false
+
+                                                                           デフォルトの文書参加者の表示有無                                 -すべてのステップで未入力/falseの場合、開始/送信者ステップをデフォルトで表示
+
+step_settings[].recipient                                                  受信者情報                              Object         X         受信者情報
+step_settings[].recipient.id                                               受信者メールアドレスまたはID            String         X         特定ステップの受信者のメールアドレスかIDを入力
+step_settings[].recipient.name                                             受信者名                                String         X   
+step_settings[].recipient.sms                                              受信者の携帯電話番号                    String         X        "+819022223333" の形式で入力
+step_settings[].recipient.use_mail                                         メールの送信有無                        Boolean        X        入力しない場合、デフォルト値に設定: false
+step_settings[].recipient.use_sms                                          SMSの送信有無                           Boolean        X        入力しない場合、デフォルト値に設定: false
+step_settings[].recipient.use_alimtalk                                     SMS送信時カカオトークのの使用有無       Boolean        X       入力しない場合、デフォルト値に設定: false
+
+                                                                                                                                           trueに設定時、カカオトークで送信、失敗時にSMSで送信
+
+step_settings[].recipient.auth                                             本人確認及び文書の送信期限情報          Object        X          type, password, password_hintがすべて入力されていない場合: 本人確認情報を使用しない
+
+step_settings[].recipient.auth.type                                        本人確認方法                            String        X        入力しない場合、デフォルト値に設定: password (type, password, password_hintがすべて入力されていない場合: 本人確認情報を使用しない)
+                                                                                                                                   
+                                                                                                                                          -qna: 受信者名
+
+                                                                                                                                          -field: 入力フィールドの中から選択
+
+                                                                                                                                          -password: 送信者が入力
+
+step_settings[].recipient.auth.password                                    本人確認情報                            String        X       入力しない場合、デフォルト値に設定: 値なし
+
+                                                                                                                                          -typeがqnaの場合: 空欄にする
+
+                                                                                                                                          -typeがfieldの場合: フィールド名を入力
+
+                                                                                                                                          -typeがpasswordの場合: 空欄にする
+
+step_settings[].recipient.auth.password_hint                               本人確認情報のヒント                    String       X         入力しない場合、デフォルト値に設定: 値なし
+step_settings[].recipient.auth.valid                                       文書の送信期限情報                      Object       X         入力しない場合、デフォルト値に設定: 7日 0時間
+step_settings[].recipient.auth.valid.day                                   文書の送信期限 (日)                     Integer      X   
+step_settings[].recipient.auth.valid.hour                                  文書の送信期限 (時間)                   Integer      X   
+step_settings[].recipient.additional_auth                                  追加認証手段 (非定型)                   Object        X   
+step_settings[].recipient.additional_auth.use_pincode                      メール/SMS 認証の使用有無               Boolean       X   
+step_settings[].recipient.additional_auth.use_pincode_result               完了文書の閲覧の際にも                  Boolean       X  
+                                                                           メール/SMS 認証使用の有無
+step_settings[].recipient.additional_auth.use_mobile_verifyAuth            携帯電話本人確認の使用有無              Boolean       X   
+step_settings[].recipient.additional_auth.use_mobile_verifyAuth_result     完了文書の閲覧の際にも                  Boolean       X 
+                                                                           携帯電話本人確認の使用有無           
+is_form_id_numbering                                                       コンポーネントの追加の際に              Boolean       X        テキストコンポーネントの追加の際、コンポーネントIDのデフォルト値
+
+                                                                           デフォルトIDから番号付与の有無                                 -is_form_id_numberingがtrueの場合: 'テキスト1', 'テキスト2', 'テキスト3'
+
+                                                                                                                                          -is_form_id_numberingがfalseの場合: 'テキスト', 'テキスト', 'テキスト'
+                                                                                                                                          入力しない場合、デフォルト値に設定: true
+disabled_form_id                                                           「デザインする」ステップで              Booelan       X         入力しない場合、デフォルト値に設定: false
+                                                                           コンポーネントIDの非活性化有無    
+=========================================================================  =====================================  ============  ======  ======================================================================================
+
+
+**文書名の入力**   
+
+**オプション > 文書タイトル**\ に購入申請書が入力されます。
+
+.. code-block:: javascript
+
+    var template_option = {
+       "prefill" : {
+           "template_name": "購入申請書"
+        }
+    }
+
+**文書参加者と受信者の指定(本人確認情報、追加認証手段の不使用時)**
+
+以下のようにワークフローのステップを追加します。
+
+    - ステップの種類: 参加者
+    - ステップ名: 参加者1
+    - メール通知: 使用
+    - SMS通知: 不使用
+    - 受信者名: 鈴木三郎
+    - 受信者メールアドレス: test1@forcs.com
+    - 依頼の有効期間: 7日 7時間
+    - 本人確認情報: 不使用
+    - 追加認証手段: 不使用
+
+埋め込み実行時には以下のように実行されます。
+
+    - 文書参加者: 2名 (送信者、参加者1)
+    - 「デザインする」ステップでデフォルトで表示する文書参加者: 送信者
+    - ワークフロー: 送信者-参加者 1-完了
+
+.. code-block:: javascript
+
+    var template_option = {
+        "prefill": {
+            "step_settings": [
+                {
+                    "step_type": "05",
+                    "step_name": "参加者 1",
+                    "selected": false,
+                    "recipient": {
+                        "id": "test1@forcs.com",
+                        "name": "鈴木三郎",
+                        "sms": "",
+                        "use_mail": true,
+                        "use_sms": false,
+                        "auth": {
+                            "valid": {
+                                "day": "7",
+                                "hour": "7",
+                            },
+                        }
+                    }
+                }
+            ]
+        }
+    };
+
+
+**文書の参加者と受信者の指定(本人確認情報、追加認証手段の使用時)**
+
+次のようにワークフローのステップを追加します。
+
+    - ステップの種類
+    - ステップ名: 参加者1
+    - メール通知: 使用
+    - SMS通知: 使用(カカオトーク優先)
+    - 受信者名: 鈴木三郎
+    - 受信者メールアドレス: test1@forcs.com
+    - 受信者携帯電話番号: 010-2222-3333
+    - 依頼の有効期間: 7日 7時間
+    - 本人確認情報: 使用 (入力フィールドの中から選択 - テキスト1)
+    - 追加認証手段: 使用 (メール/SMS認証を使用、完了文書の閲覧時にはメール/SMS認証を不使用、携帯電話本人確認使用、完了文書の閲覧時にも携帯電話本人確認使用)
+
+埋め込み実行時には以下のように実行されます。
+
+    - 文書参加者: 2名 (送信者、参加者1)
+    - 「デザインする」ステップでデフォルトで表示する文書参加者: 参加者1
+    - ワークフロー: 送信者-参加者 1-完了
+
+.. code-block:: javascript
+
+    var template_option = {
+        "prefill": {
+            "step_settings": [
+                {
+                    "step_type": "05",
+                    "step_name": "参加者1",
+                    "selected": true,
+                    "recipient": {
+                        "id": "test1@forcs.com",
+                        "name": "鈴木三郎",
+                        "sms": "+821022223333",
+                        "use_mail": true,
+                        "use_sms": true,
+                        "use_alimtalk" : true,
+                        "auth": {
+                            "type": "field",
+                            "password": "テキスト1",
+                            "password_hint": "生年月日を6桁で入力してください。",
+                            "valid": {
+                                "day": "7",
+                                "hour": "7",
+                            },
+                        },
+                        "additional_auth" : {
+                            "use_pincode": true,
+                            "use_pincode_result": false
+                            "use_mobile_verifyAuth": true,
+                            "use_mobile_verifyAuth_result" : true
+                        }
+                    }
+                }
+            ]
+        }
+    };
+
+
+
+**「デザインする」ステップでコンポーネントID入力欄の有効化/無効化を設定**
+
+trueに設定することで、「デザインする」ステップでコンポーネントIDの入力欄が無効化されます。 (基本IDで固定されます)
+
+.. code-block:: javascript
+
+    var template_option = {
+        "prefill" : {
+            "disabled_form_id" : true
+        }
+    }
+
+------------------------------------------------------------------
+
+.. code-block:: javascript
+
+    var template_option = {
+        "prefill": {
+            "template_name": "購入申請書",
+            "step_settings": [
+                {
+                    "step_type": "05",
+                    "step_name": "参加者1",
+                    "selected": true,
+                    "recipient": {
+                        "id": "test1@forcs.com",
+                        "name": "鈴木三郎",
+                        "sms": "+819022223333",
+                        "use_mail": true,
+                        "use_sms": true,
+                        "use_alimtalk" : true,
+                        "auth": {
+                            "type": "field",
+                            "password": "テキスト1",
+                            "password_hint": "生年月日を6桁で入力してください。",
+                            "valid": {
+                                "day": "7",
+                                "hour": "7",
+                            },
+                        },
+                        "additional_auth" : {
+                            "use_pincode": true,
+                            "use_pincode_result": false
+                            "use_mobile_verifyAuth": true,
+                            "use_mobile_verifyAuth_result" : true
+                        }
+                    }
+                },
+                {
+                    "step_type": "06",
+                    "step_name": "検討者1",
+                    "selected": false,
+                    "recipient": {
+                        "id": "test2@forcs.com",
+                        "name": "鈴木四郎",
+                        "sms": "",
+                        "use_mail": true,
+                        "use_sms": false,
+                        "auth": {
+                            "valid": {
+                                "day": "3",
+                                "hour": "0",
+                            },
+                        }
+                    }
+                }
+            ],
+            disabled_form_id : true
+        }
+    };
+
+
+6. template_file(テンプレートファイル/任意)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+テンプレートに使用されるファイルが自動的にアップロードされるように設定します。
+
+===============  ===============================  ==============  =====  ==================================================
+ 変数名           説明                             データ型        必須   備考 
+===============  ===============================  ==============  =====  ==================================================
+name             ファイル名                         String          O      
+mime             MIMEデータ形式                     String          O      -PDF: "application/pdf"
+
+                                                                           -対応するすべての拡張子(OZR, PDF): "@file/octet-stream" 
+
+data             Base64に変換したファイルデータ     String          O
+===============  ===============================  ==============  =====  ==================================================
+
+
+.. code-block:: javascript
+
+    var template_option = {
+        "template_file": {
+              "name": "添付テスト.pdf",
+              "mime": "@file/octet-stream",
+              "data": "JVBERi0xLjUNCiW1tbW1DQoxIDAgb2JqDQo8PC9UeXBlL0NhdGFsb2cvUGFnZXMgMiAwIFIvTGFuZyhrby1LUikgL1N0cnVjdFRyZWVSb290IDE1IDAgUi9NY...(以下省略)"
+        }
+    }
+
+
+テンプレートの生成、テンプレートの修正、テンプレートの複製
+==============================================================
+
+eformsignを埋め込んでテンプレートを作成、修正、複製する場合の操作です。
+
+.. code-block:: javascript
+
+    var eformsign = new EformSignTemplate();
+     
+    var template_option = {
+       "company" : {
+          "id" : "76440d70fae242e09c4b0fac40b6a6be",            // Company IDを入力
+          "country_code" : "ja",    // 国コードを入力 (ex: ja)
+          "user_key": ""        // 埋め込んだ顧客システムにログインしたユーザーのunique key。ブラウザクッキーのeformsignのログイン情報と比較
+       },
+       "user" : {
+            "id": "test1@forcs.com"
+            "access_token" : "",    // Access Tokenを入力 (OpenAPI Access Tokenを参照)
+            "refresh_token" : "",   // Refresh Tokenを入力 (OpenAPI Access Tokenを参照)
+        },
+        "mode" : {
+            "type" : "01",      // 01 : 生成 , 02 : 修正, 03 : 複製
+            "template_id" : "", // template idを入力
+            "template_type": "form" // form : テンプレート管理、 unstructured_form: マイファイルで文書作成
+        },
+        "layout" : {
+            "lang_code" : "ja", // eformsignの言語. ja, en, ko
+            "header" : true,    // ヘッダ(青色部分)の表示有無。非表示の場合、アクションボタンで送信などの動作を指定。
+            "footer" : true     // フッタ(eformsignのロゴ、言語設定など)の表示有無。
+        },
+        "prefill": {
+            "template_name": "テンプレートの埋め込みテスト_新規",
+            "step_settings": [
+                {
+                    "step_type": "05", // 05: 参加者, 06: 検討者
+                    "step_name": "参加者2",
+                    "use_mail": true,
+                    "use_sms": true,
+                    "use_alimtalk" : true,
+                    "recipients" : [
+                        {
+                            "id": "test2@forcs.com",
+                            "name" : 'John Doe'
+                        },
+                        {
+                            "id" : "5a3e47a2f5a04909836ddf4189d10fc4",
+                            "name" : 'グループ3'
+                        }
+                    ],
+                    "auth": {
+                        "valid": {
+                            "day": '7',
+                            "hour": '7'
+                        }
+                    }
+                }
+            ],
+            "quick_processing" : false
+        },
+        "template_file": {
+            "name": "添付テスト.pdf",
+            "mime": "@file/octet-stream",
+            "data": "JVBERi0xLjUNCiW1tbW1DQoxIDAgb2JqDQo8PC9UeXBlL0NhdGFsb2cvUGFnZXMgMiAwIFIvTGFuZyhrby1LUikgL1N0cnVjdFRyZWVSb290IDE1IDAgUi..."
+        }
+    };
+     
+    //callback option
+    var sucess_callback = function (response) {
+        if (response.type ==='template'){
+            console.log(response.template_id);
+            console.log(response.template_name);
+            console.table(response.step_settings);
+            if ("-1" == response.code) {
+                alert("テンプレートが生成されました。\n" + "- document_id : " + response.template_id + "\n- title : " + response.template_name);
+            } else {
+                alert("テンプレートの生成に失敗しました。\n" + "- code : " + response.code + "\n- message : " + response.message);
+            }
+        }
+        window.close();
+    };
+     
+     
+    var error_callback = function (response) {
+        alert("テンプレートの生成に失敗しました。\n" + "- code : " + response.code + "\n- message : " + response.message);
+        console.log(response.code);
+        console.log(response.message);
+        window.close();
+    };
+     
+    var action_callback = function (response) {
+        console.table(response.data);
+    };
+     
+    eformsign.template(template_option, "eformsign_iframe", success_callback, error_callback, action_callback);
+
+
+
+template_option
+-------------------------------
+
+オプション設定のためのJSONの構造は以下の通りです。
+
+===============  =====================  ============  =====  ================================================================================
+ 変数名           説明                  データ型      必須    下位オプション
+===============  =====================  ============  =====  ================================================================================
+ company          会社情報              Object        O      id, country_code, user_key
+ mode             埋め込みモード        Object        O      type, template_id, document_id
+ user             ユーザー情報          Object        X      type, id, access_token, refresh_token, internal_token, external_token, external_user_info
+ layout           レイアウト            Object        X      lang_code, header, footer
+ prefill          自動記入              Object        X      document_name, fields, recipients, comment
+ template_file    テンプレートファイル  Object        X      name, mime, data
+===============  =====================  ============  =====  ================================================================================
+
 Callbackパラメータ
 -------------------------------
 
+.. note::
+
+   会社情報とモードは必須入力です。 
 
 
-１．response
-========================================
 
-文書の作成・検討に成功または失敗した際、次のようにresponseが返ってきます。
+1. company(会社情報/必須)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+===============  ==============================  =============  =======  =================================================================================================================
+ 変数名           説明                            データ型       必須     備考 
+===============  ==============================  =============  =======  =================================================================================================================
+ id               会社ID                          String           O      会社管理 - 会社情報から確認
+
+ country_code     国コード                        String           X      会社管理 - 会社情報の国コードを指定。任意入力ですが、入力するとopenが高速化します。
+
+ user_key         顧客システムユーザー固有キー    String           X      埋め込む顧客システム内で、ユーザーが誰であるかを明確に設定するために、eformsignに渡すユーザーアカウント情報です。
+
+                                                                          ブラウザに既にログイン情報がある場合、そのkeyと比較して一致しない場合、ログアウト処理されます。
+===============  ==============================  =============  =======  =================================================================================================================
+
+
+
+.. code-block:: javascript
+
+    var document_option = {
+         "company" : {
+             "id" : 'f9aec832efef4133a1e849efaf8a9aed',
+             "country_code" : "ja",
+             "user_key": "eformsign@forcs.com"
+         }
+    };
+
+
+2. mode(組み込みモード/必須)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+===============  ===============  ==============  =====  ==================================================
+ 変数名           説明            データ型        必須    備考
+===============  ===============  ==============  =====  ==================================================
+ type             機能タイプ       String           O      01: 生成, 02: 修正, 03: 複製
+ template_id      テンプレートID   String           X      typeが02, 03の場合必須入力
+ template_type    組み込みタイプ   String           O     "form": テンプレート管理
+===============  ===============  ==============  =====  ==================================================
+
+
+
+
+**テンプレートの新規生成** 
+
+テンプレートを新規生成します。
+
+.. code-block:: javascript
+
+    var document_option = {
+       "mode" : {
+        "type" : "01",   // 01 : 生成 , 02 : 修正, 03 : 複製
+        "template_type" : "form"
+      }
+    }
+
+
+**テンプレートの修正**
+
+作成済みのテンプレートを修正します。
+
+.. code-block:: javascript
+
+    var document_option = {
+       "mode" : {
+        "type" : "02",  // 01 : 生成 , 02 : 修正, 03 : 複製
+        "template_id" : "a2c6ed9df9b642f2ade43c7efe58c9a3", // template idを入力
+        "template_type" : "form"
+      }
+    }
+
+
+**テンプレートの複製** 
+
+作成済みのテンプレートを複製して、新規テンプレートを生成します。
+
+.. code-block:: javascript
+
+    var document_option = {
+       "mode" : {
+        "type" : "03",  // 01 : 生成 , 02 : 修正, 03 : 複製
+        "template_id" : "a2c6ed9df9b642f2ade43c7efe58c9a3", // template idを入力
+        "template_type" : "form"
+      }
+    }
+
+
+
+
+3. user(ユーザー情報/任意)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+=========================  ============================  =============  =======  ==========================================================================
+ 変数名                     説明                          データ型       必須     備考 
+=========================  ============================  =============  =======  ==========================================================================
+ id                         アカウント(メールアドレス)       String        X        ユーザーID/メールアドレスを入力
+ access_token               Access Token                     String        X        Open API > `Access Tokenを発行 <https://eformsignjp.github.io/developers/help/eformsign_api.html#id5>`__\ を参照
+ refresh_token              Refresh Token                    String        X        Open API > `Access Tokenを発行 <https://eformsignjp.github.io/developers/help/eformsign_api.html#id5>`__\ を参照
+=========================  ============================  =============  =======  ==========================================================================
+
+
+
+
+**テンプレート管理権限のあるメンバーログインによる作業(IDを事前入力)**
+
+埋め込み時、eformsignのログインページが起動し、ログイン後にテンプレート管理作業を行うことができます。この際、IDがログイン画面にあらかじめ入力されます。
+
+.. code-block:: javascript
+
+    var document_option = {
+        "user":{
+            "id" : "eformsign@forcs.com"
+        }
+    };
+
+
+**テンプレート管理権限を持つメンバーのトークンによる作業**
+
+埋め込みの際、eformsignにログインすることなく、特定のアカウントのトークンを利用してテンプレート管理作業を行います。
+トークンの発行方法はeformsign APIの使い方 - `Access Tokenの発行 <https://eformsignjp.github.io/developers/help/eformsign_api.html#id5>`__\ をご確認ください。
+
+.. code-block:: javascript
+
+    var document_option = {
+        "user":{
+            "id" : "eformsign@forcs.com",
+            "access_token" : "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJlZ...",
+            "refresh_token" : "0161ac6c-0f47-4cc3-9301-381f57c41495"
+        }
+    };
+
+
+
+4. layout(レイアウト/任意)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+===============  =======================  ==============  =====  ==================================================
+ 変数名           説明                    データ型        必須   備考 
+===============  =======================  ==============  =====  ==================================================
+lang_code         eformsignの言語           String          X     ja: 日本語, en: 英語, ko: 韓国語
+header            ヘッダの表示有無          Boolean         X     入力しない場合、デフォルト値に設定: true
+
+                                                                  ヘッダが非表示(false)の場合、「保存」などの機能のボタンも非表示になるため、別途機能ボタンの生成が必要です。
+
+                                                                  (`画面ロード時のアクションボタン生成 <#creating-button>`__\ )
+
+footer            フッタ表示の有無          Boolean         X     入力しない場合、デフォルト値に設定: true 
+===============  =======================  ==============  =====  ==================================================
+
+.. code-block:: javascript
+
+    var document_option = {
+        "layout" : {
+              "lang_code" : "ja",
+              "header" : true,
+              "footer" : true
+        }
+    }
+
+
+5. prefill(自動入力/任意)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+文書作成時に値を自動的に入力する際に使用します。
+
+=========================================================================  ====================================  ==============  ======  ============================================================================================================================================
+ 変数名                                                                     説明                                 データ型        必須    備考
+=========================================================================  ====================================  ==============  ======  ============================================================================================================================================
+template_name                                                              文書タイトル                            String         X   
+step_settings                                                              ワークフローステップのリスト            Array          X        ステップ情報Objectのリスト
+step_settings[].step_type                                                  ワークフローの受信者タイプ              String         X       -旧ワークフロー: "02"(決裁), "03"(内部受信者), "04"(外部受信者)
+
+                                                                                                                                          -現行ワークフロー: "05"(参加者), "06"(検討者)
+
+                                                                                                                                          step_settings内の各オブジェクトに設定必須
+step_settings[].step_name                                                  ワークフローステップの名前             String           X   
+step_settings[].selected                                                   「デザインする」ステップで             Boolean          X      入力しない場合、デフォルト値に設定: false
+
+                                                                           デフォルトの文書参加者の表示有無                               -すべての段階で入力なし/falseの場合、開始/送信者ステップがデフォルトで表示されます。
+
+step_settings[].use_mail                                                   メール送信の有無                       Boolean          X      入力しない場合、デフォルト値に設定: false
+
+step_settings[].use_sms                                                    SMS送信の有無                          Boolean          X      入力しない場合、デフォルト値に設定: false
+
+step_settings[].use_alimtalk                                               SMS送信時にカカオトークの使用有無      Boolean          X      入力しない場合、デフォルト値に設定: false
+
+                                                                                                                                         trueに設定した場合、カカオトークで送信し、失敗時にSMSで送信
+step_settings[].recipient[]                                                受信者情報のリスト                     Object          X       当該ステップの受信者指定時のみ
+
+                                                                                                                                          受信者情報Objectのリスト
+
+step_settings[].recipient[].id                                             受信者に指定するグループ/メンバーID    String          X       当該ステップの受信者指定時のみ
+
+                                                                                                                                         -メンバー: 会社メンバーのアカウント情報(ID/メールアドレス)入力
+
+                                                                                                                                         -グループ: グループIDの入力
+step_settings[].recipient[].auth                                           本人確認及び文書送信期限の情報         Object          X          当該ステップの受信者指定時のみ
+step_settings[].recipient[].auth.valid                                     文書の送信期限情報                     Object         X         当該ステップの受信者指定時のみ
+                                                                                                                                         入力しない場合、デフォルト値に設定: 7日 0時間
+step_settings[].recipient[].auth.valid.day                                 文書の送信期限 (日)                    Integer         X        当該ステップの受信者指定時のみ
+step_settings[].recipient[].auth.valid.hour                                文書の送信期限 (時間)                  Integer         X        当該ステップの受信者指定時のみ
+step_settings[].auth                                                       本人確認及び文書の送信期限情報         Object          X        当該ステップの受信者の指定をしない場合のみ
+
+                                                                                                                                         type, password, password_hintをすべて入力しない場合:本人確認情報を使用しない
+
+step_settings[].auth.type                                                  本人確認の方法                         String          X       当該ステップの受信者の指定をしない場合のみ
+
+                                                                                                                                          入力しない場合、デフォルト値に設定: password ( type, password, password_hintをすべて入力しない場合:本人確認情報を使用しない)
+
+                                                                                                                                          -qna: 受信者名
+
+                                                                                                                                          -field: 入力フィールドの中から選択
+
+                                                                                                                                          -password: 送信者が入力
+
+step_settings[].auth.password                                              本人確認情報                           String          X      当該ステップの受信者の指定をしない場合のみ
+
+                                                                                                                                          入力しない場合、デフォルト値に設定: 空欄
+
+                                                                                                                                          -typeがqnaの場合: 空欄
+
+                                                                                                                                          -typeがfieldの場合: フィールド名を入力
+
+                                                                                                                                          -typeが passwordの場合: 空欄
+
+step_settings[].auth.password_hint                                         本人確認情報についてのヒント            String         X       当該ステップの受信者の指定をしない場合のみ
+
+                                                                                                                                          入力しない場合、デフォルト値に設定: 空欄
+
+step_settings[].auth.valid                                                 文書の送信期限情報                      Object         X        当該ステップの受信者の指定をしない場合のみ
+
+                                                                                                                                          入力しない場合、デフォルト値に設定: 7日 0時間
+
+step_settings[].auth.valid.day                                             文書の送信期限 (日)                    Integer        X          当該ステップの受信者の指定をしない場合のみ
+step_settings[].auth.valid.hour                                            文書の送信期限 (時間)                  Integer        X          当該ステップの受信者の指定をしない場合のみ
+step_settings[].additional_auth                                            追加認証手段 (非定型)                  Object          X         当該ステップの受信者の指定をしない場合のみ
+step_settings[].additional_auth.use_pincode                                メール/SMS認証の使用有無               Boolean         X        当該ステップの受信者の指定をしない場合のみ
+                                                                                                                                           (旧 use_mail)   
+step_settings[].additional_auth.use_pincode_result                         完了文書の閲覧時にも                   Boolean         X         当該ステップの受信者の指定をしない場合のみ
+                                                                           メール/SMS認証の使用有無     
+step_settings[].additional_auth.use_mobile_verifyAuth                      携帯電話番号本人確認の使用有無         Boolean         X        当該ステップの受信者の指定をしない場合のみ 
+                                                                                                                                           (旧 use_sms)
+step_settings[].additional_auth.use_mobile_verifyAuth_result               完了文書の閲覧時にも                   Boolean         X        当該ステップの受信者の指定をしない場合のみ (旧. use_sms_result)
+                                                                           携帯電話本人確認の使用有無   
+is_form_id_numbering                                                       コンポーネント追加時の基本IDから       Boolean         X       テキストコンポーネントの追加時、コンポーネントIDのデフォルト値
+
+                                                                           番号付与の有無                                                 -is_form_id_numberingがtrueの場合: 'テキスト1', 'テキスト2', 'テキスト3'
+
+                                                                                                                                          -is_form_id_numberingがfalseの場合: 'テキスト', 'テキスト', 'テキスト'
+
+                                                                                                                                          入力しない場合、デフォルト値に設定: true
+
+quick_processing                                                           文書送信時のポップアップ省略有無       Booelan         X       入力しない場合、デフォルト値に設定: false
+=========================================================================  ====================================  ==============  ======  ============================================================================================================================================
+
+
+**テンプレート名の記入**   
+
+**一般設定 > 基本設定 > テンプレート名** に「購入申請書」と入力されます。
+
+.. code-block:: javascript
+
+    var template_option = {
+       "prefill" : {
+           "template_name": "購入申請書"
+        }
+    }
+
+**ワークフローステップの設定 (受信者を指定しない場合)**   
+
+以下のようにワークフローのステップを追加します。
+
+    - ステップの種類: 参加者
+    - ステップ名: 参加者1
+    - メール通知: 使用
+    - SMS通知: 使用 (カカオトーク優先)
+    - 受信者の指定: X
+    - 依頼の有効期間: 7日 0時間
+
+埋め込んで実行すると、以下のように設定されます。
+
+    - 文書参加者： 2名 (開始、参加者1)
+    - ワークフロー: 開始-参加者 1-終了
+
+
+
+.. code-block:: javascript
+
+    var template_option = {
+        "prefill": {
+            "step_settings": [
+                {
+                    "step_type": "05",
+                    "step_name": "参加者1",
+                    "use_mail": true,
+                    "use_sms": true,
+                    "use_alimtalk" : true,
+                    "auth": {
+                        "valid": {
+                            "day": 7,
+                            "hour": 0
+                        }
+                    }
+                }
+            ]
+        }
+    };
+
+
+**ワークフローステップの設定(受信者としてメンバーを指定)**
+
+以下のようにワークフローのステップを追加します。
+
+    - ステップの種類: 参加者
+    - ステップ名: 参加者1
+    - メール通知: 使用
+    - SMS通知: 使用 (カカオトーク優先)
+    - 受信者の指定: test2@forcs.com メンバー指定
+    - 依頼の有効期間: 7日 0時間
+
+埋め込んで実行すると、以下のように設定されます。
+
+    - 文書の参加者: 2名 (開始、参加者1)
+    - ワークフロー: 開始-参加者 1-完了
+
+
+.. code-block:: javascript
+
+    var template_option = {
+        "prefill": {
+            "step_settings": [
+                {
+                    "step_type": "05",
+                    "step_name": "参加者1",
+                    "use_mail": true,
+                    "use_sms": true,
+                    "use_alimtalk" : true,
+                    "recipients" : [
+                        {
+                            "id": "test2@forcs.com"
+                        }
+                    ],
+                    "auth": {
+                        "valid": {
+                            "day": 7,
+                            "hour": 0
+                        }
+                    }
+                }
+            ]
+        }
+    };
+
+
+**ワークフローのステップ設定 (受信者にグループを指定)**   
+
+以下のようにワークフローのステップを追加します。
+
+    - ステップの種類: 参加者
+    - ステップ名: 参加者1
+    - メール通知: 使用
+    - SMS通知: 使用 (カカオトーク優先)
+    - 受信者の指定: *5a3e47a2f5a04909836ddf4189d10fc4* グループを指定
+    - 依頼の有効期間: 7日 0時間
+
+埋め込んで実行すると、以下のように設定されます。
+
+    - 文書の参加者: 2名 (開始、参加者1)
+    - ワークフロー: 開始-参加者 1-完了
+
+
+.. code-block:: javascript
+
+    var template_option = {
+        "prefill": {
+            "step_settings": [
+                {
+                    "step_type": "05",
+                    "step_name": "参加者1",
+                    "use_mail": true,
+                    "use_sms": true,
+                    "use_alimtalk" : true,
+                    "recipients" : [
+                        {
+                            "id": "5a3e47a2f5a04909836ddf4189d10fc4"
+                        }
+                    ],
+                    "auth": {
+                        "valid": {
+                            "day": 7,
+                            "hour": 0
+                        }
+                    }
+                }
+            ]
+        }
+    };
+
+
+**ワークフローステップの設定 (受信者としてメンバーとグループを指定)**   
+
+以下のようにワークフローのステップを追加します。
+
+    - ステップの種類: 参加者
+    - ステップ名: 参加者1
+    - メール通知: 使用
+    - SMS通知: 使用 (カカオトーク優先)
+    - 受信者の指定: *test2@forcs.com* メンバー, *5a3e47a2f5a04909836ddf4189d10fc4* グループの指定
+    - 以来の有効期間: 7日 0時間
+
+埋め込んで実行すると、以下のように設定されます。
+
+    - 文書の参加者: 2名 (開始、参加者1)
+    - ワークフロー: 開始-参加者 1-完了
+
+
+.. code-block:: javascript
+
+    var template_option = {
+        "prefill": {
+            "template_name": "購入申請書",
+            "step_settings": [
+                {
+                    "step_type": "05",
+                    "step_name": "参加者1",
+                    "use_mail": true,
+                    "use_sms": true,
+                    "use_alimtalk" : true,
+                    "recipients" : [
+                        {
+                            "id": "test2@forcs.com"
+                        },
+                        {
+                            "id": "5a3e47a2f5a04909836ddf4189d10fc4"
+                        }
+                    ],
+                    "auth": {
+                        "valid": {
+                            "day": 7,
+                            "hour": 0
+                        }
+                    }
+                }
+            ]
+        }
+    };
+
+
+
+
+
+**文書送信時のポップアップの省略有無の設定**
+
+**全般 > 文書の設定 > 文書送信** 時にポップアップ省略にチェックが入ります。
+
+.. code-block:: javascript
+
+    var template_option = {
+        "prefill" : {
+            "quick_processing" : true
+        }
+    }
+
+------------------------------------------------------------------
+
+.. code-block:: javascript
+
+    var template_option = {
+        "prefill": {
+            "template_name": "購入申請書",
+            "step_settings": [
+                {
+                    "step_type": "05",
+                    "step_name": "参加者1",
+                    "use_mail": true,
+                    "use_sms": true,
+                    "use_alimtalk" : true,
+                    "recipients" : [
+                        {
+                            "id": "test2@forcs.com"
+                        }
+                    ],
+                    "auth": {
+                        "valid": {
+                            "day": 7,
+                            "hour": 0
+                        }
+                    }
+                },
+                {
+                    "step_type": "06",
+                    "step_name": "検討者1",
+                    "use_mail": true,
+                    "use_sms": false,
+                    "use_alimtalk" : false,
+                    "recipients" : [
+                        {
+                            "id": "5a3e47a2f5a04909836ddf4189d10fc4"
+                        }
+                    ],
+                    "auth": {
+                        "valid": {
+                            "day": 7,
+                            "hour": 0
+                        }
+                    }
+                }
+            ],
+            quick_processing : true
+        }
+    };
+
+
+
+
+6. template_file(テンプレートファイル/任意)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+テンプレートに使用されるファイルが自動的にアップロードされるように設定します。
+
+===============  ================================  =============  =====  ==================================================
+ 変数名           説明                              データ型      必須    備考 
+===============  ================================  =============  =====  ==================================================
+name             ファイル名                           String        O      
+mime             MIMEデータ形式                       String        O      -PDF: "application/pdf"
+
+                                                                           -対応するすべての拡張子(OZR, PDF): "@file/octet-stream"  
+data             Base64に変換したファイルデータ       String        O        
+===============  ================================  =============  =====  ==================================================
+
+
+.. code-block:: javascript
+
+    var document_option = {
+        "tempalte_file": {
+              "name": "添付テスト.pdf",
+              "mime": "@file/octet-stream",
+              "data": "JVBERi0xLjUNCiW1tbW1DQoxIDAgb2JqDQo8PC9UeXBlL0NhdGFsb2cvUGFnZXMgMiAwIFIvTGFuZyhrby1LUikgL1N0cnVjdFRyZWVSb290IDE1IDAgUi9NY...(후략)"
+        }
+    }
+
+
+
+----------------------------------------------
+応答確認とコールバックの設定(オプション)
+----------------------------------------------
+
+eformsignの機能を埋め込んで使用する場合、特定の状況でeformsignから情報を含む応答を受け取ることができます。
+また、その応答を利用して特定の動作を実行するようにコールバックを設定することができます。
+
+**応答とコールバックの種類**
+
+**- 作業成功時(Success Callback)**
+
+埋め込みで実行する操作が成功した場合、実行結果の情報を含む応答を受信し、コールバックを使用することができます。
+文書プレビューのように追加で実行できる作業がない機能を埋め込んだ場合は、使用することができません。
+
+**- 作業失敗時(Error Callback)**
+
+埋め込みで実行する作業が失敗した場合、実行結果の情報を含む応答を受信し、コールバックを使用することができます。
+文書のプレビューなど、追加で実行できる作業がない場合は使用できません。
+
+**- 画面ロード時(Action Callback)**
+
+埋め込んだ画面がロードされると、その画面で実行できるアクションのリスト情報を含む応答を受信し、コールバックを使用することができます。
+受信した応答のアクションリストに基づいて、ヘッダのアクションボタンに置き換わるボタンを設定することができます。
+
+
+.. _success_fail:
+
+作業の成功/失敗時
+============================
+
+eformsignを埋め込んで実行した作業が成功/失敗した時に返される応答と、応答の受信後に特定の機能を実行できるコールバック関数Success Callback / Error Callbackについて説明します。
+
+
+応答(Response)
+-------------------------------
+
+文書の作成/処理、テンプレートの作成/修正/複製などの作業に成功/失敗した場合、次のようなresponseが返されます。
+
+
+EformSignDocument(テンプレートで文書作成、文書処理)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 =================================  =================  ========================================================  =====================================================================================
- 変数名                              タイプ               説明                                                      備考 
+ 変数名                              データ型           説明                                                      備考 
 =================================  =================  ========================================================  =====================================================================================
-type                                String             組み込んで作成した作業の種類                                     - document
+type                                String             組み込んで作成した作業の種類                                - document
 
-                                                                                                                   - その他の機能については今後提供する予定
+                                                                                                                   - その他の機能については今後提供予定
 
-fn                                  String             遂行した機能                                                  - saveSuccess : 保存成功
+fn                                  String             実行した機能                                                - "saveSuccess" : 保存成功
 
                                                                                                                    - その他 : エラー
 
-code                                String             文書の作成及び検討の際、結果コードを返す                            - -1 : 文書の作成・検討成功
+code                                String             文書の作成・処理の際、結果コードを返却                      - "-1" : 文書の作成/処理成功
 
-                                                                                                                   - 0 : ログアウト成功
+                                                                                                                   - "0" : ログアウト成功
 
                                                                                                                    - その他 : エラー
 
-message                             String                                                                         - 文書の作成及び検討の際、成功・エラーメッセージを返す 
+message                             String             文書の作成・処理の際、成功・エラーメッセージを返却          - "成功しました。" : 文書作成/処理成功
 
-                                                                                                                    - '成功しました。' : 文書の作成・検討成功
+                                                                                                                   - その他 : エラー
 
-                                                                                                                    - その他 : エラー
-
-document_id                         String             文書の提出に成功した際、作成した文書のdocument_idを返す                ex) '910b8a965f9402b82152f48c6da5a5c'
+document_id                         String             文書提出の成功時、作成した文書のdocument_idを返却                例) "910b8a965f9402b82152f48c6da5a5c"
  
-title                               String             文書の提出に成功した際、作成した文書タイトルを返す                      ex) '契約書'
+title                               String             文書提出の成功時、作成した文書タイトルを返却                      例) "契約書"
 
-values                              Object             document_optionに定義されたreturn_fieldsに                         {'フィールド名': 'フィールド値'} 型のObjectで返す
+values                              Object             document_optionに定義されたreturn_fieldsに                         {"フィールド名": "フィールド値"} 型のObjectで返却
 
-                                                       入力したフィールド名に対してユーザーが入力した値を返す                       ex) {'名前': '田中太郎'}
+                                                       入力したフィールド名に対してユーザーが入力した値を返却            例) {"名前": "田中太郎"}
 
-recipients                          Array               次の受信者の情報Objectリストを返す 
-recipients[].step_idx               String              ワークフローの順番                                               １人目の受信者: '2'、2人目以降の受信者: 順番に沿って１ずつ増加
+recipients                          Array               次の受信者の情報Objectリストを返却 
+recipients[].step_idx               String              ワークフローの順序                                               1人目の受信者: "2"、2人目以降の受信者: 3, 4...と順番に沿って1ずつ増加
 
-recipients[].step_type              String              受信者の種類                                                  既存のワークフロー: '01'(完了)、'02'(決裁)、'03'(外部受信者)、'04'(内部受信者)
+recipients[].step_type              String              受信者の種類                                                  旧ワークフロー: "01"(完了)、"02"(決裁)、"03"(外部受信者)、"04"(内部受信者)
 
-                                                                                                                      新規ワークフロー: '01'(完了)、'05'(参加者)、'06'(検討者)
+                                                                                                                      現行ワークフロー: "01"(完了)、"05"(参加者)、"06"(検討者)
 
-recipients[].recipient_type         String              受信者の種類                                                 '01' : 会社のメンバー
+recipients[].recipient_type         String              受信者の種類                                                 "01" : 会社のメンバー
 
-                                                                                                                    '02' : 外部受信者
+                                                                                                                     "02" : 外部受信者
 
 recipients[].use_mail               Boolean             メール送信   
 recipients[].use_sms                Boolean             SMS送信   
@@ -660,62 +2370,187 @@ recipients[].auth.valid.hour        Integer             文書の送信期限（
 =================================  =================  ========================================================  =====================================================================================
 
 
+=======
+**文書のタイトル**
+    - document_name に作成したい文書のタイトルを指定します。
+>>>>>>> parent of 72c99e6 (embedding 업데이트)
+
+.. code-block:: javascript
+
+    var document_option = {
+        "prefill" : {
+            "document_name": "休暇届"
+        }
+    }
+
+**文書内のフィールド設定値の入力** 
+    - フォームを作成する時に指定した入力コンポーネントの ID を基準に、フィールドの初期値、活性化、必須入力の設定を指定します。
+
+  
+.. note::
+
+   - enabled
+     - 指定しない場合、テンプレート設定の項目制御オプションに従う
+     - 指定する場合、テンプレート設定の項目制御オプションに優先する
+   - required
+     - 指定しない場合、テンプレート設定の項目制御オプションに従う
+     - 指定する場合、テンプレート設定の項目制御オプションに優先する
+   - value
+     - 指定しない場合、新規作成時にテンプレート設定のフィールド設定オプションに従う
+     - 指定する場合、テンプレート設定のフィールド設定に優先する
+
+
+<<<<<<< HEAD
+EformSignTemplate (マイファイルで文書作成、テンプレート生成、テンプレート修正、テンプレート複製)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+=================================  =================  ===========================================================  ===========================================================
+ 変数名                             データ型            説明                                                         備考 
+=================================  =================  ===========================================================  ===========================================================
+type                                String             組み込んで作成した作業の種類                                  -"template"
+fn                                  String             実行した機能                                                  -"saveSuccess" : 保存成功
+
+                                                                                                                     -それ以外 : エラー
+
+code                                String             文書の作成・処理の際、結果コードを返却                        -"-1" : テンプレート作業に成功
+
+                                                                                                                     -"0" : ログアウト成功
+
+                                                                                                                     -それ以外 : エラー
+
+message                             String             テンプレート作業時、成功/エラーメッセージを返却               -"成功しました。" : 文書作成/処理成功
+
+                                                                                                                     -それ以外 : エラー
+
+template_id                         String             テンプレート作業の成功時、作業したテンプレートのIDを返却      例) "910b8a965f9402b82152f48c6da5a5c"
+
+template_name                       String             テンプレート作業の成功時、作業したテンプレート名を返却        例) "契約書"
+
+step_settings                       Array               ワークフローステップのリスト
+step_settings[].step_type           String              ワークフローステップの種類                                   -共通: "00"(開始)、 "01"(完了)
+
+                                                                                                                     -旧ワークフロー: "02"(検討)、 "03"(外部受信者)、 "04"(内部受信者)
+
+                                                                                                                     -現行ワークフロー: "05"(参加者)、 "06"(検討者)
+step_settings[].step_name           String              ワークフローステップ名                                         例) "参加者1"
+=================================  =================  ===========================================================  ===========================================================
+
 
 .. code-block:: javascript
 
     {
-      "type": "document",
-      "fn": "saveSuccess",
-      "code": "-1",
-      "message": "成功しました。",
-      "document_id": "c59c522ea9294660bfa84263c95c4e54",
-      "title": "個人情報取扱同意書",
-      "values": {
-        "名前": "田中太郎"
-      },
-      "recipients": [
-        {
-          "step_idx": 2,
-          "step_type": "06",
-          "recipient_type": "02",
-          "use_mail": true,
-          "use_sms": true,
-          "id": "test@forcs.com",
-          "name": "田中太郎",
-          "sms": "+821023456789",
-          "auth": {
-            "password": "",
-            "password_hint": "",
-            "valid": {
-              "day": 7,
-              "hour": 0
+        "type": "template",
+        "fn": "saveSuccess",
+        "code": "-1",
+        "message": "成功しました。",
+        "template_id": "9a368e9409bc4351865637e85882cf01",
+        "template_name": "テンプレート埋め込みテスト_新規",
+        "step_settings": [
+            {
+                "step_type": "00",
+                "step_name": "開始"
+            },
+            {
+                "step_type": "05",
+                "step_name": "参加者2"
+            },
+            {
+                "step_type": "06",
+                "step_name": "検討者1"
+            },
+            {
+                "step_type": "05",
+                "step_name": "参加者3"
+            },
+            {
+                "step_type": "01",
+                "step_name": "完了"
             }
-          }
-        }
-      ]
+        ]
     }
 
 
 
 
-2. callback
-========================================
+2. コールバック(Callback)
+-------------------------------
 
-文書の作成・検討の成功時もしくは失敗時の戻り値によって異なる動作をさせたい場合、success_callbackとerror_callback関数によって実現できます。
+Success CallbackとError Callbackは、各タスクの成功時、失敗時に実行される関数です。
+タスクの成功/失敗時に返されるresponseを受け取り、目的のタスクを実行するように設定することができます。
 
-必要によってコンソールに出力したり（console.log）ポップアップ（alert）を表示することができます。また、出力結果を条件文の条件に利用することもできます。
+例えば、必要に応じて必要な値をコンソールに出力(console.log)、警告ウィンドウを表示(alert)、条件文などを利用して、状況応じて必要な機能を実行させることができます。
+
+
+EformSignDocument 実行例
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+=======
+           
+.. code:: javascript
+
+    var document_option = {
+        "prefill" : {
+        "fields": [ {
+            "id" ; "顧客名",
+            "value" : "山田太郎",
+            "enabled" : true,
+            "required" : true 
+        }]
+    }
+    }
+>>>>>>> parent of 72c99e6 (embedding 업데이트)
+
+.. code-block:: javascript
+
+    var document_option = {
+        "prefill": {
+            "document_name": "",
+            "fields": [
+                {
+                    "id": "顧客名",
+                    "value": "山田太郎",
+                "enabled": true,
+                    "required": true
+                }
+            ]
+        }
+    };
+<<<<<<< HEAD
+     
+    var error_callback= function(response){
+        alert(response.message);
+        console.log(response.code); 
+        console.log(response.message);
+    };
+     
+    eformsign.document(document_option, "eformsign_iframe", success_callback, error_callback);
+     
+    eformsign.open();
+
+
+
+EformSignTemplate 実行例
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 .. code-block:: javascript
 
-    var eformsign = new EformSignDocument();
+    var eformsign = new EformSignTemplate();
      
     var document_option = { /* 省略 */ };
      
     var success_callback= function(response){
-        console.log(response.document_id);
-        console.log(response.title);
-        console.log(response.values["名前"]);
+        if (response.type ==='template'){
+            console.log(response.template_id);
+            console.log(response.template_name);
+            console.table(response.step_settings);
+            if ("-1" == response.code) {
+                alert("テンプレートを生成しました。\n" + "- document_id : " + response.template_id + "\n- title : " + response.template_name);
+            } else {
+                alert("テンプレートの生成に失敗しました。\n" + "- code : " + response.code + "\n- message : " + response.message);
+            }
+        }
     };
      
     var error_callback= function(response){
@@ -725,3 +2560,494 @@ recipients[].auth.valid.hour        Integer             文書の送信期限（
     };
      
     eformsign.document(document_option, "eformsign_iframe", success_callback, error_callback);
+     
+
+.. _loading:
+
+画面のロード時
+============================
+
+eformsignを埋め込んだ画面がロードされた際の応答と、応答の受信時に特定の機能を実行することができるコールバック関数Action Callbackについて説明します。
+また、ヘッダにあるアクションボタンを代替するボタンの生成方法についても説明します。
+
+
+応答(Response)
+-------------------------------
+
+埋め込んだeformsign機能の画面がロードされると、responseによってその画面で実行できる機能に関する情報が返却されます。
+Responseの構造と例は以下の通りです。
+
+
+EformSignDocument (テンプレート文書作成、文書処理)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+=================================  =================  ===================================================  ===========================================================
+ 変数名                             データ型            説明                                                 備考 
+=================================  =================  ===================================================  ===========================================================
+type                                String             埋め込んで作成した作業の種類                        -EformSignDocument使用作業: "document"
+
+                                                                                                           -EformSignTemplate使用作業: "template"
+
+fn                                  String             実行した機能                                         -"actionCallback"
+
+                                                                                                            -それ以外 : エラー
+
+data                                Array               画面内で実行できる機能の一覧                        -{"name":"名前", "code":"00"} 形式のObjectのリスト
+
+                                                                                                            -{"name": "func_get_return_fields", code: "99"}は戻り値フィールドを処理するための機能で、常に表示されます。
+
+data[].name                         String             機能の名称
+data[].code                         String             機能のコード
+=================================  =================  ===================================================  ===========================================================
+
+
+
+.. code-block:: javascript
+
+    {
+      "type": "document",
+      "fn": "actionCallback",
+      "data": [
+        {
+          "name": "送信",
+          "code": "21"
+        },
+        {
+          "name": "func_get_return_fields",
+          "code": "99"
+        }
+      ]
+    }
+
+
+
+コールバック (Callback)
+-------------------------------
+
+Action Callbackは機能画面のロード時に、responseを受信後に実行される関数です。
+Responseと無関係の別作業を自動的に実行するように設定したり、文書画面の読み込み時に返されるresponseを受け取り、それに応じて必要な作業を実行するように設定することができます。
+
+
+コード例
+~~~~~~~~~~~
+
+
+.. code-block:: javascript
+
+    var eformsign = new EformSignDocument();
+     
+    var document_option = { /* 省略 */ };
+     
+    var success_callback= function(response){
+        // 省略
+    };
+     
+    var error_callback= function(response){
+        // 省略
+    };
+     
+     
+    var action_callback= function(response){
+        alert("赤色で強調表示されている入力欄に値を入力してください。");
+        console.table(response.data);   // 機能リストの出力
+    }
+     
+    eformsign.document(document_option, "eformsign_iframe", success_callback, error_callback, action_callback);
+
+
+
+.. _creating_button:
+
+アクションボタンの生成
+-------------------------------
+
+機能オプションの設定時、ヘッダを非表示にするオプションがあります。
+しかし、ヘッダを非表示にすると、ヘッダに存在するアクションボタン(送信、リクエストなど)が同時に非表示となるため、別途アクションボタンを生成する必要があります。
+
+EformsignDocumentオブジェクトとEformsignTemplateオブジェクトの両方に存在するsendAction関数を使うと、特定のアクションを実行することができます。
+任意の形式でボタンを生成し、クリックするとsendAction関数が実行されるように設定してください。
+
+======================================================================================================================================================================
+
+- EformSignDocument.sendAction(action)
+- EformSignTemplate.sendAction(action)
+
+===============  =================  ==========  ===========================
+パラメータ名      パラメータの種類   必須/任意   説明
+===============  =================  ==========  ===========================
+action            JSON                必須       アクション情報
+action.type       String              必須       区分 (01: 文書、 02: テンプレート)
+action.code       String              必須       アクションコード
+===============  =================  ==========  ===========================
+
+
+sendAction関数で使えるアクションコードのリストは以下の通りです。
+
+===============  =============  ==================================  ===================  ===========================
+action.type       action.code    ボタン名                            ボタンテキスト       説明
+===============  =============  ==================================  ===================  ===========================
+01                00             btn_close                                               閉じる
+01                01             btn_save_as_draft                   下書き保存           文書作成中に下書き保存
+01                02             btn_process_request                 依頼                 内部受信者/内部受信者を含む複数の受信者に文書作成を依頼(旧ワークフローを使用した文書作成時)
+01                03             btn_outsider                        依頼                 外部受信者に文書作成を依頼（旧ワークフローを使用した文書作成時）
+01                04             btn_approval                        依頼                 決裁者に文書作成を依頼（旧ワークフローを使用した文書作成時）
+01                05             btn_write_complete                  完了                 文書作成の完了 (ワークフロー上、次の受信者がいない場合)
+01                06             btn_acceptStepReject                承認                 差戻し依頼の承認
+01                07             btn_stepReject                      差戻し               文書の差戻し（内部受信者）
+01                08             btn_cancelStepReject                差戻し               差戻し依頼の差戻し
+01                09             btn_active                          承認                 文書の承認(旧ワークフローを使用した文書決裁時)
+01                10             btn_approvalReject                  差戻し               文書の差戻し (決済者)
+01                11             btn_delete_approval                 承認                 文書の削除の承認
+01                12             btn_delete_refuse                   差戻し               文書の削除の差戻し
+01                13             btn_revoke_approval                 承認                 文書の無効化の承認
+01                14             btn_revoke_refuse                   差戻し               文書の無効化の差戻し
+01                15             btn_change_title                    タイトル変更         文書タイトルの変更
+01                16             btn_show_history                    履歴確認             文書プレビューの埋め込み時、もっと見る( ⋮ ) → 履歴を見るボタン
+01                18             btn_send_pdf                        完了文書の送信       もっと見る( ⋮ ) → 完了文書送信ボタン
+01                19             btn_draft                           下書き保存           文書処理中の一時保存
+01                20             btn_unstructured_write_complete     送信                文書作成完了 (マイファイルで文書作成時、受信者がいない場合)
+01                21             btn_unstructured_process_request    送信                文書の送信 (現行ワークフローを使用して文書作成時、次の受信者がいる場合)
+01                22             btn_unstructured_active             送信                文書の送信（現行ワークフローを使用した文書処理時）
+01                99             func_get_return_fields                                  リターンフィールドの取得(文書の送信/完了/依頼時に自動実行)
+02                00                                                 閉じる              文書作成画面から出てフォーム設定に戻る(マイファイルで文書作成時)
+02                01             anotherTemplateBtn                  完了                テンプレート一覧に戻る (テンプレート管理)
+02                02             saveFormBtn                         保存                テンプレートを保存（テンプレート管理
+02                03             designTab                           デザインする         [デザインする]タブ
+02                04             setupTab                            設定/オプション      [設定]タブ(テンプレート管理) / [オプション]タブ(マイファイルで文書作成)
+02                05             receipientTab                       受信者の指定         [受信者を指定する]タブ(マイファイルで文書作成)
+02                06             writeDocumentBtn                    文書の作成を始める       [文書の作成を始める]ボタン(マイファイルで文書作成)
+02                99             func_get_return_fields                                  リターンフィールドのインポート (文書送信/完了/依頼時に自動実行)
+===============  =============  ==================================  ===================  ===========================
+
+
+
+
+
+例）クリックすると（現行ワークフローを使用し、次の受信者がいる文書を作成後）送信するボタンは次のように作成することができます。
+
+.. code-block:: javascript
+
+    <button id="btn_21" onclick="eformsign.sendAction({type: "01", code: "21"});">送信</button>
+
+
+
+.. tip::
+
+    上記のアクションコード一覧で確認できるように、ワークフローの構成や文書の状態などによって、使用するボタンの種類は異なります。
+    また、同じテキストのボタンであっても、状況によって異なるアクションコードを使用しなければならない場合が存在します。
+    したがって、特定の機能を実行するボタンを固定で配置しておくと、ボタンがその状況に合わずに誤動作が発生する可能性があります。
+    エラーの発生する可能性を減らすために、画面ロード時に受信する応答で、その画面で実行できるアクションのリストを確認後、そのリストに基づいてボタンを生成・表示する可変型方式の使用を推奨します。
+
+
+以下は可変ボタンのコード例です。すべてのアクションコードに対して見えないボタンを生成しておき、その画面で実行できるアクションに該当するボタンだけを表示するように設定します。
+
+
+.. code-block:: javascript
+
+    var eformsign = new EformSignDocument();
+     
+    var document_option = { /* 省略 */ };
+     
+    var success_callback= function(response){
+        // 省略
+    };
+     
+    var error_callback= function(response){
+        // 省略
+    };
+     
+     
+    var action_callback= function(response){
+        $('#buttonList').find('button').css('display','none');      // div id=buttonListのすべてのボタンを非表示に設定
+        $(response.data).each(function(idx, action){                // response.dataの各値について
+            $('#buttonList').find('button').each(function(idx, btn){    // div id=buttonListのすべてのボタンで
+                if ($(btn).attr('id').replace('btn_','') === action.code){  // もしdata[].codeに該当するボタンがあれば
+                    $(btn).attr('title',action.name).text(action.name);     // ボタンのタイトルをdata[].nameに設定し
+                    $(btn).css('display', '');                              // ボタンが見えるよう設定
+                }
+            });
+        });
+        console.table(response.data);
+    }
+     
+     
+    function actionTest(action) {   // より簡単にsendAction関数にJSONを入力して実行するための関数の例であり、必ずしもこのような形で使う必要はありません。
+        var action = {
+            type : '01',    // type : 01 : 文書 , 02 : テンプレート
+            code : action
+        }
+        eformsign.sendAction(action);
+    }
+     
+    eformsign.document(document_option, "eformsign_iframe", success_callback, error_callback, action_callback);
+
+
+
+.. code-block:: javascript
+
+    <!-- すべてのアクションのボタンを生成しておき、非表示に設定後、action_callbackで必要なボタンだけを表示するように処理 -->
+    <div id="buttonList" style="padding: 10px;">
+        <button id="btn_01" style="width:80px; height:30px; display: none;" onclick="actionTest('01');"></button>
+        <button id="btn_02" style="width:80px; height:30px; display: none;" onclick="actionTest('02');"></button>
+        <button id="btn_03" style="width:80px; height:30px; display: none;" onclick="actionTest('03');"></button>
+        <button id="btn_04" style="width:80px; height:30px; display: none;" onclick="actionTest('04');"></button>
+        <button id="btn_05" style="width:80px; height:30px; display: none;" onclick="actionTest('05');"></button>
+        <button id="btn_06" style="width:80px; height:30px; display: none;" onclick="actionTest('06');"></button>
+        <button id="btn_07" style="width:80px; height:30px; display: none;" onclick="actionTest('07');"></button>
+        <button id="btn_08" style="width:80px; height:30px; display: none;" onclick="actionTest('08');"></button>
+        <button id="btn_09" style="width:80px; height:30px; display: none;" onclick="actionTest('09');"></button>
+        <button id="btn_10" style="width:80px; height:30px; display: none;" onclick="actionTest('10');"></button>
+        <button id="btn_11" style="width:80px; height:30px; display: none;" onclick="actionTest('11');"></button>
+        <button id="btn_12" style="width:80px; height:30px; display: none;" onclick="actionTest('12');"></button>
+        <button id="btn_13" style="width:80px; height:30px; display: none;" onclick="actionTest('13');"></button>
+        <button id="btn_14" style="width:80px; height:30px; display: none;" onclick="actionTest('14');"></button>
+        <button id="btn_15" style="width:80px; height:30px; display: none;" onclick="actionTest('15');"></button>
+        <button id="btn_16" style="width:80px; height:30px; display: none;" onclick="actionTest('16');"></button>
+        <button id="btn_17" style="width:80px; height:30px; display: none;" onclick="actionTest('17');"></button>
+        <button id="btn_18" style="width:80px; height:30px; display: none;" onclick="actionTest('18');"></button>
+        <button id="btn_19" style="width:80px; height:30px; display: none;" onclick="actionTest('19');"></button>
+        <button id="btn_20" style="width:80px; height:30px; display: none;" onclick="actionTest('20');"></button>
+        <button id="btn_21" style="width:80px; height:30px; display: none;" onclick="actionTest('21');"></button>
+        <button id="btn_22" style="width:150px; height:30px; display: none;" onclick="actionTest('22');"></button>
+    </div>
+ 
+ 
+    <!-- 埋め込むiframeを生成 -->
+    <iframe id="eformsign_iframe" name="eformsign_iframe" style="width: 100%; height: 700px;"></iframe>
+
+
+
+
+
+
+-----------------------------------
+機能の埋め込みと実行
+-----------------------------------
+
+先ほど生成したオプションとコールバックを使用してeformsignの機能を実際に埋め込み、実行するためのコードを作成します。
+
+
+
+
+eformsign機能の埋め込み領域の作成
+=============================================
+
+まず、eformsign機能を埋め込んで表示するための領域を作成します。
+eformsign機能を埋め込むための領域はiframe形式に対応しています。
+
+
+.. code-block:: javascript
+
+    <iframe id="eformsign_iframe" width="1440" height="1024"> </iframe>
+
+
+例）上記のように横1440ピクセル、縦1024ピクセルのiframeを生成することができます。
+領域生成時にidを設定する必要があります。上の例では、idを"eformsign_iframe"に設定しました。
+
+
+eformsign機能の埋め込み用コードの作成
+=============================================
+
+先ほど生成したiframe領域にeformsign機能を埋め込んで表示されるようにコードを作成します。
+まず、埋め込む機能に合うオブジェクトを変数形式で生成します。下記の例では変数名を"eformsign"に設定しました。
+
+.. code-block:: javascript
+
+    var eformsign = new EformSignDocument();
+
+先ほど生成した埋め込みオプションとコールバック関数を変数形式で入力します。
+
+.. code-block:: javascript
+
+    var document_option = {
+        // 中略
+        "mode" : {
+            "type" : "01",
+            "template_id" : "a2c6ed9df9b642f2ade43c7efe58c9a3"
+        },
+        // 中略
+    }
+     
+     
+    var success_callback= function(response){
+        // 省略
+    };
+      
+    var error_callback= function(response){
+        // 省略
+    };
+     
+    var action_callback= function(response){
+        // 省略
+    };
+
+eformsign機能の実行のためのオプションを設定する関数を作成します。この際、先ほど生成したiframe領域と各種変数と関数を使います。
+機能実行のための関数は、 **EformsignDocumentオブジェクト**\ の場合は **document関数**\ 、 **EformSignTemplateオブジェクト**\ の場合は **template関数**\ を使用します。
+
+
+========================================================================================================================
+
+EformSignDocument.document(document_option, iframe_id, success_callback , error_callback, action_callback)
+
+=================  =================  ==========  ===========================
+パラメータ名        パラメータの種類   必須/任意   説明
+=================  =================  ==========  ===========================
+document_option    JSON               必須         eformsignを埋め込んで実行する会社、ユーザー、テンプレートなどのオプションを指定
+iframe_id          String             必須         eformsignを埋め込んで表示するiframeのID
+success_callback   Function           任意         eformsign文書の作業成功時、呼び出されるcallback関数
+error_callback     Function           任意         eformsign文書の作業失敗時、呼び出されるcallback関数
+action_callback    Function           任意         eformsignの画面読み込み時、呼び出されるcallback関数
+=================  =================  ==========  ===========================
+
+
+========================================================================================================================
+
+EformSignTemplate.template(template_option, iframe_id, success_callback , error_callback, action_callback)
+
+=================  =================  ==========  ===========================
+パラメータ名        パラメータの種類   必須/任意   説明
+=================  =================  ==========  ===========================
+template_option    JSON               必須         eformsignを埋め込んで実行する会社、ユーザー、テンプレートなどのオプションを指定
+iframe_id          String             必須         eformsignを埋め込んで表示するiframeのID
+success_callback   Function           任意         eformsignテンプレート/文書の作業成功時、呼び出されるcallback関数
+error_callback     Function           任意         eformsignテンプレート/文書の作業失敗時、呼び出されるcallback関数
+action_callback    Function           任意         eformsignの画面読み込み時、呼び出されるcallback関数
+=================  =================  ==========  ===========================
+
+
+.. code-block:: javascript
+
+    eformsign.document(document_option, "eformsign_iframe", success_callback, error_callback, action_callback);
+
+
+eformsign機能の実行
+=============================================
+
+eformsign機能を実行するにはopen関数の呼び出しが必要です。
+open関数は設定するパラメータがなく、オプション設定を終えたEformSignDocumentオブジェクトまたはEformSignTemplateオブジェクトに使用して、挿入された機能を実行する役割を持ちます。
+機能実行のためのオプションを設定するdocumentまたはtemplate関数を作成したら、その後open関数を作成します。
+
+.. code-block:: javascript
+
+    eformsign.open();
+
+サンプルコード
+----------------
+
+インストール作業を含む全体的なサンプルコードは以下の通りです。
+
+
+.. code-block:: javascript
+
+    <html>
+    <head>
+        <title>embedding test</title>
+         
+        <script src="https://www.eformsign.com/plugins/jquery/jquery.min.js"/>
+        <script src="https://www.eformsign.com/lib/js/efs_embedded_v2.js"/>
+    </head>
+     
+     
+    <body>
+        <iframe id="eformsign_iframe" width="1440" height="1024"> </iframe>
+     
+     
+        <script>
+            var eformsign = new EformSignDocument();
+     
+            var document_option = {
+                // 中略
+                "mode" : {
+                   "type" : "01",
+                   "template_id" : "a2c6ed9df9b642f2ade43c7efe58c9a3"
+                },
+                // 中略
+            };
+         
+            var success_callback= function(response){
+                // 省略
+            };
+      
+            var error_callback= function(response){
+                // 省略
+            };
+     
+            var action_callback= function(response){
+                // 省略
+            };
+     
+            eformsign.document(document_option, "eformsign_iframe", success_callback, error_callback, action_callback);
+            eformsign.open();
+        </script>
+    </body>
+
+
+.. |image1| image:: resources/column_icon.png
+   :width: 25px
+=======
+
+
+
+
+パラメーターの説明: Callback
+============================
+
+==================  ===============  ===========  =============================================================
+ Paramter Name       Paramter Type    必須入力     説明        
+==================  ===============  ===========  =============================================================
+ success_callback    function         X           eformsign文書の作成に成功した場合、呼び出されるcallback関数 
+ error_callback      function         X           eformsign文書の作成に失敗した場合、呼び出されるcallback関数
+==================  ===============  ===========  =============================================================
+
+Callback 関数は、次のように設定します。
+
+.. code-block:: javascript
+
+   var eformsign = new eformsign(); // iframe document 関数因子に移動
+ 
+ 
+   var document_option = {};
+ 
+ 
+  var sucess_callback= funtion(response){
+    console.log(response.document_id);
+    console.log(response.title);
+    console.log(response.field_values["name"]);
+  };
+ 
+ 
+  var error_callback= funtion(response){
+    alert(response.message);
+    console.log(response.code); 
+    console.log(response.message);
+  };
+ 
+ 
+  eformsign.document(document_option , "eformsign_iframe" , sucess_callback , error_callback);
+
+
+document 関数のパラメーターとして Callback 関数を設定した場合、Callback 関数を呼び出す際、次のような値を返します。 
+
+
++----------+--------+--------------------------+----------------------+
+| Callback | Type   | 説明                     | 備考                 |
++==========+========+==========================+======================+
+| code     | string | 送信に失敗した場合、結果 | -1 の場合、正常　　  |
+|          |        | のエラーコードを返す　　 |                      |
++----------+--------+--------------------------+----------------------+
+| document | string | 送信に成功した場合、作成 | ex)                  |
+| _id      |        | した文書の document_idを | 910b8a965f9          |
+|          |        | 返す　　                 | 402b82152f48c6da5a5c |
++----------+--------+--------------------------+----------------------+
+| field    | object | document_optionに定義した| ex).                 |
+| _values  |        | return_fields コラムに   | field_values["name"] |
+|          |        | ユーザーが入力した値を   | // john              |
+|          |        | インポートできる         |                      |
++----------+--------+--------------------------+----------------------+
+| message  | string | 送信に失敗した場合、     | Nullの場合、正常　   |
+|          |        | エラーメッセージを返す　 |                      |
++----------+--------+--------------------------+----------------------+
+| title    | string | 送信に成功した場合、作成 | ex) 契約書           |
+|          |        | した文書のタイトルを返す |                      |
++----------+--------+--------------------------+----------------------+
+>>>>>>> parent of 72c99e6 (embedding 업데이트)
