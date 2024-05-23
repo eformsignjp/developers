@@ -1,23 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="ja" >
 <head>
-<<<<<<< HEAD
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>eformsign 機能の組み込み &mdash; eformsign API guide 2021.01.11 ドキュメント</title>
-  
-=======
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
->>>>>>> 6de2e9505afa191464aa7eec85dc2a60a3a28856
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<<<<<<< HEAD
-  <title>チュートリアル &mdash; eformsign API guide 2024.05.23 ドキュメント</title>
-=======
   <title>eformsign機能の埋め込み &mdash; eformsign API guide 2024.05.23 ドキュメント</title>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/code-tabs.css" type="text/css" />
@@ -36,7 +23,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="next" title="eformsign APIの使い方" href="eformsign_api.html" />
-    <link rel="prev" title="eformsign APIの始め方：実践ガイド" href="eformsign_api_quickstart.html" /> 
+    <link rel="prev" title="eformsign APIガイド" href="eformsign_api_overview.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -60,79 +47,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<<<<<<< HEAD
-<li class="toctree-l1"><a class="reference internal" href="eformsign_api_overview.html">概要</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">eformsign 機能の組み込み</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">始めてみよう</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id">会社 ID の確認</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id2">メインメニュー</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3">会社情報メニュー</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id4">会社情報 &gt; 基本情報</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">テンプレート ID の確認</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id6">テンプレート管理メニュー</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id7">テンプレート管理画面</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id8">テンプレート ID の位置</a></li>
-=======
 <li class="toctree-l1"><a class="reference internal" href="eformsign_api_overview.html">eformsign APIガイド</a></li>
-<li class="toctree-l1"><a class="reference internal" href="eformsign_api_quickstart.html">eformsign APIの始め方：実践ガイド</a></li>
-<<<<<<< HEAD
-<li class="toctree-l1 current"><a class="current reference internal" href="#">チュートリアル</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">概要</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#eformsign">eformsignの埋め込みオブジェクト</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">インストール方法</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#id4">埋め込みオプションの設定</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id5"><strong>各機能の設定値</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6"><strong>必要な値の確認</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id">会社IDの確認方法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">eformsign 機能の組み込み</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#id8">始めてみよう</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id9">会社 ID の確認</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id10">テンプレート管理メニュー</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id11">テンプレート管理画面</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id12">テンプレート ID の位置</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id13">文書IDの確認方法</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#id14">テンプレート文書作成、文書の処理、文書のプレビュー</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#id15">eformsign のオブジェクトについての情報</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#embedding-document">embedding_document 関数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#document-option">document_option</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id16">パラメーターの説明：document-option</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#company">1．company(会社情報/必須)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id17">1. 会社情報（必須）</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id18">2. ユーザー情報（オプション）</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#user">3．user（ユーザー情報/任意）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#eformsignid">eformsignのログインページが起動し、ログイン後に文書を作成することができます。この際、IDがログイン画面にあらかじめ入力されます。</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id19">eformsignのメンバーではないユーザーが、受信した文書に入力することができます。</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id20">3. モード（必須）</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#prefill">5．prefill(自動入力/任意)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id21">6．リターンフィールド（任意）</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id23">5. 自動入力（文書作成時に自動入力されるよう設定）</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#id24">マイファイルで文書作成</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#template-option">template_option</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id25">1. company(会社情報/必須)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#mode">2. mode(埋め込みモード/必須)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id26">3. user(ユーザー情報/任意)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#layout">4. layout(レイアウト/任意)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id27">5. prefill(自動入力/任意)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#template-file">6. template_file(テンプレートファイル/任意)</a></li>
-=======
 <li class="toctree-l1 current"><a class="current reference internal" href="#">eformsign機能の埋め込み</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">チュートリアル</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id2">概要</a><ul>
@@ -169,37 +84,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#id19">テンプレートの生成、テンプレートの修正、テンプレートの複製</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id20">template_option</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#callback">Callbackパラメータ</a></li>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
->>>>>>> 6de2e9505afa191464aa7eec85dc2a60a3a28856
 </ul>
 </li>
 </ul>
 </li>
-<<<<<<< HEAD
-<li class="toctree-l2"><a class="reference internal" href="#id9">インストール</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id10">eformsign のオブジェクトについての情報</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#embedding-document">embedding_document 関数</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#document-option">パラメーターの説明：document-option</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id11">1. 会社情報（必須）</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id12">2. ユーザー情報（オプション）</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id13">3. モード（必須）</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id14">4. リターンフィールド（オプション）</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id15">5. 自動入力（文書作成時に自動入力されるよう設定）</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#callback">パラメーターの説明: Callback</a></li>
-=======
-<<<<<<< HEAD
-<li class="toctree-l2"><a class="reference internal" href="#id28">テンプレートの生成、テンプレートの修正、テンプレートの複製</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id29">template_option</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#callback">Callbackパラメータ</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id30">1. company(会社情報/必須)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id31">2. mode(組み込みモード/必須)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id32">3. user(ユーザー情報/任意)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id33">4. layout(レイアウト/任意)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id34">5. prefill(自動入力/任意)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id35">6. template_file(テンプレートファイル/任意)</a></li>
-=======
 <li class="toctree-l2"><a class="reference internal" href="#id27">応答確認とコールバックの設定(オプション)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#success-fail">作業の成功/失敗時</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#response">応答(Response)</a></li>
@@ -210,60 +98,19 @@
 <li class="toctree-l4"><a class="reference internal" href="#id33">応答(Response)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id35">コールバック (Callback)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#creating-button">アクションボタンの生成</a></li>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 </ul>
 </li>
 </ul>
 </li>
-<<<<<<< HEAD
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#id36">応答確認とコールバックの設定(オプション)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#success-fail">作業の成功/失敗時</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#response">応答(Response)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#eformsigndocument">EformSignDocument(テンプレートで文書作成、文書処理)</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#id38">2. コールバック(Callback)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id39">EformSignDocument 実行例</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#eformsigntemplate">EformSignTemplate 実行例</a></li>
-=======
 <li class="toctree-l2"><a class="reference internal" href="#id38">機能の埋め込みと実行</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id39">eformsign機能の埋め込み領域の作成</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id40">eformsign機能の埋め込み用コードの作成</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id41">eformsign機能の実行</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id42">サンプルコード</a></li>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
->>>>>>> 6de2e9505afa191464aa7eec85dc2a60a3a28856
 </ul>
 </li>
 </ul>
 </li>
-<<<<<<< HEAD
-<li class="toctree-l2"><a class="reference internal" href="#loading">画面のロード時</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id41">応答(Response)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id42">EformSignDocument (テンプレート文書作成、文書処理)</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#id43">コールバック (Callback)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id44">コード例</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#creating-button">アクションボタンの生成</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#id46">機能の埋め込みと実行</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id47">eformsign機能の埋め込み領域の作成</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id48">eformsign機能の埋め込み用コードの作成</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id49">eformsign機能の実行</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id50">サンプルコード</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#id51">パラメーターの説明: Callback</a></li>
-=======
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="eformsign_api.html">eformsign APIの使い方</a></li>
@@ -283,21 +130,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-<<<<<<< HEAD
-    
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>eformsign 機能の組み込み</li>
-    
-    
-=======
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-<<<<<<< HEAD
-      <li class="breadcrumb-item active">チュートリアル</li>
-=======
       <li class="breadcrumb-item active">eformsign機能の埋め込み</li>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
->>>>>>> 6de2e9505afa191464aa7eec85dc2a60a3a28856
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/help/eformsign_embedding.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -306,68 +140,7 @@
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-<<<<<<< HEAD
-            
-  <div class="section" id="eformsign">
-<h1>eformsign 機能の組み込み<a class="headerlink" href="#eformsign" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>eformsign 機能を組み込んで連動すると、顧客が提供しているサイト/サービス内で顧客会社のユーザー（エンドユーザー）が eformsign サービスサイトを介さず自然に eformsign の電子文書を利用することができます。
-例えば、ブログで特定の YouTube 動画を表示したいとき、ブログに YouTube 動画を直接挿入することで、その動画をブログ内ですぐ再生できるようにする方式と類似しています。</p>
-<div class="section" id="id1">
-<h2>始めてみよう<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>eformsign embedding 機能を利用するためには、会社 ID とテンプレート ID が必要です。</p>
-<div class="section" id="id">
-<h3>会社 ID の確認<a class="headerlink" href="#id" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><strong>会社管理 &gt; 会社情報 &gt; 基本情報</strong> で会社 ID を確認することができます。</p>
-<div class="section" id="id2">
-<h4>メインメニュー<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<a class="reference internal image-reference" href="../_images/Dashboard_menu_icon.png"><img alt="メニュー" src="../_images/Dashboard_menu_icon.png" style="width: 700px;" /></a>
-</div>
-<div class="section" id="id3">
-<h4>会社情報メニュー<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<a class="reference internal image-reference" href="../_images/Dashboard_sidemenu_companyinfo.png"><img alt="会社管理 &gt; 会社情報" src="../_images/Dashboard_sidemenu_companyinfo.png" style="width: 700px;" /></a>
-</div>
-<div class="section" id="id4">
-<h4>会社情報 &gt; 基本情報<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<a class="reference internal image-reference" href="../_images/companyinfo_companyid.png"><img alt="会社情報 &gt; 基本情報" src="../_images/companyinfo_companyid.png" style="width: 700px;" /></a>
-</div>
-</div>
-<div class="section" id="id5">
-<h3>テンプレート ID の確認<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><strong>テンプレート管理</strong> メニューに移動し、使用したいテンプレートの設定アイコンをクリックすると、そのテンプレートの URL から form_id を確認することができます。</p>
-<div class="section" id="id6">
-<h4>テンプレート管理メニュー<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<a class="reference internal image-reference" href="../_images/sidemenu_managetemplate.png"><img alt="メニュー &gt; テンプレート管理" src="../_images/sidemenu_managetemplate.png" style="width: 700px;" /></a>
-</div>
-<div class="section" id="id7">
-<h4>テンプレート管理画面<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<a class="reference internal image-reference" href="../_images/managetemplate.png"><img alt="テンプレート管理画面" src="../_images/managetemplate.png" style="width: 700px;" /></a>
-</div>
-<div class="section" id="id8">
-<h4>テンプレート ID の位置<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<a class="reference internal image-reference" href="../_images/templateURL_templateID.png"><img alt="テンプレート ID の位置" src="../_images/templateURL_templateID.png" style="width: 700px;" /></a>
-</div>
-</div>
-</div>
-<div class="section" id="id9">
-<h2>インストール<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>eformsign の機能を利用したい Web ページに次のスクリプトを追加します。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">//jquery</span>
-<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;https://www.eformsign.com/plugins/jquery/jquery.min.js&quot;</span><span class="o">/&gt;</span>
-<span class="c1">//eformsign embedded script</span>
-<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;https://www.eformsign.com/lib/js/efs_embedded_v2.js&quot;</span><span class="o">/&gt;</span>
-<span class="c1">//eformsign redirect script</span>
-<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;https://www.eformsign.com/lib/js/efs_redirect_v2.js&quot;</span><span class="o">/&gt;</span>
-=======
              
-<<<<<<< HEAD
-  <hr class="docutils" />
-<p>eformsignの機能をお客様の提供するサービス・サイト内に埋め込むことで、サービス・サイトを利用するユーザー（エンドユーザー）がeformsignのサイトに接続することなく、eformsignの電子帳票をご利用いただくことができます。</p>
-<p>※ブログ内にYouTubeの動画を挿入するようなイメージです。</p>
-<section id="id1">
-<h1>チュートリアル<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h1>
-<section id="id2">
-<h2>概要<a class="headerlink" href="#id2" title="この見出しへのパーマリンク"></a></h2>
-=======
   <section id="eformsign">
 <h1>eformsign機能の埋め込み<a class="headerlink" href="#eformsign" title="この見出しへのパーマリンク"></a></h1>
 <p>eformsignの機能をお客様の提供するサービス・サイト内に埋め込むことで、サービス・サイトを利用するユーザー（エンドユーザー）がeformsignのサイトに接続することなく、eformsignの電子帳票をご利用いただくことができます。</p>
@@ -376,7 +149,6 @@
 <h2>チュートリアル<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h2>
 <section id="id2">
 <h3>概要<a class="headerlink" href="#id2" title="この見出しへのパーマリンク"></a></h3>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <p>eformsignの埋め込みは、次のような機能に対応しています。</p>
 <ul class="simple">
 <li><p>テンプレートで文書作成</p></li>
@@ -388,13 +160,8 @@
 <li><p>テンプレートの複製</p></li>
 </ul>
 <p>上記の機能を埋め込むためのオブジェクトは、現在EformSignDocumentとEformSignTemplateの2種類をご提供しています。各オブジェクトが対応している機能を確認し、インストールしてください。</p>
-<<<<<<< HEAD
-<section id="eformsign">
-<h3>eformsignの埋め込みオブジェクト<a class="headerlink" href="#eformsign" title="この見出しへのパーマリンク"></a></h3>
-=======
 <section id="id3">
 <h4>eformsignの埋め込みオブジェクト<a class="headerlink" href="#id3" title="この見出しへのパーマリンク"></a></h4>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>オブジェクト名</p></th>
@@ -423,13 +190,8 @@
 </table>
 </section>
 </section>
-<<<<<<< HEAD
-<section id="id3">
-<h2>インストール方法<a class="headerlink" href="#id3" title="この見出しへのパーマリンク"></a></h2>
-=======
 <section id="id4">
 <h3>インストール方法<a class="headerlink" href="#id4" title="この見出しへのパーマリンク"></a></h3>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <p>eformsignの機能を使用するウェブページに次のスクリプトを追加します。</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!--</span><span class="nx">jQuery</span><span class="o">--&gt;</span>
 <span class="o">&lt;</span><span class="nx">script</span><span class="w"> </span><span class="nx">src</span><span class="o">=</span><span class="s2">&quot;https://www.eformsign.com/plugins/jquery/jquery.min.js&quot;</span><span class="o">/&gt;</span>
@@ -437,380 +199,16 @@
 <span class="o">&lt;</span><span class="nx">script</span><span class="w"> </span><span class="nx">src</span><span class="o">=</span><span class="s2">&quot;https://www.eformsign.com/lib/js/efs_embedded_v2.js&quot;</span><span class="o">/&gt;</span>
 <span class="c">&lt;!--</span><span class="nx">EformSignTemplateオブジェクト</span><span class="o">--&gt;</span>
 <span class="o">&lt;</span><span class="nx">script</span><span class="w"> </span><span class="nx">src</span><span class="o">=</span><span class="s2">&quot;https://www.eformsign.com/lib/js/efs_embedded_form.js&quot;</span><span class="o">/&gt;</span>
->>>>>>> 6de2e9505afa191464aa7eec85dc2a60a3a28856
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<<<<<<< HEAD
-<p>eformsign の機能を組み込みたいページに上記のスクリプトを追加すると、eformsign のオブジェクトをグローバル変数として使用することができます。</p>
-=======
 <p>eformsign機能を挿入するページにこのスクリプトを追加することで、eformsign埋め込み用オブジェクトをグローバル変数として使用することができます。
 スクリプトはHTMLファイル内のhead、bodyなど、どの位置に追加しても構いませんが、eformsign埋め込み用オブジェクトを使用する前に先に宣言する必要があります。
 jQueryの場合、すでに他の方法でウェブページに追加されているなら、重複して追加する必要はありません。</p>
->>>>>>> 6de2e9505afa191464aa7eec85dc2a60a3a28856
 </div>
 </section>
 </section>
-<<<<<<< HEAD
-<section id="id4">
-<h1>埋め込みオプションの設定<a class="headerlink" href="#id4" title="この見出しへのパーマリンク"></a></h1>
-<p>eformsignの機能を埋め込む場合、埋め込む機能の詳細オプションをJSON形式で設定する必要があります。
-会社情報、埋め込みモード、ユーザー情報、レイアウト、自動入力などを設定することができます。</p>
-<section id="id5">
-<h2><strong>各機能の設定値</strong><a class="headerlink" href="#id5" title="この見出しへのパーマリンク"></a></h2>
-<p>eformsignの機能埋め込みは、使用するオブジェクト、モードによって動作する機能が異なります。
-以下の表から各機能で使用するオブジェクトと埋め込みモードをご確認ください。</p>
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
-<p>埋め込みモードの設定は、document_optionまたはtemplate_optionサブの&quot;mode&quot; Objectに値を入力することで行います。詳しい設定方法は各機能ページをご参照ください。</p>
-</div>
-<<<<<<< HEAD
-<div class="section" id="id10">
-<h2>eformsign のオブジェクトについての情報<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>eformsign のオブジェクトは、 embedding と redirect の2つのタイプで構成されています。</p>
-=======
->>>>>>> 6de2e9505afa191464aa7eec85dc2a60a3a28856
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>埋め込み可能</p></th>
-<th class="head"><p>使用するオブジェクト</p></th>
-<th class="head"><p>埋め込みモード</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>テンプレートで文書作成</p></td>
-<td><p>EformSignDocument</p></td>
-<td><p>&quot;type&quot;: &quot;01&quot;</p></td>
-</tr>
-<tr class="row-odd"><td><p>文書の処理</p></td>
-<td><p>EformSignDocument</p></td>
-<td><p>&quot;type&quot;: &quot;02&quot;</p></td>
-</tr>
-<tr class="row-even"><td><p>文書のプレビュー</p></td>
-<td><p>EformSignDocument</p></td>
-<td><p>&quot;type&quot;: &quot;03&quot;</p></td>
-</tr>
-<tr class="row-odd"><td><p>マイファイルで文書作成</p></td>
-<td><p>EformSignTemplate</p></td>
-<td><p>&quot;type&quot;: &quot;01&quot;, &quot;template_type&quot;: &quot;unstructured_form&quot;</p></td>
-</tr>
-<tr class="row-even"><td><p>テンプレートの生成</p></td>
-<td><p>EformSignTemplate</p></td>
-<td><p>&quot;type&quot;: &quot;01&quot;, &quot;template_type&quot;: &quot;form&quot;</p></td>
-</tr>
-<tr class="row-odd"><td><p>テンプレートの修正</p></td>
-<td><p>EformSignTemplate</p></td>
-<td><p>&quot;type&quot;: &quot;02&quot;, &quot;template_type&quot;: &quot;form&quot;</p></td>
-</tr>
-<tr class="row-even"><td><p>テンプレートの複製</p></td>
-<td><p>EformSignTemplate</p></td>
-<td><p>&quot;type&quot;: &quot;03&quot;, &quot;template_type&quot;: &quot;form&quot;</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="id6">
-<h2><strong>必要な値の確認</strong><a class="headerlink" href="#id6" title="この見出しへのパーマリンク"></a></h2>
-<p>埋め込みオプションを設定する際、挿入する機能によっては、会社ID、テンプレートID、文書IDを入力する必要があります。</p>
-</section>
-<section id="id">
-<h2>会社IDの確認方法<a class="headerlink" href="#id" title="この見出しへのパーマリンク"></a></h2>
-</section>
-<section id="id7">
-<h2>eformsign 機能の組み込み<a class="headerlink" href="#id7" title="この見出しへのパーマリンク"></a></h2>
-<p>eformsign 機能を組み込んで連動すると、顧客が提供しているサイト/サービス内で顧客会社のユーザー（エンドユーザー）が eformsign サービスサイトを介さず自然に eformsign の電子文書を利用することができます。
-例えば、ブログで特定の YouTube 動画を表示したいとき、ブログに YouTube 動画を直接挿入することで、その動画をブログ内ですぐ再生できるようにする方式と類似しています。</p>
-</section>
-</section>
-<section id="id8">
-<h1>始めてみよう<a class="headerlink" href="#id8" title="この見出しへのパーマリンク"></a></h1>
-<p>eformsign embedding 機能を利用するためには、会社 ID とテンプレート ID が必要です。</p>
-<section id="id9">
-<h2>会社 ID の確認<a class="headerlink" href="#id9" title="この見出しへのパーマリンク"></a></h2>
-<p><strong>会社管理 &gt; 会社情報 &gt; 基本情報</strong> で会社 ID を確認することができます。</p>
-<p>メインメニュー
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; parent of 72c99e6 (embedding 업데이트)
--------------------------</p>
-<p>会社IDは、会社管理者または代表管理者アカウントでログイン後、<strong>会社管理 &gt; 会社情報 &gt; 基本情報</strong>で会社IDを確認することができます。</p>
-<ol class="arabic simple">
-<li><p>eformsignのサイドバーメニューから <strong>会社情報</strong> メニューをクリックします。</p></li>
-</ol>
-<a class="reference internal image-reference" href="../_images/Dashboard_sidemenu_companyinfo.png"><img alt="eformsign　会社情報メニュー" src="../_images/Dashboard_sidemenu_companyinfo.png" style="width: 700px;" /></a>
-<ol class="arabic simple" start="2">
-<li><p><strong>会社情報 &gt; 基本情報</strong>から <strong>会社ID</strong>を確認します。</p></li>
-</ol>
-<a class="reference internal image-reference" href="../_images/companyinfo_companyid.png"><img alt="会社情報 &gt; 基本情報" src="../_images/companyinfo_companyid.png" style="width: 700px;" /></a>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-テンプレートIDの確認方法
--------------------------</p>
-<p>テンプレート管理メニューに移動し、テンプレートの設定アイコンをクリックすると、テンプレートのURLからform_idを確認することができます。</p>
-<ol class="arabic simple">
-<li><p>eformsignサイドバーメニューの <strong>テンプレート管理</strong>をクリックします。</p></li>
-</ol>
-<img alt="eformsign メニュー、テンプレート管理" src="../_images/sidemenu_managetemplate.png" />
-<p><strong>テンプレート管理</strong> メニューに移動し、使用したいテンプレートの設定アイコンをクリックすると、そのテンプレートの URL から form_id を確認することができます。</p>
-<section id="id10">
-<h3>テンプレート管理メニュー<a class="headerlink" href="#id10" title="この見出しへのパーマリンク"></a></h3>
-<a class="reference internal image-reference" href="../_images/sidemenu_managetemplate.png"><img alt="メニュー &gt; テンプレート管理" src="../_images/sidemenu_managetemplate.png" style="width: 700px;" /></a>
-</section>
-<section id="id11">
-<h3>テンプレート管理画面<a class="headerlink" href="#id11" title="この見出しへのパーマリンク"></a></h3>
-<a class="reference internal image-reference" href="../_images/managetemplate.png"><img alt="テンプレート管理画面" src="../_images/managetemplate.png" style="width: 700px;" /></a>
-</section>
-<section id="id12">
-<h3>テンプレート ID の位置<a class="headerlink" href="#id12" title="この見出しへのパーマリンク"></a></h3>
-<img alt="テンプレート ID の位置" src="../_images/templateURL_templateID.png" />
-<dl class="simple">
-<dt>&gt;&gt;&gt;&gt;&gt;&gt;&gt; parent of 72c99e6 (embedding 업데이트)</dt><dd><dl class="field-list simple">
-<dt class="field-odd">width<span class="colon">:</span></dt>
-<dd class="field-odd"><p>700px</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<ol class="arabic simple" start="2">
-<li><p>eformsignテンプレート管理画面で、当該テンプレートの <strong>設定</strong> ボタンをクリックします。</p></li>
-</ol>
-<a class="reference internal image-reference" href="../_images/managetemplate.png"><img alt="eformsign テンプレート管理画面" src="../_images/managetemplate.png" style="width: 700px;" /></a>
-<ol class="arabic simple" start="3">
-<li><p>テンプレートのURLから <strong>テンプレートID(=form_id)</strong>を確認します。</p></li>
-</ol>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-.. image:: resources/templateURL_templateID.png</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">alt<span class="colon">:</span></dt>
-<dd class="field-odd"><p>テンプレートIDの位置</p>
-</dd>
-<dt class="field-even">width<span class="colon">:</span></dt>
-<dd class="field-even"><p>700px</p>
-</dd>
-</dl>
-</div></blockquote>
-</section>
-<section id="id13">
-<h3>文書IDの確認方法<a class="headerlink" href="#id13" title="この見出しへのパーマリンク"></a></h3>
-<p>文書IDは、文書が存在する文書トレイから確認できます。</p>
-<p>1.eformsignサイドバーのメニューから <strong>文書が存在する文書トレイ</strong> メニューをクリックします。</p>
-<a class="reference internal image-reference" href="../_images/sidemenu_documentinbox.png"><img alt="eformsign メニュー　テンプレート管理" src="../_images/sidemenu_documentinbox.png" style="width: 700px;" /></a>
-<p>2.文書トレイの右上の <strong>カラム選択アイコン</strong> (<a class="reference internal" href="../_images/column_icon.png"><img alt="image1" src="../_images/column_icon.png" style="width: 25px;" /></a>)をクリック後、文書IDをチェックすると、リストに <strong>文書ID</strong> の列が追加され、文書IDを確認することができます。</p>
-<a class="reference internal image-reference" href="../_images/document_id_column.png"><img alt="eformsign 文書トレイ　文書ID列の追加" src="../_images/document_id_column.png" style="width: 700px;" /></a>
-</section>
-</section>
-<section id="id14">
-<h2>テンプレート文書作成、文書の処理、文書のプレビュー<a class="headerlink" href="#id14" title="この見出しへのパーマリンク"></a></h2>
-<p>eformsignを埋め込んでテンプレートで文書の作成・受信した文書の処理・生成された文書のプレビュー機能を挿入する場合について説明します。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">eformsign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EformSignDocument</span><span class="p">();</span>
-
-<span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">   </span><span class="s2">&quot;company&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="s2">&quot;id&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">            </span><span class="c1">// Company IDを入力</span>
-<span class="w">      </span><span class="s2">&quot;country_code&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// 国コードを入力 (例: ja)</span>
-<span class="w">      </span><span class="s2">&quot;user_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w">        </span><span class="c1">// 顧客側のシステムにログインしたユーザーのunique key. ブラウザクッキーのeformsignログイン情報との比較に使用</span>
-<span class="w">   </span><span class="p">},</span>
-<span class="w">   </span><span class="s2">&quot;user&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;type&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;01&quot;</span><span class="w"> </span><span class="p">,</span><span class="w">         </span><span class="c1">// ユーザーの識別 (01: メンバー、02: 外部者)</span>
-<span class="w">        </span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;test1@forcs.com&quot;</span><span class="w"> </span><span class="c1">// ユーザーID（メールアドレス）</span>
-<span class="w">        </span><span class="s2">&quot;access_token&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">    </span><span class="c1">// Access Tokenの入力（eformsign APIの使い方 - OpenAPI Access Tokenを参照）</span>
-<span class="w">        </span><span class="s2">&quot;refresh_token&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1">// Refresh Tokenの入力（eformsign APIの使い方 - OpenAPI Access Tokenを参照）</span>
-<span class="w">        </span><span class="s2">&quot;external_token&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// 外部者が処理する際に、ユーザーを認証するExternal Tokenを入力（Webhookから提供）</span>
-<span class="w">        </span><span class="s2">&quot;external_user_info&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">           </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w">          </span><span class="c1">// 外部者が処理する際に、外部者の名前を入力</span>
-</pre></div>
-</div>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">//jquery</span>
-<span class="o">&lt;</span><span class="nx">script</span><span class="w"> </span><span class="nx">src</span><span class="o">=</span><span class="s2">&quot;https://www.eformsign.com/plugins/jquery/jquery.min.js&quot;</span><span class="o">/&gt;</span>
-<span class="c1">//eformsign embedded script</span>
-<span class="o">&lt;</span><span class="nx">script</span><span class="w"> </span><span class="nx">src</span><span class="o">=</span><span class="s2">&quot;https://www.eformsign.com/lib/js/efs_embedded_v2.js&quot;</span><span class="o">/&gt;</span>
-<span class="c1">//eformsign redirect script</span>
-<span class="o">&lt;</span><span class="nx">script</span><span class="w"> </span><span class="nx">src</span><span class="o">=</span><span class="s2">&quot;https://www.eformsign.com/lib/js/efs_redirect_v2.js&quot;</span><span class="o">/&gt;</span>
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
-<p>eformsign の機能を組み込みたいページに上記のスクリプトを追加すると、eformsign のオブジェクトをグローバル変数として使用することができます。</p>
-</div>
-</section>
-</section>
-<section id="id15">
-<h1>eformsign のオブジェクトについての情報<a class="headerlink" href="#id15" title="この見出しへのパーマリンク"></a></h1>
-<p>eformsign のオブジェクトは、 embedding と redirect の2つのタイプで構成されています。</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Type</p></th>
-<th class="head"><p>Name</p></th>
-<th class="head"><p>説明</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>embedding</p></td>
-<td><p>eformsign.document
-(document_option,
-iframe_id,
-success_callback,
-error_callback)</p></td>
-<td><p>eformsignを組み込み、文書を作成  　
-できる関数</p>
-<p>callbackパラメーターはオプション</p>
-<ul class="simple">
-<li><p>document_option, iframe_id: 必須</p></li>
-<li><p>success_callback: オプション</p></li>
-<li><p>error_callback: オプション</p></li>
-</ul>
-</td>
-</tr>
-<tr class="row-odd"><td><p>redirect</p></td>
-<td><p>eformsign.document
-(document_option)</p></td>
-<td><p>eformsignへのページ転換方式で
-文書を作成できるようにする関数</p>
-<ul class="simple">
-<li><p>document_option : 必須</p></li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<<<<<<< HEAD
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
-<p>redirect 方式は、今後対応する予定です。</p>
-</div>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">eformsign</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EformSign</span><span class="p">();</span>
-
-<span class="kd">var</span> <span class="nx">document_option</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">&quot;company&quot;</span> <span class="o">:</span> <span class="p">{</span>
-     <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// company id 入力</span>
-     <span class="s2">&quot;country_code&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// 国コード入力 (ex: kr)</span>
-     <span class="s2">&quot;user_key&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span>  <span class="c1">// 顧客システムの固有なキー（顧客システムにログインしたユーザーの unique key）- option</span>
-  <span class="p">},</span>
-  <span class="s2">&quot;user&quot;</span> <span class="o">:</span> <span class="p">{</span>
-       <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;01&quot;</span> <span class="p">,</span>
-       <span class="s2">&quot;access_token&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// access Tokenを入力。openAPI accessTokenを参照</span>
-       <span class="s2">&quot;refresh_token&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// refresh Tokenを入力。openAPI accessTokenを参照</span>
-       <span class="s2">&quot;external_token&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// 外部処理の場合、external Tokenを入力。openAPI accessTokenを参照</span>
-       <span class="s2">&quot;external_user_info&quot;</span> <span class="o">:</span> <span class="p">{</span>
-          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span> <span class="c1">// 外部処理の場合、外部受信者の名前を入力</span>
-       <span class="p">}</span>
-   <span class="p">},</span>
-   <span class="s2">&quot;mode&quot;</span> <span class="o">:</span> <span class="p">{</span>
-       <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;02&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;template_id&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// template idを入力</span>
-       <span class="s2">&quot;document_id&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span>  <span class="c1">// document_idを入力</span>
-   <span class="p">},</span>
-   <span class="s2">&quot;prefill&quot;</span> <span class="o">:</span> <span class="p">{</span>
-       <span class="s2">&quot;document_name&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// 文書のタイトルを入力</span>
-       <span class="s2">&quot;fields&quot;</span><span class="o">:</span> <span class="p">[</span> <span class="p">{</span>
-           <span class="s2">&quot;id&quot;</span> <span class="p">;</span> <span class="s2">&quot;顧客名&quot;</span><span class="p">,</span>
-           <span class="s2">&quot;value&quot;</span> <span class="o">:</span> <span class="s2">&quot;木村&quot;</span><span class="p">,</span>
-           <span class="s2">&quot;enabled&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-           <span class="s2">&quot;required&quot;</span> <span class="o">:</span> <span class="kc">true</span>
-       <span class="p">}]</span>
-   <span class="p">},</span>
-   <span class="s2">&quot;return_fields&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s1">&#39;顧客名&#39;</span><span class="p">]</span>
-<span class="p">};</span>
-
-<span class="c1">//callback option</span>
-<span class="kd">var</span> <span class="nx">success_callback</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">){</span>
-   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">code</span><span class="p">);</span>
-   <span class="k">if</span><span class="p">(</span> <span class="nx">response</span><span class="p">.</span><span class="nx">code</span> <span class="o">==</span> <span class="s2">&quot;-1&quot;</span><span class="p">){</span>
-       <span class="c1">//文書の作成に成功</span>
-       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">document_id</span><span class="p">);</span>
-       <span class="c1">// return_fieldsに返したデータを照会することができる。fields とは、フォームを作成するときに作った入力コンポーネントのidを意味する。</span>
-       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">field_values</span><span class="p">[</span><span class="s2">&quot;company_name&quot;</span><span class="p">]);</span>
-       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">field_values</span><span class="p">[</span><span class="s2">&quot;position&quot;</span><span class="p">]);</span>
-   <span class="p">}</span>
-<span class="p">};</span>
-
-<span class="kd">var</span> <span class="nx">error_callback</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">){</span>
-   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">code</span><span class="p">);</span>
-   <span class="c1">//文書の作成に失敗</span>
-   <span class="nx">alert</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
-
-<span class="p">};</span>
-
-<span class="nx">eformsign</span><span class="p">.</span><span class="nb">document</span><span class="p">(</span><span class="nx">document_option</span> <span class="p">,</span> <span class="s2">&quot;eformsign_iframe&quot;</span> <span class="p">,</span> <span class="nx">success_callback</span> <span class="p">,</span> <span class="nx">error_callback</span>  <span class="p">);</span>
-</pre></div>
-</div>
-<div class="section" id="embedding-document">
-<h3>embedding_document 関数<a class="headerlink" href="#embedding-document" title="このヘッドラインへのパーマリンク">¶</a></h3>
-=======
->>>>>>> 6de2e9505afa191464aa7eec85dc2a60a3a28856
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
-<p>redirect 方式は、今後対応する予定です。</p>
-</div>
-<<<<<<< HEAD
-<p>eformsign を組み込み、顧客会社のサイト/サービスで文書を作成できるようにする関数です。 eformsign の document 関数を呼び出して使用してください。</p>
-<p>大きく document_option と callback の2つのパラメーターを使用することができます。</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 18%" />
-<col style="width: 14%" />
-<col style="width: 9%" />
-<col style="width: 59%" />
-</colgroup>
-=======
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">eformsign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EformSign</span><span class="p">();</span>
-
-<span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="s2">&quot;company&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">     </span><span class="s2">&quot;id&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// company id 入力</span>
-<span class="w">     </span><span class="s2">&quot;country_code&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// 国コード入力 (ex: kr)</span>
-<span class="w">     </span><span class="s2">&quot;user_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w">  </span><span class="c1">// 顧客システムの固有なキー（顧客システムにログインしたユーザーの unique key）- option</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="s2">&quot;user&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">       </span><span class="s2">&quot;type&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;01&quot;</span><span class="w"> </span><span class="p">,</span>
-<span class="w">       </span><span class="s2">&quot;access_token&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// access Tokenを入力。openAPI accessTokenを参照</span>
-<span class="w">       </span><span class="s2">&quot;refresh_token&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// refresh Tokenを入力。openAPI accessTokenを参照</span>
-<span class="w">       </span><span class="s2">&quot;external_token&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// 外部処理の場合、external Tokenを入力。openAPI accessTokenを参照</span>
-<span class="w">       </span><span class="s2">&quot;external_user_info&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="c1">// 外部処理の場合、外部受信者の名前を入力</span>
-<span class="w">       </span><span class="p">}</span>
-<span class="w">   </span><span class="p">},</span>
-<span class="w">   </span><span class="s2">&quot;mode&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">       </span><span class="s2">&quot;type&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;02&quot;</span><span class="p">,</span>
-<span class="w">       </span><span class="s2">&quot;template_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// template idを入力</span>
-<span class="w">       </span><span class="s2">&quot;document_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w">  </span><span class="c1">// document_idを入力</span>
-<span class="w">   </span><span class="p">},</span>
-<span class="w">   </span><span class="s2">&quot;prefill&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">       </span><span class="s2">&quot;document_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// 文書のタイトルを入力</span>
-<span class="w">       </span><span class="s2">&quot;fields&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">           </span><span class="s2">&quot;id&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="s2">&quot;顧客名&quot;</span><span class="p">,</span>
-<span class="w">           </span><span class="s2">&quot;value&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;木村&quot;</span><span class="p">,</span>
-<span class="w">           </span><span class="s2">&quot;enabled&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">           </span><span class="s2">&quot;required&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
-<span class="w">       </span><span class="p">}]</span>
-<span class="w">   </span><span class="p">},</span>
-<span class="w">   </span><span class="s2">&quot;return_fields&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;顧客名&#39;</span><span class="p">]</span>
-<span class="p">};</span>
-
-<span class="c1">//callback option</span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">success_callback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">){</span>
-<span class="w">   </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">code</span><span class="p">);</span>
-<span class="w">   </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">code</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;-1&quot;</span><span class="p">){</span>
-<span class="w">       </span><span class="c1">//文書の作成に成功</span>
-<span class="w">       </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">document_id</span><span class="p">);</span>
-<span class="w">       </span><span class="c1">// return_fieldsに返したデータを照会することができる。fields とは、フォームを作成するときに作った入力コンポーネントのidを意味する。</span>
-<span class="w">       </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">field_values</span><span class="p">[</span><span class="s2">&quot;company_name&quot;</span><span class="p">]);</span>
-<span class="w">       </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">field_values</span><span class="p">[</span><span class="s2">&quot;position&quot;</span><span class="p">]);</span>
-<span class="w">   </span><span class="p">}</span>
-<span class="p">};</span>
-
-<span class="kd">var</span><span class="w"> </span><span class="nx">error_callback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">){</span>
-<span class="w">   </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">code</span><span class="p">);</span>
-<span class="w">   </span><span class="c1">//文書の作成に失敗</span>
-<span class="w">   </span><span class="nx">alert</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
-
-<span class="p">};</span>
-
-<span class="nx">eformsign</span><span class="p">.</span><span class="nb">document</span><span class="p">(</span><span class="nx">document_option</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eformsign_iframe&quot;</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nx">success_callback</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nx">error_callback</span><span class="w">  </span><span class="p">);</span>
-</pre></div>
-</div>
-<section id="embedding-document">
-<h2>embedding_document 関数<a class="headerlink" href="#embedding-document" title="この見出しへのパーマリンク"></a></h2>
-=======
 <section id="id5">
 <h2>埋め込みオプションの設定<a class="headerlink" href="#id5" title="この見出しへのパーマリンク"></a></h2>
 <p>eformsignの機能を埋め込む場合、埋め込む機能の詳細オプションをJSON形式で設定する必要があります。
@@ -819,295 +217,10 @@ error_callback)</p></td>
 <h3><strong>各機能の設定値</strong><a class="headerlink" href="#id6" title="この見出しへのパーマリンク"></a></h3>
 <p>eformsignの機能埋め込みは、使用するオブジェクト、モードによって動作する機能が異なります。
 以下の表から各機能で使用するオブジェクトと埋め込みモードをご確認ください。</p>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
 <p>埋め込みモードの設定は、document_optionまたはtemplate_optionサブの&quot;mode&quot; Objectに値を入力することで行います。詳しい設定方法は各機能ページをご参照ください。</p>
 </div>
-<<<<<<< HEAD
-<p>eformsign を組み込み、顧客会社のサイト/サービスで文書を作成できるようにする関数です。 eformsign の document 関数を呼び出して使用してください。</p>
-<p>大きく document_option と callback の2つのパラメーターを使用することができます。</p>
-<table class="docutils align-default">
->>>>>>> 6de2e9505afa191464aa7eec85dc2a60a3a28856
-<thead>
-<tr class="row-odd"><th class="head"><p>Paramter Name</p></th>
-<th class="head"><p>Paramter Type</p></th>
-<th class="head"><p>必須入力</p></th>
-<th class="head"><p>説明</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>document_option</p></td>
-<td><p>Json</p></td>
-<td><p>O</p></td>
-<td><p>組み込み後にeformsignを起動すると、document関連オプションを指定</p></td>
-</tr>
-<tr class="row-odd"><td><p>iframe_id</p></td>
-<td><p>String</p></td>
-<td><p>O</p></td>
-<td><p>組み込み後に表示されるiframe id</p></td>
-</tr>
-<tr class="row-even"><td><p>success_callback</p></td>
-<td><p>function</p></td>
-<td><p>X</p></td>
-<td><p>eformsign文書の作成に成功した場合、呼び出されるcallback関数</p></td>
-</tr>
-<tr class="row-odd"><td><p>error_callback</p></td>
-<td><p>function</p></td>
-<td><p>X</p></td>
-<td><p>eformsign文書の作成に失敗した場合、呼び出されるcallback関数</p></td>
-</tr>
-</tbody>
-</table>
-<<<<<<< HEAD
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">eformsign</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EformSign</span><span class="p">();</span>
-<span class="kd">var</span> <span class="nx">document_option</span> <span class="o">=</span> <span class="p">{</span>
-   <span class="s2">&quot;company&quot;</span><span class="o">:</span> <span class="p">{</span>
-       <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// company idを入力</span>
-       <span class="s2">&quot;country_code&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// 国コードを入力 (ex: kr)</span>
-       <span class="s2">&quot;user_key&quot;</span><span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="c1">// 顧客システムの固有なKey (顧客システムにログインしたユーザーのunique key) - option</span>
-   <span class="p">},</span>
-   <span class="s2">&quot;user&quot;</span><span class="o">:</span> <span class="p">{</span>
-       <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;01&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;access_token&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// access Tokenを入力。openAPIのaccessTokenを参照</span>
-       <span class="s2">&quot;refresh_token&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// refresh Tokenを入力。openAPIのaccessTokenを参照</span>
-       <span class="s2">&quot;external_token&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// 外部処理の場合、external Tokenを入力。openAPIのaccessTokenを参照</span>
-       <span class="s2">&quot;external_user_info&quot;</span><span class="o">:</span> <span class="p">{</span>
-           <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span> <span class="c1">// 外部処理の場合、外部受信者の名前を入力</span>
-       <span class="p">}</span>
-   <span class="p">},</span>
-   <span class="s2">&quot;mode&quot;</span><span class="o">:</span> <span class="p">{</span>
-       <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;02&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;template_id&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// template idを入力</span>
-       <span class="s2">&quot;document_id&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span> <span class="c1">// document_idを入力</span>
-   <span class="p">},</span>
-   <span class="s2">&quot;prefill&quot;</span><span class="o">:</span> <span class="p">{</span>
-       <span class="s2">&quot;document_name&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// 文書のタイトルを入力</span>
-       <span class="s2">&quot;fields&quot;</span><span class="o">:</span> <span class="p">[{</span>
-           <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-           <span class="s2">&quot;顧客名&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-           <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;木村&quot;</span><span class="p">,</span>
-           <span class="s2">&quot;enabled&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-           <span class="s2">&quot;required&quot;</span><span class="o">:</span> <span class="kc">true</span>
-       <span class="p">}]</span>
-   <span class="p">},</span>
-   <span class="s2">&quot;return_fields&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;顧客名&#39;</span><span class="p">]</span>
-<span class="p">};</span>
-
-<span class="c1">//callback option</span>
-<span class="kd">var</span> <span class="nx">success_callback</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">code</span><span class="p">);</span>
-   <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">code</span> <span class="o">==</span> <span class="s2">&quot;-1&quot;</span><span class="p">)</span> <span class="p">{</span>
-       <span class="c1">//文書の作成に成功</span>
-       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">document_id</span><span class="p">);</span>
-       <span class="c1">// return_fieldsに返したデータを照会することができる。fieldsとは、フォームを作成するときに作った入力コンポーネントのidを意味する。</span>
-       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">field_values</span><span class="p">[</span><span class="s2">&quot;company_name&quot;</span><span class="p">]);</span>
-       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">field_values</span><span class="p">[</span><span class="s2">&quot;position&quot;</span><span class="p">]);</span>
-   <span class="p">}</span>
-<span class="p">};</span>
-
-
-<span class="kd">var</span> <span class="nx">error_callback</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">code</span><span class="p">);</span>
-   <span class="c1">//文書の作成に失敗</span>
-   <span class="nx">alert</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
-
-<span class="p">};</span>
-
-<span class="nx">eformsign</span><span class="p">.</span><span class="nb">document</span><span class="p">(</span><span class="nx">document_option</span><span class="p">,</span> <span class="s2">&quot;eformsign_iframe&quot;</span><span class="p">,</span> <span class="nx">success_callback</span><span class="p">,</span> <span class="nx">error_callback</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="document-option">
-<h3>パラメーターの説明：document-option<a class="headerlink" href="#document-option" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>document-option では大きく次の5つの項目を設定することができます。</p>
-<ul class="simple">
-<li><p>会社情報</p></li>
-<li><p>ユーザー情報</p></li>
-<li><p>モード</p></li>
-<li><p>リターンフィールド</p></li>
-<li><p>自動入力</p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
-<p>会社情報とモードは必須入力情報です。</p>
-</div>
-<div class="section" id="id11">
-<h4>1. 会社情報（必須）<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span>  <span class="kd">var</span> <span class="nx">document_option</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;company&quot;</span> <span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="s1">&#39;f9aec832efef4133a1e849efaf8a9aed&#39;</span><span class="p">,</span>  <span class="c1">// 会社管理 &gt; 会社情報 の会社idを確認 (必須)</span>
-        <span class="s2">&quot;country_code&quot;</span> <span class="o">:</span> <span class="s2">&quot;kr&quot;</span><span class="p">,</span> <span class="c1">// 必須ではないが、クィックオープンのため、指定することを推奨 (会社管理 &gt; 会社情報 で国コードを指定)</span>
-        <span class="s2">&quot;user_key&quot;</span><span class="o">:</span> <span class="s2">&quot;eformsign@forcs.com&quot;</span>
-    <span class="p">}</span>
-<span class="p">};</span>
-=======
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">eformsign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EformSign</span><span class="p">();</span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">   </span><span class="s2">&quot;company&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">       </span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// company idを入力</span>
-<span class="w">       </span><span class="s2">&quot;country_code&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// 国コードを入力 (ex: kr)</span>
-<span class="w">       </span><span class="s2">&quot;user_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="c1">// 顧客システムの固有なKey (顧客システムにログインしたユーザーのunique key) - option</span>
-<span class="w">   </span><span class="p">},</span>
-<span class="w">   </span><span class="s2">&quot;user&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">       </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;01&quot;</span><span class="p">,</span>
-<span class="w">       </span><span class="s2">&quot;access_token&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// access Tokenを入力。openAPIのaccessTokenを参照</span>
-<span class="w">       </span><span class="s2">&quot;refresh_token&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// refresh Tokenを入力。openAPIのaccessTokenを参照</span>
-<span class="w">       </span><span class="s2">&quot;external_token&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// 外部処理の場合、external Tokenを入力。openAPIのaccessTokenを参照</span>
-<span class="w">       </span><span class="s2">&quot;external_user_info&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">           </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="c1">// 外部処理の場合、外部受信者の名前を入力</span>
-</pre></div>
-</div>
-<dl>
-<dt>&gt;&gt;&gt;&gt;&gt;&gt;&gt; parent of 72c99e6 (embedding 업데이트)</dt><dd><blockquote>
-<div><p>}</p>
-</div></blockquote>
-<p>},
-&quot;mode&quot;: {</p>
-<blockquote>
-<div><p>&quot;type&quot;: &quot;02&quot;,
-&quot;template_id&quot;: &quot;&quot;, // template idを入力
-&quot;document_id&quot;: &quot;&quot; // document_idを入力</p>
-</div></blockquote>
-<p>},</p>
-</dd>
-<dt>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</dt><dd><blockquote>
-<div><dl class="simple">
-<dt>&quot;layout&quot;<span class="classifier">{</span></dt><dd><p>&quot;lang_code&quot; : &quot;ja&quot; // eformsignの言語 ja, en, ko</p>
-</dd>
-</dl>
-<p>},
-&quot;prefill&quot; : {</p>
-<blockquote>
-<div><p>&quot;document_name&quot;: &quot;&quot;, // 文書タイトルの入力
-&quot;fields&quot;: [</p>
-<blockquote>
-<div><dl class="simple">
-<dt>{</dt><dd><p>&quot;id&quot; ; &quot;顧客名&quot;,       // フィールド名
-&quot;value&quot; : &quot;田中太郎&quot;,    // フィールド値
-&quot;enabled&quot; : true,   // true:活性化 false:非活性化
-&quot;required&quot; : true   // true:入力必須 false:入力任意</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-&quot;recipients&quot;: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><p>&quot;step_idx&quot; : &quot;2&quot;,       // ワークフローの順序。受信者がいる場合は２からスタート
-&quot;step_type&quot;: &quot;06&quot;,      // ステップの種類 05: 参加者、06: 検討者
-&quot;name&quot; : '田中太郎',        // 受信者の氏名
-&quot;id&quot;: &quot;<a class="reference external" href="mailto:test&#37;&#52;&#48;forcs&#46;com">test<span>&#64;</span>forcs<span>&#46;</span>com</a>&quot;, // 受信者ID/メールアドレス
-&quot;sms&quot;: &quot;01023456789&quot;,   // 受信者の携帯電話番号
-&quot;use_mail&quot;: true,       // true: メール通知を使用 false: 不使用
-&quot;use_sms&quot;: true,        // true: SMS通知を使用 false: 不使用
-&quot;auth&quot;: {</p>
-<blockquote>
-<div><p>&quot;password&quot;: &quot;&quot;,     // ワークフロー設定で文書のプレビュー前に本人確認の設定 - 本人確認情報にチェックした場合、パスワードを入力
-&quot;password_hint&quot;: &quot;&quot;,// 上記の条件に従ってパスワードを入力する際、表示されるパスワードのヒント
-&quot;valid&quot;: {</p>
-<blockquote>
-<div><p>&quot;day&quot;: 7,       // 文書の送信期限 (日)
-&quot;hour&quot;: 0       // 文書の送信期限 (時間)</p>
-</div></blockquote>
-<p>}</p>
-</div></blockquote>
-<p>}</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-&quot;comment&quot;: &quot;ここにコメントを入力&quot;     // メッセージ</p>
-</div></blockquote>
-<p>},
-&quot;return_fields&quot; : ['顧客名']           // Success Callbackで値を確認するためのフィールド名</p>
-</div></blockquote>
-<p>};</p>
-<p>//callback option
-var success_callback = function(response){</p>
-<blockquote>
-<div><p>console.log(response.code);
-if( response.code == &quot;-1&quot;){</p>
-<blockquote>
-<div><p>// 文書作成に成功</p>
-</div></blockquote>
-</div></blockquote>
-</dd>
-</dl>
-<blockquote>
-<div><blockquote>
-<div><blockquote>
-<div><dl class="simple">
-<dt>&quot;fields&quot;: [{</dt><dd><p>&quot;id&quot; : &quot;&quot;,
-&quot;顧客名&quot; : &quot;&quot;,
-&quot;value&quot;: &quot;木村&quot;,
-&quot;enabled&quot;: true,
-&quot;required&quot;: true</p>
-</dd>
-</dl>
-<p>}]</p>
-</div></blockquote>
-<p>},
-&quot;return_fields&quot;: ['顧客名']</p>
-</div></blockquote>
-<p>};</p>
-<p>//callback option
-var success_callback = function (response) {</p>
-<blockquote>
-<div><p>console.log(response.code);
-if (response.code == &quot;-1&quot;) {</p>
-<blockquote>
-<div><p>//文書の作成に成功</p>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-<dl>
-<dt>&gt;&gt;&gt;&gt;&gt;&gt;&gt; parent of 72c99e6 (embedding 업데이트)</dt><dd><blockquote>
-<div><blockquote>
-<div><p>console.log(response.document_id);
-// return_fieldsに返したデータを照会することができる。fieldsとは、フォームを作成するときに作った入力コンポーネントのidを意味する。
-console.log(response.field_values[&quot;company_name&quot;]);
-console.log(response.field_values[&quot;position&quot;]);</p>
-</div></blockquote>
-<p>}</p>
-</div></blockquote>
-<p>};</p>
-</dd>
-<dt>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</dt><dd><dl class="simple">
-<dt>var error_callback = function(response){</dt><dd><p>console.log(response.code);
-// 文書作成に失敗</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<hr class="docutils" />
-<blockquote>
-<div><dl class="simple">
-<dt>var error_callback = function (response) {</dt><dd><p>console.log(response.code);
-//文書の作成に失敗</p>
-</dd>
-</dl>
-</div></blockquote>
-<dl class="simple">
-<dt>&gt;&gt;&gt;&gt;&gt;&gt;&gt; parent of 72c99e6 (embedding 업데이트)</dt><dd><p>alert(response.message);</p>
-</dd>
-</dl>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
-<blockquote>
-<div><dl class="simple">
-<dt>var action_callback = function (response) {</dt><dd><p>console.table(response.data);</p>
-</dd>
-</dl>
-<p>};</p>
-<p>eformsign.document(document_option, &quot;eformsign_iframe&quot;, success_callback, error_callback, action_callback);
-eformsign.open();</p>
-</div></blockquote>
-</section>
-<section id="document-option">
-<h2>document_option<a class="headerlink" href="#document-option" title="この見出しへのパーマリンク"></a></h2>
-=======
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>埋め込み可能</p></th>
@@ -1281,7 +394,6 @@ eformsign.open();</p>
 </section>
 <section id="document-option">
 <h3>document_option<a class="headerlink" href="#document-option" title="この見出しへのパーマリンク"></a></h3>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <p>オプション設定のためのJSONは次のような構造になっています。</p>
 <table class="docutils align-default">
 <thead>
@@ -1331,25 +443,12 @@ eformsign.open();</p>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<div><p>eformsign.document(document_option, &quot;eformsign_iframe&quot;, success_callback, error_callback);</p>
-</div></blockquote>
-</section>
-<section id="id16">
-<h2>パラメーターの説明：document-option<a class="headerlink" href="#id16" title="この見出しへのパーマリンク"></a></h2>
-<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; parent of 72c99e6 (embedding 업데이트)</p>
-<p>document-option では大きく次の5つの項目を設定することができます。</p>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-.. note:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>会社情報とモードは入力必須項目です。
-</pre></div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>会社情報とモードは入力必須項目です。</p>
 </div>
 <section id="company">
-<<<<<<< HEAD
-<h3>1．company(会社情報/必須)<a class="headerlink" href="#company" title="この見出しへのパーマリンク"></a></h3>
-=======
 <h4>1．company(会社情報/必須)<a class="headerlink" href="#company" title="この見出しへのパーマリンク"></a></h4>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>変数名</p></th>
@@ -1389,132 +488,12 @@ eformsign.open();</p>
 <span class="w">          </span><span class="s2">&quot;user_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;eformsign@forcs.com&quot;</span>
 <span class="w">      </span><span class="p">}</span>
 <span class="w"> </span><span class="p">};</span>
->>>>>>> 6de2e9505afa191464aa7eec85dc2a60a3a28856
 </pre></div>
 </div>
-<<<<<<< HEAD
-<ul class="simple">
-<li><p>モード</p></li>
-<li><p>リターンフィールド</p></li>
-<li><p>自動入力</p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
-<p>会社情報とモードは必須入力情報です。</p>
-</div>
-<<<<<<< HEAD
-<div class="section" id="id12">
-<h4>2. ユーザー情報（オプション）<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<dl class="simple">
-<dt><strong>メンバーログインによる新規作成</strong></dt><dd><ul class="simple">
-<li><p>ユーザー情報を指定しない場合に該当し、ユーザー情報を指定しません。</p></li>
-<li><p>この場合、eformsign ログインページが起動され、ログイン後に文書を作成することができます。</p></li>
-</ul>
-</dd>
-<dt><strong>メンバーのトークンを利用した作成（新規作成および受信した文書を含む）</strong></dt><dd><ul class="simple">
-<li><p>組み込むと、eformsign にログインせず、特定のアカウントの token を利用して文書を作成したり、受信した文書を作成することができます。</p></li>
-<li><p>トークンの発行は、Open API の Access token の発行によって可能です。</p></li>
-</ul>
-</dd>
-</dl>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">document_option</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;user&quot;</span><span class="o">:</span><span class="p">{</span>
-        <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;01&quot;</span> <span class="p">,</span> <span class="c1">// 01 - internal or  02 - external  (必須)</span>
-        <span class="s2">&quot;access_token&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// access Tokenを入力。openAPI accessTokenを参照</span>
-        <span class="s2">&quot;refresh_token&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// refresh Tokenを入力。openAPI accessTokenを参照</span>
-    <span class="p">}</span>
-<span class="p">};</span>
-</pre></div>
-</div>
-<dl class="simple">
-<dt><strong>メンバーではないユーザーが新規文書を作成</strong></dt><dd><ul class="simple">
-<li><p>eformsign の会員ではないユーザーが文書を作成できるようにする方式</p></li>
-</ul>
-</dd>
-</dl>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">document_option</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;user&quot;</span><span class="o">:</span><span class="p">{</span>
-        <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;02&quot;</span> <span class="p">,</span> <span class="c1">// 01 - internal or  02 - external  (必須)</span>
-        <span class="s2">&quot;external_user_info&quot;</span> <span class="o">:</span> <span class="p">{</span>
-            <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span> <span class="c1">// 外部処理の場合、外部受信者の名前を入力</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">};</span>
-</pre></div>
-</div>
-<dl class="simple">
-<dt><strong>メンバーではないユーザーが受信した文書を作成</strong></dt><dd><ul class="simple">
-<li><p>組み込みのとき、eformsign の会員ではないユーザーが受信した文書を作成できるようにする方式</p></li>
-</ul>
-</dd>
-</dl>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">document_option</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;user&quot;</span><span class="o">:</span><span class="p">{</span>
-    <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;02&quot;</span> <span class="p">,</span> <span class="c1">// 01 - internal or  02 - external  (必須)</span>
-    <span class="s2">&quot;external_token&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// 外部処理の場合、external Tokenを入力。openAPI accessTokenを参照</span>
-    <span class="s2">&quot;external_user_info&quot;</span> <span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span> <span class="c1">// 外部処理の場合、外部受信者の名前を入力</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">};</span>
-</pre></div>
-</div>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">document_option</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;user&quot;</span><span class="o">:</span><span class="p">{</span>
-        <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;01&quot;</span> <span class="p">,</span> <span class="c1">// 01 - internal or  02 - external  (必須)</span>
-        <span class="s2">&quot;access_token&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// access Tokenを入力。openAPI accessTokenを参照</span>
-        <span class="s2">&quot;refresh_token&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// refresh Tokenを入力。openAPI accessTokenを参照</span>
-        <span class="s2">&quot;external_token&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// 外部処理の場合、external Tokenを入力。openAPIのaccessTokenを参照</span>
-        <span class="s2">&quot;external_user_info&quot;</span> <span class="o">:</span> <span class="p">{</span>
-           <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span> <span class="c1">// 外部処理の場合、外部受信者の名前を入力</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">};</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="id13">
-<h4>3. モード（必須）<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<dl class="simple">
-<dt><strong>テンプレートを利用した新規作成</strong></dt><dd><ul class="simple">
-<li><p>テンプレートを利用して文書を新規作成します。</p></li>
-</ul>
-</dd>
-</dl>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">document_option</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;mode&quot;</span> <span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;01&quot;</span> <span class="p">,</span>  <span class="c1">// 01 : 文書の作成、02 : 文書の処理、03 : プレビュー</span>
-    <span class="s2">&quot;template_id&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span> <span class="c1">// template idを入力</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-=======
-</section>
-<section id="id17">
-<h3>1. 会社情報（必須）<a class="headerlink" href="#id17" title="この見出しへのパーマリンク"></a></h3>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;company&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;id&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;f9aec832efef4133a1e849efaf8a9aed&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1">// 会社管理 &gt; 会社情報 の会社idを確認 (必須)</span>
-<span class="w">        </span><span class="s2">&quot;country_code&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;kr&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// 必須ではないが、クィックオープンのため、指定することを推奨 (会社管理 &gt; 会社情報 で国コードを指定)</span>
-<span class="w">        </span><span class="s2">&quot;user_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;eformsign@forcs.com&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">};</span>
-</pre></div>
-</div>
-<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; parent of 72c99e6 (embedding 업데이트)</p>
-</section>
-<section id="id18">
-<h3>2. ユーザー情報（オプション）<a class="headerlink" href="#id18" title="この見出しへのパーマリンク"></a></h3>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-2．mode(埋め込みモード/必須)
-========================================</p>
-=======
 </section>
 </section>
 <section id="mode">
 <h3>2．mode(埋め込みモード/必須)<a class="headerlink" href="#mode" title="この見出しへのパーマリンク"></a></h3>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>変数名</p></th>
@@ -1578,14 +557,8 @@ eformsign.open();</p>
 </pre></div>
 </div>
 </section>
-<<<<<<< HEAD
-</section>
-<section id="user">
-<h2>3．user（ユーザー情報/任意）<a class="headerlink" href="#user" title="この見出しへのパーマリンク"></a></h2>
-=======
 <section id="user">
 <h3>3．user（ユーザー情報/任意）<a class="headerlink" href="#user" title="この見出しへのパーマリンク"></a></h3>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>変数名</p></th>
@@ -1646,57 +619,6 @@ eformsign.open();</p>
 <li><p>eformsignのログインページが起動し、ログイン後に文書を作成することができます。</p></li>
 </ul>
 <p><strong>会社のメンバーのログインによる文書の作成及び検討（IDの事前入力)</strong></p>
-<<<<<<< HEAD
-</section>
-<section id="eformsignid">
-<h2>eformsignのログインページが起動し、ログイン後に文書を作成することができます。この際、IDがログイン画面にあらかじめ入力されます。<a class="headerlink" href="#eformsignid" title="この見出しへのパーマリンク"></a></h2>
-<dl class="simple">
-<dt><strong>メンバーログインによる新規作成</strong></dt><dd><ul class="simple">
-<li><p>ユーザー情報を指定しない場合に該当し、ユーザー情報を指定しません。</p></li>
-<li><p>この場合、eformsign ログインページが起動され、ログイン後に文書を作成することができます。</p></li>
-</ul>
-</dd>
-<dt><strong>メンバーのトークンを利用した作成（新規作成および受信した文書を含む）</strong></dt><dd><ul class="simple">
-<li><p>組み込むと、eformsign にログインせず、特定のアカウントの token を利用して文書を作成したり、受信した文書を作成することができます。</p></li>
-<li><p>トークンの発行は、Open API の Access token の発行によって可能です。</p></li>
-</ul>
-</dd>
-</dl>
-<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; parent of 72c99e6 (embedding 업데이트)</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;user&quot;</span><span class="o">:</span><span class="p">{</span>
-</pre></div>
-</div>
-<dl class="simple">
-<dt>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</dt><dd><p>&quot;type&quot; : &quot;01&quot;,
-&quot;id&quot; : &quot;<a class="reference external" href="mailto:eformsign&#37;&#52;&#48;forcs&#46;com">eformsign<span>&#64;</span>forcs<span>&#46;</span>com</a>&quot;</p>
-</dd>
-</dl>
-<blockquote>
-<div><p>&quot;refresh_token&quot; : &quot;&quot;, // refresh Tokenを入力。openAPI accessTokenを参照</p>
-</div></blockquote>
-<dl>
-<dt>&gt;&gt;&gt;&gt;&gt;&gt;&gt; parent of 72c99e6 (embedding 업데이트)</dt><dd><blockquote>
-<div><p>}</p>
-</div></blockquote>
-<p>};</p>
-</dd>
-</dl>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-<strong>会社のメンバーのトークンを利用した作成及び処理</strong></p>
-<p>埋め込みの際、eformsignにログインすることなく、特定のアカウントのトークンを利用して文書を作成し、受信した文書を作成します。- トークンは、Open APIのAccess tokenで発行可能です。
-トークンの発行方法は eformsign APIの使い方 - <a class="reference external" href="https://eformsignjp.github.io/developers/help/eformsign_api.html#id5">Access Tokenの発行</a>をご確認ください。
-=======
-<strong>メンバーではないユーザーが新規文書を作成</strong></p>
-<blockquote>
-<div><ul class="simple">
-<li><p>eformsign の会員ではないユーザーが文書を作成できるようにする方式</p></li>
-</ul>
-</div></blockquote>
-<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; parent of 72c99e6 (embedding 업데이트)</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;user&quot;</span><span class="o">:</span><span class="p">{</span>
-=======
 <p>eformsignのログインページが起動し、ログイン後に文書を作成することができます。この際、IDがログイン画面にあらかじめ入力されます。</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="s2">&quot;user&quot;</span><span class="o">:</span><span class="p">{</span>
@@ -1717,80 +639,20 @@ eformsign.open();</p>
 <span class="w">        </span><span class="s2">&quot;refresh_token&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0161ac6c-0f47-4cc3-9301-381f57c41495&quot;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">};</span>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 </pre></div>
 </div>
-<dl>
-<dt>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</dt><dd><blockquote>
-<div><blockquote>
-<div><p>&quot;type&quot; : &quot;01&quot;,
-&quot;id&quot; : &quot;<a class="reference external" href="mailto:eformsign&#37;&#52;&#48;forcs&#46;com">eformsign<span>&#64;</span>forcs<span>&#46;</span>com</a>&quot;,
-&quot;access_token&quot; : &quot;eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJlZ...&quot;,
-&quot;refresh_token&quot; : &quot;0161ac6c-0f47-4cc3-9301-381f57c41495&quot;</p>
-</div></blockquote>
-<p>}</p>
-</div></blockquote>
-<p>};</p>
-</dd>
-</dl>
 <p><strong>メンバーではないユーザーが文書を新規作成</strong></p>
 <p>eformsignの会員ではないユーザーが文書を作成することができます。</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="s2">&quot;user&quot;</span><span class="o">:</span><span class="p">{</span>
 <span class="w">        </span><span class="s2">&quot;type&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;02&quot;</span><span class="p">,</span>
-<<<<<<< HEAD
-</pre></div>
-</div>
-<blockquote>
-<div><blockquote>
-<div><blockquote>
-<div><dl class="simple">
-<dt>&quot;external_user_info&quot;<span class="classifier">{</span></dt><dd><p>&quot;name&quot; : &quot;&quot; // 外部処理の場合、外部受信者の名前を入力</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>}</p>
-</div></blockquote>
-<p>};</p>
-</div></blockquote>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-<strong>メンバーではないユーザーが受信した文書に入力</strong></p>
-</section>
-<section id="id19">
-<h2>eformsignのメンバーではないユーザーが、受信した文書に入力することができます。<a class="headerlink" href="#id19" title="この見出しへのパーマリンク"></a></h2>
-<dl class="simple">
-<dt><strong>メンバーではないユーザーが受信した文書を作成</strong></dt><dd><ul class="simple">
-<li><p>組み込みのとき、eformsign の会員ではないユーザーが受信した文書を作成できるようにする方式</p></li>
-</ul>
-</dd>
-</dl>
-<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; parent of 72c99e6 (embedding 업데이트)</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;user&quot;</span><span class="o">:</span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;type&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;02&quot;</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="c1">// 01 - internal or  02 - external  (必須)</span>
-<span class="w">    </span><span class="s2">&quot;external_token&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// 外部処理の場合、external Tokenを入力。openAPI accessTokenを参照</span>
-<span class="w">    </span><span class="s2">&quot;external_user_info&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="c1">// 外部処理の場合、外部受信者の名前を入力</span>
-=======
 <span class="w">        </span><span class="s2">&quot;external_user_info&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">           </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;田中太郎&quot;</span>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">};</span>
 </pre></div>
 </div>
-<<<<<<< HEAD
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;user&quot;</span><span class="o">:</span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;type&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;01&quot;</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="c1">// 01 - internal or  02 - external  (必須)</span>
-<span class="w">        </span><span class="s2">&quot;access_token&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// access Tokenを入力。openAPI accessTokenを参照</span>
-<span class="w">        </span><span class="s2">&quot;refresh_token&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// refresh Tokenを入力。openAPI accessTokenを参照</span>
-<span class="w">        </span><span class="s2">&quot;external_token&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// 外部処理の場合、external Tokenを入力。openAPIのaccessTokenを参照</span>
-<span class="w">        </span><span class="s2">&quot;external_user_info&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">           </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="c1">// 外部処理の場合、外部受信者の名前を入力</span>
-=======
 <p><strong>メンバーではないユーザーが受信した文書に入力</strong></p>
 <p>eformsignのメンバーではないユーザーが、受信した文書に入力することができます。</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
@@ -1799,23 +661,14 @@ eformsign.open();</p>
 <span class="w">        </span><span class="s2">&quot;external_token&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;f8e2ff29114445dcac1e2889ac2f8a5e&quot;</span><span class="p">,</span>
 <span class="w">        </span><span class="s2">&quot;external_user_info&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;田中太郎&quot;</span>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">};</span>
 </pre></div>
 </div>
-<<<<<<< HEAD
-<section id="id20">
-<h3>3. モード（必須）<a class="headerlink" href="#id20" title="この見出しへのパーマリンク"></a></h3>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-4．layout(レイアウト/任意)
-========================================</p>
-=======
 </section>
 <section id="layout">
 <h3>4．layout(レイアウト/任意)<a class="headerlink" href="#layout" title="この見出しへのパーマリンク"></a></h3>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>変数名</p></th>
@@ -1849,29 +702,6 @@ eformsign.open();</p>
 </tr>
 </tbody>
 </table>
-<<<<<<< HEAD
-<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; parent of 72c99e6 (embedding 업데이트)</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</pre></div>
-</div>
-<dl>
-<dt>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</dt><dd><blockquote>
-<div><dl class="simple">
-<dt>&quot;layout&quot;<span class="classifier">{</span></dt><dd><p>&quot;lang_code&quot; : &quot;ja&quot;,
-&quot;header&quot; : false,
-&quot;footer&quot; : true</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>}</p>
-</dd>
-</dl>
-</section>
-</section>
-<section id="prefill">
-<h2>5．prefill(自動入力/任意)<a class="headerlink" href="#prefill" title="この見出しへのパーマリンク"></a></h2>
-=======
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="s2">&quot;layout&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="s2">&quot;lang_code&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ja&quot;</span><span class="p">,</span>
@@ -1884,7 +714,6 @@ eformsign.open();</p>
 </section>
 <section id="prefill">
 <h3>5．prefill(自動入力/任意)<a class="headerlink" href="#prefill" title="この見出しへのパーマリンク"></a></h3>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <p>文書の作成中に自動でされる情報を設定します。</p>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
@@ -2082,428 +911,6 @@ eformsign.open();</p>
 </tr>
 </tbody>
 </table>
-<<<<<<< HEAD
-<blockquote>
-<div><blockquote>
-<div><p>&quot;template_id&quot; : &quot;&quot; // template idを入力
-}</p>
-</div></blockquote>
-<p>}</p>
-</div></blockquote>
->>>>>>> 6de2e9505afa191464aa7eec85dc2a60a3a28856
-<dl class="simple">
-<dt><strong>受信した文書に追記</strong></dt><dd><ul class="simple">
-<li><p>受信した文書に追記します。</p></li>
-</ul>
-</dd>
-</dl>
-<<<<<<< HEAD
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">document_option</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;mode&quot;</span> <span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;02&quot;</span> <span class="p">,</span>  <span class="c1">// 01 : 文書の作成、02 : 文書の処理、03 : プレビュー</span>
-    <span class="s2">&quot;template_id&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// template idを入力</span>
-    <span class="s2">&quot;document_id&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span>  <span class="c1">// document_idを入力</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<dl class="simple">
-=======
-<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; parent of 72c99e6 (embedding 업데이트)</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</pre></div>
-</div>
-<dl>
-<dt>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</dt><dd><dl>
-<dt>&quot;prefill&quot;<span class="classifier">{</span></dt><dd><p>&quot;document_name&quot;: &quot;個人情報取扱同意書&quot;,   // 文書タイトルの入力
-&quot;fields&quot;: [</p>
-<blockquote>
-<div><dl class="simple">
-<dt>{</dt><dd><p>&quot;id&quot; ; &quot;顧客名&quot;,       // フィールド名
-&quot;value&quot; : &quot;田中太郎&quot;,    // フィールド値
-&quot;enabled&quot; : true,   // 活性化
-&quot;required&quot; : true   // 必須</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-&quot;recipients&quot;: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><p>&quot;step_idx&quot; : &quot;2&quot;,       // ワークフローの順番。受信者がいる場合２からスタート
-&quot;step_type&quot;: &quot;06&quot;,      // ステップの種類。 05: 参加者、06: 検討者
-&quot;name&quot; : &quot;田中太郎&quot;,        // 受信者の名前
-&quot;id&quot;: &quot;<a class="reference external" href="mailto:test&#37;&#52;&#48;forcs&#46;com">test<span>&#64;</span>forcs<span>&#46;</span>com</a>&quot;, // 受信者のID/メールアドレス
-&quot;sms&quot;: &quot;01023456789&quot;,   // 受信者の携帯電話番号
-&quot;use_mail&quot;: true,       // メール通知の使用
-&quot;use_sms&quot;: true,        // SMS通知の使用
-&quot;auth&quot;: {</p>
-<blockquote>
-<div><p>&quot;password&quot;: &quot;6789&quot;, // ワークフローの設定における本人確認を設定 - 本人確認情報にチェックを入れた場合、パスワードを入力
-&quot;password_hint&quot;: &quot;携帯番号の下3桁を入力してください。&quot;, // 上記条件に従ってパスワードを入力する際、表示されるパスワードのヒント
-&quot;valid&quot;: {</p>
-<blockquote>
-<div><p>&quot;day&quot;: 7,       // 文書の送信期限（日）
-&quot;hour&quot;: 0       // 文書の送信期限（時間）</p>
-</div></blockquote>
-<p>}</p>
-</div></blockquote>
-<p>}</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-&quot;comment&quot;: &quot;確認及び署名をお願いします。&quot;  // メッセージ</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<blockquote>
-<div><p>&quot;template_id&quot; : &quot;&quot;, // template idを入力
-&quot;document_id&quot; : &quot;&quot;  // document_idを入力</p>
-</div></blockquote>
-<dl>
-<dt>&gt;&gt;&gt;&gt;&gt;&gt;&gt; parent of 72c99e6 (embedding 업데이트)</dt><dd><blockquote>
-<div><p>}</p>
-</div></blockquote>
-<p>}</p>
-</dd>
->>>>>>> 6de2e9505afa191464aa7eec85dc2a60a3a28856
-<dt><strong>特定の文書をプレビュー</strong></dt><dd><ul class="simple">
-<li><p>作成した文書のプレビューを確認します。</p></li>
-</ul>
-</dd>
-</dl>
-<<<<<<< HEAD
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">document_option</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;mode&quot;</span> <span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;03&quot;</span> <span class="p">,</span>  <span class="c1">// 01 : 文書の作成、02 : 文書の処理、03 : プレビュー</span>
-    <span class="s2">&quot;template_id&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// template idを入力</span>
-    <span class="s2">&quot;document_id&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span>  <span class="c1">// document_idを入力</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">document_option</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">&quot;mode&quot;</span> <span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;01&quot;</span> <span class="p">,</span>  <span class="c1">//01 : 文書の作成、02 : 文書の処理、03 : プレビュー</span>
-    <span class="s2">&quot;template_id&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// template idを入力</span>
-    <span class="s2">&quot;document_id&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span>  <span class="c1">// document_idを入力</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="id14">
-<h4>4. リターンフィールド（オプション）<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>文書を作成または修正した後、ユーザーが作成したフィールドの内容のうち callback 関数でリターンされる項目を指定します。</p>
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
-<p>指定しない場合、基本フィールドのみ提供します。詳しい内容は callBack パラメーターをご覧ください。</p>
-</div>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">document_option</span> <span class="o">=</span> <span class="p">{</span>
-   <span class="s2">&quot;return_fields&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s1">&#39;顧客名&#39;</span><span class="p">]</span>
-=======
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;mode&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;type&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;03&quot;</span><span class="w"> </span><span class="p">,</span><span class="w">  </span><span class="c1">// 01 : 文書の作成、02 : 文書の処理、03 : プレビュー</span>
-<span class="w">    </span><span class="s2">&quot;template_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// template idを入力</span>
-<span class="w">    </span><span class="s2">&quot;document_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w">  </span><span class="c1">// document_idを入力</span>
-<span class="w">    </span><span class="p">}</span>
->>>>>>> 6de2e9505afa191464aa7eec85dc2a60a3a28856
-<span class="p">}</span>
-</pre></div>
-</div>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="s2">&quot;mode&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;type&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;01&quot;</span><span class="w"> </span><span class="p">,</span><span class="w">  </span><span class="c1">//01 : 文書の作成、02 : 文書の処理、03 : プレビュー</span>
-<span class="w">    </span><span class="s2">&quot;template_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// template idを入力</span>
-<span class="w">    </span><span class="s2">&quot;document_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w">  </span><span class="c1">// document_idを入力</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<<<<<<< HEAD
-<div class="section" id="id15">
-<h4>5. 自動入力（文書作成時に自動入力されるよう設定）<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<dl class="simple">
-<dt><strong>文書のタイトル</strong></dt><dd><ul class="simple">
-<li><p>document_name に作成したい文書のタイトルを指定します。</p></li>
-</ul>
-</dd>
-</dl>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">document_option</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;prefill&quot;</span> <span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;document_name&quot;</span><span class="o">:</span> <span class="s2">&quot;休暇届&quot;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<dl class="simple">
-<dt><strong>文書内のフィールド設定値の入力</strong></dt><dd><ul class="simple">
-<li><p>フォームを作成する時に指定した入力コンポーネントの ID を基準に、フィールドの初期値、活性化、必須入力の設定を指定します。</p></li>
-</ul>
-</dd>
-</dl>
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
-<ul class="simple">
-<li><p>enabled
-- 指定しない場合、テンプレート設定の項目制御オプションに従う
-- 指定する場合、テンプレート設定の項目制御オプションに優先する</p></li>
-<li><p>required
-- 指定しない場合、テンプレート設定の項目制御オプションに従う
-- 指定する場合、テンプレート設定の項目制御オプションに優先する</p></li>
-<li><p>value
-- 指定しない場合、新規作成時にテンプレート設定のフィールド設定オプションに従う
-- 指定する場合、テンプレート設定のフィールド設定に優先する</p></li>
-</ul>
-</div>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">document_option</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;prefill&quot;</span> <span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;fields&quot;</span><span class="o">:</span> <span class="p">[</span> <span class="p">{</span>
-        <span class="s2">&quot;id&quot;</span> <span class="p">;</span> <span class="s2">&quot;顧客名&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;value&quot;</span> <span class="o">:</span> <span class="s2">&quot;山田太郎&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;enabled&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="s2">&quot;required&quot;</span> <span class="o">:</span> <span class="kc">true</span>
-    <span class="p">}]</span>
-<span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">document_option</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;prefill&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;document_name&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;fields&quot;</span><span class="o">:</span> <span class="p">[</span>
-            <span class="p">{</span>
-                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;顧客名&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;山田太郎&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;enabled&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-                <span class="s2">&quot;required&quot;</span><span class="o">:</span> <span class="kc">true</span>
-            <span class="p">}</span>
-        <span class="p">]</span>
-    <span class="p">}</span>
-<span class="p">};</span>
-</pre></div>
-</div>
-=======
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
-<section id="id21">
-<h3>6．リターンフィールド（任意）<a class="headerlink" href="#id21" title="この見出しへのパーマリンク"></a></h3>
-<p>文書の作成及び修正後、ユーザーが作成したフィールドの内容のうちcallback関数でリターンする項目を設定します。
-&quot;return_fields&quot; Array 内にフィールド名をString型で入力します。</p>
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
-<p>設定しない場合、基本フィールドの情報のみリターンします。詳しい情報は <a class="reference external" href="https://eformsignjp.github.io/developers/help/eformsign_embedding_JP.html#success-fail">作業成功/失敗時</a> callBackパラメータをご参照ください。</p>
->>>>>>> 6de2e9505afa191464aa7eec85dc2a60a3a28856
-</div>
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
-<p>mode.typeが&quot;03&quot;の場合(文書のプレビュー時)には動作しません。</p>
-</div>
-<<<<<<< HEAD
-<div class="section" id="callback">
-<h3>パラメーターの説明: Callback<a class="headerlink" href="#callback" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 14%" />
-<col style="width: 10%" />
-<col style="width: 58%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Paramter Name</p></th>
-<th class="head"><p>Paramter Type</p></th>
-<th class="head"><p>必須入力</p></th>
-<th class="head"><p>説明</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>success_callback</p></td>
-<td><p>function</p></td>
-<td><p>X</p></td>
-<td><p>eformsign文書の作成に成功した場合、呼び出されるcallback関数</p></td>
-</tr>
-<tr class="row-odd"><td><p>error_callback</p></td>
-<td><p>function</p></td>
-<td><p>X</p></td>
-<td><p>eformsign文書の作成に失敗した場合、呼び出されるcallback関数</p></td>
-</tr>
-</tbody>
-</table>
-<p>Callback 関数は、次のように設定します。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span> <span class="kd">var</span> <span class="nx">eformsign</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">eformsign</span><span class="p">();</span> <span class="c1">// iframe document 関数因子に移動</span>
-
-
- <span class="kd">var</span> <span class="nx">document_option</span> <span class="o">=</span> <span class="p">{};</span>
-
-
-<span class="kd">var</span> <span class="nx">sucess_callback</span><span class="o">=</span> <span class="nx">funtion</span><span class="p">(</span><span class="nx">response</span><span class="p">){</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">document_id</span><span class="p">);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">title</span><span class="p">);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">field_values</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]);</span>
-<span class="p">};</span>
-
-
-<span class="kd">var</span> <span class="nx">error_callback</span><span class="o">=</span> <span class="nx">funtion</span><span class="p">(</span><span class="nx">response</span><span class="p">){</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">code</span><span class="p">);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
-<span class="p">};</span>
-
-
-<span class="nx">eformsign</span><span class="p">.</span><span class="nb">document</span><span class="p">(</span><span class="nx">document_option</span> <span class="p">,</span> <span class="s2">&quot;eformsign_iframe&quot;</span> <span class="p">,</span> <span class="nx">sucess_callback</span> <span class="p">,</span> <span class="nx">error_callback</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>document 関数のパラメーターとして Callback 関数を設定した場合、Callback 関数を呼び出す際、次のような値を返します。</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 15%" />
-<col style="width: 12%" />
-<col style="width: 39%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Callback</p></th>
-<th class="head"><p>Type</p></th>
-=======
-<p>文書を作成または修正した後、ユーザーが作成したフィールドの内容のうち callback 関数でリターンされる項目を指定します。</p>
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
-<p>指定しない場合、基本フィールドのみ提供します。詳しい内容は callBack パラメーターをご覧ください。</p>
-</div>
-<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; parent of 72c99e6 (embedding 업데이트)</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">   </span><span class="s2">&quot;return_fields&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;顧客名&#39;</span><span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</section>
-<section id="id23">
-<h3>5. 自動入力（文書作成時に自動入力されるよう設定）<a class="headerlink" href="#id23" title="この見出しへのパーマリンク"></a></h3>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
-</section>
-</section>
-<section id="id24">
-<h2>マイファイルで文書作成<a class="headerlink" href="#id24" title="この見出しへのパーマリンク"></a></h2>
-<p>eformsignを埋め込むことで、マイファイル作成機能を使用することができます。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">eformsign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EformSignTemplate</span><span class="p">();</span>
-
-<span class="kd">var</span><span class="w"> </span><span class="nx">template_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">   </span><span class="s2">&quot;company&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="s2">&quot;id&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;76440d70fae242e09c4b0fac40b6a6be&quot;</span><span class="p">,</span><span class="w">            </span><span class="c1">// Company IDを入力</span>
-<span class="w">      </span><span class="s2">&quot;country_code&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ja&quot;</span><span class="p">,</span><span class="w">    </span><span class="c1">// 国コードを入力 (例: ja)</span>
-<span class="w">      </span><span class="s2">&quot;user_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w">        </span><span class="c1">// 埋め込んだ顧客側システムにログインしたユーザーのunique key。ブラウザのクッキーのeformsignログイン情報と比較。</span>
-<span class="w">   </span><span class="p">},</span>
-<span class="w">   </span><span class="s2">&quot;user&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;test1@forcs.com&quot;</span>
-<span class="w">        </span><span class="s2">&quot;access_token&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">    </span><span class="c1">// Access Tokenを入力 (OpenAPI Access Tokenを参照)</span>
-<span class="w">        </span><span class="s2">&quot;refresh_token&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1">// Refresh Tokenを入力 (OpenAPI Access Tokenを参照)</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="s2">&quot;mode&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;type&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;01&quot;</span><span class="p">,</span><span class="w">      </span><span class="c1">// 01 : 生成</span>
-<span class="w">        </span><span class="s2">&quot;template_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// template idを入力</span>
-<span class="w">        </span><span class="s2">&quot;template_type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;unstructured_form&quot;</span><span class="w">    </span><span class="c1">// form : テンプレート管理, unstructured_form: マイファイルで文書作成</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="s2">&quot;layout&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;lang_code&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ja&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// eformsignの表示言語. ja, en, ko</span>
-<span class="w">        </span><span class="s2">&quot;header&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">    </span><span class="c1">// ヘッダ(青色)の表示有無。非表示の場合アクションボタンから送信などの操作が可能</span>
-<span class="w">        </span><span class="s2">&quot;footer&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w">     </span><span class="c1">// フッタ(eformsignのロゴ、言語設定など)の表示有無</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="s2">&quot;prefill&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;template_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;テンプレート埋め込みテスト_新規&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;fields&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;テキスト1&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;あいうえお&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;enabled&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;required&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;テキスト2&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;かきくけこ&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;enabled&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;required&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">],</span>
-<span class="w">        </span><span class="s2">&quot;step_settings&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;step_type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;05&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// 05: 参加者, 06: 検討者</span>
-<span class="w">                </span><span class="s2">&quot;step_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;参加者2&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;use_mail&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;use_sms&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;use_alimtalk&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;recipients&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">                    </span><span class="p">{</span>
-<span class="w">                        </span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;test2@forcs.com&quot;</span><span class="p">,</span>
-<span class="w">                        </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;John Doe&#39;</span>
-<span class="w">                    </span><span class="p">},</span>
-<span class="w">                    </span><span class="p">{</span>
-<span class="w">                        </span><span class="s2">&quot;id&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;5a3e47a2f5a04909836ddf4189d10fc4&quot;</span><span class="p">,</span>
-<span class="w">                        </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;グループ3&#39;</span>
-<span class="w">                    </span><span class="p">}</span>
-<span class="w">                </span><span class="p">],</span>
-<span class="w">                </span><span class="s2">&quot;auth&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;valid&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                        </span><span class="s2">&quot;day&quot;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;7&#39;</span><span class="p">,</span>
-<span class="w">                        </span><span class="s2">&quot;hour&quot;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;7&#39;</span>
-<span class="w">                    </span><span class="p">}</span>
-<span class="w">                </span><span class="p">},</span>
-<span class="w">                </span><span class="s2">&quot;additional_auth&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// 追加認証手段</span>
-<span class="w">                    </span><span class="nx">use_pincode</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">//メール/SMS PINコード認証</span>
-<span class="w">                    </span><span class="nx">use_pincode_result</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">//文書の最終完了時、メール/SMS PINコードで認証</span>
-<span class="w">                    </span><span class="nx">use_mobile_verifyAuth</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">//携帯電話本人確認</span>
-<span class="w">                    </span><span class="nx">use_mobile_verifyAuth_result</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c1">//文書の最終完了時、携帯電話本人確認を使用</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">],</span>
-<span class="w">        </span><span class="s2">&quot;is_form_id_numbering&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;disabled_form_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;quick_processing&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">false</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="s2">&quot;template_file&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;添付テスト.pdf&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;mime&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;@file/octet-stream&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;data&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;JVBERi0xLjUNCiW1tbW1DQoxIDAgb2JqDQo8PC9UeXBlL0NhdGFsb2cvUGFnZXMgMiAwIFIvTGFuZyhrby1LUikgL1N0cnVjdFRyZWVSb290IDE1IDAgUi...&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">};</span>
-
-<span class="c1">//callback option</span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">sucess_callback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">type</span><span class="w"> </span><span class="o">===</span><span class="s1">&#39;template&#39;</span><span class="p">){</span>
-<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">template_id</span><span class="p">);</span>
-<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">template_name</span><span class="p">);</span>
-<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">table</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">step_settings</span><span class="p">);</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="s2">&quot;-1&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">code</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;テンプレートが生成されました。\n&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;- document_id : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">template_id</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;\n- title : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">template_name</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;テンプレートの生成に失敗しました。\n&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;- code : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">code</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;\n- message : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="nb">window</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
-<span class="p">};</span>
-
-
-<span class="kd">var</span><span class="w"> </span><span class="nx">error_callback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;テンプレートの生成に失敗しました。\n&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;- code : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">code</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;\n- message : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
-<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">code</span><span class="p">);</span>
-<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
-<span class="w">    </span><span class="nb">window</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
-<span class="p">};</span>
-
-<span class="kd">var</span><span class="w"> </span><span class="nx">action_callback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">table</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
-<span class="p">};</span>
-
-<span class="nx">eformsign</span><span class="p">.</span><span class="nx">template</span><span class="p">(</span><span class="nx">template_option</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eformsign_iframe&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">success_callback</span><span class="p">,</span><span class="w"> </span><span class="nx">error_callback</span><span class="p">,</span><span class="w"> </span><span class="nx">action_callback</span><span class="p">);</span>
-<span class="nx">eformsign</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
-</pre></div>
-</div>
-<section id="template-option">
-<h3>template_option<a class="headerlink" href="#template-option" title="この見出しへのパーマリンク"></a></h3>
-=======
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="s2">&quot;prefill&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="s2">&quot;document_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;個人情報取扱同意書&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1">// 文書タイトルの入力</span>
@@ -2675,7 +1082,6 @@ eformsign.open();</p>
 </div>
 <section id="template-option">
 <h4>template_option<a class="headerlink" href="#template-option" title="この見出しへのパーマリンク"></a></h4>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <p>オプション設定のためのJSONは次のような構造になっています。</p>
 <table class="docutils align-default">
 <thead>
@@ -2729,13 +1135,8 @@ eformsign.open();</p>
 <p class="admonition-title">注釈</p>
 <p>会社情報とモードは必須入力項目です。</p>
 </div>
-<<<<<<< HEAD
-<section id="id25">
-<h4>1. company(会社情報/必須)<a class="headerlink" href="#id25" title="この見出しへのパーマリンク"></a></h4>
-=======
 <section id="id14">
 <h5>1. company(会社情報/必須)<a class="headerlink" href="#id14" title="この見出しへのパーマリンク"></a></h5>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>変数名</p></th>
@@ -2778,13 +1179,8 @@ eformsign.open();</p>
 </pre></div>
 </div>
 </section>
-<<<<<<< HEAD
-<section id="mode">
-<h4>2. mode(埋め込みモード/必須)<a class="headerlink" href="#mode" title="この見出しへのパーマリンク"></a></h4>
-=======
 <section id="id15">
 <h5>2. mode(埋め込みモード/必須)<a class="headerlink" href="#id15" title="この見出しへのパーマリンク"></a></h5>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>変数名</p></th>
@@ -2820,13 +1216,8 @@ eformsign.open();</p>
 </pre></div>
 </div>
 </section>
-<<<<<<< HEAD
-<section id="id26">
-<h4>3. user(ユーザー情報/任意)<a class="headerlink" href="#id26" title="この見出しへのパーマリンク"></a></h4>
-=======
 <section id="id16">
 <h5>3. user(ユーザー情報/任意)<a class="headerlink" href="#id16" title="この見出しへのパーマリンク"></a></h5>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>変数名</p></th>
@@ -2879,13 +1270,8 @@ eformsign.open();</p>
 </pre></div>
 </div>
 </section>
-<<<<<<< HEAD
-<section id="layout">
-<h4>4. layout(レイアウト/任意)<a class="headerlink" href="#layout" title="この見出しへのパーマリンク"></a></h4>
-=======
 <section id="id17">
 <h5>4. layout(レイアウト/任意)<a class="headerlink" href="#id17" title="この見出しへのパーマリンク"></a></h5>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>変数名</p></th>
@@ -2931,13 +1317,8 @@ eformsign.open();</p>
 </pre></div>
 </div>
 </section>
-<<<<<<< HEAD
-<section id="id27">
-<h4>5. prefill(自動入力/任意)<a class="headerlink" href="#id27" title="この見出しへのパーマリンク"></a></h4>
-=======
 <section id="id18">
 <h5>5. prefill(自動入力/任意)<a class="headerlink" href="#id18" title="この見出しへのパーマリンク"></a></h5>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <p>文書作成中に自動入力を行う場合に使用します。</p>
 <table class="docutils align-default">
 <thead>
@@ -3359,11 +1740,7 @@ eformsign.open();</p>
 </div>
 </section>
 <section id="template-file">
-<<<<<<< HEAD
-<h4>6. template_file(テンプレートファイル/任意)<a class="headerlink" href="#template-file" title="この見出しへのパーマリンク"></a></h4>
-=======
 <h5>6. template_file(テンプレートファイル/任意)<a class="headerlink" href="#template-file" title="この見出しへのパーマリンク"></a></h5>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <p>テンプレートに使用されるファイルが自動的にアップロードされるように設定します。</p>
 <table class="docutils align-default">
 <thead>
@@ -3409,13 +1786,8 @@ eformsign.open();</p>
 </section>
 </section>
 </section>
-<<<<<<< HEAD
-<section id="id28">
-<h2>テンプレートの生成、テンプレートの修正、テンプレートの複製<a class="headerlink" href="#id28" title="この見出しへのパーマリンク"></a></h2>
-=======
 <section id="id19">
 <h3>テンプレートの生成、テンプレートの修正、テンプレートの複製<a class="headerlink" href="#id19" title="この見出しへのパーマリンク"></a></h3>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <p>eformsignを埋め込んでテンプレートを作成、修正、複製する場合の操作です。</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">eformsign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EformSignTemplate</span><span class="p">();</span>
 
@@ -3506,13 +1878,8 @@ eformsign.open();</p>
 <span class="nx">eformsign</span><span class="p">.</span><span class="nx">template</span><span class="p">(</span><span class="nx">template_option</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eformsign_iframe&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">success_callback</span><span class="p">,</span><span class="w"> </span><span class="nx">error_callback</span><span class="p">,</span><span class="w"> </span><span class="nx">action_callback</span><span class="p">);</span>
 </pre></div>
 </div>
-<<<<<<< HEAD
-<section id="id29">
-<h3>template_option<a class="headerlink" href="#id29" title="この見出しへのパーマリンク"></a></h3>
-=======
 <section id="id20">
 <h4>template_option<a class="headerlink" href="#id20" title="この見出しへのパーマリンク"></a></h4>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <p>オプション設定のためのJSONの構造は以下の通りです。</p>
 <table class="docutils align-default">
 <thead>
@@ -3564,22 +1931,13 @@ eformsign.open();</p>
 </table>
 </section>
 <section id="callback">
-<<<<<<< HEAD
-<h3>Callbackパラメータ<a class="headerlink" href="#callback" title="この見出しへのパーマリンク"></a></h3>
-=======
 <h4>Callbackパラメータ<a class="headerlink" href="#callback" title="この見出しへのパーマリンク"></a></h4>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
 <p>会社情報とモードは必須入力です。</p>
 </div>
-<<<<<<< HEAD
-<section id="id30">
-<h4>1. company(会社情報/必須)<a class="headerlink" href="#id30" title="この見出しへのパーマリンク"></a></h4>
-=======
 <section id="id21">
 <h5>1. company(会社情報/必須)<a class="headerlink" href="#id21" title="この見出しへのパーマリンク"></a></h5>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>変数名</p></th>
@@ -3622,13 +1980,8 @@ eformsign.open();</p>
 </pre></div>
 </div>
 </section>
-<<<<<<< HEAD
-<section id="id31">
-<h4>2. mode(組み込みモード/必須)<a class="headerlink" href="#id31" title="この見出しへのパーマリンク"></a></h4>
-=======
 <section id="id22">
 <h5>2. mode(組み込みモード/必須)<a class="headerlink" href="#id22" title="この見出しへのパーマリンク"></a></h5>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>変数名</p></th>
@@ -3692,13 +2045,8 @@ eformsign.open();</p>
 </pre></div>
 </div>
 </section>
-<<<<<<< HEAD
-<section id="id32">
-<h4>3. user(ユーザー情報/任意)<a class="headerlink" href="#id32" title="この見出しへのパーマリンク"></a></h4>
-=======
 <section id="id23">
 <h5>3. user(ユーザー情報/任意)<a class="headerlink" href="#id23" title="この見出しへのパーマリンク"></a></h5>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>変数名</p></th>
@@ -3751,13 +2099,8 @@ eformsign.open();</p>
 </pre></div>
 </div>
 </section>
-<<<<<<< HEAD
-<section id="id33">
-<h4>4. layout(レイアウト/任意)<a class="headerlink" href="#id33" title="この見出しへのパーマリンク"></a></h4>
-=======
 <section id="id24">
 <h5>4. layout(レイアウト/任意)<a class="headerlink" href="#id24" title="この見出しへのパーマリンク"></a></h5>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>変数名</p></th>
@@ -3801,13 +2144,8 @@ eformsign.open();</p>
 </pre></div>
 </div>
 </section>
-<<<<<<< HEAD
-<section id="id34">
-<h4>5. prefill(自動入力/任意)<a class="headerlink" href="#id34" title="この見出しへのパーマリンク"></a></h4>
-=======
 <section id="id25">
 <h5>5. prefill(自動入力/任意)<a class="headerlink" href="#id25" title="この見出しへのパーマリンク"></a></h5>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <p>文書作成時に値を自動的に入力する際に使用します。</p>
 <table class="docutils align-default">
 <thead>
@@ -4288,13 +2626,8 @@ eformsign.open();</p>
 </pre></div>
 </div>
 </section>
-<<<<<<< HEAD
-<section id="id35">
-<h4>6. template_file(テンプレートファイル/任意)<a class="headerlink" href="#id35" title="この見出しへのパーマリンク"></a></h4>
-=======
 <section id="id26">
 <h5>6. template_file(テンプレートファイル/任意)<a class="headerlink" href="#id26" title="この見出しへのパーマリンク"></a></h5>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <p>テンプレートに使用されるファイルが自動的にアップロードされるように設定します。</p>
 <table class="docutils align-default">
 <thead>
@@ -4341,13 +2674,8 @@ eformsign.open();</p>
 </section>
 </section>
 </section>
-<<<<<<< HEAD
-<section id="id36">
-<h1>応答確認とコールバックの設定(オプション)<a class="headerlink" href="#id36" title="この見出しへのパーマリンク"></a></h1>
-=======
 <section id="id27">
 <h2>応答確認とコールバックの設定(オプション)<a class="headerlink" href="#id27" title="この見出しへのパーマリンク"></a></h2>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <p>eformsignの機能を埋め込んで使用する場合、特定の状況でeformsignから情報を含む応答を受け取ることができます。
 また、その応答を利用して特定の動作を実行するようにコールバックを設定することができます。</p>
 <p><strong>応答とコールバックの種類</strong></p>
@@ -4361,15 +2689,6 @@ eformsign.open();</p>
 <p>埋め込んだ画面がロードされると、その画面で実行できるアクションのリスト情報を含む応答を受信し、コールバックを使用することができます。
 受信した応答のアクションリストに基づいて、ヘッダのアクションボタンに置き換わるボタンを設定することができます。</p>
 <section id="success-fail">
-<<<<<<< HEAD
-<span id="id37"></span><h2>作業の成功/失敗時<a class="headerlink" href="#success-fail" title="この見出しへのパーマリンク"></a></h2>
-<p>eformsignを埋め込んで実行した作業が成功/失敗した時に返される応答と、応答の受信後に特定の機能を実行できるコールバック関数Success Callback / Error Callbackについて説明します。</p>
-<section id="response">
-<h3>応答(Response)<a class="headerlink" href="#response" title="この見出しへのパーマリンク"></a></h3>
-<p>文書の作成/処理、テンプレートの作成/修正/複製などの作業に成功/失敗した場合、次のようなresponseが返されます。</p>
-<section id="eformsigndocument">
-<h4>EformSignDocument(テンプレートで文書作成、文書処理)<a class="headerlink" href="#eformsigndocument" title="この見出しへのパーマリンク"></a></h4>
-=======
 <span id="id28"></span><h3>作業の成功/失敗時<a class="headerlink" href="#success-fail" title="この見出しへのパーマリンク"></a></h3>
 <p>eformsignを埋め込んで実行した作業が成功/失敗した時に返される応答と、応答の受信後に特定の機能を実行できるコールバック関数Success Callback / Error Callbackについて説明します。</p>
 <section id="response">
@@ -4377,60 +2696,15 @@ eformsign.open();</p>
 <p>文書の作成/処理、テンプレートの作成/修正/複製などの作業に成功/失敗した場合、次のようなresponseが返されます。</p>
 <section id="eformsigndocument">
 <h5>EformSignDocument(テンプレートで文書作成、文書処理)<a class="headerlink" href="#eformsigndocument" title="この見出しへのパーマリンク"></a></h5>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>変数名</p></th>
 <th class="head"><p>データ型</p></th>
->>>>>>> 6de2e9505afa191464aa7eec85dc2a60a3a28856
 <th class="head"><p>説明</p></th>
 <th class="head"><p>備考</p></th>
 </tr>
 </thead>
 <tbody>
-<<<<<<< HEAD
-<tr class="row-even"><td><p>code</p></td>
-<td><p>string</p></td>
-<td><p>送信に失敗した場合、結果
-のエラーコードを返す</p></td>
-<td><p>-1 の場合、正常</p></td>
-</tr>
-<tr class="row-odd"><td><p>document
-_id</p></td>
-<td><p>string</p></td>
-<td><p>送信に成功した場合、作成
-した文書の document_idを
-返す</p></td>
-<td><p>ex)
-910b8a965f9
-402b82152f48c6da5a5c</p></td>
-</tr>
-<tr class="row-even"><td><p>field
-_values</p></td>
-<td><p>object</p></td>
-<td><p>document_optionに定義した
-return_fields コラムに
-ユーザーが入力した値を
-インポートできる</p></td>
-<td><p>ex).
-field_values[&quot;name&quot;]
-// john</p></td>
-</tr>
-<tr class="row-odd"><td><p>message</p></td>
-<td><p>string</p></td>
-<td><p>送信に失敗した場合、
-エラーメッセージを返す</p></td>
-<td><p>Nullの場合、正常</p></td>
-</tr>
-<tr class="row-even"><td><p>title</p></td>
-<td><p>string</p></td>
-<td><p>送信に成功した場合、作成
-した文書のタイトルを返す</p></td>
-<td><p>ex) 契約書</p></td>
-</tr>
-</tbody>
-</table>
-=======
 <tr class="row-even"><td><p>type</p></td>
 <td><p>String</p></td>
 <td><p>組み込んで作成した作業の種類</p></td>
@@ -4570,39 +2844,6 @@ field_values[&quot;name&quot;]
 </tr>
 </tbody>
 </table>
-<<<<<<< HEAD
-<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; parent of 72c99e6 (embedding 업데이트)</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;prefill&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;document_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;休暇届&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<dl class="simple">
-<dt><strong>文書内のフィールド設定値の入力</strong></dt><dd><ul class="simple">
-<li><p>フォームを作成する時に指定した入力コンポーネントの ID を基準に、フィールドの初期値、活性化、必須入力の設定を指定します。</p></li>
-</ul>
-</dd>
-</dl>
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
-<ul class="simple">
-<li><p>enabled
-- 指定しない場合、テンプレート設定の項目制御オプションに従う
-- 指定する場合、テンプレート設定の項目制御オプションに優先する</p></li>
-<li><p>required
-- 指定しない場合、テンプレート設定の項目制御オプションに従う
-- 指定する場合、テンプレート設定の項目制御オプションに優先する</p></li>
-<li><p>value
-- 指定しない場合、新規作成時にテンプレート設定のフィールド設定オプションに従う
-- 指定する場合、テンプレート設定のフィールド設定に優先する</p></li>
-</ul>
-</div>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-EformSignTemplate (マイファイルで文書作成、テンプレート生成、テンプレート修正、テンプレート複製)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
-=======
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">  </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;document&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="s2">&quot;fn&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;saveSuccess&quot;</span><span class="p">,</span>
@@ -4639,7 +2880,6 @@ EformSignTemplate (マイファイルで文書作成、テンプレート生成�
 </section>
 <section id="eformsigntemplate">
 <h5>EformSignTemplate (マイファイルで文書作成、テンプレート生成、テンプレート修正、テンプレート複製)<a class="headerlink" href="#eformsigntemplate" title="この見出しへのパーマリンク"></a></h5>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>変数名</p></th>
@@ -4737,87 +2977,9 @@ EformSignTemplate (マイファイルで文書作成、テンプレート生成�
 <span class="w">    </span><span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
->>>>>>> 6de2e9505afa191464aa7eec85dc2a60a3a28856
 </div>
 </section>
 </section>
-<<<<<<< HEAD
-<section id="id38">
-<h3>2. コールバック(Callback)<a class="headerlink" href="#id38" title="この見出しへのパーマリンク"></a></h3>
-<p>Success CallbackとError Callbackは、各タスクの成功時、失敗時に実行される関数です。
-タスクの成功/失敗時に返されるresponseを受け取り、目的のタスクを実行するように設定することができます。</p>
-<p>例えば、必要に応じて必要な値をコンソールに出力(console.log)、警告ウィンドウを表示(alert)、条件文などを利用して、状況応じて必要な機能を実行させることができます。</p>
-<section id="id39">
-<h4>EformSignDocument 実行例<a class="headerlink" href="#id39" title="この見出しへのパーマリンク"></a></h4>
-<hr class="docutils" />
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;prefill&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;fields&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;id&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="s2">&quot;顧客名&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;value&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;山田太郎&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;enabled&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;required&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
-<span class="w">    </span><span class="p">}]</span>
-<span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; parent of 72c99e6 (embedding 업데이트)</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;prefill&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;document_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;fields&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;顧客名&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;山田太郎&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;enabled&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;required&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">]</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">};</span>
-</pre></div>
-</div>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
-<blockquote>
-<div><dl class="simple">
-<dt>var error_callback= function(response){</dt><dd><p>alert(response.message);
-console.log(response.code);
-console.log(response.message);</p>
-</dd>
-</dl>
-<p>};</p>
-<p>eformsign.document(document_option, &quot;eformsign_iframe&quot;, success_callback, error_callback);</p>
-<p>eformsign.open();</p>
-</div></blockquote>
-</section>
-<section id="eformsigntemplate">
-<h4>EformSignTemplate 実行例<a class="headerlink" href="#eformsigntemplate" title="この見出しへのパーマリンク"></a></h4>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">eformsign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EformSignTemplate</span><span class="p">();</span>
-
-<span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* 省略 */</span><span class="w"> </span><span class="p">};</span>
-
-<span class="kd">var</span><span class="w"> </span><span class="nx">success_callback</span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">){</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">type</span><span class="w"> </span><span class="o">===</span><span class="s1">&#39;template&#39;</span><span class="p">){</span>
-<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">template_id</span><span class="p">);</span>
-<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">template_name</span><span class="p">);</span>
-<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">table</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">step_settings</span><span class="p">);</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="s2">&quot;-1&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">code</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;テンプレートを生成しました。\n&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;- document_id : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">template_id</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;\n- title : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">template_name</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;テンプレートの生成に失敗しました。\n&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;- code : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">code</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;\n- message : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">};</span>
-
-<span class="kd">var</span><span class="w"> </span><span class="nx">error_callback</span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">){</span>
-<span class="w">    </span><span class="nx">alert</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
-<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">code</span><span class="p">);</span>
-<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
-<span class="p">};</span>
-
-<span class="nx">eformsign</span><span class="p">.</span><span class="nb">document</span><span class="p">(</span><span class="nx">document_option</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eformsign_iframe&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">success_callback</span><span class="p">,</span><span class="w"> </span><span class="nx">error_callback</span><span class="p">);</span>
-=======
 <section id="id29">
 <h4>2. コールバック(Callback)<a class="headerlink" href="#id29" title="この見出しへのパーマリンク"></a></h4>
 <p>Success CallbackとError Callbackは、各タスクの成功時、失敗時に実行される関数です。
@@ -4944,97 +3106,16 @@ Responseの構造と例は以下の通りです。</p>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 </pre></div>
 </div>
 </section>
 </section>
-<<<<<<< HEAD
-</section>
-<section id="loading">
-<span id="id40"></span><h2>画面のロード時<a class="headerlink" href="#loading" title="この見出しへのパーマリンク"></a></h2>
-<p>eformsignを埋め込んだ画面がロードされた際の応答と、応答の受信時に特定の機能を実行することができるコールバック関数Action Callbackについて説明します。
-また、ヘッダにあるアクションボタンを代替するボタンの生成方法についても説明します。</p>
-<section id="id41">
-<h3>応答(Response)<a class="headerlink" href="#id41" title="この見出しへのパーマリンク"></a></h3>
-<p>埋め込んだeformsign機能の画面がロードされると、responseによってその画面で実行できる機能に関する情報が返却されます。
-Responseの構造と例は以下の通りです。</p>
-<section id="id42">
-<h4>EformSignDocument (テンプレート文書作成、文書処理)<a class="headerlink" href="#id42" title="この見出しへのパーマリンク"></a></h4>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>変数名</p></th>
-<th class="head"><p>データ型</p></th>
-<th class="head"><p>説明</p></th>
-<th class="head"><p>備考</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>type</p></td>
-<td><p>String</p></td>
-<td><p>埋め込んで作成した作業の種類</p></td>
-<td><p>-EformSignDocument使用作業: &quot;document&quot;</p>
-<p>-EformSignTemplate使用作業: &quot;template&quot;</p>
-</td>
-</tr>
-<tr class="row-odd"><td><p>fn</p></td>
-<td><p>String</p></td>
-<td><p>実行した機能</p></td>
-<td><p>-&quot;actionCallback&quot;</p>
-<p>-それ以外 : エラー</p>
-</td>
-</tr>
-<tr class="row-even"><td><p>data</p></td>
-<td><p>Array</p></td>
-<td><p>画面内で実行できる機能の一覧</p></td>
-<td><p>-{&quot;name&quot;:&quot;名前&quot;, &quot;code&quot;:&quot;00&quot;} 形式のObjectのリスト</p>
-<p>-{&quot;name&quot;: &quot;func_get_return_fields&quot;, code: &quot;99&quot;}は戻り値フィールドを処理するための機能で、常に表示されます。</p>
-</td>
-</tr>
-<tr class="row-odd"><td><p>data[].name</p></td>
-<td><p>String</p></td>
-<td><p>機能の名称</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>data[].code</p></td>
-<td><p>String</p></td>
-<td><p>機能のコード</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;document&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="s2">&quot;fn&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;actionCallback&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="s2">&quot;data&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;送信&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;code&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;21&quot;</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;func_get_return_fields&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;code&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;99&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="id43">
-<h3>コールバック (Callback)<a class="headerlink" href="#id43" title="この見出しへのパーマリンク"></a></h3>
-<p>Action Callbackは機能画面のロード時に、responseを受信後に実行される関数です。
-Responseと無関係の別作業を自動的に実行するように設定したり、文書画面の読み込み時に返されるresponseを受け取り、それに応じて必要な作業を実行するように設定することができます。</p>
-<section id="id44">
-<h4>コード例<a class="headerlink" href="#id44" title="この見出しへのパーマリンク"></a></h4>
-=======
 <section id="id35">
 <h4>コールバック (Callback)<a class="headerlink" href="#id35" title="この見出しへのパーマリンク"></a></h4>
 <p>Action Callbackは機能画面のロード時に、responseを受信後に実行される関数です。
 Responseと無関係の別作業を自動的に実行するように設定したり、文書画面の読み込み時に返されるresponseを受け取り、それに応じて必要な作業を実行するように設定することができます。</p>
 <section id="id36">
 <h5>コード例<a class="headerlink" href="#id36" title="この見出しへのパーマリンク"></a></h5>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">eformsign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EformSignDocument</span><span class="p">();</span>
 
 <span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* 省略 */</span><span class="w"> </span><span class="p">};</span>
@@ -5059,11 +3140,7 @@ Responseと無関係の別作業を自動的に実行するように設定した
 </section>
 </section>
 <section id="creating-button">
-<<<<<<< HEAD
-<span id="id45"></span><h3>アクションボタンの生成<a class="headerlink" href="#creating-button" title="この見出しへのパーマリンク"></a></h3>
-=======
 <span id="id37"></span><h4>アクションボタンの生成<a class="headerlink" href="#creating-button" title="この見出しへのパーマリンク"></a></h4>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <p>機能オプションの設定時、ヘッダを非表示にするオプションがあります。
 しかし、ヘッダを非表示にすると、ヘッダに存在するアクションボタン(送信、リクエストなど)が同時に非表示となるため、別途アクションボタンを生成する必要があります。</p>
 <p>EformsignDocumentオブジェクトとEformsignTemplateオブジェクトの両方に存在するsendAction関数を使うと、特定のアクションを実行することができます。
@@ -5382,19 +3459,11 @@ Responseと無関係の別作業を自動的に実行するように設定した
 </section>
 </section>
 </section>
-<<<<<<< HEAD
-<section id="id46">
-<h1>機能の埋め込みと実行<a class="headerlink" href="#id46" title="この見出しへのパーマリンク"></a></h1>
-<p>先ほど生成したオプションとコールバックを使用してeformsignの機能を実際に埋め込み、実行するためのコードを作成します。</p>
-<section id="id47">
-<h2>eformsign機能の埋め込み領域の作成<a class="headerlink" href="#id47" title="この見出しへのパーマリンク"></a></h2>
-=======
 <section id="id38">
 <h2>機能の埋め込みと実行<a class="headerlink" href="#id38" title="この見出しへのパーマリンク"></a></h2>
 <p>先ほど生成したオプションとコールバックを使用してeformsignの機能を実際に埋め込み、実行するためのコードを作成します。</p>
 <section id="id39">
 <h3>eformsign機能の埋め込み領域の作成<a class="headerlink" href="#id39" title="この見出しへのパーマリンク"></a></h3>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <p>まず、eformsign機能を埋め込んで表示するための領域を作成します。
 eformsign機能を埋め込むための領域はiframe形式に対応しています。</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span>&lt;iframe id=&quot;eformsign_iframe&quot; width=&quot;1440&quot; height=&quot;1024&quot;&gt; &lt;/iframe&gt;
@@ -5403,13 +3472,8 @@ eformsign機能を埋め込むための領域はiframe形式に対応してい�
 <p>例）上記のように横1440ピクセル、縦1024ピクセルのiframeを生成することができます。
 領域生成時にidを設定する必要があります。上の例では、idを&quot;eformsign_iframe&quot;に設定しました。</p>
 </section>
-<<<<<<< HEAD
-<section id="id48">
-<h2>eformsign機能の埋め込み用コードの作成<a class="headerlink" href="#id48" title="この見出しへのパーマリンク"></a></h2>
-=======
 <section id="id40">
 <h3>eformsign機能の埋め込み用コードの作成<a class="headerlink" href="#id40" title="この見出しへのパーマリンク"></a></h3>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <p>先ほど生成したiframe領域にeformsign機能を埋め込んで表示されるようにコードを作成します。
 まず、埋め込む機能に合うオブジェクトを変数形式で生成します。下記の例では変数名を&quot;eformsign&quot;に設定しました。</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">eformsign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EformSignDocument</span><span class="p">();</span>
@@ -5521,26 +3585,16 @@ eformsign機能を埋め込むための領域はiframe形式に対応してい�
 </pre></div>
 </div>
 </section>
-<<<<<<< HEAD
-<section id="id49">
-<h2>eformsign機能の実行<a class="headerlink" href="#id49" title="この見出しへのパーマリンク"></a></h2>
-=======
 <section id="id41">
 <h3>eformsign機能の実行<a class="headerlink" href="#id41" title="この見出しへのパーマリンク"></a></h3>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <p>eformsign機能を実行するにはopen関数の呼び出しが必要です。
 open関数は設定するパラメータがなく、オプション設定を終えたEformSignDocumentオブジェクトまたはEformSignTemplateオブジェクトに使用して、挿入された機能を実行する役割を持ちます。
 機能実行のためのオプションを設定するdocumentまたはtemplate関数を作成したら、その後open関数を作成します。</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">eformsign</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
 </pre></div>
 </div>
-<<<<<<< HEAD
-<section id="id50">
-<h3>サンプルコード<a class="headerlink" href="#id50" title="この見出しへのパーマリンク"></a></h3>
-=======
 <section id="id42">
 <h4>サンプルコード<a class="headerlink" href="#id42" title="この見出しへのパーマリンク"></a></h4>
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 <p>インストール作業を含む全体的なサンプルコードは以下の通りです。</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span>&lt;html&gt;
 &lt;head&gt;
@@ -5587,109 +3641,6 @@ open関数は設定するパラメータがなく、オプション設定を終�
 </div>
 </section>
 </section>
-<<<<<<< HEAD
-<hr class="docutils" />
-<section id="id51">
-<h2>パラメーターの説明: Callback<a class="headerlink" href="#id51" title="この見出しへのパーマリンク"></a></h2>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Paramter Name</p></th>
-<th class="head"><p>Paramter Type</p></th>
-<th class="head"><p>必須入力</p></th>
-<th class="head"><p>説明</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>success_callback</p></td>
-<td><p>function</p></td>
-<td><p>X</p></td>
-<td><p>eformsign文書の作成に成功した場合、呼び出されるcallback関数</p></td>
-</tr>
-<tr class="row-odd"><td><p>error_callback</p></td>
-<td><p>function</p></td>
-<td><p>X</p></td>
-<td><p>eformsign文書の作成に失敗した場合、呼び出されるcallback関数</p></td>
-</tr>
-</tbody>
-</table>
-<p>Callback 関数は、次のように設定します。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">eformsign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">eformsign</span><span class="p">();</span><span class="w"> </span><span class="c1">// iframe document 関数因子に移動</span>
-
-
-<span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
-
-
-<span class="kd">var</span><span class="w"> </span><span class="nx">sucess_callback</span><span class="o">=</span><span class="w"> </span><span class="nx">funtion</span><span class="p">(</span><span class="nx">response</span><span class="p">){</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">document_id</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">title</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">field_values</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]);</span>
-<span class="p">};</span>
-
-
-<span class="kd">var</span><span class="w"> </span><span class="nx">error_callback</span><span class="o">=</span><span class="w"> </span><span class="nx">funtion</span><span class="p">(</span><span class="nx">response</span><span class="p">){</span>
-<span class="w">  </span><span class="nx">alert</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">code</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
-<span class="p">};</span>
-
-
-<span class="nx">eformsign</span><span class="p">.</span><span class="nb">document</span><span class="p">(</span><span class="nx">document_option</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eformsign_iframe&quot;</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nx">sucess_callback</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nx">error_callback</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>document 関数のパラメーターとして Callback 関数を設定した場合、Callback 関数を呼び出す際、次のような値を返します。</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Callback</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>説明</p></th>
-<th class="head"><p>備考</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>code</p></td>
-<td><p>string</p></td>
-<td><p>送信に失敗した場合、結果
-のエラーコードを返す</p></td>
-<td><p>-1 の場合、正常</p></td>
-</tr>
-<tr class="row-odd"><td><p>document
-_id</p></td>
-<td><p>string</p></td>
-<td><p>送信に成功した場合、作成
-した文書の document_idを
-返す</p></td>
-<td><p>ex)
-910b8a965f9
-402b82152f48c6da5a5c</p></td>
-</tr>
-<tr class="row-even"><td><p>field
-_values</p></td>
-<td><p>object</p></td>
-<td><p>document_optionに定義した
-return_fields コラムに
-ユーザーが入力した値を
-インポートできる</p></td>
-<td><p>ex).
-field_values[&quot;name&quot;]
-// john</p></td>
-</tr>
-<tr class="row-odd"><td><p>message</p></td>
-<td><p>string</p></td>
-<td><p>送信に失敗した場合、
-エラーメッセージを返す</p></td>
-<td><p>Nullの場合、正常</p></td>
-</tr>
-<tr class="row-even"><td><p>title</p></td>
-<td><p>string</p></td>
-<td><p>送信に成功した場合、作成
-した文書のタイトルを返す</p></td>
-<td><p>ex) 契約書</p></td>
-</tr>
-</tbody>
-</table>
-<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; parent of 72c99e6 (embedding 업데이트)</p>
-=======
->>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 </section>
 </section>
 
@@ -5697,7 +3648,7 @@ field_values[&quot;name&quot;]
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="eformsign_api_quickstart.html" class="btn btn-neutral float-left" title="eformsign APIの始め方：実践ガイド" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="eformsign_api_overview.html" class="btn btn-neutral float-left" title="eformsign APIガイド" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="eformsign_api.html" class="btn btn-neutral float-right" title="eformsign APIの使い方" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

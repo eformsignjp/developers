@@ -12,6 +12,7 @@ eformsign API/Webhook 連携ガイド
 
 
    help/eformsign_api_overview
+   help/eformsign_api_quickstart
    help/eformsign_embedding
    help/eformsign_api
    help/eformsign_webhook
