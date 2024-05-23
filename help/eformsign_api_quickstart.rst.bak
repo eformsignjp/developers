@@ -1,0 +1,345 @@
+
+----------------------------------------------
+eformsign APIの始め方：実践ガイド
+----------------------------------------------
+
+eformsign APIを使用して文書を作成し、受信者に送信
+-------------------------------------------------------------
+
+本ガイドでは、eformsign APIを使用して **文書作成し、メールで特定の相手に送信する方法** を準備事項から文書依頼まで、テストできるよう順を追ってご説明します。
+
+eformsignでAPIキーを生成後、APIテスト用アプリとしてPostmanを使用してキーを認証し、文書を作成して受信者に送信します。
+
+.. note::
+    
+   事前に `Postman <https://identity.getpostman.com/signup/>`_ のアカウントを登録し、 `アプリ <https://www.postman.com/downloads/>`_ をダウンロードするか、 `ウェブ版 <https://www.postman.com/downloads/>`_ にアクセスしてください。
+
+
+eformsign APIを使った文書の作成・送信は、以下の順番で行われます。
+(1~3番は、APIを使うための準備段階です。)
+
+
+    **1. テンプレートの作成**
+
+    **2. APIキーの作成**
+
+    **3. Access tokenの発行(APIキー認証)**
+
+    **4. APIを使った文書の作成・記入依頼**
+
+-----------------------------------------------------------------------
+
+
+準備事項 1. テンプレートの作成 
+===============================
+
+eformsign APIを使用して文書を作成し、送信するには、事前にeformsignサービスにログインし、テンプレートを作成・保存する必要があります。
+
+本ガイドでは、初回文書作成者がメールで一人に対して文書作成依頼を送信する、簡単なワークフローの設定を行いテンプレートを作成します。
+
+
+1. 代表管理者アカウントでeformsignにログインします。
+2. メニューからテンプレート管理をクリックして、テンプレート管理ページに移動します。
+3. 新規テンプレートとなるファイルをアップロードします。
+
+
+.. image:: resources/1_template_list.png
+    :width: 700
+    :alt: テンプレート管理メニュー
+
+
+
+4. **文書参加者** 設定ポップアップで **文書作成の参加者** を設定します。本ガイドでは、初回作成者である **開始**\ と受信者である **会員**\ の設定を行います。
+
+.. image:: resources/2_set_stepname.png
+    :width: 300
+    :alt: 文書参加者ポップアップ
+
+
+
+5. **開始**\ と **会員**\ が作成する入力項目を文書に追加し、入力項目IDの入力、各参加者の入力項目の作成権限の設定を行います。
+
+.. image:: resources/3_webform_comp_properties.png
+    :width: 700
+    :alt: 入力項目の追加
+
+
+
+6. 画面上部の **設定する**\ をクリックして移動後、ワークフローを設定します。 **ワークフロー**\ は **開始(参加者) - 会員(参加者)**\ の二段階に設定し、 **会員** ステップの右側のプロパティから通知 - メールで送信を選択します。
+
+.. image:: resources/4_workflow_email.png
+    :width: 700
+    :alt: 通知オプション - 電子メール
+
+
+
+
+7. テンプレートを保存・配布後、テンプレートの設定アイコンを再度クリックします。この時、URLのUUIDに表示されたテンプレートIDをコピーしておきます。
+**テンプレートID**\ は、テンプレートを使用して文書を作成する際に必要です。
+
+.. image:: resources/5_check_formID.png
+    :width: 700
+    :alt: テンプレートID
+
+
+
+
+
+準備事項2. APIキーの作成
+=============================
+
+
+テンプレートを作成したら、次はAPIキーを作成します。
+
+
+1. eformsignにログイン後、 **[コネクト > API/Webhook > APIキー]** ページに移動します。
+
+.. image:: resources/6_generate_apiKey.png
+    :width: 700
+    :alt: API/Webhookメニュー
+
+
+
+2. 画面右側の **APIキーの作成** ボタンをクリックします。
+
+.. image:: resources/7_click_apiKey_button.png
+    :width: 700
+    :alt: APIキーの作成ボタン
+
+
+
+3. **APIキーの作成** ポップアップが表示されたら、 **エイリアス** と **アプリケーション名** を入力、 **検証タイプ** は **Bearer token** を選択し、**値** を入力して **保存** します。
+
+.. note:: 
+    
+   eformsign APIでは3つの検証タイプに対応しています。本実践ガイドでは **Bearer token** 方式を使用します。
+
+.. image:: resources/8_apiKey_popup.png
+    :width: 300
+    :alt: APIキーの作成ポップアップ
+
+
+.. note:: 
+    
+   検証タイプの詳細については、eformsign APIの使い方ガイドの `APIキーの作成と秘密鍵の確認 <https://eformsignkr.github.io/developers/help/eformsign_api.html#api>`_ をご参照ください。
+
+    
+4. 作成したAPIキーを確認してコピーします。APIキーはAccessトークンを発行する際に必要です。
+
+.. image:: resources/9_check_apiKey_value.png
+    :width: 700
+    :alt: APIキー
+
+
+
+準備事項3. Access tokenの発行(APIキー認証)
+=================================================
+
+APIキーの作成後は、認証をしてAccessトークンを発行する必要があります。 今回のガイドでは、APIテストツールとしてPostmanを使用してAPIキーを認証後、Accessトークンを発行します。
+
+1. **eformsign API実践ガイド用** をご用意しました。Accessトークン発行と文書の作成・送信のテストを簡単に行うことができます。テストを行うには以下のRun in Postmanボタンをクリックしてください。
+**eformsign API実践ガイド用** Postman collectionは、実践ガイドに必要なAPIのみ対象としています。現在提供中のすべてのAPIを確認するには `Swagger eformsign APIガイド <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document/post-api-documents>`_ からご確認ください。
+
+.. image:: resources/run_in_postman.PNG
+    :alt: Run in Postmanボタン
+    :width: 150
+    :target: https://god.gw.postman.com/run-collection/27891557-58257a8f-c07a-4237-af80-15f4b43b04b3?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D27891557-58257a8f-c07a-4237-af80-15f4b43b04b3%26entityType%3Dcollection%26workspaceId%3D3cf5d467-c05f-46a3-9995-7bf5a33b5379 
+
+
+
+2. 上記のボタンをクリックするとログイン画面が表示されます。あらかじめ登録したアカウントでログインしてください。
+
+3.ログイン後、次のような画面が表示されたら **Fork Collection**\ をクリックします。eformsign API実践ガイド用をユーザーのworkspaceにforkします。
+
+.. image:: resources/fork_collection.PNG
+    :width: 700
+    :alt: Fork collection
+
+
+4. eformsign API実践ガイド用をworkspaceにforkすると、次のような画面が表示されます。
+
+.. image:: resources/13_after_folk_postman.png
+    :width: 700
+    :alt: Postman collection
+
+
+5. **token** フォルダの **Access Tokenの発行(bearer)**\ を選択します。
+
+
+6. **Headers** タブをクリックし、eformsign_signatureとAuthorizationの値を次のように入力します。
+    
+    - eformsign_signature: Bearer {{APIキーの作成時に設定したトークンの値}}
+    - Authorization: Bearer {{base64インコーディングされたAPIキー}}
+
+.. image:: resources/14_generate_accesstoken_headers.png
+    :width: 700
+    :alt: Access tokenの発行
+
+
+.. tip:: 
+    
+   base 64へのインコードは各自の環境で行ってください。
+   "Base64 インコード"などでWeb検索して、base 64へのインコードが可能な外部ツールをお探しください。
+
+
+7. **Body** タブに移動後、 **raw**\ を選択してexecution_timeとmember_idの値を入力し、 **Send** ボタンをクリックしてAPIを呼び出します。
+
+.. image:: resources/15_generate_accesstoken_body.png
+    :width: 700
+    :alt: APIの呼び出し
+
+.. tip:: 
+   
+   execution_timeはトークンがリクエストされた時間です。
+   リクエスト後30秒以内に13桁のミリ秒の値を入力してください。 
+
+   execution_timeは `Epoch Converter <https://www.epochconverter.com/>`_ のようなサイトで変換することができます。
+
+   **[Tips] Epoch Converterサイトの使い方:**
+
+   1. Human date to Timestampボタンの左側にある入力欄にGMT時間(日本の標準時刻 -9時間)を入力し、ボタンをクリックします。
+
+   2. Timestamp in millisecondsの値を確認します。
+
+   .. image:: resources/16_generate_accesstoken_result.png
+       :width: 700
+       :alt: Epoch Converterの使用
+
+  
+.. note:: 
+    
+   Member_idは文書を作成するアカウントID(代表アカウントでログインしたアカウント)です。この情報は **会社管理 > 会社情報 > 詳細情報**\ からご確認いただけます。
+
+
+8. 下記のようにAPIキーが正常に認証されると(Status: 200 OK)、Accessトークンが発行されます。Response bodyから **api_url, refresh_token, access_token** の値を確認することができます。
+
+.. image:: resources/16_generate_accesstoken_result.png
+    :width: 700
+    :alt: Accessトークンの発行
+
+.. note:: 
+    
+   Accessトークンの有効期限は3600秒(1時間)に設定されており、有効期限が切れるとトークンでAPIを使用できなくなります。
+   その場合、Accessトークンを再発行するか、Accessトークン更新APIを使用してトークンを更新する必要があります。
+
+   Accessトークンの更新APIに関する内容は `Swagger <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-refresh_token>`_ からご確認いただけます。
+
+
+----------------------------------------------------------------
+
+
+APIを使った文書の作成・記入依頼
+======================================
+
+APIキーの認証とAccessトークンの発行が終わり、準備ができました。APIを使用して文書の作成と記入依頼を行います。
+
+1. eformsign API実践ガイド用のdocumentフォルダで、POST新規文書作成(初回作成者が会社メンバー)を選択します。
+
+.. important:: 
+    
+   **注目！**
+
+   ここでのURLは、上記の準備事項3-8のステップ3-8のresponse bodyで取得したapi_URLを入力してください。(例： jp.api.eformsign.com)
+
+
+.. image:: resources/17_run_api_newdocument_url.png
+    :width: 700
+    :alt: POST 新規文書作成
+
+
+2. **Params** タブでtemplate_id(※)に値を入力します。
+    ※テンプレートIDとは、テンプレートの作成後、URLからコピーした値です。 
+
+.. image:: resources/18_run_api_newdocument_params.png
+    :width: 700
+    :alt: template_idの値
+
+
+3. **Authorization** タブから、 **Type**\ をBearer Tokenに設定し、取得したAccessトークンの値を入力します。
+
+.. image:: resources/19_run_api_newdocument_authorization.png
+    :width: 700
+    :alt: Accessトークンの値
+
+4. ここまででAPIで文書を作成して送信する準備はほぼ完了しました。
+ですが、その前に最後にやるべきことがあります。文書を送信する前に、文書名、受信者情報、ワークフロー情報、そして初回作成者が入力するフィールドIDと値などの文書情報を入力する必要があります。
+
+   該当情報はBodyタブからJSON形式で入力します。実践用にはサンプルとしてほぼ全てのデータが入力されています。ユーザーの文書情報に合わせてデータを修正することができます。文書情報の全てのスキーマ(schema)は `Swagger <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-refresh_token>`_ からご確認いただけます。
+
+.. image:: resources/20_run_api_newdocument_requestBody.png
+    :width: 700
+    :alt: 文書情報の入力
+
+**サンプル**
+
+.. code-block:: JSON
+
+    {
+      "document": {
+        "document_name": "入会登録申請書",
+        "comment": "申請書への記入をお願いします。",
+        "recipients": [
+          {
+            "step_type": "05",
+            "use_mail": true,
+            "use_sms": false,
+            "member": {
+              "name": "鈴木三郎",
+              "id": "saburo@forcs.com",
+              "sms": {
+                "country_code": "+81",
+                "phone_number": "01023456789"
+              }
+            },
+            "auth": {
+              "password": "6789",
+              "password_hint": "携帯電話番号の末尾4桁を入力してください。",
+              "valid": {
+                "day": 7,
+                "hour": 0
+              }
+            }
+          }
+        ],
+        "fields": [
+          {
+            "id": "会員種別",
+            "value": "一般"
+          }
+        ],
+        "select_group_name": "",
+        "notification": []
+      }
+    }
+
+
+
+上記のようにbodyを入力すると、13646ef03fd54fd2388c0e0e0e25afe017cのIDを持つテンプレートに、会社のメンバーである初回作成者が入力項目ID「会員種別」に「一般」と入力し、受信者のメールアドレスであるsaburo@forcs.com に文書が送信されます。
+
+
+
+5. **Send** ボタンをクリックすると、文書が受信者に送信されます。
+
+.. image:: resources/21_run_api_newdocument_result.png
+    :width: 700
+    :alt: APIの呼び出し成功
+
+上記のようにAPI呼び出しに成功すると(Status: 200 OK)、受信者のメールアドレス宛てに文書への記入依頼メールが送信されます。
+
+
+6. **進行中文書トレイ**\ から、APIで送信された文書をご確認いただけます。
+
+.. image:: resources/22_check_progress_document.png
+    :width: 700
+    :alt: 進行中文書トレイの確認1
+
+.. image:: resources/23_preview_progress_document.png
+    :width: 700
+    :alt: 進行中文書トレイの確認2
+
+受信者はeformsignで作成された文書をメールで受け取って確認し、eformsignで文書作成依頼を受け、これを記入して提出すれば文書が完了します。
+
+
+上記のような方法でeformsignの様々なAPIを簡単にテストすることができます。
+
+eformsign APIに関する詳しい情報は `eformsign APIの使い方 <https://eformsignkr.github.io/developers/help/eformsign_api.html#eformsign-api>`_ ガイドと `Swagger eformsign APIガイド <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document/post-api-documents>`_ からご確認いただけます。

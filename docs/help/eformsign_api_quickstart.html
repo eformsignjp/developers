@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>eformsign APIの始め方：実践ガイド &mdash; eformsign API guide 2024.05.23 ドキュメント</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/code-tabs.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/code-tabs.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="eformsign APIの使い方" href="eformsign_api.html" />
+    <link rel="prev" title="eformsign機能の埋め込み" href="eformsign_embedding_JP.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/forcs_b.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="eformsign_api_overview.html">eformsign APIガイド</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eformsign_embedding_JP.html">eformsign機能の埋め込み</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">eformsign APIの始め方：実践ガイド</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">eformsign APIを使用して文書を作成し、受信者に送信</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">準備事項 1. テンプレートの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api">準備事項2. APIキーの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#access-token-api">準備事項3. Access tokenの発行(APIキー認証)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">APIを使った文書の作成・記入依頼</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eformsign_api.html">eformsign APIの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eformsign_webhook.html">eformsign Webhookの使い方</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">eformsign API guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">eformsign APIの始め方：実践ガイド</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/help/eformsign_api_quickstart.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="eformsign-api">
+<h1>eformsign APIの始め方：実践ガイド<a class="headerlink" href="#eformsign-api" title="この見出しへのパーマリンク"></a></h1>
+<section id="id1">
+<h2>eformsign APIを使用して文書を作成し、受信者に送信<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h2>
+<p>本ガイドでは、eformsign APIを使用して <strong>文書作成し、メールで特定の相手に送信する方法</strong> を準備事項から文書依頼まで、テストできるよう順を追ってご説明します。</p>
+<p>eformsignでAPIキーを生成後、APIテスト用アプリとしてPostmanを使用してキーを認証し、文書を作成して受信者に送信します。</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>事前に <a class="reference external" href="https://identity.getpostman.com/signup/">Postman</a> のアカウントを登録し、 <a class="reference external" href="https://www.postman.com/downloads/">アプリ</a> をダウンロードするか、 <a class="reference external" href="https://www.postman.com/downloads/">ウェブ版</a> にアクセスしてください。</p>
+</div>
+<p>eformsign APIを使った文書の作成・送信は、以下の順番で行われます。
+(1~3番は、APIを使うための準備段階です。)</p>
+<blockquote>
+<div><p><strong>1. テンプレートの作成</strong></p>
+<p><strong>2. APIキーの作成</strong></p>
+<p><strong>3. Access tokenの発行(APIキー認証)</strong></p>
+<p><strong>4. APIを使った文書の作成・記入依頼</strong></p>
+</div></blockquote>
+<hr class="docutils" />
+<section id="id4">
+<h3>準備事項 1. テンプレートの作成<a class="headerlink" href="#id4" title="この見出しへのパーマリンク"></a></h3>
+<p>eformsign APIを使用して文書を作成し、送信するには、事前にeformsignサービスにログインし、テンプレートを作成・保存する必要があります。</p>
+<p>本ガイドでは、初回文書作成者がメールで一人に対して文書作成依頼を送信する、簡単なワークフローの設定を行いテンプレートを作成します。</p>
+<ol class="arabic simple">
+<li><p>代表管理者アカウントでeformsignにログインします。</p></li>
+<li><p>メニューからテンプレート管理をクリックして、テンプレート管理ページに移動します。</p></li>
+<li><p>新規テンプレートとなるファイルをアップロードします。</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/1_template_list.png"><img alt="テンプレート管理メニュー" src="../_images/1_template_list.png" style="width: 700px;" /></a>
+<ol class="arabic simple" start="4">
+<li><p><strong>文書参加者</strong> 設定ポップアップで <strong>文書作成の参加者</strong> を設定します。本ガイドでは、初回作成者である <strong>開始</strong>と受信者である <strong>会員</strong>の設定を行います。</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/2_set_stepname.png"><img alt="文書参加者ポップアップ" src="../_images/2_set_stepname.png" style="width: 300px;" /></a>
+<ol class="arabic simple" start="5">
+<li><p><strong>開始</strong>と <strong>会員</strong>が作成する入力項目を文書に追加し、入力項目IDの入力、各参加者の入力項目の作成権限の設定を行います。</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/3_webform_comp_properties.png"><img alt="入力項目の追加" src="../_images/3_webform_comp_properties.png" style="width: 700px;" /></a>
+<ol class="arabic simple" start="6">
+<li><p>画面上部の <strong>設定する</strong>をクリックして移動後、ワークフローを設定します。 <strong>ワークフロー</strong>は <strong>開始(参加者) - 会員(参加者)</strong>の二段階に設定し、 <strong>会員</strong> ステップの右側のプロパティから通知 - <strong>メールで送信</strong> を選択します。</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/4_workflow_email.png"><img alt="通知オプション - 電子メール" src="../_images/4_workflow_email.png" style="width: 700px;" /></a>
+<p>7. テンプレートを保存・配布後、テンプレートの設定アイコンを再度クリックします。この時、URLのUUIDに表示されたテンプレートIDをコピーしておきます。
+<strong>テンプレートID</strong>は、テンプレートを使用して文書を作成する際に必要です。</p>
+<a class="reference internal image-reference" href="../_images/5_check_formID.png"><img alt="テンプレートID" src="../_images/5_check_formID.png" style="width: 700px;" /></a>
+</section>
+<section id="api">
+<h3>準備事項2. APIキーの作成<a class="headerlink" href="#api" title="この見出しへのパーマリンク"></a></h3>
+<p>テンプレートを作成したら、次はAPIキーを作成します。</p>
+<ol class="arabic simple">
+<li><p>eformsignにログイン後、 <strong>[コネクト &gt; API/Webhook &gt; APIキー]</strong> ページに移動します。</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/6_generate_apiKey.png"><img alt="API/Webhookメニュー" src="../_images/6_generate_apiKey.png" style="width: 700px;" /></a>
+<ol class="arabic simple" start="2">
+<li><p>画面右側の <strong>APIキーの作成</strong> ボタンをクリックします。</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/7_click_apiKey_button.png"><img alt="APIキーの作成ボタン" src="../_images/7_click_apiKey_button.png" style="width: 700px;" /></a>
+<ol class="arabic simple" start="3">
+<li><p><strong>APIキーの作成</strong> ポップアップが表示されたら、 <strong>エイリアス</strong> と <strong>アプリケーション名</strong> を入力、 <strong>検証タイプ</strong> は <strong>Bearer token</strong> を選択し、<strong>値</strong> を入力して <strong>保存</strong> します。</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>eformsign APIでは3つの検証タイプに対応しています。本実践ガイドでは <strong>Bearer token</strong> 方式を使用します。</p>
+</div>
+<a class="reference internal image-reference" href="../_images/8_apiKey_popup.png"><img alt="APIキーの作成ポップアップ" src="../_images/8_apiKey_popup.png" style="width: 300px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>検証タイプの詳細については、eformsign APIの使い方ガイドの <a class="reference external" href="https://eformsignkr.github.io/developers/help/eformsign_api.html#api">APIキーの作成と秘密鍵の確認</a> をご参照ください。</p>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>作成したAPIキーを確認してコピーします。APIキーはAccessトークンを発行する際に必要です。</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/9_check_apiKey_value.png"><img alt="APIキー" src="../_images/9_check_apiKey_value.png" style="width: 700px;" /></a>
+</section>
+<section id="access-token-api">
+<h3>準備事項3. Access tokenの発行(APIキー認証)<a class="headerlink" href="#access-token-api" title="この見出しへのパーマリンク"></a></h3>
+<p>APIキーの作成後は、認証をしてAccessトークンを発行する必要があります。 今回のガイドでは、APIテストツールとしてPostmanを使用してAPIキーを認証後、Accessトークンを発行します。</p>
+<p>1. <strong>eformsign API実践ガイド用</strong> をご用意しました。Accessトークン発行と文書の作成・送信のテストを簡単に行うことができます。テストを行うには以下のRun in Postmanボタンをクリックしてください。
+<strong>eformsign API実践ガイド用</strong> Postman collectionは、実践ガイドに必要なAPIのみ対象としています。現在提供中のすべてのAPIを確認するには <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document/post-api-documents">Swagger eformsign APIガイド</a> からご確認ください。</p>
+<a class="reference external image-reference" href="https://god.gw.postman.com/run-collection/27891557-58257a8f-c07a-4237-af80-15f4b43b04b3?action=collection%2Ffork&amp;source=rip_markdown&amp;collection-url=entityId%3D27891557-58257a8f-c07a-4237-af80-15f4b43b04b3%26entityType%3Dcollection%26workspaceId%3D3cf5d467-c05f-46a3-9995-7bf5a33b5379"><img alt="Run in Postmanボタン" src="../_images/run_in_postman.PNG" style="width: 150px;" /></a>
+<ol class="arabic simple" start="2">
+<li><p>上記のボタンをクリックするとログイン画面が表示されます。あらかじめ登録したアカウントでログインしてください。</p></li>
+</ol>
+<p>3.ログイン後、次のような画面が表示されたら <strong>Fork Collection</strong>をクリックします。eformsign API実践ガイド用をユーザーのworkspaceにforkします。</p>
+<a class="reference internal image-reference" href="../_images/fork_collection.PNG"><img alt="Fork collection" src="../_images/fork_collection.PNG" style="width: 700px;" /></a>
+<ol class="arabic simple" start="4">
+<li><p>eformsign API実践ガイド用をworkspaceにforkすると、次のような画面が表示されます。</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/13_after_folk_postman.png"><img alt="Postman collection" src="../_images/13_after_folk_postman.png" style="width: 700px;" /></a>
+<ol class="arabic" start="5">
+<li><p><strong>token</strong> フォルダの <strong>Access Tokenの発行(bearer)</strong>を選択します。</p></li>
+<li><p><strong>Headers</strong> タブをクリックし、eformsign_signatureとAuthorizationの値を次のように入力します。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>eformsign_signature: Bearer {{APIキーの作成時に設定したトークンの値}}</p></li>
+<li><p>Authorization: Bearer {{base64インコーディングされたAPIキー}}</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<a class="reference internal image-reference" href="../_images/14_generate_accesstoken_headers.png"><img alt="Access tokenの発行" src="../_images/14_generate_accesstoken_headers.png" style="width: 700px;" /></a>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>base 64へのインコードは各自の環境で行ってください。
+&quot;Base64 インコード&quot;などでWeb検索して、base 64へのインコードが可能な外部ツールをお探しください。</p>
+</div>
+<ol class="arabic simple" start="7">
+<li><p><strong>Body</strong> タブに移動後、 <strong>raw</strong>を選択してexecution_timeとmember_idの値を入力し、 <strong>Send</strong> ボタンをクリックしてAPIを呼び出します。</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/15_generate_accesstoken_body.png"><img alt="APIの呼び出し" src="../_images/15_generate_accesstoken_body.png" style="width: 700px;" /></a>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>execution_timeはトークンがリクエストされた時間です。
+リクエスト後30秒以内に13桁のミリ秒の値を入力してください。</p>
+<p>execution_timeは <a class="reference external" href="https://www.epochconverter.com/">Epoch Converter</a> のようなサイトで変換することができます。</p>
+<p><strong>[Tips] Epoch Converterサイトの使い方:</strong></p>
+<ol class="arabic simple">
+<li><p>Human date to Timestampボタンの左側にある入力欄にGMT時間(日本の標準時刻 -9時間)を入力し、ボタンをクリックします。</p></li>
+<li><p>Timestamp in millisecondsの値を確認します。</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/epoch_converter.PNG"><img alt="Epoch Converterの使用" src="../_images/epoch_converter.PNG" style="width: 700px;" /></a>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>Member_idは文書を作成するアカウントID(代表アカウントでログインしたアカウント)です。この情報は <strong>会社管理 &gt; 会社情報 &gt; 詳細情報</strong>からご確認いただけます。</p>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>下記のようにAPIキーが正常に認証されると(Status: 200 OK)、Accessトークンが発行されます。Response bodyから <strong>api_url, refresh_token, access_token</strong> の値を確認することができます。</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/16_generate_accesstoken_result.png"><img alt="Accessトークンの発行" src="../_images/16_generate_accesstoken_result.png" style="width: 700px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>Accessトークンの有効期限は3600秒(1時間)に設定されており、有効期限が切れるとトークンでAPIを使用できなくなります。
+その場合、Accessトークンを再発行するか、Accessトークン更新APIを使用してトークンを更新する必要があります。</p>
+<p>Accessトークンの更新APIに関する内容は <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-refresh_token">Swagger</a> からご確認いただけます。</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="id6">
+<h3>APIを使った文書の作成・記入依頼<a class="headerlink" href="#id6" title="この見出しへのパーマリンク"></a></h3>
+<p>APIキーの認証とAccessトークンの発行が終わり、準備ができました。APIを使用して文書の作成と記入依頼を行います。</p>
+<ol class="arabic simple">
+<li><p>eformsign API実践ガイド用のdocumentフォルダで、POST新規文書作成(初回作成者が会社メンバー)を選択します。</p></li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p><strong>注目！</strong></p>
+<p>ここでのURLは、上記の準備事項3-8のステップ3-8のresponse bodyで取得したapi_URLを入力してください。(例： jp.api.eformsign.com)</p>
+</div>
+<a class="reference internal image-reference" href="../_images/17_run_api_newdocument_url.png"><img alt="POST 新規文書作成" src="../_images/17_run_api_newdocument_url.png" style="width: 700px;" /></a>
+<ol class="arabic simple" start="2">
+<li><dl class="simple">
+<dt><strong>Params</strong> タブでtemplate_id(※)に値を入力します。</dt><dd><p>※テンプレートIDとは、テンプレートの作成後、URLからコピーした値です。</p>
+</dd>
+</dl>
+</li>
+</ol>
+<a class="reference internal image-reference" href="../_images/18_run_api_newdocument_params.png"><img alt="template_idの値" src="../_images/18_run_api_newdocument_params.png" style="width: 700px;" /></a>
+<ol class="arabic simple" start="3">
+<li><p><strong>Authorization</strong> タブから、 <strong>Type</strong>をBearer Tokenに設定し、取得したAccessトークンの値を入力します。</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/19_run_api_newdocument_authorization.png"><img alt="Accessトークンの値" src="../_images/19_run_api_newdocument_authorization.png" style="width: 700px;" /></a>
+<p>4. ここまででAPIで文書を作成して送信する準備はほぼ完了しました。
+ですが、その前に最後にやるべきことがあります。文書を送信する前に、文書名、受信者情報、ワークフロー情報、そして初回作成者が入力するフィールドIDと値などの文書情報を入力する必要があります。</p>
+<blockquote>
+<div><p>該当情報はBodyタブからJSON形式で入力します。実践用にはサンプルとしてほぼ全てのデータが入力されています。ユーザーの文書情報に合わせてデータを修正することができます。文書情報の全てのスキーマ(schema)は <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-refresh_token">Swagger</a> からご確認いただけます。</p>
+</div></blockquote>
+<a class="reference internal image-reference" href="../_images/20_run_api_newdocument_requestBody.png"><img alt="文書情報の入力" src="../_images/20_run_api_newdocument_requestBody.png" style="width: 700px;" /></a>
+<p><strong>サンプル</strong></p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;document&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;document_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;入会登録申請書&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;申請書への記入をお願いします。&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;recipients&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;step_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;05&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;use_mail&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;use_sms&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;member&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;鈴木三郎&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;saburo@forcs.com&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;sms&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;country_code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;+81&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;phone_number&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01023456789&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;auth&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6789&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;password_hint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;携帯電話番号の末尾4桁を入力してください。&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;valid&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;day&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;hour&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;会員種別&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;一般&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;select_group_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;notification&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>上記のようにbodyを入力すると、13646ef03fd54fd2388c0e0e0e25afe017cのIDを持つテンプレートに、会社のメンバーである初回作成者が入力項目ID「会員種別」に「一般」と入力し、受信者のメールアドレスであるsaburo&#64;forcs.com に文書が送信されます。</p>
+<ol class="arabic simple" start="5">
+<li><p><strong>Send</strong> ボタンをクリックすると、文書が受信者に送信されます。</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/21_run_api_newdocument_result.png"><img alt="APIの呼び出し成功" src="../_images/21_run_api_newdocument_result.png" style="width: 700px;" /></a>
+<p>上記のようにAPI呼び出しに成功すると(Status: 200 OK)、受信者のメールアドレス宛てに文書への記入依頼メールが送信されます。</p>
+<ol class="arabic simple" start="6">
+<li><p><strong>進行中文書トレイ</strong>から、APIで送信された文書をご確認いただけます。</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/22_check_progress_document.png"><img alt="進行中文書トレイの確認1" src="../_images/22_check_progress_document.png" style="width: 700px;" /></a>
+<a class="reference internal image-reference" href="../_images/23_preview_progress_document.png"><img alt="進行中文書トレイの確認2" src="../_images/23_preview_progress_document.png" style="width: 700px;" /></a>
+<p>受信者はeformsignで作成された文書をメールで受け取って確認し、eformsignから文書作成依頼を受け、記入・提出すると文書作成は完了です。</p>
+<p>上記のような方法でeformsignの様々なAPIを簡単にテストすることができます。</p>
+<p>eformsign APIに関する詳しい情報は <a class="reference external" href="https://eformsignkr.github.io/developers/help/eformsign_api.html#eformsign-api">eformsign APIの使い方</a> と <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document/post-api-documents">Swagger eformsign APIガイド</a> からご確認いただけます。</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="eformsign_embedding_JP.html" class="btn btn-neutral float-left" title="eformsign機能の埋め込み" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="eformsign_api.html" class="btn btn-neutral float-right" title="eformsign APIの使い方" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024. FORCS CO., LTD. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

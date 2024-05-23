@@ -1,392 +1,415 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="ja" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>eformsign Webhook の使い方 &mdash; eformsign API guide 2021.01.11 ドキュメント</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/code-tabs.css" type="text/css" />
-
-  
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>eformsign Webhookの使い方 &mdash; eformsign API guide 2024.05.23 ドキュメント</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/code-tabs.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-  
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/translations.js"></script>
         <script src="../_static/code-tabs.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="prev" title="eformsign API の使い方" href="eformsign_api.html" /> 
+    <link rel="prev" title="eformsign APIの使い方" href="eformsign_api.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html">
           
-
-          
+          <a href="../index.html">
             
-            <img src="../_static/forcs_b.png" class="logo" alt="Logo"/>
-          
+              <img src="../_static/forcs_b.png" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="eformsign_api_overview.html">概要</a></li>
-<li class="toctree-l1"><a class="reference internal" href="eformsign_embedding.html">eformsign 機能の組み込み</a></li>
-<li class="toctree-l1"><a class="reference internal" href="eformsign_api.html">eformsign API の使い方</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">eformsign Webhook の使い方</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">始めてみよう</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#webhook">Webhook キーの発行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eformsign_api_overview.html">eformsign APIガイド</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eformsign_embedding_JP.html">eformsign機能の埋め込み</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eformsign_api_quickstart.html">eformsign APIの始め方：実践ガイド</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eformsign_api.html">eformsign APIの使い方</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">eformsign Webhookの使い方</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">準備</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#addwebhook">Webhookの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#managewebhook">Webhookの管理</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">キーの確認</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">編集</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">削除</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">テスト</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">署名の登録</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#java">Java</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#python">Python</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#php">PHP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">例題</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">テスト</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id6">Java</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">Python</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id8">PHP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id9">例題</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#webhookauth">Webhookの検証</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">署名検証のためのサンプルコード</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#java">Java</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#python">Python</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#php">PHP</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id10">Webhook 提供リスト</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id13">Webhook についての情報</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id14">文書イベント</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pdf">PDF 作成イベント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">各言語の例題</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#webhookevent">Webhookイベント</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id13">Webhookイベントの種類</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">Webhookの構造</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#status">文書の状態コード</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">eformsign API guide</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>eformsign Webhook の使い方</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">eformsign Webhookの使い方</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../_sources/help/eformsign_webhook.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="eformsign-webhook">
-<h1>eformsign Webhook の使い方<a class="headerlink" href="#eformsign-webhook" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>eformsign でイベントが発生した時、そのイベント情報を顧客のシステム/サービスに通知する機能です。Webhook を設定すると、顧客の Webhook endpoint にそのイベント情報を HTTP POST 形式で通知します。</p>
+             
+  <section id="eformsign-webhook">
+<span id="webhook"></span><h1>eformsign Webhookの使い方<a class="headerlink" href="#eformsign-webhook" title="この見出しへのパーマリンク"></a></h1>
+<p>eformsignでイベントが発生した場合、そのイベント情報をユーザーのシステム/サービスに通知する機能です。Webhookを設定すると、ユーザーのWebhook endpointにそのイベント情報をHTTP POST形式で通知します。</p>
 <div class="admonition tip">
-<p class="admonition-title">ちなみに</p>
-<p>Webhook の endpoint とは、顧客の client callback URL を意味します。Open API を持続的に呼び出して変更内容をチェックする方式（polling）に比べ、不要な呼び出しをせず eformsign 上のイベントについての情報を取得できます。</p>
+<p class="admonition-title">Tip</p>
+<p>Webhookのendpointとは、ユーザーのclient callback URLのことです。Open APIを持続的に呼び出して変更内容をチェックする方式（polling）に比べて不要な呼び出しをせずに、eformsign 上のイベントについての情報を取得することができます。</p>
 </div>
-<div class="section" id="id1">
-<h2>始めてみよう<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="webhook">
-<span id="id2"></span><h3>Webhook キーの発行<a class="headerlink" href="#webhook" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<section id="id1">
+<h2>準備<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h2>
+<section id="addwebhook">
+<span id="id2"></span><h3>Webhookの作成<a class="headerlink" href="#addwebhook" title="この見出しへのパーマリンク"></a></h3>
 <ol class="arabic simple">
-<li><p>eformsign に代表管理者としてログインし、左側のメニューから <strong>コネクト &gt; API/Webhook</strong> ページに移動します。</p></li>
+<li><p>eformsignに代表管理者としてログインし、左側のメニューから <strong>コネクト &gt; [API/Webhook]</strong> ページに移動します。</p></li>
 </ol>
 <a class="reference internal image-reference" href="../_images/apikey1.PNG"><img alt="コネクト &gt; API/Webhook メニューの位置" src="../_images/apikey1.PNG" style="width: 700px;" /></a>
 <ol class="arabic simple" start="2">
-<li><p><strong>Webhook</strong> タブを選択し、<strong>Webhookの作成</strong> ボタンをクリックします。</p></li>
+<li><p><strong>[Webhook]</strong> タブを選択し、<strong>Webhookの作成</strong> ボタンをクリックします。</p></li>
 </ol>
 <a class="reference internal image-reference" href="../_images/webhook2.PNG"><img alt="「Webhookの作成」ボタン" src="../_images/webhook2.PNG" style="width: 700px;" /></a>
 <ol class="arabic simple" start="3">
-<li><p><strong>Webhook の作成</strong> ポップアップに名前、Webhook の URL、アクティブ状態、適用対象を選択し、<strong>登録</strong> ボタンをクリックします。</p></li>
+<li><p>Webhook の作成ポップアップで名前、Webhookを受信するURL、アクティブ状態を選択します。</p></li>
 </ol>
 <a class="reference internal image-reference" href="../_images/webhook3.PNG"><img alt="「Webhookの作成」ポップアップ" src="../_images/webhook3.PNG" style="width: 700px;" /></a>
 <ol class="arabic simple" start="4">
-<li><p>作成された Webhook リストから <strong>キーを表示</strong> ボタンをクリックして Webhook の公開鍵を確認します。</p></li>
+<li><p><strong>適用対象</strong>を選択します。適用対象は、<strong>すべての文書、マイファイルで作成した文書、テンプレートで作成した文書</strong> の中から選択できます。</p></li>
 </ol>
-<a class="reference internal image-reference" href="../_images/webhook4.PNG"><img alt="「キーを表示」ボタンの位置" src="../_images/webhook4.PNG" style="width: 700px;" /></a>
-<a class="reference internal image-reference" href="../_images/webhook5.PNG"><img alt="Webhookのキーを確認" src="../_images/webhook5.PNG" style="width: 700px;" /></a>
+<a class="reference internal image-reference" href="../_images/webhook4.PNG"><img alt="「Webhookの作成」ポップアップ2" src="../_images/webhook4.PNG" style="width: 700px;" /></a>
+<ul class="simple">
+<li><p><strong>すべての文書:</strong> 会社で作成されたすべての文書に対してWebhookが送信されます。</p></li>
+<li><p><strong>マイファイルで作成した文書:</strong> <strong>マイファイルで文書作成</strong>で作成した文書に対してWebhookが送信されます。</p></li>
+<li><p><strong>テンプレートで作成した文書:</strong> 選択したテンプレートで作成した文書に対してWebhookが送信されます。</p></li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p><strong>キーを再発行</strong> ボタンをクリックすると、その Webhook の公開鍵が再発行され、以前のキーは使用できなくなります。</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
-<p><strong>Webhook 情報の修正</strong></p>
-<p>作成された Webhook リストから <strong>修正</strong> ボタンをクリックして Webhook 情報を変更することができます。</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
-<p><strong>Webhook の削除</strong></p>
-<p>作成された Webhook リストから <strong>削除</strong> ボタンをクリックして Webhook を削除することができます。</p>
+<p>テンプレートの選択は以下の手順で行うことができます。</p>
+<p>① <strong>適用テンプレートリスト</strong> 選択ウィンドウをクリックすると、テンプレートリストが表示されます。リストから追加するテンプレートを選択します。この際、テンプレート(<img alt="image1" src="../_images/template_icon.png" />)を選択する必要があります。カテゴリ(<img alt="image2" src="../_images/category_icon.png" />)を選択した場合は、適用テンプレートリストに追加されません。</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/Webhook_select_template.png"><img alt="「Webhookの作成」ポップアップ3" src="../_images/Webhook_select_template.png" style="width: 500px;" /></a>
+</div></blockquote>
+<p>②追加するテンプレートを選択後、右側の <strong>追加</strong> ボタンをクリックします。</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/Webhook_add_popup.png"><img alt="「Webhookの作成」ポップアップ4" src="../_images/Webhook_add_popup.png" style="width: 500px;" /></a>
+</div></blockquote>
+<p>③ 選択したテンプレートが <strong>適用テンプレートリスト</strong>に追加されたことを確認します。この手順を繰り返すことで、複数のテンプレートを追加することもできます。</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/Webhook_add_popup2.png"><img alt="「Webhookの作成」ポップアップ5" src="../_images/Webhook_add_popup2.png" style="width: 500px;" /></a>
+</div></blockquote>
 </div>
 <ol class="arabic simple" start="5">
-<li><p>作成された Webhook リストからテスト ボタンをクリックすると、テスト Webhook を送信して結果値を返します。</p></li>
+<li><p><strong>検証タイプ</strong>を選択します。検証タイプは、 <strong>検証なし、Bearer token、Basic認証、eformsign signature</strong> の中から選択することができます。各検証タイプの説明は、<a class="reference external" href="#webhookauth">Webhookの検証</a>をご確認ください。</p></li>
 </ol>
-<a class="reference internal image-reference" href="../_images/webhook6.PNG"><img alt="Webhook テスト 確認" src="../_images/webhook6.PNG" style="width: 700px;" /></a>
-<p>次はテストのための json ファイルです。</p>
-<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>{
-&quot;webhook_id&quot; : &quot;Webhook ID&quot;,
-&quot;webhook_name&quot; : &quot;Webhookの名前&quot;,
-&quot;company_id&quot; : &quot;会社ID&quot;,
-&quot;event_type&quot; : “document”,
-&quot;document&quot; : {
-  &quot;id&quot; : “test_doc_id”,
-   &quot;template_id&quot; : “test_template_id”,
-   &quot;template_version&quot; : “1”,
-   &quot;document_history_id&quot; : “test_document_history_id”,
-   &quot;doc_status&quot; : “doc_create”,
-   &quot;editor_id&quot; : &quot;ユーザーID&quot;,
-   &quot;updated_date&quot; : &quot;現在時間(UTC Long)&quot;
-}
-}
-Test URL : WebhookのURL
+<a class="reference internal image-reference" href="../_images/Webhook_add_popup3.png"><img alt="「Webhookの作成」ポップアップ6" src="../_images/Webhook_add_popup3.png" style="width: 500px;" /></a>
+<ol class="arabic simple" start="6">
+<li><p><strong>登録</strong> ボタンをクリックすると、Webhookが追加されます。 <strong>Webhook管理</strong> リストで追加したWebhookを確認することができます。</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/Webhook_add.png"><img alt="Webhookの登録完了" src="../_images/Webhook_add.png" style="width: 700px;" /></a>
+</section>
+<section id="managewebhook">
+<span id="id3"></span><h3>Webhookの管理<a class="headerlink" href="#managewebhook" title="この見出しへのパーマリンク"></a></h3>
+<p>Webhook一覧の右側にある操作ボタンから、各Webhookの管理を行うことができます。</p>
+<a class="reference internal image-reference" href="../_images/Webhook_manage1.png"><img alt="コネクト &gt; Webhook管理" src="../_images/Webhook_manage1.png" style="width: 700px;" /></a>
+<section id="id4">
+<h4>キーの確認<a class="headerlink" href="#id4" title="この見出しへのパーマリンク"></a></h4>
+<p>検証タイプをeformsign signatureに設定した場合、Webhook検証に必要な公開鍵を確認することができます。
+<strong>キー再発行</strong> ボタンをクリックしてキーを再発行することができます。キーを再発行する場合、元々使用していたキーは無効化されます。</p>
+<p>検証タイプをeformsign signature以外のタイプに設定した場合、空白の値が表示されます。</p>
+<a class="reference internal image-reference" href="../_images/Webhook_Key.png"><img alt="コネクト &gt; Webhookキーの確認" src="../_images/Webhook_Key.png" style="width: 400px;" /></a>
+</section>
+<section id="id5">
+<h4>編集<a class="headerlink" href="#id5" title="この見出しへのパーマリンク"></a></h4>
+<p>登録されたWebhookの名前、URL、アクティブ状態、適用対象、検証タイプを編集することができます。</p>
+</section>
+<section id="id6">
+<h4>削除<a class="headerlink" href="#id6" title="この見出しへのパーマリンク"></a></h4>
+<p>登録されたWebhookを削除することができます。</p>
+</section>
+<section id="id7">
+<h4>テスト<a class="headerlink" href="#id7" title="この見出しへのパーマリンク"></a></h4>
+<p>設定したWebhook URLにテストWebhookを送信し、結果を返します。</p>
+<p>テストWebhookのBodyは以下のようになります。
+設定した検証の種類によっては、ヘッダーに関連情報が記載されて送信します。</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;webhook_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Webhook ID&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;webhook_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Webhookの名前&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;company_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;会社ID&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;event_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;document&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;document&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test_doc_id&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;document_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test_document_title&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;template_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test_template_id&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;template_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test_template_name&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;workflow_seq&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;template_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;history_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test_document_history_id&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;doc_create&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;editor_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ユーザーID&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;updated_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;現在時間(UTC Long)&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="id3">
-<h2>署名の登録<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>署名の登録方法については、Java、Python、PHPの各言語に分けて説明します。</p>
-<div class="section" id="java">
-<h3>Java<a class="headerlink" href="#java" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>eformsign サーバーから送られたイベント情報を <a class="reference external" href="#webhook">Webhook キーの発行</a>で発行した公開鍵で検証し、 eformsign で正常に呼び出したイベントであるか検証します。</p>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>署名のアルゴリズムは SHA256withECDSA を使用します。</p>
+<p>テストの成功/失敗によって、次のようなポップアップメッセージが表示されます。</p>
+<p><strong>テストWebhookの送信に成功した場合</strong></p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/webhook_success_popup.png"><img alt="Webhook送信テストの成功時" src="../_images/webhook_success_popup.png" style="width: 400px;" /></a>
+</div></blockquote>
+<p><strong>テストWebhookの送信に失敗した場合</strong></p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/webhook_failed_popup.png"><img alt="Webhook送信テストの失敗時" src="../_images/webhook_failed_popup.png" style="width: 400px;" /></a>
+</div></blockquote>
+<p><strong>テストWebhookの送信エラーが発生、応答がない場合</strong></p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/webhook_error_popup.png"><img alt="Webhookエラーの発生時" src="../_images/webhook_error_popup.png" style="width: 400px;" /></a>
+</div></blockquote>
 </div>
+</section>
+</section>
+</section>
+<section id="webhookauth">
+<span id="id8"></span><h2>Webhookの検証<a class="headerlink" href="#webhookauth" title="この見出しへのパーマリンク"></a></h2>
+<p>受信したWebhookが、eformsignで呼び出した正常なWebhookか検証することができる機能です。</p>
+<p>Webhookを追加・編集する場合、以下の検証タイプを選択することができます。</p>
+<a class="reference internal image-reference" href="../_images/Webhook_auth_type.png"><img alt="Webhook検証タイプの選択" src="../_images/Webhook_auth_type.png" style="width: 500px;" /></a>
+<ul class="simple">
+<li><p><strong>検証なし</strong></p></li>
+</ul>
+<p>検証のための情報を付与せずWebhookを送信します。この場合、イベント情報のみ確認することができ、受信したWebhookが正常なWebhookであることを検証することはできません。</p>
+<ul class="simple">
+<li><p><strong>Bearer Token</strong></p></li>
+</ul>
+<p>検証のために事前設定したトークンの値を利用する方式です。
+Webhookを追加・編集する際、検証タイプを <strong>Bearer token</strong>に設定し、トークンとして使用する値を <strong>value</strong>欄に入力します。
+このように設定すると、Request HeaderのAuthorizationフィールドにその値記載してWebhookを送信することになります。</p>
+<a class="reference internal image-reference" href="../_images/Webhook_auth_type1.png"><img alt="Webhook検証タイプの選択" src="../_images/Webhook_auth_type1.png" style="width: 500px;" /></a>
+<p>例）トークンとしてbearer_test_valueと値を入力した場合、Webhookを受信した際にヘッダから以下の内容を確認することができます。</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>Authentication : Bearer bearer_test_value
+</pre></div>
 </div>
-<div class="section" id="python">
-<h3>Python<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>このように受信したWebhookのヘッダからトークンの値を抽出後、事前に設定した値と一致するか確認することで検証することができます。</p>
+<ul class="simple">
+<li><p><strong>Basic Authentication</strong></p></li>
+</ul>
+<p>検証のためにIDとパスワードを利用する方式です。</p>
+<p>Webhookを追加・編集する場合、検証タイプを <strong>Basic authentication</strong>に設定し、認証に使用するIDとパスワードを入力します。</p>
+<p>このように設定すると、Request HeaderのAuthorizationフィールドに事前設定したIDとパスワードが <strong>ID:パスワード</strong> の形式で、Base64エンコードした値を含めてWebhookを送信します。</p>
+<a class="reference internal image-reference" href="../_images/Webhook_auth_type2.png"><img alt="Webhook 検証タイプの選択" src="../_images/Webhook_auth_type2.png" style="width: 500px;" /></a>
+<p>例）上記のようにIDを <strong>eformsign</strong>、パスワードを <strong>Webhook123!</strong>と入力した場合、Webhookの受信時、ヘッダから以下の内容を確認することができます。</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>Authentication : Basic ZWZvcm1zaWduOldlYmhvb2sxMjMh
+</pre></div>
+</div>
+<p>上記の例でBasicから後ろの値をBase64デコードすると <strong>eformsign:Webhook123!</strong>となります。</p>
+<p>このように受信したWebhookのヘッダから、Basicから後ろの値をBase64デコードしてIDとパスワードを抽出し、事前設定したIDとパスワードと一致するか確認することで検証することができます。</p>
+<ul class="simple">
+<li><p><strong>eformsign Signature</strong></p></li>
+</ul>
+<p>検証にeformsign Signatureの署名の値を利用する方式です。</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>eformsign Signatureは非対称鍵方式と楕円曲線暗号化(Elliptic curve cryptography)を使用する署名方式です。署名アルゴリズムはSHA256withECDSAを使用します。</p>
+</div>
+<p>Webhookの追加または編集時、検証タイプを <strong>eformsign signature</strong>に設定すると、Request Headerのeformsign_signatureフィールドに署名値を含めてWebhookを送信します。</p>
+<p>以下はヘッダの例です。</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>eformsign_signature : 3045022100b9f1e0cdd21492cb5fa16dabff4c4402bf3efb9a9741a40a0d1c70aeda24bc8c02204a57ca1abab288e968a799e2fecbf18de9ab59c7c5814144b17f32553640a71a
+</pre></div>
+</div>
+<section id="id9">
+<h3>署名検証のためのサンプルコード<a class="headerlink" href="#id9" title="この見出しへのパーマリンク"></a></h3>
+<p>Webhookのヘッダからeformsign_signatureの値を抽出後、Webhook公開鍵と受信したWebhookのRequest Bodyの内容を比較して検証することができます。
+(Webhook公開鍵は、Webhookリストから <strong>キーを表示</strong> ボタンをクリックして確認することができます。)</p>
+<section id="java">
+<h4>Java<a class="headerlink" href="#java" title="この見出しへのパーマリンク"></a></h4>
+<p>以下のサンプルコードをご確認ください。</p>
+</section>
+<section id="python">
+<h4>Python<a class="headerlink" href="#python" title="この見出しへのパーマリンク"></a></h4>
 <p>キーフォーマット処理用のライブラリーを使用する必要があります。作業を開始する前に、次のコマンドを実行してライブラリーをインストールしてください。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">warner</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="n">ecdsa</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">master</span><span class="o">.</span><span class="n">zip</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="php">
-<h3>PHP<a class="headerlink" href="#php" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</section>
+<section id="php">
+<h4>PHP<a class="headerlink" href="#php" title="この見出しへのパーマリンク"></a></h4>
 <p>次の例題の keycheck.inc.php、test.php ファイルを同じパスに保存してから例題を実施してください。</p>
-</div>
-<div class="section" id="id4">
-<h3>例題<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>次は各言語の例題です。</p>
-<div class="code-tabs docutils container">
-<div class="code-tab" data-title="java">
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.*</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.math.BigInteger</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.security.*</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.security.spec.X509EncodedKeySpec</span><span class="p">;</span>
+</section>
+</section>
+<section id="id10">
+<h3>各言語の例題<a class="headerlink" href="#id10" title="この見出しへのパーマリンク"></a></h3>
+<p>各言語の例題です。</p>
+<div class="tabs docutils container" data-tabgroup="">
+<ul class="tabbar">
+<li class="tabbutton selected" data-id="0" onclick="sphinx_code_tabs_onclick(this)">
+java</li><li class="tabbutton" data-id="1" onclick="sphinx_code_tabs_onclick(this)">
+Python 3.9.6</li><li class="tabbutton" data-id="2" onclick="sphinx_code_tabs_onclick(this)">
+PHP - keycheck.inc.php</li><li class="tabbutton" data-id="3" onclick="sphinx_code_tabs_onclick(this)">
+PHP - test.php</li></ul><div class="tab codetab selected" data-id="0">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.*</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.math.BigInteger</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.security.*</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.security.spec.X509EncodedKeySpec</span><span class="p">;</span>
 
-<span class="p">....</span>
+
 <span class="cm">/**</span>
-<span class="cm"> *  requestでheaderとbodyを読み取ります。</span>
+<span class="cm"> *  requestからheaderとbodyを読み取ります。</span>
 <span class="cm"> *</span>
 <span class="cm"> */</span>
 
 
 <span class="c1">//1. get eformsign signature</span>
 <span class="c1">//eformsignSignatureはrequest headerに含まれています。</span>
-<span class="n">String</span> <span class="n">eformsignSignature</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="na">getHeader</span><span class="p">(</span><span class="s">&quot;eformsign_signature&quot;</span><span class="p">);</span>
+<span class="n">String</span><span class="w"> </span><span class="n">eformsignSignature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getHeader</span><span class="p">(</span><span class="s">&quot;eformsign_signature&quot;</span><span class="p">);</span>
 
 
 <span class="c1">//2. get request body data</span>
-<span class="c1">// eformsign signature 検証のため body のデータを String に変換します。</span>
-<span class="n">String</span> <span class="n">eformsignEventBody</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-<span class="n">StringBuilder</span> <span class="n">stringBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="p">();</span>
-<span class="n">BufferedReader</span> <span class="n">bufferedReader</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="c1">// eformsign signature 検証のためbodyのデータをStringに変換します。</span>
+<span class="n">String</span><span class="w"> </span><span class="n">eformsignEventBody</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="n">StringBuilder</span><span class="w"> </span><span class="n">stringBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
+<span class="n">BufferedReader</span><span class="w"> </span><span class="n">bufferedReader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
 
-<span class="k">try</span> <span class="p">{</span>
-    <span class="n">InputStream</span> <span class="n">inputStream</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="na">getInputStream</span><span class="p">();</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">inputStream</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">bufferedReader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="p">(</span><span class="k">new</span> <span class="n">InputStreamReader</span><span class="p">(</span><span class="n">inputStream</span><span class="p">));</span>
-        <span class="kt">char</span><span class="o">[]</span> <span class="n">charBuffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="mi">128</span><span class="o">]</span><span class="p">;</span>
-        <span class="kt">int</span> <span class="n">bytesRead</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-        <span class="k">while</span> <span class="p">((</span><span class="n">bytesRead</span> <span class="o">=</span> <span class="n">bufferedReader</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">charBuffer</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">stringBuilder</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">charBuffer</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">bytesRead</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
- <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">ex</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">throw</span> <span class="n">ex</span><span class="p">;</span>
- <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">bufferedReader</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">try</span> <span class="p">{</span>
-            <span class="n">bufferedReader</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
-        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">ex</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">throw</span> <span class="n">ex</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
- <span class="p">}</span>
-<span class="n">eformsignEventBody</span> <span class="o">=</span> <span class="n">stringBuilder</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+<span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">InputStream</span><span class="w"> </span><span class="n">inputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getInputStream</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">inputStream</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">bufferedReader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BufferedReader</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">InputStreamReader</span><span class="p">(</span><span class="n">inputStream</span><span class="p">));</span>
+<span class="w">        </span><span class="kt">char</span><span class="o">[]</span><span class="w"> </span><span class="n">charBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">char</span><span class="o">[</span><span class="mi">128</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">bytesRead</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">bytesRead</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bufferedReader</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">charBuffer</span><span class="p">))</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">stringBuilder</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">charBuffer</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">bytesRead</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n">ex</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bufferedReader</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">bufferedReader</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="n">ex</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="n">eformsignEventBody</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stringBuilder</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
 
 
 
 
 <span class="c1">//3. publicKey設定</span>
-<span class="n">String</span> <span class="n">publicKeyHex</span> <span class="o">=</span> <span class="s">&quot;発行したPublic Key(String)&quot;</span><span class="p">;</span>
-<span class="n">KeyFactory</span> <span class="n">publicKeyFact</span> <span class="o">=</span> <span class="n">KeyFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;EC&quot;</span><span class="p">);</span>
-<span class="n">X509EncodedKeySpec</span> <span class="n">x509KeySpec</span> <span class="o">=</span> <span class="k">new</span> <span class="n">X509EncodedKeySpec</span><span class="p">(</span><span class="k">new</span> <span class="n">BigInteger</span><span class="p">(</span><span class="n">publicKeyHex</span><span class="p">,</span><span class="mi">16</span><span class="p">).</span><span class="na">toByteArray</span><span class="p">());</span>
-<span class="n">PublicKey</span> <span class="n">publicKey</span> <span class="o">=</span> <span class="n">publicKeyFact</span><span class="p">.</span><span class="na">generatePublic</span><span class="p">(</span><span class="n">x509KeySpec</span><span class="p">);</span>
+<span class="n">String</span><span class="w"> </span><span class="n">publicKeyHex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ここに発行した公開鍵を入力&quot;</span><span class="p">;</span>
+<span class="n">KeyFactory</span><span class="w"> </span><span class="n">publicKeyFact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">KeyFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;EC&quot;</span><span class="p">);</span>
+<span class="n">X509EncodedKeySpec</span><span class="w"> </span><span class="n">x509KeySpec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">X509EncodedKeySpec</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BigInteger</span><span class="p">(</span><span class="n">publicKeyHex</span><span class="p">,</span><span class="mi">16</span><span class="p">).</span><span class="na">toByteArray</span><span class="p">());</span>
+<span class="n">PublicKey</span><span class="w"> </span><span class="n">publicKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">publicKeyFact</span><span class="p">.</span><span class="na">generatePublic</span><span class="p">(</span><span class="n">x509KeySpec</span><span class="p">);</span>
 
 <span class="c1">//4. verify</span>
-<span class="n">Signature</span> <span class="n">signature</span> <span class="o">=</span> <span class="n">Signature</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;SHA256withECDSA&quot;</span><span class="p">);</span>
+<span class="n">Signature</span><span class="w"> </span><span class="n">signature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Signature</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;SHA256withECDSA&quot;</span><span class="p">);</span>
 <span class="n">signature</span><span class="p">.</span><span class="na">initVerify</span><span class="p">(</span><span class="n">publicKey</span><span class="p">);</span>
 <span class="n">signature</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">eformsignEventBody</span><span class="p">.</span><span class="na">getBytes</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">));</span>
-<span class="k">if</span><span class="p">(</span><span class="n">signature</span><span class="p">.</span><span class="na">verify</span><span class="p">(</span><span class="k">new</span> <span class="n">BigInteger</span><span class="p">(</span><span class="n">eformsignSignature</span><span class="p">,</span><span class="mi">16</span><span class="p">).</span><span class="na">toByteArray</span><span class="p">())){</span>
-    <span class="c1">//verify success</span>
-    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;verify success&quot;</span><span class="p">);</span>
-    <span class="cm">/*</span>
+<span class="k">if</span><span class="p">(</span><span class="n">signature</span><span class="p">.</span><span class="na">verify</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BigInteger</span><span class="p">(</span><span class="n">eformsignSignature</span><span class="p">,</span><span class="mi">16</span><span class="p">).</span><span class="na">toByteArray</span><span class="p">())){</span>
+<span class="w">    </span><span class="c1">//verify success</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;verify success&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="cm">/*</span>
 <span class="cm">     * ここでイベントに応じた処理を行います。</span>
 <span class="cm">     */</span>
 <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-    <span class="c1">//verify fail</span>
-    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;verify fail&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//verify fail</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;verify fail&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div><div class="code-tab" data-title="Python 3.9.6">
+</div><div class="tab codetab" data-id="1">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hashlib</span>
-        <span class="kn">import</span> <span class="nn">binascii</span>
+<span class="kn">import</span> <span class="nn">binascii</span>
 
-        <span class="kn">from</span> <span class="nn">ecdsa</span> <span class="kn">import</span> <span class="n">VerifyingKey</span><span class="p">,</span> <span class="n">BadSignatureError</span>
-        <span class="kn">from</span> <span class="nn">ecdsa.util</span> <span class="kn">import</span> <span class="n">sigencode_der</span><span class="p">,</span> <span class="n">sigdecode_der</span>
-        <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">request</span>
-
-
-        <span class="o">...</span>
-        <span class="c1"># requestでheaderとbodyを読み取ります。</span>
-        <span class="c1"># 1. get eformsign signature</span>
-        <span class="c1"># eformsignSignatureはrequest headerに含まれています。</span>
-        <span class="n">eformsign_signature_str</span><span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;eformsign_signature&#39;</span><span class="p">]</span>
-        <span class="n">eformsign_signature</span> <span class="o">=</span> <span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="n">eformsign_signature_str</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">ecdsa</span> <span class="kn">import</span> <span class="n">VerifyingKey</span><span class="p">,</span> <span class="n">BadSignatureError</span>
+<span class="kn">from</span> <span class="nn">ecdsa.util</span> <span class="kn">import</span> <span class="n">sigencode_der</span><span class="p">,</span> <span class="n">sigdecode_der</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">request</span>
 
 
-        <span class="c1"># 2. get request body data</span>
-        <span class="c1"># eformsign signature検証のためbodyのデータをStringに変換します。</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">data</span>
+<span class="c1"># requestでheaderとbodyを読み取ります。</span>
+<span class="c1"># 1. get eformsign signature</span>
+<span class="c1"># eformsignSignatureはrequest headerに含まれています。</span>
+<span class="n">eformsignSignature</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;eformsign_signature&#39;</span><span class="p">]</span>
 
 
-        <span class="c1"># 3. publicKey設定</span>
-        <span class="n">publicKeyHex</span> <span class="o">=</span> <span class="s2">&quot;発行したpublic key&quot;</span>
-        <span class="n">publickey</span> <span class="o">=</span> <span class="n">VerifyingKey</span><span class="o">.</span><span class="n">from_der</span><span class="p">(</span><span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="n">publicKeyHex</span><span class="p">))</span>
+<span class="c1"># 2. get request body data</span>
+<span class="c1"># eformsign signature検証のためbodyのデータをStringに変換します。</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span>
 
 
-        <span class="c1"># 4. verify</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">publickey</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span><span class="n">eformsign_signature</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">hashfunc</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">,</span> <span class="n">sigdecode</span><span class="o">=</span><span class="n">sigdecode_der</span><span class="p">):</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;verify success&quot;</span><span class="p">)</span>
-                <span class="c1"># ここでイベントに応じた処理を行います。</span>
-        <span class="k">except</span> <span class="n">BadSignatureError</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;verify fail&quot;</span><span class="p">)</span>
+<span class="c1"># 3. publicKey設定</span>
+<span class="n">publicKeyHex</span> <span class="o">=</span> <span class="s2">&quot;発行したpublic key&quot;</span>
+<span class="n">publickey</span> <span class="o">=</span> <span class="n">VerifyingKey</span><span class="o">.</span><span class="n">from_der</span><span class="p">(</span><span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="n">publicKeyHex</span><span class="p">))</span>
+
+
+<span class="c1"># 4. verify</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">publickey</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span><span class="n">eformsignSignature</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">hashfunc</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">,</span> <span class="n">sigdecode</span><span class="o">=</span><span class="n">sigdecode_der</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;verify success&quot;</span><span class="p">)</span>
+        <span class="c1"># ここでイベントに応じた処理を行います。</span>
+<span class="k">except</span> <span class="n">BadSignatureError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;verify fail&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div><div class="code-tab" data-title="PHP - keycheck.inc.php">
+</div><div class="tab codetab" data-id="2">
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
 <span class="k">namespace</span> <span class="nx">eformsignECDSA</span><span class="p">;</span>
 
@@ -411,10 +434,10 @@ Test URL : WebhookのURL
 <span class="p">{</span>
     <span class="k">return</span> <span class="nb">openssl_verify</span><span class="p">(</span><span class="nv">$message</span><span class="p">,</span> <span class="nv">$signature</span><span class="p">,</span> <span class="nv">$publicKey</span><span class="o">-&gt;</span><span class="na">openSslPublicKey</span><span class="p">,</span> <span class="nx">OPENSSL_ALGO_SHA256</span><span class="p">);</span>
 <span class="p">}</span>
-<span class="cp">?&gt;</span><span class="x"></span>
+<span class="cp">?&gt;</span>
 </pre></div>
 </div>
-</div><div class="code-tab" data-title="PHP - test.php">
+</div><div class="tab codetab" data-id="3">
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
 <span class="k">require_once</span> <span class="no">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/keycheck.inc.php&#39;</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">eformsignECDSA\PublicKey</span><span class="p">;</span>
@@ -422,7 +445,7 @@ Test URL : WebhookのURL
 <span class="nb">define</span><span class="p">(</span><span class="s1">&#39;PUBLIC_KEY&#39;</span><span class="p">,</span> <span class="s1">&#39;発行したpublic keyを入力してください。&#39;</span><span class="p">);</span>
 <span class="o">...</span>
 <span class="cm">/*</span>
-<span class="cm"> *  request で header と body を読み取ります。</span>
+<span class="cm"> *  requestでheaderとbodyを読み取ります。</span>
 <span class="cm"> *</span>
 <span class="cm"> */</span>
 
@@ -453,275 +476,146 @@ Test URL : WebhookのURL
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
     <span class="k">print</span> <span class="s1">&#39;verify fail&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
 <span class="p">}</span>
- <span class="o">...</span>
 
-<span class="cp">?&gt;</span><span class="x"></span>
+<span class="cp">?&gt;</span>
 </pre></div>
 </div>
-</div></div>
-</div>
-</div>
-<div class="section" id="id5">
-<h2>テスト<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>作成した eformsign_signature をテストしてみましょう。</p>
-<p>次の eformsign_signature の作成・検証用のサンプルは、Open API または Webhook の署名値を作成および検証するためのテストサンプルのソースコードです。</p>
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
-<p>サンプルキーを使用しているため、実際の環境では正常動作しません。例題で作成した署名値の検証用途としてのみご利用ください。</p>
-</div>
-<div class="section" id="id6">
-<h3>Java<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>次のサンプルキーで署名および検証テストを行ってください。</p>
-</div>
-<div class="section" id="id7">
-<h3>Python<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>キーフォーマット処理用のライブラリーを使用する必要があります。作業を開始する前に、次のコマンドを実行してライブラリーをインストールしてください。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">warner</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="n">ecdsa</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">master</span><span class="o">.</span><span class="n">zip</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="id8">
-<h3>PHP<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>次の例題の keycheck.inc.php、test.php ファイルを同じパスに保存してから例題を実施してください。</p>
-</div>
-<div class="section" id="id9">
-<h3>例題<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>次は各言語のテストキーと例題です。</p>
-<div class="code-tabs docutils container">
-<div class="code-tab" data-title="Java">
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">privateKeyHex</span> <span class="o">=</span> <span class="s">&quot;3041020100301306072a8648ce3d020106082a8648ce3d0301070427302502010104207eae51d5e4272ebb3fe2701d25026a8c2850965981fb2efa68c8db48b32ede07&quot;</span><span class="p">;</span>
-<span class="n">String</span> <span class="n">publicKeyHex</span> <span class="o">=</span> <span class="s">&quot;3059301306072a8648ce3d020106082a8648ce3d030107034200045ac8a472cee38601e99b2a2d731c958e738eee1ee6aca28f6f5637f231e9a8444f3cb80d9ce6c5bace1d0e71167673ff81743e0ea811ebd999f2f314f1d0a676&quot;</span><span class="p">;</span>     <span class="c1">//private key</span>
-<span class="n">KeyFactory</span> <span class="n">privateKeyFact</span> <span class="o">=</span> <span class="n">KeyFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;EC&quot;</span><span class="p">);</span>
-<span class="n">PKCS8EncodedKeySpec</span> <span class="n">psks8KeySpec</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PKCS8EncodedKeySpec</span><span class="p">(</span><span class="k">new</span> <span class="n">BigInteger</span><span class="p">(</span><span class="n">privateKeyHex</span><span class="p">,</span><span class="mi">16</span><span class="p">).</span><span class="na">toByteArray</span><span class="p">());</span>
-<span class="n">PrivateKey</span> <span class="n">privateKey</span> <span class="o">=</span> <span class="n">privateKeyFact</span><span class="p">.</span><span class="na">generatePrivate</span><span class="p">(</span><span class="n">psks8KeySpec</span><span class="p">);</span>
-
-<span class="c1">//signature</span>
-<span class="n">String</span> <span class="n">testData</span> <span class="o">=</span> <span class="s">&quot;{\&quot;test\&quot;:\&quot;signature test\&quot;}&quot;</span><span class="p">;</span>
-<span class="n">Signature</span> <span class="n">ecdsa</span> <span class="o">=</span> <span class="n">Signature</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;SHA256withECDSA&quot;</span><span class="p">);</span>
-<span class="n">ecdsa</span><span class="p">.</span><span class="na">initSign</span><span class="p">(</span><span class="n">privateKey</span><span class="p">);</span>
-<span class="n">ecdsa</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">testData</span><span class="p">.</span><span class="na">getBytes</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">));</span>
-<span class="n">String</span> <span class="n">eformsign_signature</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigInteger</span><span class="p">(</span><span class="n">ecdsa</span><span class="p">.</span><span class="na">sign</span><span class="p">()).</span><span class="na">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span>
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;data : &quot;</span><span class="o">+</span><span class="n">testData</span><span class="p">);</span>
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;eformsign_signature : &quot;</span><span class="o">+</span><span class="n">eformsign_signature</span><span class="p">);</span>
-
-<span class="c1">//public key</span>
-<span class="n">KeyFactory</span> <span class="n">publicKeyFact</span> <span class="o">=</span> <span class="n">KeyFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;EC&quot;</span><span class="p">);</span>
-<span class="n">X509EncodedKeySpec</span> <span class="n">x509KeySpec</span> <span class="o">=</span> <span class="k">new</span> <span class="n">X509EncodedKeySpec</span><span class="p">(</span><span class="k">new</span> <span class="n">BigInteger</span><span class="p">(</span><span class="n">publicKeyHex</span><span class="p">,</span><span class="mi">16</span><span class="p">).</span><span class="na">toByteArray</span><span class="p">());</span>
-<span class="n">PublicKey</span> <span class="n">publicKey</span> <span class="o">=</span> <span class="n">publicKeyFact</span><span class="p">.</span><span class="na">generatePublic</span><span class="p">(</span><span class="n">x509KeySpec</span><span class="p">);</span>
-
-
-<span class="c1">//verify</span>
-<span class="n">Signature</span> <span class="n">signature</span> <span class="o">=</span> <span class="n">Signature</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;SHA256withECDSA&quot;</span><span class="p">);</span>
-<span class="n">signature</span><span class="p">.</span><span class="na">initVerify</span><span class="p">(</span><span class="n">publicKey</span><span class="p">);</span>
-<span class="n">signature</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">testData</span><span class="p">.</span><span class="na">getBytes</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">));</span>
-<span class="k">if</span><span class="p">(</span><span class="n">signature</span><span class="p">.</span><span class="na">verify</span><span class="p">(</span><span class="k">new</span> <span class="n">BigInteger</span><span class="p">(</span><span class="n">eformsign_signature</span><span class="p">,</span><span class="mi">16</span><span class="p">).</span><span class="na">toByteArray</span><span class="p">())){</span>
-    <span class="c1">//verify success</span>
-    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;verify success&quot;</span><span class="p">);</span>
-<span class="p">}</span><span class="k">else</span><span class="p">{</span>
-    <span class="c1">//verify fail</span>
-    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;verify fail&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div><div class="code-tab" data-title="Python 3.9.6">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hashlib</span>
-<span class="kn">import</span> <span class="nn">binascii</span>
-
-<span class="kn">from</span> <span class="nn">ecdsa</span> <span class="kn">import</span> <span class="n">VerifyingKey</span><span class="p">,</span> <span class="n">BadSignatureError</span>
-<span class="kn">from</span> <span class="nn">ecdsa.util</span> <span class="kn">import</span> <span class="n">sigencode_der</span><span class="p">,</span> <span class="n">sigdecode_der</span>
-<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">request</span>
-
-<span class="n">privateKeyHex</span> <span class="o">=</span> <span class="s2">&quot;3041020100301306072a8648ce3d020106082a8648ce3d0301070427302502010104207eae51d5e4272ebb3fe2701d25026a8c2850965981fb2efa68c8db48b32ede07&quot;</span>
-<span class="n">publicKeyHex</span> <span class="o">=</span> <span class="s2">&quot;3059301306072a8648ce3d020106082a8648ce3d030107034200045ac8a472cee38601e99b2a2d731c958e738eee1ee6aca28f6f5637f231e9a8444f3cb80d9ce6c5bace1d0e71167673ff81743e0ea811ebd999f2f314f1d0a676&quot;</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">test</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">signature test</span><span class="se">\&quot;</span><span class="s2">}&quot;</span>
-
-<span class="n">sk</span> <span class="o">=</span> <span class="n">SigningKey</span><span class="o">.</span><span class="n">from_der</span><span class="p">(</span><span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="n">privateKeyHex</span><span class="p">))</span>
-<span class="n">vk</span> <span class="o">=</span> <span class="n">VerifyingKey</span><span class="o">.</span><span class="n">from_der</span><span class="p">(</span><span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="n">publicKeyHex</span><span class="p">))</span>
-
-<span class="n">signature</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">hashfunc</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">,</span> <span class="n">sigencode</span><span class="o">=</span><span class="n">sigencode_der</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;data: &quot;</span> <span class="o">+</span> <span class="n">data</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;eformsign_signature : &quot;</span> <span class="o">+</span> <span class="n">binascii</span><span class="o">.</span><span class="n">hexlify</span><span class="p">(</span><span class="n">signature</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
-
-<span class="k">try</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">vk</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span><span class="n">signature</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">hashfunc</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">,</span> <span class="n">sigdecode</span><span class="o">=</span><span class="n">sigdecode_der</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;verify success&quot;</span><span class="p">)</span>
-<span class="k">except</span> <span class="n">BadSignatureError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;verify fail&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div><div class="code-tab" data-title="PHP - keycheck.inc.php">
-<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
-<span class="k">namespace</span> <span class="nx">eformsignECDSA</span><span class="p">;</span>
-
-<span class="k">class</span> <span class="nc">PublicKey</span>
-<span class="p">{</span>
-
-    <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$str</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nv">$pem_data</span> <span class="o">=</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nb">hex2bin</span><span class="p">(</span><span class="nv">$str</span><span class="p">));</span>
-        <span class="nv">$offset</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="nv">$pem</span> <span class="o">=</span> <span class="s2">&quot;-----BEGIN PUBLIC KEY-----</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
-        <span class="k">while</span> <span class="p">(</span><span class="nv">$offset</span> <span class="o">&lt;</span> <span class="nb">strlen</span><span class="p">(</span><span class="nv">$pem_data</span><span class="p">))</span> <span class="p">{</span>
-            <span class="nv">$pem</span> <span class="o">=</span> <span class="nv">$pem</span> <span class="o">.</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$pem_data</span><span class="p">,</span> <span class="nv">$offset</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
-            <span class="nv">$offset</span> <span class="o">=</span> <span class="nv">$offset</span> <span class="o">+</span> <span class="mi">64</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="nv">$pem</span> <span class="o">=</span> <span class="nv">$pem</span> <span class="o">.</span> <span class="s2">&quot;-----END PUBLIC KEY-----</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">openSslPublicKey</span> <span class="o">=</span> <span class="nb">openssl_get_publickey</span><span class="p">(</span><span class="nv">$pem</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="k">class</span> <span class="nc">PrivateKey</span>
-<span class="p">{</span>
-
-    <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$str</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nv">$pem_data</span> <span class="o">=</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nb">hex2bin</span><span class="p">(</span><span class="nv">$str</span><span class="p">));</span>
-        <span class="nv">$offset</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="nv">$pem</span> <span class="o">=</span> <span class="s2">&quot;-----BEGIN EC PRIVATE KEY-----</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
-        <span class="k">while</span> <span class="p">(</span><span class="nv">$offset</span> <span class="o">&lt;</span> <span class="nb">strlen</span><span class="p">(</span><span class="nv">$pem_data</span><span class="p">))</span> <span class="p">{</span>
-            <span class="nv">$pem</span> <span class="o">=</span> <span class="nv">$pem</span> <span class="o">.</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$pem_data</span><span class="p">,</span> <span class="nv">$offset</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
-            <span class="nv">$offset</span> <span class="o">=</span> <span class="nv">$offset</span> <span class="o">+</span> <span class="mi">64</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="nv">$pem</span> <span class="o">=</span> <span class="nv">$pem</span> <span class="o">.</span> <span class="s2">&quot;-----END EC PRIVATE KEY-----</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">openSslPrivateKey</span> <span class="o">=</span> <span class="nb">openssl_get_privatekey</span><span class="p">(</span><span class="nv">$pem</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="k">function</span> <span class="nf">Sign</span><span class="p">(</span><span class="nv">$message</span><span class="p">,</span> <span class="nv">$privateKey</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="nb">openssl_sign</span><span class="p">(</span><span class="nv">$message</span><span class="p">,</span> <span class="nv">$signature</span><span class="p">,</span> <span class="nv">$privateKey</span><span class="o">-&gt;</span><span class="na">openSslPrivateKey</span><span class="p">,</span> <span class="nx">OPENSSL_ALGO_SHA256</span><span class="p">);</span>
-    <span class="k">return</span> <span class="nv">$signature</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="k">function</span> <span class="nf">Verify</span><span class="p">(</span><span class="nv">$message</span><span class="p">,</span> <span class="nv">$signature</span><span class="p">,</span> <span class="nv">$publicKey</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">return</span> <span class="nb">openssl_verify</span><span class="p">(</span><span class="nv">$message</span><span class="p">,</span> <span class="nv">$signature</span><span class="p">,</span> <span class="nv">$publicKey</span><span class="o">-&gt;</span><span class="na">openSslPublicKey</span><span class="p">,</span> <span class="nx">OPENSSL_ALGO_SHA256</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="cp">?&gt;</span><span class="x"></span>
-</pre></div>
-</div>
-</div><div class="code-tab" data-title="PHP - test.php">
-<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
-<span class="k">require_once</span> <span class="no">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/keycheck.inc.php&#39;</span><span class="p">;</span>
-
-<span class="nb">define</span><span class="p">(</span><span class="s1">&#39;PRIVATE_KEY&#39;</span><span class="p">,</span> <span class="s1">&#39;3041020100301306072a8648ce3d020106082a8648ce3d0301070427302502010104207eae51d5e4272ebb3fe2701d25026a8c2850965981fb2efa68c8db48b32ede07&#39;</span><span class="p">);</span>
-<span class="nb">define</span><span class="p">(</span><span class="s1">&#39;PUBLIC_KEY&#39;</span><span class="p">,</span> <span class="s1">&#39;3059301306072a8648ce3d020106082a8648ce3d030107034200045ac8a472cee38601e99b2a2d731c958e738eee1ee6aca28f6f5637f231e9a8444f3cb80d9ce6c5bace1d0e71167673ff81743e0ea811ebd999f2f314f1d0a676&#39;</span><span class="p">);</span>
-<span class="nb">define</span><span class="p">(</span><span class="s1">&#39;MESSAGE&#39;</span><span class="p">,</span> <span class="s1">&#39;{&quot;test&quot;:&quot;signature test&quot;}&#39;</span><span class="p">);</span>
-
-<span class="k">use</span> <span class="nx">eformsignECDSA\PrivateKey</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">eformsignECDSA\PublicKey</span><span class="p">;</span>
-
-<span class="nv">$sk</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PrivateKey</span><span class="p">(</span><span class="nx">PRIVATE_KEY</span><span class="p">);</span>
-<span class="nv">$vk</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PublicKey</span><span class="p">(</span><span class="nx">PUBLIC_KEY</span><span class="p">);</span>
-
-<span class="nv">$signature</span> <span class="o">=</span> <span class="nx">eformsignECDSA\Sign</span><span class="p">(</span><span class="nx">MESSAGE</span><span class="p">,</span> <span class="nv">$sk</span><span class="p">);</span>
-
-<span class="k">print</span> <span class="s1">&#39;data: &#39;</span> <span class="o">.</span> <span class="nx">MESSAGE</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-<span class="k">print</span> <span class="s1">&#39;eformsign_signature : &#39;</span> <span class="o">.</span> <span class="nb">bin2hex</span><span class="p">(</span><span class="nv">$signature</span><span class="p">)</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-
-<span class="nv">$ret</span> <span class="o">=</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
-<span class="nv">$ret</span> <span class="o">=</span> <span class="nx">eformsignECDSA\Verify</span><span class="p">(</span><span class="nx">MESSAGE</span><span class="p">,</span> <span class="nv">$signature</span><span class="p">,</span> <span class="nv">$vk</span><span class="p">);</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="nv">$ret</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">print</span> <span class="s1">&#39;verify success&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="k">print</span> <span class="s1">&#39;verify fail&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="cp">?&gt;</span><span class="x"></span>
-</pre></div>
-</div>
-</div></div>
-</div>
-</div>
-<div class="section" id="id10">
-<h2>Webhook 提供リスト<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>次の Webhook を設定すると、そのイベントが発生するとき、設定した Webhook endpoint に変更情報を受信することができます。</p>
-<p>現在提供している <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/Webhook">Webhook</a>は次のとおりです。</p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/Webhook#/default/post-webhook-document-event">/webhook</a> ウェブフック送信</p>
-<p>各 eformsign Webhook についての詳しい説明は
-<a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/Webhook">次</a>で確認することができます。</p>
-</div>
-<div class="section" id="id13">
-<h2>Webhook についての情報<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>eformsign は Webhook イベントとして <strong>文書</strong> イベントと <strong>PDF 作成</strong> イベントを提供しています。</p>
-<div class="section" id="id14">
-<h3>文書イベント<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>eformsign で文書の作成または状態の変更があるときに発生するイベントです。</p>
+</div></div></section>
+</section>
+<section id="webhookevent">
+<span id="id11"></span><h2>Webhookイベント<a class="headerlink" href="#webhookevent" title="この見出しへのパーマリンク"></a></h2>
+<p>Webhookを設定すると、eformsignで特定のイベント発生時に設定したWebhook URLでイベント情報を受信することができます。</p>
+<p>現在提供している <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/Webhook#/">Webhook</a>は以下の通りです。</p>
+<section id="id13">
+<h3>Webhookイベントの種類<a class="headerlink" href="#id13" title="この見出しへのパーマリンク"></a></h3>
+<p>現在、eformsignでは <strong>文書イベント</strong> と <strong>PDF生成イベント</strong> に対してWebhookを送信しています。</p>
+<ul class="simple">
+<li><p><strong>文書イベント:</strong> eformsignで文書の生成または状態変更時に発生するイベントです。 event_typeはdocumentで、document Objectを含んでいます。</p></li>
+<li><p><strong>PDF生成イベント:</strong> eformsignで文書のPDFファイルが生成されたときに発生するイベントです。 event_typeはready_document_pdfで、ready_document_pdf Objectを含んでいます。</p></li>
+</ul>
+</section>
+<section id="id14">
+<h3>Webhookの構造<a class="headerlink" href="#id14" title="この見出しへのパーマリンク"></a></h3>
+<p>Webhookイベント発生時、ユーザーが設定したWebhook URLにWebhookが送信されます。</p>
+<p>送信されるWebhookのRequest Bodyの構造は以下の通りです。</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 35%" />
-<col style="width: 13%" />
-<col style="width: 52%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Type</p></th>
 <th class="head"><p>説明</p></th>
+<th class="head"><p>備考</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>id</p></td>
+<tr class="row-even"><td><p>webhook_id</p></td>
 <td><p>String</p></td>
-<td><p>文書のID</p></td>
+<td><p>イベントを発生させるWebhookのID</p></td>
+<td></td>
 </tr>
-<tr class="row-odd"><td><p>template_id</p></td>
+<tr class="row-odd"><td><p>webhook_name</p></td>
 <td><p>String</p></td>
-<td><p>テンプレートのID</p></td>
+<td><p>イベントを発生させるWebhookの名前</p></td>
+<td></td>
 </tr>
-<tr class="row-even"><td><p>template_name</p></td>
+<tr class="row-even"><td><p>company_id</p></td>
 <td><p>String</p></td>
-<td><p>テンプレートの名前</p></td>
+<td><p>会社ID</p></td>
+<td></td>
 </tr>
-<tr class="row-odd"><td><p>template_version</p></td>
+<tr class="row-odd"><td><p>event_type</p></td>
 <td><p>String</p></td>
-<td><p>テンプレートのバージョン</p></td>
+<td><p>発生したWebhookイベントの種類</p></td>
+<td><ul class="simple">
+<li><p>document: 文書イベント</p></li>
+<li><p>ready_document_pdf: PDF生成イベント</p></li>
+</ul>
+</td>
 </tr>
-<tr class="row-even"><td><p>workflow_seq</p></td>
-<td><p>int</p></td>
-<td><p>ワークフローの順序</p></td>
+<tr class="row-even"><td><p>document</p></td>
+<td><p>Object</p></td>
+<td><p>文書イベントの詳細情報</p></td>
+<td><blockquote>
+<div><p>文書イベントの発生時にのみ表示</p>
+</div></blockquote>
+<p>(id, document_title, template_id, template_name,
+workflow_seq, workflow_name, template_version,
+history_id, status, editor_id, outside_token,
+updated_date, mass_job_request_idを含む)</p>
+</td>
 </tr>
-<tr class="row-odd"><td><p>workflow_name</p></td>
+<tr class="row-odd"><td><p>ready_document_pdf</p></td>
 <td><p>String</p></td>
-<td><p>ワークフローの名前</p></td>
-</tr>
-<tr class="row-even"><td><p>history_id</p></td>
-<td><p>String</p></td>
-<td><p>文書履歴のID</p></td>
-</tr>
-<tr class="row-odd"><td><p>status</p></td>
-<td><p>String</p></td>
-<td><p>文書の状態</p></td>
-</tr>
-<tr class="row-even"><td><p>editor_id</p></td>
-<td><p>String</p></td>
-<td><p>作成者のID</p></td>
-</tr>
-<tr class="row-odd"><td><p>updated_date</p></td>
-<td><p>long</p></td>
-<td><p>文書の変更時間</p></td>
+<td><p>ワークフローの名称</p></td>
+<td><blockquote>
+<div><p>PDF生成イベントの発生時にのみ表示</p>
+</div></blockquote>
+<p>(document_id, document_title, workflow_seq,
+workflow_name, template_id, template_name,
+template_version, document_status,
+document_history_id, export_ready_list,
+mass_job_request_idを含む)</p>
+</td>
 </tr>
 </tbody>
 </table>
-<p>イベントデータのうち、文書の状態を表す status の意味については、次をご覧ください。</p>
-<table class="docutils align-default" id="status">
-<colgroup>
-<col style="width: 49%" />
-<col style="width: 51%" />
-</colgroup>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>eformsign Webhookの詳細と使用例は <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/Webhook#/">eformsign Webhook</a>からご確認いただけます。</p>
+</div>
+</section>
+<section id="status">
+<span id="id15"></span><h3>文書の状態コード<a class="headerlink" href="#status" title="この見出しへのパーマリンク"></a></h3>
+<p>WebhookのRequest Bodyには文書の状態を表すコードが含まれています。</p>
+<p>文書イベントの場合はdocument.status、PDF生成イベントの場合はready_document_pdf.document_statusに文書状態コードが記載されます。</p>
+<p>各コードの詳細は以下の通りです。</p>
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>説明</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>doc_create</p></td>
-<td><p>作成</p></td>
-</tr>
-<tr class="row-odd"><td><p>doc_tempsave</p></td>
+<tr class="row-even"><td><p>doc_tempsave</p></td>
 <td><p>下書き保存</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_create</p></td>
+<td><p>文書の作成</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_request_participant</p></td>
+<td><p>参加者の依頼</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_accept_participant</p></td>
+<td><p>参加者の承認</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_reject_participant</p></td>
+<td><p>参加者の差戻し</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_request_reviewer</p></td>
+<td><p>検討者の依頼</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_accept_reviewer</p></td>
+<td><p>検討者の承認</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_reject_reviewer</p></td>
+<td><p>検討者の差戻し</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_reject_request</p></td>
+<td><p>差戻しの依頼</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_decline_cancel_request</p></td>
+<td><p>差戻し依頼の拒否</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_delete_request</p></td>
+<td><p>削除の依頼</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_decline_delete_request</p></td>
+<td><p>削除依頼の拒否</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_cancel_request</p></td>
+<td><p>依頼の無効化</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_deleted</p></td>
+<td><p>文書の削除</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_request_approval</p></td>
 <td><p>決裁の依頼</p></td>
@@ -730,7 +624,7 @@ Test URL : WebhookのURL
 <td><p>決裁の承認</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_reject_approval</p></td>
-<td><p>決裁の返戻</p></td>
+<td><p>文書の差戻し</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_request_external</p></td>
 <td><p>外部受信者に依頼</p></td>
@@ -745,151 +639,57 @@ Test URL : WebhookのURL
 <td><p>外部受信者が承認</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_reject_external</p></td>
-<td><p>外部受信者が返戻</p></td>
+<td><p>外部受信者が差戻し</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_request_internal</p></td>
-<td><p>内部受信者に依頼</p></td>
+<td><p>内部受信者の依頼</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_accept_internal</p></td>
-<td><p>内部受信者が承認</p></td>
+<td><p>内部受信者の承認</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_reject_internal</p></td>
-<td><p>内部受信者が返戻</p></td>
+<td><p>内部受信者の差戻し</p></td>
 </tr>
 <tr class="row-odd"><td><p>doc_tempsave_internal</p></td>
-<td><p>内部受信者が下書き保存</p></td>
-</tr>
-<tr class="row-even"><td><p>doc_cancel_request</p></td>
-<td><p>依頼の無効化</p></td>
-</tr>
-<tr class="row-odd"><td><p>doc_reject_request</p></td>
-<td><p>返戻の依頼</p></td>
-</tr>
-<tr class="row-even"><td><p>doc_decline_cancel_request</p></td>
-<td><p>返戻依頼の拒否</p></td>
-</tr>
-<tr class="row-odd"><td><p>doc_delete_request</p></td>
-<td><p>削除の依頼</p></td>
-</tr>
-<tr class="row-even"><td><p>doc_decline_delete_request</p></td>
-<td><p>削除依頼の拒否</p></td>
-</tr>
-<tr class="row-odd"><td><p>doc_deleted</p></td>
-<td><p>削除</p></td>
+<td><p>内部受信者のマイ文書保存</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_complete</p></td>
-<td><p>完了</p></td>
+<td><p>文書の完了</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="pdf">
-<h3>PDF 作成イベント<a class="headerlink" href="#pdf" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>eformsign で文書の PDF ファイルを作成するときに発生するイベントです。</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 41%" />
-<col style="width: 12%" />
-<col style="width: 47%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>説明</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>document_id</p></td>
-<td><p>String</p></td>
-<td><p>文書のID</p></td>
-</tr>
-<tr class="row-odd"><td><p>template_id</p></td>
-<td><p>String</p></td>
-<td><p>テンプレートのID</p></td>
-</tr>
-<tr class="row-even"><td><p>template_name</p></td>
-<td><p>String</p></td>
-<td><p>テンプレートの名前</p></td>
-</tr>
-<tr class="row-odd"><td><p>template_version</p></td>
-<td><p>String</p></td>
-<td><p>テンプレートのバージョン</p></td>
-</tr>
-<tr class="row-even"><td><p>workflow_seq</p></td>
-<td><p>int</p></td>
-<td><p>ワークフローの順序</p></td>
-</tr>
-<tr class="row-odd"><td><p>workflow_name</p></td>
-<td><p>String</p></td>
-<td><p>ワークフローの名前</p></td>
-</tr>
-<tr class="row-even"><td><p>document_history_id</p></td>
-<td><p>String</p></td>
-<td><p>文書履歴のID</p></td>
-</tr>
-<tr class="row-odd"><td><p>document_status</p></td>
-<td><p>String</p></td>
-<td><p>文書の状態</p></td>
-</tr>
-</tbody>
-</table>
-<p>イベントデータのうち、文書の状態を表す status の意味については、<a class="reference external" href="#status">次</a>をご覧ください。</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-      
-        <a href="eformsign_api.html" class="btn btn-neutral float-left" title="eformsign API の使い方" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="eformsign_api.html" class="btn btn-neutral float-left" title="eformsign APIの使い方" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; 著作権 2021. FORCS CO., LTD. All rights reserved
-
-    </p>
+    <p>&#169; Copyright 2024. FORCS CO., LTD. All rights reserved.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
