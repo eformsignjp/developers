@@ -1,6 +1,9 @@
 
 ======================================
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 eformsign機能の埋め込み
 ======================================
 
@@ -121,6 +124,7 @@ eformsignの機能埋め込みは、使用するオブジェクト、モード�
 
 
 会社IDの確認方法
+<<<<<<< HEAD
 =======
 eformsign 機能の組み込み
 ======================================
@@ -144,6 +148,8 @@ eformsign embedding 機能を利用するためには、会社 ID とテンプ�
 
 メインメニュー
 >>>>>>> parent of 72c99e6 (embedding 업데이트)
+=======
+>>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 -------------------------
 
 
@@ -168,6 +174,7 @@ eformsign embedding 機能を利用するためには、会社 ID とテンプ�
 
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 テンプレートIDの確認方法
 -------------------------
@@ -211,6 +218,19 @@ eformsign embedding 機能を利用するためには、会社 ID とテンプ�
 .. image:: resources/templateURL_templateID.png
     :alt: テンプレート ID の位置
 >>>>>>> parent of 72c99e6 (embedding 업데이트)
+=======
+テンプレートIDの確認方法
+-------------------------
+
+テンプレート管理メニューに移動し、テンプレートの設定アイコンをクリックすると、テンプレートのURLからform_idを確認することができます。
+
+
+
+1. eformsignサイドバーメニューの **テンプレート管理**\ をクリックします。
+
+.. image:: resources/sidemenu_managetemplate.png
+    :alt: eformsign メニュー、テンプレート管理
+>>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
     :width: 700px
 
 
@@ -225,6 +245,9 @@ eformsign embedding 機能を利用するためには、会社 ID とテンプ�
 3. テンプレートのURLから **テンプレートID(=form_id)**\ を確認します。
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 .. image:: resources/templateURL_templateID.png
     :alt: テンプレートIDの位置
     :width: 700px
@@ -256,6 +279,7 @@ eformsign embedding 機能を利用するためには、会社 ID とテンプ�
 ==========================================================
 
 eformsignを埋め込んでテンプレートで文書の作成・受信した文書の処理・生成された文書のプレビュー機能を挿入する場合について説明します。
+<<<<<<< HEAD
 
 .. code-block:: javascript
 
@@ -427,6 +451,28 @@ eformsign を組み込み、顧客会社のサイト/サービスで文書を作
             "external_user_info": {
                 "name": "" // 外部処理の場合、外部受信者の名前を入力
 >>>>>>> parent of 72c99e6 (embedding 업데이트)
+=======
+
+.. code-block:: javascript
+
+    var eformsign = new EformSignDocument();
+
+    var document_option = {
+       "company" : {
+          "id" : "",            // Company IDを入力
+          "country_code" : "",  // 国コードを入力 (例: ja)
+          "user_key": ""        // 顧客側のシステムにログインしたユーザーのunique key. ブラウザクッキーのeformsignログイン情報との比較に使用
+       },
+       "user" : {
+            "type" : "01" ,         // ユーザーの識別 (01: メンバー、02: 外部者)
+            "id": "test1@forcs.com" // ユーザーID（メールアドレス）
+            "access_token" : "",    // Access Tokenの入力（eformsign APIの使い方 - OpenAPI Access Tokenを参照）
+            "refresh_token" : "",   // Refresh Tokenの入力（eformsign APIの使い方 - OpenAPI Access Tokenを参照）
+            "external_token" : "",  // 外部者が処理する際に、ユーザーを認証するExternal Tokenを入力（Webhookから提供）
+            "external_user_info" : {
+               "name" : ""          // 外部者が処理する際に、外部者の名前を入力
+
+>>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
             }
         },
         "mode": {
@@ -477,6 +523,7 @@ eformsign を組み込み、顧客会社のサイト/サービスで文書を作
         console.log(response.code); 
         if( response.code == "-1"){
             // 文書作成に成功
+<<<<<<< HEAD
 =======
         "prefill": {
             "document_name": "", // 文書のタイトルを入力
@@ -497,6 +544,8 @@ eformsign を組み込み、顧客会社のサイト/サービスで文書を作
         if (response.code == "-1") {
             //文書の作成に成功
 >>>>>>> parent of 72c99e6 (embedding 업데이트)
+=======
+>>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
             console.log(response.document_id);
             // return_fieldsに返したデータを照会することができる。fieldsとは、フォームを作成するときに作った入力コンポーネントのidを意味する。
             console.log(response.field_values["company_name"]);
@@ -508,12 +557,15 @@ eformsign を組み込み、顧客会社のサイト/サービスで文書を作
     var error_callback = function(response){
         console.log(response.code); 
         // 文書作成に失敗
+<<<<<<< HEAD
 =======
      
      var error_callback = function (response) {
         console.log(response.code);
         //文書の作成に失敗
 >>>>>>> parent of 72c99e6 (embedding 업데이트)
+=======
+>>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
         alert(response.message);
      
 <<<<<<< HEAD
@@ -522,6 +574,14 @@ eformsign を組み込み、顧客会社のサイト/サービスで文書を作
         console.table(response.data);
     };
      
+<<<<<<< HEAD
+=======
+     
+    var action_callback = function (response) {
+        console.table(response.data);
+    };
+     
+>>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
     eformsign.document(document_option, "eformsign_iframe", success_callback, error_callback, action_callback);
     eformsign.open();
 
@@ -548,6 +608,7 @@ document_option
      eformsign.document(document_option, "eformsign_iframe", success_callback, error_callback);
 
 
+<<<<<<< HEAD
 パラメーターの説明：document-option
 =======================================
 
@@ -556,6 +617,8 @@ document_option
 document-option では大きく次の5つの項目を設定することができます。 
 
 <<<<<<< HEAD
+=======
+>>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 .. note::
 
    会社情報とモードは入力必須項目です。 
@@ -601,6 +664,7 @@ document-option では大きく次の5つの項目を設定することができ
 
 
 
+<<<<<<< HEAD
 1. 会社情報（必須）
 -------------------------
 
@@ -620,6 +684,8 @@ document-option では大きく次の5つの項目を設定することができ
 --------------------------------
 
 <<<<<<< HEAD
+=======
+>>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 2．mode(埋め込みモード/必須)
 ========================================
 
@@ -705,6 +771,7 @@ document-option では大きく次の5つの項目を設定することができ
 **会社のメンバーのログインによる文書の作成及び検討（IDの事前入力)**   
 
 eformsignのログインページが起動し、ログイン後に文書を作成することができます。この際、IDがログイン画面にあらかじめ入力されます。
+<<<<<<< HEAD
 =======
 **メンバーログインによる新規作成**
     - ユーザー情報を指定しない場合に該当し、ユーザー情報を指定しません。	
@@ -715,6 +782,8 @@ eformsignのログインページが起動し、ログイン後に文書を作�
     - 組み込むと、eformsign にログインせず、特定のアカウントの token を利用して文書を作成したり、受信した文書を作成することができます。
     - トークンの発行は、Open API の Access token の発行によって可能です。
 >>>>>>> parent of 72c99e6 (embedding 업데이트)
+=======
+>>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 
 .. code-block:: javascript
 
@@ -723,24 +792,33 @@ eformsignのログインページが起動し、ログイン後に文書を作�
 <<<<<<< HEAD
             "type" : "01",
             "id" : "eformsign@forcs.com"
+<<<<<<< HEAD
 =======
             "type" : "01" , // 01 - internal or  02 - external  (必須)
             "access_token" : "", // access Tokenを入力。openAPI accessTokenを参照
             "refresh_token" : "", // refresh Tokenを入力。openAPI accessTokenを参照
 >>>>>>> parent of 72c99e6 (embedding 업데이트)
+=======
+>>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
         }
     };
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 **会社のメンバーのトークンを利用した作成及び処理**
 
 埋め込みの際、eformsignにログインすることなく、特定のアカウントのトークンを利用して文書を作成し、受信した文書を作成します。- トークンは、Open APIのAccess tokenで発行可能です。
 トークンの発行方法は eformsign APIの使い方 - `Access Tokenの発行 <https://eformsignjp.github.io/developers/help/eformsign_api.html#id5>`__\ をご確認ください。
+<<<<<<< HEAD
 =======
 **メンバーではないユーザーが新規文書を作成**  
     - eformsign の会員ではないユーザーが文書を作成できるようにする方式
 >>>>>>> parent of 72c99e6 (embedding 업데이트)
+=======
+>>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 
 .. code-block:: javascript
 
@@ -774,6 +852,7 @@ eformsignの会員ではないユーザーが文書を作成することがで�
     };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 **メンバーではないユーザーが受信した文書に入力**
 
 eformsignのメンバーではないユーザーが、受信した文書に入力することができます。
@@ -781,6 +860,11 @@ eformsignのメンバーではないユーザーが、受信した文書に入�
 **メンバーではないユーザーが受信した文書を作成**
     - 組み込みのとき、eformsign の会員ではないユーザーが受信した文書を作成できるようにする方式
 >>>>>>> parent of 72c99e6 (embedding 업데이트)
+=======
+**メンバーではないユーザーが受信した文書に入力**
+
+eformsignのメンバーではないユーザーが、受信した文書に入力することができます。
+>>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 
 .. code-block:: javascript 
 
@@ -813,6 +897,9 @@ eformsignのメンバーではないユーザーが、受信した文書に入�
 -----------------------
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 4．layout(レイアウト/任意)
 ========================================
 
@@ -828,10 +915,13 @@ header            ヘッダの表示ON/OFF      Boolean           X      未入�
 
 footer            フッタの表示有無         Boolean          X      未入力時のデフォルト値: true 
 ===============  =======================  ==============  =====  ==================================================
+<<<<<<< HEAD
 =======
 **テンプレートを利用した新規作成** 
     - テンプレートを利用して文書を新規作成します。
 >>>>>>> parent of 72c99e6 (embedding 업데이트)
+=======
+>>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 
 .. code-block:: javascript
 
@@ -994,6 +1084,9 @@ comment                            次の受信者に伝えるメッセージ   
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 
 6．リターンフィールド（任意）
 --------------------------------------
@@ -1004,6 +1097,13 @@ comment                            次の受信者に伝えるメッセージ   
 .. note::
 
    設定しない場合、基本フィールドの情報のみリターンします。詳しい情報は `作業成功/失敗時 <https://eformsignjp.github.io/developers/help/eformsign_embedding_JP.html#success-fail>`_ callBackパラメータをご参照ください。
+<<<<<<< HEAD
+=======
+
+.. note::
+
+    mode.typeが"03"の場合(文書のプレビュー時)には動作しません。
+>>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 
 .. note::
 
@@ -1034,6 +1134,10 @@ comment                            次の受信者に伝えるメッセージ   
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 マイファイルで文書作成
 ===========================================
 
@@ -2472,6 +2576,85 @@ step_settings[].step_name           String              ワークフローステ
 
 
 
+EformSignTemplate (マイファイルで文書作成、テンプレート生成、テンプレート修正、テンプレート複製)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+<<<<<<< HEAD
+2. コールバック(Callback)
+-------------------------------
+
+Success CallbackとError Callbackは、各タスクの成功時、失敗時に実行される関数です。
+タスクの成功/失敗時に返されるresponseを受け取り、目的のタスクを実行するように設定することができます。
+
+=======
+
+=================================  =================  ===========================================================  ===========================================================
+ 変数名                             データ型            説明                                                         備考 
+=================================  =================  ===========================================================  ===========================================================
+type                                String             組み込んで作成した作業の種類                                  -"template"
+fn                                  String             実行した機能                                                  -"saveSuccess" : 保存成功
+
+                                                                                                                     -それ以外 : エラー
+
+code                                String             文書の作成・処理の際、結果コードを返却                        -"-1" : テンプレート作業に成功
+
+                                                                                                                     -"0" : ログアウト成功
+
+                                                                                                                     -それ以外 : エラー
+
+message                             String             テンプレート作業時、成功/エラーメッセージを返却               -"成功しました。" : 文書作成/処理成功
+
+                                                                                                                     -それ以外 : エラー
+
+template_id                         String             テンプレート作業の成功時、作業したテンプレートのIDを返却      例) "910b8a965f9402b82152f48c6da5a5c"
+
+template_name                       String             テンプレート作業の成功時、作業したテンプレート名を返却        例) "契約書"
+
+step_settings                       Array               ワークフローステップのリスト
+step_settings[].step_type           String              ワークフローステップの種類                                   -共通: "00"(開始)、 "01"(完了)
+
+                                                                                                                     -旧ワークフロー: "02"(検討)、 "03"(外部受信者)、 "04"(内部受信者)
+
+                                                                                                                     -現行ワークフロー: "05"(参加者)、 "06"(検討者)
+step_settings[].step_name           String              ワークフローステップ名                                         例) "参加者1"
+=================================  =================  ===========================================================  ===========================================================
+
+
+.. code-block:: javascript
+
+    {
+        "type": "template",
+        "fn": "saveSuccess",
+        "code": "-1",
+        "message": "成功しました。",
+        "template_id": "9a368e9409bc4351865637e85882cf01",
+        "template_name": "テンプレート埋め込みテスト_新規",
+        "step_settings": [
+            {
+                "step_type": "00",
+                "step_name": "開始"
+            },
+            {
+                "step_type": "05",
+                "step_name": "参加者2"
+            },
+            {
+                "step_type": "06",
+                "step_name": "検討者1"
+            },
+            {
+                "step_type": "05",
+                "step_name": "参加者3"
+            },
+            {
+                "step_type": "01",
+                "step_name": "完了"
+            }
+        ]
+    }
+
+
+
 
 2. コールバック(Callback)
 -------------------------------
@@ -2479,11 +2662,13 @@ step_settings[].step_name           String              ワークフローステ
 Success CallbackとError Callbackは、各タスクの成功時、失敗時に実行される関数です。
 タスクの成功/失敗時に返されるresponseを受け取り、目的のタスクを実行するように設定することができます。
 
+>>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 例えば、必要に応じて必要な値をコンソールに出力(console.log)、警告ウィンドウを表示(alert)、条件文などを利用して、状況応じて必要な機能を実行させることができます。
 
 
 EformSignDocument 実行例
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<<<<<<< HEAD
 
 =======
            
@@ -2532,6 +2717,8 @@ EformSignDocument 実行例
 
 EformSignTemplate 実行例
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=======
+>>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 
 
 .. code-block:: javascript
@@ -2561,6 +2748,44 @@ EformSignTemplate 実行例
      
     eformsign.document(document_option, "eformsign_iframe", success_callback, error_callback);
      
+<<<<<<< HEAD
+=======
+    eformsign.open();
+
+
+
+EformSignTemplate 実行例
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. code-block:: javascript
+
+    var eformsign = new EformSignTemplate();
+     
+    var document_option = { /* 省略 */ };
+     
+    var success_callback= function(response){
+        if (response.type ==='template'){
+            console.log(response.template_id);
+            console.log(response.template_name);
+            console.table(response.step_settings);
+            if ("-1" == response.code) {
+                alert("テンプレートを生成しました。\n" + "- document_id : " + response.template_id + "\n- title : " + response.template_name);
+            } else {
+                alert("テンプレートの生成に失敗しました。\n" + "- code : " + response.code + "\n- message : " + response.message);
+            }
+        }
+    };
+     
+    var error_callback= function(response){
+        alert(response.message);
+        console.log(response.code); 
+        console.log(response.message);
+    };
+     
+    eformsign.document(document_option, "eformsign_iframe", success_callback, error_callback);
+     
+>>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
 
 .. _loading:
 
@@ -2983,6 +3208,7 @@ open関数は設定するパラメータがなく、オプション設定を終�
 
 
 .. |image1| image:: resources/column_icon.png
+<<<<<<< HEAD
    :width: 25px
 =======
 
@@ -3051,3 +3277,6 @@ document 関数のパラメーターとして Callback 関数を設定した場�
 |          |        | した文書のタイトルを返す |                      |
 +----------+--------+--------------------------+----------------------+
 >>>>>>> parent of 72c99e6 (embedding 업데이트)
+=======
+   :width: 25px
+>>>>>>> 9ef8a7e8c29ffc435007987305f67aacf5074b5b
