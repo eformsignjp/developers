@@ -67,16 +67,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#id9">文書IDの確認方法</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id10">テンプレート文書作成、文書の処理、文書のプレビュー</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#document-option">document_option</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#company">1．company(会社情報/必須)</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#mode">2．mode(埋め込みモード/必須)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#user">3．user（ユーザー情報/任意）</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#layout">4．layout(レイアウト/任意)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#prefill">5．prefill(自動入力/任意)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id11">6．リターンフィールド（任意）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">テンプレート文書作成、文書の処理、文書のプレビュー</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#document-option">document_option</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#id13">マイファイルで文書作成</a><ul>
@@ -93,7 +85,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#id27">応答確認とコールバックの設定(オプション)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#success-fail">作業の成功/失敗時</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#response">応答(Response)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id29">2. コールバック(Callback)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id29">コールバック(Callback)</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#loading">画面のロード時</a><ul>
@@ -393,9 +385,8 @@ jQueryの場合、すでに他の方法でウェブページに追加されて�
 <span class="nx">eformsign</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
 </pre></div>
 </div>
-</section>
 <section id="document-option">
-<h3>document_option<a class="headerlink" href="#document-option" title="この見出しへのパーマリンク"></a></h3>
+<h4>document_option<a class="headerlink" href="#document-option" title="この見出しへのパーマリンク"></a></h4>
 <p>オプション設定のためのJSONは次のような構造になっています。</p>
 <table class="docutils align-default">
 <thead>
@@ -450,7 +441,7 @@ jQueryの場合、すでに他の方法でウェブページに追加されて�
 <p>会社情報とモードは入力必須項目です。</p>
 </div>
 <section id="company">
-<h4>1．company(会社情報/必須)<a class="headerlink" href="#company" title="この見出しへのパーマリンク"></a></h4>
+<h5>1．company(会社情報/必須)<a class="headerlink" href="#company" title="この見出しへのパーマリンク"></a></h5>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>変数名</p></th>
@@ -493,9 +484,8 @@ jQueryの場合、すでに他の方法でウェブページに追加されて�
 </pre></div>
 </div>
 </section>
-</section>
 <section id="mode">
-<h3>2．mode(埋め込みモード/必須)<a class="headerlink" href="#mode" title="この見出しへのパーマリンク"></a></h3>
+<h5>2．mode(埋め込みモード/必須)<a class="headerlink" href="#mode" title="この見出しへのパーマリンク"></a></h5>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>変数名</p></th>
@@ -560,7 +550,7 @@ jQueryの場合、すでに他の方法でウェブページに追加されて�
 </div>
 </section>
 <section id="user">
-<h3>3．user（ユーザー情報/任意）<a class="headerlink" href="#user" title="この見出しへのパーマリンク"></a></h3>
+<h5>3．user（ユーザー情報/任意）<a class="headerlink" href="#user" title="この見出しへのパーマリンク"></a></h5>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>変数名</p></th>
@@ -670,7 +660,7 @@ jQueryの場合、すでに他の方法でウェブページに追加されて�
 </div>
 </section>
 <section id="layout">
-<h3>4．layout(レイアウト/任意)<a class="headerlink" href="#layout" title="この見出しへのパーマリンク"></a></h3>
+<h5>4．layout(レイアウト/任意)<a class="headerlink" href="#layout" title="この見出しへのパーマリンク"></a></h5>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>変数名</p></th>
@@ -715,7 +705,7 @@ jQueryの場合、すでに他の方法でウェブページに追加されて�
 </div>
 </section>
 <section id="prefill">
-<h3>5．prefill(自動入力/任意)<a class="headerlink" href="#prefill" title="この見出しへのパーマリンク"></a></h3>
+<h5>5．prefill(自動入力/任意)<a class="headerlink" href="#prefill" title="この見出しへのパーマリンク"></a></h5>
 <p>文書の作成中に自動でされる情報を設定します。</p>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
@@ -948,8 +938,9 @@ jQueryの場合、すでに他の方法でウェブページに追加されて�
 <span class="p">};</span>
 </pre></div>
 </div>
+</section>
 <section id="id11">
-<h4>6．リターンフィールド（任意）<a class="headerlink" href="#id11" title="この見出しへのパーマリンク"></a></h4>
+<h5>6．リターンフィールド（任意）<a class="headerlink" href="#id11" title="この見出しへのパーマリンク"></a></h5>
 <p>文書の作成及び修正後、ユーザーが作成したフィールドの内容のうちcallback関数でリターンする項目を設定します。
 &quot;return_fields&quot; Array 内にフィールド名をString型で入力します。</p>
 <div class="admonition note">
@@ -965,6 +956,7 @@ jQueryの場合、すでに他の方法でウェブページに追加されて�
 <span class="p">}</span>
 </pre></div>
 </div>
+</section>
 </section>
 </section>
 <section id="id13">
@@ -2983,7 +2975,7 @@ jQueryの場合、すでに他の方法でウェブページに追加されて�
 </section>
 </section>
 <section id="id29">
-<h4>2. コールバック(Callback)<a class="headerlink" href="#id29" title="この見出しへのパーマリンク"></a></h4>
+<h4>コールバック(Callback)<a class="headerlink" href="#id29" title="この見出しへのパーマリンク"></a></h4>
 <p>Success CallbackとError Callbackは、各タスクの成功時、失敗時に実行される関数です。
 タスクの成功/失敗時に返されるresponseを受け取り、目的のタスクを実行するように設定することができます。</p>
 <p>例えば、必要に応じて必要な値をコンソールに出力(console.log)、警告ウィンドウを表示(alert)、条件文などを利用して、状況応じて必要な機能を実行させることができます。</p>
