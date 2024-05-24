@@ -13,7 +13,8 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
@@ -72,27 +73,27 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#id10">文書の作成と処理のAPI</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id27">メンバーとグループ管理のAPI</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id30">メンバー管理 API</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id34">グループ管理 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id28">メンバーとグループ管理のAPI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id31">メンバー管理 API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id35">グループ管理 API</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id39">APIコード</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id40">APIステータスコード</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id41">200</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id42">202</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id43">400</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id44">403</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id45">405</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id46">500</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id40">APIコード</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id41">APIステータスコード</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id42">200</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id43">202</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id44">400</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id45">403</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id46">405</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id47">500</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#user-type">ユーザータイプ(user_type)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id47">ステップタイプ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id48">ステップタイプ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#current-status-status-type">文書の現在のステータスタイプ (current_status.status_type)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#next-status-status-type">文書の문서 다음 상태 타입(next_status.status_type)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#next-status-status-type">文書の次のステータスタイプ(next_status.status_type)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#action-type">アクションタイプ(action_type)</a></li>
 </ul>
 </li>
@@ -567,7 +568,7 @@ C#(.NET) - Program.cs</li></ul><div class="tab codetab selected" data-id="0">
 <h4><strong>トークンの更新</strong><a class="headerlink" href="#id8" title="この見出しへのパーマリンク"></a></h4>
 <p>トークンの有効期限は3600秒（1時間）となっています。
 トークンの有効期限が切れると、トークンによりAPIを利用できなくなります。以下のAPIを使用してトークンを更新してください。</p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-refresh_token">Access Token 갱신</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-refresh_token">Access Tokenの更新</a></p>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
 <p>トークン更新のためにはAccess TokenをAuthorizeに、Refresh TokenをQueryに入力する必要があります。</p>
@@ -584,7 +585,7 @@ C#(.NET) - Program.cs</li></ul><div class="tab codetab selected" data-id="0">
 <p>署名の生成後は、以下の文書APIを使用して新規文書の作成、文書情報の照会、完了文書ファイル(文書PDF、監査証跡証明書)のダウンロード、文書の添付ファイルのダウンロードを行うことができます。</p>
 <div class="admonition caution">
 <p class="admonition-title">注意</p>
-<p>本文書のAPIを使用するためには、Access Tokenを先に発行する必要があります。Access Token API &lt;<a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token</a>&gt;`_で発行したAccess Tokenを <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/">こちら</a>にある <strong>Authorize</strong> ボタン(<img alt="image4" src="../_images/authorize_icon.png" />)を押して登録してください。</p>
+<p>本文書のAPIを使用するためには、Access Tokenを先に発行する必要があります。<a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">Access Token API</a>で発行したAccess Tokenを <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/">こちら</a>にある <strong>Authorize</strong> ボタン(<img alt="image4" src="../_images/authorize_icon.png" />)を押して登録してください。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
@@ -610,8 +611,8 @@ C#(.NET) - Program.cs</li></ul><div class="tab codetab selected" data-id="0">
 <p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/document/delete-forms">テンプレートの削除</a></p>
 </section>
 <hr class="docutils" />
-<section id="id27">
-<h3>メンバーとグループ管理のAPI<a class="headerlink" href="#id27" title="この見出しへのパーマリンク"></a></h3>
+<section id="id28">
+<h3>メンバーとグループ管理のAPI<a class="headerlink" href="#id28" title="この見出しへのパーマリンク"></a></h3>
 <p>APIを使用してメンバーとグループを管理することができます。メンバーとグループのリストの照会、メンバーとグループの修正、削除を行うことができます。</p>
 <div class="admonition caution">
 <p class="admonition-title">注意</p>
@@ -622,14 +623,14 @@ C#(.NET) - Program.cs</li></ul><div class="tab codetab selected" data-id="0">
 <p>APIの <strong>Authorize</strong> ボタンにはAPIキー値の入力が必要です。</p>
 </div>
 <p>現在提供している <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/members">メンバーとグループ管理のAPI</a>は以下のとおりです。</p>
-<section id="id30">
-<h4>メンバー管理 API<a class="headerlink" href="#id30" title="この見出しへのパーマリンク"></a></h4>
+<section id="id31">
+<h4>メンバー管理 API<a class="headerlink" href="#id31" title="この見出しへのパーマリンク"></a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/members/get-api-members">メンバーリストの照会</a></p>
 <p><code class="docutils literal notranslate"><span class="pre">PATCH</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/members/patch-api-members-member_id">メンバー修正</a></p>
 <p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/members/delete-api-members-member_id">メンバー削除</a></p>
 </section>
-<section id="id34">
-<h4>グループ管理 API<a class="headerlink" href="#id34" title="この見出しへのパーマリンク"></a></h4>
+<section id="id35">
+<h4>グループ管理 API<a class="headerlink" href="#id35" title="この見出しへのパーマリンク"></a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/groups/get-api-groups">グループリストの照会</a></p>
 <p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/groups/post-api-groups">グループ追加</a></p>
 <p><code class="docutils literal notranslate"><span class="pre">PATCH</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/groups/patch-api-groups">グループ修正</a></p>
@@ -641,14 +642,14 @@ C#(.NET) - Program.cs</li></ul><div class="tab codetab selected" data-id="0">
 </section>
 </section>
 </section>
-<section id="id39">
-<h2>APIコード<a class="headerlink" href="#id39" title="この見出しへのパーマリンク"></a></h2>
-<p>Open APIを使用する際は、以下のコードをご参照ください。</p>
 <section id="id40">
-<h3>APIステータスコード<a class="headerlink" href="#id40" title="この見出しへのパーマリンク"></a></h3>
-<p>APIステータスコードは、以下の通りです。</p>
+<h2>APIコード<a class="headerlink" href="#id40" title="この見出しへのパーマリンク"></a></h2>
+<p>Open APIを使用する際は、以下のコードをご参照ください。</p>
 <section id="id41">
-<h4>200<a class="headerlink" href="#id41" title="この見出しへのパーマリンク"></a></h4>
+<h3>APIステータスコード<a class="headerlink" href="#id41" title="この見出しへのパーマリンク"></a></h3>
+<p>APIステータスコードは、以下の通りです。</p>
+<section id="id42">
+<h4>200<a class="headerlink" href="#id42" title="この見出しへのパーマリンク"></a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Code</p></th>
@@ -664,8 +665,8 @@ C#(.NET) - Program.cs</li></ul><div class="tab codetab selected" data-id="0">
 </tbody>
 </table>
 </section>
-<section id="id42">
-<h4>202<a class="headerlink" href="#id42" title="この見出しへのパーマリンク"></a></h4>
+<section id="id43">
+<h4>202<a class="headerlink" href="#id43" title="この見出しへのパーマリンク"></a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Code</p></th>
@@ -685,8 +686,8 @@ C#(.NET) - Program.cs</li></ul><div class="tab codetab selected" data-id="0">
 </tbody>
 </table>
 </section>
-<section id="id43">
-<h4>400<a class="headerlink" href="#id43" title="この見出しへのパーマリンク"></a></h4>
+<section id="id44">
+<h4>400<a class="headerlink" href="#id44" title="この見出しへのパーマリンク"></a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Code</p></th>
@@ -718,8 +719,8 @@ C#(.NET) - Program.cs</li></ul><div class="tab codetab selected" data-id="0">
 </tbody>
 </table>
 </section>
-<section id="id44">
-<h4>403<a class="headerlink" href="#id44" title="この見出しへのパーマリンク"></a></h4>
+<section id="id45">
+<h4>403<a class="headerlink" href="#id45" title="この見出しへのパーマリンク"></a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Code</p></th>
@@ -751,8 +752,8 @@ C#(.NET) - Program.cs</li></ul><div class="tab codetab selected" data-id="0">
 </tbody>
 </table>
 </section>
-<section id="id45">
-<h4>405<a class="headerlink" href="#id45" title="この見出しへのパーマリンク"></a></h4>
+<section id="id46">
+<h4>405<a class="headerlink" href="#id46" title="この見出しへのパーマリンク"></a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Code</p></th>
@@ -768,8 +769,8 @@ C#(.NET) - Program.cs</li></ul><div class="tab codetab selected" data-id="0">
 </tbody>
 </table>
 </section>
-<section id="id46">
-<h4>500<a class="headerlink" href="#id46" title="この見出しへのパーマリンク"></a></h4>
+<section id="id47">
+<h4>500<a class="headerlink" href="#id47" title="この見出しへのパーマリンク"></a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Code</p></th>
@@ -808,8 +809,8 @@ C#(.NET) - Program.cs</li></ul><div class="tab codetab selected" data-id="0">
 </tbody>
 </table>
 </section>
-<section id="id47">
-<h3>ステップタイプ<a class="headerlink" href="#id47" title="この見出しへのパーマリンク"></a></h3>
+<section id="id48">
+<h3>ステップタイプ<a class="headerlink" href="#id48" title="この見出しへのパーマリンク"></a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Type</p></th>
@@ -927,7 +928,7 @@ C#(.NET) - Program.cs</li></ul><div class="tab codetab selected" data-id="0">
 </table>
 </section>
 <section id="next-status-status-type">
-<h3>文書の문서 다음 상태 타입(next_status.status_type)<a class="headerlink" href="#next-status-status-type" title="この見出しへのパーマリンク"></a></h3>
+<h3>文書の次のステータスタイプ(next_status.status_type)<a class="headerlink" href="#next-status-status-type" title="この見出しへのパーマリンク"></a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Type</p></th>

@@ -90,7 +90,7 @@ html_theme = 'sphinx_rtd_theme'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-html_favicon = 'C:\docbook\eformsignjp.github.io\images\\favicon.ico'
+html_favicon = 'C:\eformsign_manual\developers\images\\favicon.ico'
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
@@ -181,5 +181,5 @@ html_theme_options = {
     'logo_only': True,
     # ...
 }
-html_logo = "C:\docbook\eformsignjp_developers\images\\forcs_b.png"
+html_logo = "C:\eformsign_manual\developers\images\\forcs_b.png"
 

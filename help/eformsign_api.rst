@@ -536,7 +536,7 @@ Access Token APIに関するより詳しい説明は
 トークンの有効期限は3600秒（1時間）となっています。
 トークンの有効期限が切れると、トークンによりAPIを利用できなくなります。以下のAPIを使用してトークンを更新してください。
 
-``POST``: `Access Token 갱신 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-refresh_token>`_\
+``POST``: `Access Tokenの更新 <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-refresh_token>`_\
 
 
 
@@ -560,7 +560,7 @@ Access Token APIに関するより詳しい説明は
 
 .. caution:: 
 
- 本文書のAPIを使用するためには、Access Tokenを先に発行する必要があります。Access Token API <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_\ で発行したAccess Tokenを `こちら <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/>`__\ にある **Authorize** ボタン(|image4|)を押して登録してください。
+ 本文書のAPIを使用するためには、Access Tokenを先に発行する必要があります。`Access Token API <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_\ で発行したAccess Tokenを `こちら <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/>`__\ にある **Authorize** ボタン(|image4|)を押して登録してください。
 
 
 .. note:: 
@@ -800,8 +800,8 @@ doc_reject_reviewer          071              検討者の差戻し
 ==========================  ===============  ================================================
 
 
-文書の문서 다음 상태 타입(next_status.status_type)
---------------------------------------------------
+文書の次のステータスタイプ(next_status.status_type)
+------------------------------------------------------
 
 ===========  ===============  ==========================================================
 Type          Code             説明
