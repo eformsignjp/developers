@@ -126,11 +126,11 @@ APIキーの作成および秘密鍵の確認
 
 4. 作成されたキーリストから **キーを表示** ボタンをクリックすると、APIキーと秘密鍵を確認することができます。
 
-.. image:: resources/apikey4.PNG
+.. image:: resources/apikey4.png
     :width: 700
     :alt: 「APIキーを表示」ボタンの位置
 
-.. image:: resources/apikey5.PNG
+.. image:: resources/apikey5.png
     :width: 700
     :alt: APIキーと秘密鍵の確認
 
