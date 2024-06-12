@@ -22,16 +22,16 @@ Webhookの作成
 
 1. eformsignに代表管理者としてログインし、左側のメニューから **コネクト > [API/Webhook]** ページに移動します。 
 
-.. image:: resources/apikey1.PNG 
+.. image:: resources/apikey1.png
     :width: 700 
-    :alt: コネクト > API/Webhook メニューの位置 
+    :alt: コネクト > API/Webhook メニューの位置
 
 
 2. **[Webhook]** タブを選択し、**Webhookの作成** ボタンをクリックします。
 
-.. image:: resources/webhook2.PNG 
+.. image:: resources/webhook2.png
     :width: 700 
-    :alt: 「Webhookの作成」ボタン 
+    :alt: 「Webhookの作成」ボタン
 
 
 3. Webhook の作成ポップアップで名前、Webhookを受信するURL、アクティブ状態を選択します。
