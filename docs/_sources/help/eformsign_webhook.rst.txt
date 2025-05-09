@@ -22,30 +22,30 @@ Webhookの作成
 
 1. eformsignに代表管理者としてログインし、左側のメニューから **コネクト > [API/Webhook]** ページに移動します。 
 
-.. image:: resources/apikey1.PNG
-    :width: 700
-    :alt: コネクト > API/Webhook メニューの位置
+    .. image:: resources/apikey1.PNG 
+        :width: 700 
+        :alt: コネクト > API/Webhook メニューの位置 
 
 
 2. **[Webhook]** タブを選択し、**Webhookの作成** ボタンをクリックします。
 
-.. image:: resources/webhook2.PNG
-    :width: 700
-    :alt: 「Webhookの作成」ボタン
+    .. image:: resources/webhook2.PNG 
+        :width: 700 
+        :alt: 「Webhookの作成」ボタン 
 
 
 3. Webhook の作成ポップアップで名前、Webhookを受信するURL、アクティブ状態を選択します。
 
-.. image:: resources/webhook3.PNG
-    :width: 700
-    :alt: 「Webhookの作成」ポップアップ
+    .. image:: resources/webhook3.PNG
+        :width: 700
+        :alt: 「Webhookの作成」ポップアップ
 
 
 4. **適用対象**\ を選択します。適用対象は、**すべての文書、マイファイルで作成した文書、テンプレートで作成した文書** の中から選択できます。
 
-.. image:: resources/webhook4.PNG
-    :width: 700
-    :alt: 「Webhookの作成」ポップアップ2
+    .. image:: resources/webhook4.PNG
+        :width: 700
+        :alt: 「Webhookの作成」ポップアップ2
 
 
 
@@ -213,7 +213,7 @@ Webhookを追加・編集する際、検証タイプを **Bearer token**\ に設
 
 例）トークンとしてbearer_test_valueと値を入力した場合、Webhookを受信した際にヘッダから以下の内容を確認することができます。
 
-.. code:: JSON
+.. code:: javascript
 
     Authentication : Bearer bearer_test_value
 
@@ -236,7 +236,7 @@ Webhookを追加・編集する場合、検証タイプを **Basic authenticatio
 
 例）上記のようにIDを **eformsign**\ 、パスワードを **Webhook123!**\ と入力した場合、Webhookの受信時、ヘッダから以下の内容を確認することができます。
 
-.. code:: JSON
+.. code:: javascript
 
     Authentication : Basic ZWZvcm1zaWduOldlYmhvb2sxMjMh
 
@@ -258,7 +258,7 @@ Webhookの追加または編集時、検証タイプを **eformsign signature**\
 
 以下はヘッダの例です。
 
-.. code:: JSON
+.. code:: javascript
 
     eformsign_signature : 3045022100b9f1e0cdd21492cb5fa16dabff4c4402bf3efb9a9741a40a0d1c70aeda24bc8c02204a57ca1abab288e968a799e2fecbf18de9ab59c7c5814144b17f32553640a71a
 
@@ -515,32 +515,72 @@ Webhookイベント発生時、ユーザーが設定したWebhook URLにWebhook�
 
 送信されるWebhookのRequest Bodyの構造は以下の通りです。
 
-.. table:: 
+.. list-table:: 
+   :widths: 20 15 40 65
+   :header-rows: 1
 
-   =================== ====== ==================================== ===============================================
-   Name                Type   説明                                 備考
-   =================== ====== ==================================== ===============================================
-   webhook_id          String イベントを発生させるWebhookのID
-   webhook_name        String イベントを発生させるWebhookの名前
-   company_id          String 会社ID
-   event_type          String 発生したWebhookイベントの種類        - document: 文書イベント
+   * - Name
+     - データタイプ
+     - 説明
+     - 備考
+   * - webhook_id
+     - String
+     - イベントを発生させるWebhookのID
+     - 
+   * - webhook_name
+     - String
+     - イベントを発生させるWebhookの名前
+     - 
+   * - company_id
+     - String
+     - 会社ID
+     - 
+   * - event_type
+     - String
+     - 発生したWebhookイベントの種類
+     - - document: 文書イベント
 
-                                                                   - ready_document_pdf: PDF生成イベント
+       - ready_document_pdf: PDF生成イベント
+   * - document
+     - Object
+     - 文書イベントの詳細情報
+     - 文書イベントの発生時にのみ表示
 
-   document            Object 文書イベントの詳細情報                文書イベントの発生時にのみ表示 
-                                                                   (id, document_title, template_id, template_name, 
-                                                                   workflow_seq, workflow_name, template_version, 
-                                                                   history_id, status, editor_id, outside_token, 
-                                                                   updated_date, mass_job_request_idを含む)
+       (id, document_title, template_id, template_name, workflow_seq, workflow_name, template_version, history_id, status, editor_id, outside_token, updated_date, mass_job_request_idを含む)
+   * - ready_document_pdf
+     - String
+     - ワークフローの名称
+     - PDF生成イベントの発生時にのみ表示
 
-   ready_document_pdf  String ワークフローの名称                    PDF生成イベントの発生時にのみ表示 
-                                                                   (document_id, document_title, workflow_seq, 
-                                                                   workflow_name, template_id, template_name, 
-                                                                   template_version, document_status, 
-                                                                   document_history_id, export_ready_list, 
-                                                                   mass_job_request_idを含む)
+       (document_id, document_title, workflow_seq, workflow_name, template_id, template_name, template_version, document_status, document_history_id, export_ready_list, mass_job_request_idを含む)
 
-   =================== ====== ==================================== ===============================================
+..
+    .. table:: 
+
+    =================== ====== ==================================== ===============================================
+    Name                Type   説明                                 備考
+    =================== ====== ==================================== ===============================================
+    webhook_id          String イベントを発生させるWebhookのID
+    webhook_name        String イベントを発生させるWebhookの名前
+    company_id          String 会社ID
+    event_type          String 発生したWebhookイベントの種類        - document: 文書イベント
+
+                                                                    - ready_document_pdf: PDF生成イベント
+
+    document            Object 文書イベントの詳細情報                文書イベントの発生時にのみ表示 
+                                                                    (id, document_title, template_id, template_name, 
+                                                                    workflow_seq, workflow_name, template_version, 
+                                                                    history_id, status, editor_id, outside_token, 
+                                                                    updated_date, mass_job_request_idを含む)
+
+    ready_document_pdf  String ワークフローの名称                    PDF生成イベントの発生時にのみ表示 
+                                                                    (document_id, document_title, workflow_seq, 
+                                                                    workflow_name, template_id, template_name, 
+                                                                    template_version, document_status, 
+                                                                    document_history_id, export_ready_list, 
+                                                                    mass_job_request_idを含む)
+
+    =================== ====== ==================================== ===============================================
 
 
 .. note::
@@ -560,39 +600,101 @@ WebhookのRequest Bodyには文書の状態を表すコードが含まれてい�
 
 各コードの詳細は以下の通りです。
 
-.. table:: 
+.. list-table:: 
+   :widths: 30 45
+   :header-rows: 1
 
-   ========================== ====================================
-   Name                       説明
-   ========================== ====================================
-   doc_tempsave               下書き保存
-   doc_create                 文書の作成
-   doc_request_participant    参加者の依頼
-   doc_accept_participant     参加者の承認
-   doc_reject_participant     参加者の差戻し
-   doc_request_reviewer       検討者の依頼
-   doc_accept_reviewer        検討者の承認
-   doc_reject_reviewer        検討者の差戻し
-   doc_reject_request         差戻しの依頼
-   doc_decline_cancel_request 差戻し依頼の拒否
-   doc_delete_request         削除の依頼
-   doc_decline_delete_request 削除依頼の拒否
-   doc_cancel_request         依頼の無効化
-   doc_deleted                文書の削除
-   doc_request_approval       決裁の依頼
-   doc_accept_approval        決裁の承認
-   doc_reject_approval        文書の差戻し
-   doc_request_external       外部受信者に依頼
-   doc_remind_external        外部受信者に再依頼
-   doc_open_external          外部受信者が閲覧
-   doc_accept_external        外部受信者が承認
-   doc_reject_external        外部受信者が差戻し
-   doc_request_internal       内部受信者の依頼
-   doc_accept_internal        内部受信者の承認
-   doc_reject_internal        内部受信者の差戻し
-   doc_tempsave_internal      内部受信者のマイ文書保存
-   doc_complete               文書の完了
-   ========================== ====================================
+   * - Name
+     - 説明
+   * - doc_tempsave
+     - 下書き保存
+   * - doc_create
+     - 文書の作成
+   * - doc_request_participant
+     - 参加者の依頼
+   * - doc_accept_participant
+     - 参加者の承認
+   * - doc_reject_participant
+     - 参加者の差戻し
+   * - doc_request_reviewer
+     - 検討者の依頼
+   * - doc_accept_reviewer
+     - 検討者の承認
+   * - doc_reject_reviewer
+     - 検討者の差戻し
+   * - doc_reject_request
+     - 差戻しの依頼
+   * - doc_decline_cancel_request
+     - 差戻し依頼の拒否
+   * - doc_delete_request
+     - 削除の依頼
+   * - doc_decline_delete_request
+     - 削除依頼の拒否
+   * - doc_cancel_request
+     - 依頼の無効化
+   * - doc_deleted
+     - 文書の削除
+   * - doc_request_approval
+     - 決裁の依頼
+   * - doc_accept_approval
+     - 決裁の承認
+   * - doc_reject_approval
+     - 文書の差戻し
+   * - doc_request_external
+     - 外部受信者に依頼
+   * - doc_remind_external
+     - 外部受信者に再依頼
+   * - doc_open_external
+     - 外部受信者が閲覧
+   * - doc_accept_external
+     - 外部受信者が承認
+   * - doc_reject_external
+     - 外部受信者が差戻し
+   * - doc_request_internal
+     - 内部受信者の依頼
+   * - doc_accept_internal
+     - 内部受信者の承認
+   * - doc_reject_internal
+     - 内部受信者の差戻し
+   * - doc_tempsave_internal
+     - 内部受信者のマイ文書保存
+   * - doc_complete
+     - 文書の完了
+
+..
+    .. table:: 
+
+    ========================== ====================================
+    Name                       説明
+    ========================== ====================================
+    doc_tempsave               下書き保存
+    doc_create                 文書の作成
+    doc_request_participant    参加者の依頼
+    doc_accept_participant     参加者の承認
+    doc_reject_participant     参加者の差戻し
+    doc_request_reviewer       検討者の依頼
+    doc_accept_reviewer        検討者の承認
+    doc_reject_reviewer        検討者の差戻し
+    doc_reject_request         差戻しの依頼
+    doc_decline_cancel_request 差戻し依頼の拒否
+    doc_delete_request         削除の依頼
+    doc_decline_delete_request 削除依頼の拒否
+    doc_cancel_request         依頼の無効化
+    doc_deleted                文書の削除
+    doc_request_approval       決裁の依頼
+    doc_accept_approval        決裁の承認
+    doc_reject_approval        文書の差戻し
+    doc_request_external       外部受信者に依頼
+    doc_remind_external        外部受信者に再依頼
+    doc_open_external          外部受信者が閲覧
+    doc_accept_external        外部受信者が承認
+    doc_reject_external        外部受信者が差戻し
+    doc_request_internal       内部受信者の依頼
+    doc_accept_internal        内部受信者の承認
+    doc_reject_internal        内部受信者の差戻し
+    doc_tempsave_internal      内部受信者のマイ文書保存
+    doc_complete               文書の完了
+    ========================== ====================================
 
 
 

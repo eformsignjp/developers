@@ -20,13 +20,14 @@ sys.path.insert(0, os.path.abspath('.'))
 # -- Project information -----------------------------------------------------
 
 project = 'eformsign API guide'
-copyright = '2024. FORCS CO., LTD. All rights reserved'
+copyright = '2025, FORCS CO., LTD. All rights reserved.'
 author = 'FORCS'
 
 # The short X.Y version
-version = ''
+version = 'version 10.2024.1211.209'
 # The full version, including alpha/beta/rc tags
-release = '2024.05.23'
+release = '2024.12.27'
+
 
 # -- General configuration ---------------------------------------------------
 
@@ -38,9 +39,10 @@ release = '2024.05.23'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-#'sphinxcontrib.httpdomain', 'sphinxcontrib.openapi'
 #'sphinxcontrib.redoc',
-'sphinx_code_tabs',
+    'sphinx_code_tabs',
+    'sphinx_rtd_theme',
+    'sphinx.ext.todo', 'sphinx.ext.mathjax', #'sphinxcontrib.fulltoc'
 ]
 
 
@@ -77,7 +79,9 @@ pygments_style = None
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'sphinx_rtd_theme'
+import sphinx_rtd_theme
+
+html_theme = 'piccolo_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -85,13 +89,42 @@ html_theme = 'sphinx_rtd_theme'
 #
 # html_theme_options = {}
 
+html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+
+html_css_files = []
+
+
+#html_theme_options = {
+#    'logo_only': False,
+#    'display_version': True,
+#    'prev_next_buttons_location': 'bottom',
+#    'style_external_links': False,
+#    'vcs_pageview_mode': '',
+#    'style_nav_header_background': 'white',
+#    "navbar_fixed_top": True,  # 상단 네비게이션 바 고정
+#    "show_sidebar": True,   
+#Toc options:
+#    'collapse_navigation': True,
+#    'sticky_navigation': True,
+ #   'navigation_depth': 4,
+#    'includehidden': True,
+#    'titles_only': False
+#}
+
+
+html_theme_options = {
+    "navbar_fixed_top": True,
+    "show_sidebar": True,
+}
+
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ['docs/_static']
+html_css_files = ['custom.css']
 
-html_favicon = 'C:\eformsign_manual\developers\images\\favicon.ico'
-
+# html_favicon = 'C:\eformsign_manual\developers\images\\favicon.ico'
+html_favicon = '/Users/jihoshin/Desktop/project/eformsign_manual/eformsignjp/developers/images/favicon.ico'
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
 #
@@ -101,40 +134,92 @@ html_favicon = 'C:\eformsign_manual\developers\images\\favicon.ico'
 # 'searchbox.html']``.
 #
 # html_sidebars = {}
+#html_sidebars = {
+#    '**': [
+#        'globaltoc.html',
+#        'localtoc.html',
+#        'searchbox.html',
+#    ]
+#}
+
 
 
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'eformsignAPIguidedoc'
+htmlhelp_basename = 'eformsign API ガイド'
 
 
 # -- Options for LaTeX output ------------------------------------------------
 
+latex_engine = 'pdflatex'
+
+latex_engine = 'xelatex'
+latex_use_xindy = False
+
+latex_elements = {
+    'papersize': 'a4paper',
+    'pointsize': '10pt',
+    'classoptions': ',oneside',
+    'babel': '',
+    'inputenc': '',
+    'utf8extra': '',
+    'fontenc': '',
+    'fontpkg': '',
+    'geometry': '',
+    'fncychap': '',
+    'preamble': r'''
+        \usepackage{kotex}
+        \usepackage{float}
+        \floatplacement{figure}{H}
+        ''',
+}
+
+
+latex_engine = 'xelatex'
 latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
     #
-    # 'papersize': 'letterpaper',
+    'papersize': 'a4paper',
 
     # The font size ('10pt', '11pt' or '12pt').
     #
-    # 'pointsize': '10pt',
+    'pointsize': '10pt',
 
     # Additional stuff for the LaTeX preamble.
     #
-    # 'preamble': '',
+    'preamble': '',
 
     # Latex figure (float) alignment
     #
-    # 'figure_align': 'htbp',
+    'figure_align': 'htbp',
+
+
+    # kotex config
+    'figure_align': 'htbp',
+
+    'fontpkg': r'''
+\usepackage{kotex}
+
+% 영문 폰트 설정
+\setmainfont[Mapping=tex-text]{나눔고딕}
+\setsansfont[Mapping=tex-text]{나눔명조}
+\setmonofont{나눔고딕코딩}
+
+% 한글 폰트 설정
+\setmainhangulfont[Mapping=tex-text]{나눔고딕}
+\setsanshangulfont[Mapping=tex-text]{나눔명조}
+\setmonohangulfont{나눔고딕코딩}
+
+''',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'eformsignAPIguide.tex', 'eformsign API guide Documentation',
-     'forcs', 'manual'),
+    ('index', 'eformsignUserGuide.tex', 'eformsign API ガイド',
+     'FORCS', 'manual'),
 ]
 
 
@@ -143,7 +228,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'eformsignapiguide', 'eformsign API guide Documentation',
+    (master_doc, 'eformsign API ガイド', 'eformsign API ガイド',
      [author], 1)
 ]
 
@@ -154,8 +239,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'eformsignAPIguide', 'eformsign API guide Documentation',
-     author, 'eformsignAPIguide', 'One line description of project.',
+    (master_doc, 'eformsign API ガイド', 'eformsign API ガイド',
+     author, 'eformsign API ガイド', 'One line description of project.',
      'Miscellaneous'),
 ]
 
@@ -164,6 +249,8 @@ texinfo_documents = [
 
 # Bibliographic Dublin Core info.
 epub_title = project
+
+html_short_title = "eformsign API ガイド"
 
 # The unique identifier of the text. This can be a ISBN number
 # or the project homepage.
@@ -178,8 +265,122 @@ epub_title = project
 epub_exclude_files = ['search.html']
 
 html_theme_options = {
-    'logo_only': True,
-    # ...
+    'logo_only': True, 
+    'titles_only': False,
+    "globaltoc_collapse": True,
+    "show_theme_credit": False,
 }
-html_logo = "C:\eformsign_manual\developers\images\\forcs_b.png"
 
+#html_logo = "C:\eformsign_manual\developers\images\\forcs_b.png"
+
+ygments_style = "stata-dark"
+
+html_theme_options = {
+    "source_url": 'https://www.eformsign.com/',
+    "source_icon": "C:\Docbook\eformsignkr.github.io\docs\_static\favicon.png",
+    "banner_text": '<a href="https://www.eformsign.com/">eformsign 바로가기</a>'
+}
+
+
+
+# html_logo = "C:\docbook\eformsignkr.github.io\images\\eformsign_guide_logo1.png"
+html_logo = "/Users/jihoshin/Desktop/project/eformsign_manual/eformsignjp/developers/images/eformsign_guide_logo1.png"
+
+#html_logo = "C:\docbook\eformsignkr.github.io\images\\forcs_b.png"
+
+
+# -- Options for PDF output --------------------------------------------------
+# Grouping the document tree into PDF files. List of tuples
+# (source start file, target name, title, author, options).
+#
+# If there is more than one author, separate them with \\.
+# For example: r'Guido van Rossum\\Fred L. Drake, Jr., editor'
+#
+# The options element is a dictionary that lets you override
+# this config per-document.
+# For example,
+# ('index', u'MyProject', u'My Project', u'Author Name',
+# dict(pdf_compressed = True))
+# would mean that specific document would be compressed
+# regardless of the global pdf_compressed setting.
+pdf_documents = [
+ ('index', u'マイ文書', u'My Project', u'Author Name'),
+]
+# A comma-separated list of custom stylesheets. Example:
+pdf_stylesheets = ['sphinx','kerning','a4','ja']
+# A list of folders to search for stylesheets. Example:
+pdf_style_path = ['.', '_styles']
+# Create a compressed PDF
+# Use True/False or 1/0
+# Example: compressed=True
+#pdf_compressed = False
+# A colon-separated list of folders to search for fonts. Example:
+# pdf_font_path = ['/usr/share/fonts', '/usr/share/texmf-dist/fonts/']
+# Language to be used for hyphenation support
+pdf_language = "ja"
+# Mode for literal blocks wider than the frame. Can be
+
+# overflow, shrink or truncate
+#pdf_fit_mode = "shrink"
+# Section level that forces a break page.
+# For example: 1 means top-level sections start in a new page
+# 0 means disabled
+#pdf_break_level = 0
+# When a section starts in a new page, force it to be 'even', 'odd',
+# or just use 'any'
+#pdf_breakside = 'any'
+# Insert footnotes where they are defined instead of
+# at the end.
+#pdf_inline_footnotes = True
+# verbosity level. 0 1 or 2
+#pdf_verbosity = 0
+# If false, no index is generated.
+#pdf_use_index = True
+# If false, no modindex is generated.
+#pdf_use_modindex = True
+# If false, no coverpage is generated.
+#pdf_use_coverpage = True
+# Name of the cover page template to use
+#pdf_cover_template = 'sphinxcover.tmpl'
+# Documents to append as an appendix to all manuals.
+#pdf_appendices = []
+# Enable experimental feature to split table cells. Use it
+# if you get "DelayedTable too big" errors
+#pdf_splittables = False
+# Set the default DPI for images
+#pdf_default_dpi = 72
+# Enable rst2pdf extension modules (default is only vectorpdf)
+# you need vectorpdf if you want to use sphinx's graphviz support
+#pdf_extensions = ['vectorpdf']
+# Page template name for "regular" pages
+#pdf_page_template = 'cutePage'
+# Show Table Of Contents at the beginning?
+pdf_use_toc = True
+# How many levels deep should the table of contents be?
+
+pdf_toc_depth = 9999
+# Add section number to section references
+pdf_use_numbered_links = True
+# Background images fitting mode
+pdf_fit_background_mode = 'scale'
+
+
+from sphinx.builders.latex import LaTeXBuilder
+
+class AllPdfBuilder(LaTeXBuilder):
+    name = 'all-pdf'
+    format = 'pdf'
+    def get_outdated_docs(self):
+        return 'all documents'
+
+def setup(app):
+    app.add_builder(AllPdfBuilder)
+
+
+
+def remove_query_string(app, pagename, templatename, context, doctree):
+    css_files = context.get('css_files', [])
+    context['css_files'] = [css.split('?')[0] for css in css_files]
+
+def setup(app):
+    app.connect('html-page-context', remove_query_string)

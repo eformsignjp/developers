@@ -235,40 +235,39 @@ APIキーの認証とAccessトークンの発行が終わり、準備ができ�
 
 1. eformsign API実践ガイド用のdocumentフォルダで、POST新規文書作成(初回作成者が会社メンバー)を選択します。
 
-.. important:: 
-    
-   **注目！**
+    .. important:: 
+        
+        **注目！**
 
-   ここでのURLは、上記の準備事項3-8のステップ3-8のresponse bodyで取得したapi_URLを入力してください。(例： jp.api.eformsign.com)
+        ここでのURLは、上記の準備事項3-8のステップ3-8のresponse bodyで取得したapi_URLを入力してください。(例： jp.api.eformsign.com)
 
 
-.. image:: resources/17_run_api_newdocument_url.png
-    :width: 700
-    :alt: POST 新規文書作成
+    .. image:: resources/17_run_api_newdocument_url.png
+        :width: 700
+        :alt: POST 新規文書作成
 
 
 2. **Params** タブでtemplate_id(※)に値を入力します。
     ※テンプレートIDとは、テンプレートの作成後、URLからコピーした値です。 
 
-.. image:: resources/18_run_api_newdocument_params.png
-    :width: 700
-    :alt: template_idの値
+    .. image:: resources/18_run_api_newdocument_params.png
+        :width: 700
+        :alt: template_idの値
 
 
 3. **Authorization** タブから、 **Type**\ をBearer Tokenに設定し、取得したAccessトークンの値を入力します。
 
-.. image:: resources/19_run_api_newdocument_authorization.png
-    :width: 700
-    :alt: Accessトークンの値
+    .. image:: resources/19_run_api_newdocument_authorization.png
+        :width: 700
+        :alt: Accessトークンの値
 
-4. ここまででAPIで文書を作成して送信する準備はほぼ完了しました。
-ですが、その前に最後にやるべきことがあります。文書を送信する前に、文書名、受信者情報、ワークフロー情報、そして初回作成者が入力するフィールドIDと値などの文書情報を入力する必要があります。
+4. ここまででAPIで文書を作成して送信する準備はほぼ完了しました。ですが、その前に最後にやるべきことがあります。文書を送信する前に、文書名、受信者情報、ワークフロー情報、そして初回作成者が入力するフィールドIDと値などの文書情報を入力する必要があります。
 
    該当情報はBodyタブからJSON形式で入力します。実践用にはサンプルとしてほぼ全てのデータが入力されています。ユーザーの文書情報に合わせてデータを修正することができます。文書情報の全てのスキーマ(schema)は `Swagger <https://app.swaggerhub.com/apis-docs/eformsign_api.jp/eformsign_API_2.0/2.0#/token/post-api_auth-refresh_token>`_ からご確認いただけます。
 
-.. image:: resources/20_run_api_newdocument_requestBody.png
-    :width: 700
-    :alt: 文書情報の入力
+    .. image:: resources/20_run_api_newdocument_requestBody.png
+        :width: 700
+        :alt: 文書情報の入力
 
 **サンプル**
 
@@ -320,22 +319,22 @@ APIキーの認証とAccessトークンの発行が終わり、準備ができ�
 
 5. **Send** ボタンをクリックすると、文書が受信者に送信されます。
 
-.. image:: resources/21_run_api_newdocument_result.png
-    :width: 700
-    :alt: APIの呼び出し成功
+    .. image:: resources/21_run_api_newdocument_result.png
+        :width: 700
+        :alt: APIの呼び出し成功
 
 上記のようにAPI呼び出しに成功すると(Status: 200 OK)、受信者のメールアドレス宛てに文書への記入依頼メールが送信されます。
 
 
 6. **進行中文書トレイ**\ から、APIで送信された文書をご確認いただけます。
 
-.. image:: resources/22_check_progress_document.png
-    :width: 700
-    :alt: 進行中文書トレイの確認1
+    .. image:: resources/22_check_progress_document.png
+        :width: 700
+        :alt: 進行中文書トレイの確認1
 
-.. image:: resources/23_preview_progress_document.png
-    :width: 700
-    :alt: 進行中文書トレイの確認2
+    .. image:: resources/23_preview_progress_document.png
+        :width: 700
+        :alt: 進行中文書トレイの確認2
 
 受信者はeformsignで作成された文書をメールで受け取って確認し、eformsignから文書作成依頼を受け、記入・提出すると文書作成は完了です。
 
