@@ -950,7 +950,7 @@ eformsignのメンバーではないユーザーが、受信した文書に入�
     
 .. note::
 
-   設定しない場合、基本フィールドの情報のみリターンします。詳しい情報は `作業成功失敗時 <https://eformsignjp.github.io/developers/help/eformsign_embedding.html#success-fail>`_\ callBackパラメータをご参照ください。
+   設定しない場合、基本フィールドの情報のみリターンします。詳しい情報は `作業成功失敗時 <https://eformsignjp.github.io/developers/help/eformsign_embedding_v2.html#success-fail>`_\ callBackパラメータをご参照ください。
 
 .. note::
 
