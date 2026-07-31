@@ -24,7 +24,7 @@ eformsignが提供するAPIを利用し、eformsignの機能をお客様のシ�
 
 `eformsign Webhook の使い方 <https://eformsignjp.github.io/developers/help/eformsign_webhook.html#eformsign-webhook>`_
 
-eformsign内でイベントが発生した際、イベントの情報をお客様のシステム/サービスに通知することができます。     
+eformsign内でイベントが発生した際、イベントの情報をお客様のシステム/サービスに通知することができます。   
 
 
 .. note:: 
